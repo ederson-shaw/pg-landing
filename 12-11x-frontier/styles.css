@@ -199,6 +199,9 @@ p { text-wrap: pretty; }
   linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,.55) 40%, rgba(0,0,0,.45) 100%); }
 .hero__inner { position: relative; z-index: 2; text-align: center; }
 .hero__line { font-weight: 500; font-size: clamp(2.8rem, 9vw, 7.5rem); line-height: 1; letter-spacing: -0.04em; max-width: 12ch; margin-inline: auto; }
+/* ref: index.raw.html inline <style> — display scales 7.5rem @≥1440px, 9.5rem @≥1920px */
+@media (min-width: 1440px) { .hero__line { font-size: 7.5rem; } }
+@media (min-width: 1920px) { .hero__line { font-size: 9.5rem; } }
 .hero__scroll { position: absolute; z-index: 2; bottom: 1.8rem; left: 50%; transform: translateX(-50%); font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.5); display: flex; flex-direction: column; align-items: center; gap: .5rem; }
 .hero__scroll .bar { width: 1px; height: 32px; background: linear-gradient(var(--white), transparent); }
 
@@ -237,7 +240,10 @@ p { text-wrap: pretty; }
   display: flex; align-items: center; gap: 1px; padding: 0 6px;
   overflow: hidden; margin-bottom: 8px;
 }
-.lc-wave i { flex: 1; min-width: 1px; background: rgba(34,211,238,.35); border-radius: 1px; }
+.lc-wave i { flex: 1; min-width: 1px; background: rgba(34,211,238,.35); border-radius: 1px; animation: animateUpDown .4s infinite alternate; }
+/* ref: index.raw.html inline <style> — .audio-wire{animation:animateUpDown .4s infinite alternate} keyframes height 30%↔90%,
+   stagger via JS delayNumbers [50,150,300,450,600]ms. Ref pauses until audio plays; ours is a live call, so it runs. */
+@keyframes animateUpDown { from { height: 30%; } to { height: 90%; } }
 .lc-stage { display: flex; gap: 1.2rem; font-size: .82rem; margin-bottom: 8px; padding-left: 2px; }
 .lc-stage span { color: var(--card-text); }
 .lc-stage .done { opacity: .72; }
@@ -346,11 +352,21 @@ p { text-wrap: pretty; }
 .slide__inner { position: relative; z-index: 2; padding: clamp(2rem, 6vw, 5rem) var(--gutter) clamp(2.5rem,6vh,4rem); max-width: 56rem; }
 .slide__kicker { font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 1rem; }
 .slide__line { font-size: clamp(1.6rem, 3.4vw, 2.8rem); font-weight: 500; line-height: 1.08; letter-spacing: -0.03em; max-width: 24ch; }
-.carousel__nav { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem var(--gutter); border-top: 1px solid var(--hairline); }
-.carousel__dots { display: flex; gap: .5rem; }
-.carousel__dots button { width: 28px; height: 4px; background: var(--gray-lighter); border-radius: 2px; transition: background-color .2s; }
-.carousel__dots button[aria-selected="true"] { background: var(--black); }
-.carousel__count { font-size: .76rem; color: var(--gray); letter-spacing: .06em; }
+/* ref: RENDERED.html w-slider — nav absolute over media bottom (.w-slider-nav inset:auto 0 0, invert color #fff);
+   dots 1em round (w-round border-radius:100%), #fff6 → .w-active #fff, margin 0 3px, transition background-color .1s;
+   .workforce-carousel_slide-nav font-size .5rem, height 1.75rem */
+.carousel__nav {
+  position: absolute; inset: auto 0 0; z-index: 3;
+  height: 1.75rem; padding: 0 var(--gutter);
+  display: flex; align-items: center; justify-content: center; gap: 1rem;
+  color: rgba(255,255,255,.65);
+}
+.carousel__nav .muted { color: inherit; }
+.carousel__dots { display: flex; align-items: center; font-size: .5rem; }
+.carousel__dots button { width: 1em; height: 1em; border-radius: 100%; background-color: #fff6; margin: 0 3px; transition: background-color .1s; }
+.carousel__dots button:hover { background-color: #fffc; }
+.carousel__dots button[aria-selected="true"] { background-color: #fff; }
+.carousel__count { font-size: .76rem; color: inherit; letter-spacing: .06em; }
 
 /* ========== TABS ========== */
 .tabs__nav { display: flex; flex-wrap: wrap; gap: .4rem; border-bottom: 1px solid var(--hairline); margin-bottom: 2.5rem; }
@@ -474,4 +490,5 @@ p { text-wrap: pretty; }
   [data-fade] { opacity: 1 !important; transform: none !important; }
   .marquee__track { animation: none !important; }
   .hero__scroll .bar { animation: none !important; }
+  .lc-wave i { animation: none !important; }
 }

@@ -270,22 +270,29 @@ h1 em { display: block; margin-top: .14em; color: var(--muted); font-style: norm
 
 .faq-section { padding: clamp(80px, 9vw, 128px) 0; }
 .faq-grid { display: grid; grid-template-columns: minmax(260px, .65fr) minmax(0, 1.35fr); gap: 0; align-items: stretch; overflow: hidden; border-radius: 18px; background: var(--product); color: var(--white); }
-.faq-grid > .section-heading { min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end; padding: 44px; background-color: rgba(15,22,33,.86); background-image: url("assets/post-call-analysis.webp"); background-position: center; background-size: cover; background-blend-mode: multiply; }
+/* ref: media gradient to-br from-[#11100f]/10 via-/28 to-/58 over image — EXTRACT.md "Surface treatment" */
+.faq-grid > .section-heading { min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end; padding: 44px; background-color: #0d131a; background-image: linear-gradient(to bottom right, rgba(17,16,15,.1), rgba(17,16,15,.28) 50%, rgba(17,16,15,.58)), url("assets/post-call-analysis.webp"); background-position: center; background-size: cover; background-blend-mode: normal, multiply; }
 .faq-grid .section-heading h2 { color: var(--white); }
 .faq-list { padding: 28px 44px; border-top: 0; }
 details { border-bottom: 1px solid rgba(255,255,255,.22); }
 summary { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; cursor: pointer; list-style: none; color: var(--white); font-size: 17px; font-weight: 600; }
 summary::-webkit-details-marker { display: none; }
+/* ref: plus sign transition-transform duration-200 rotate-45 on open — EXTRACT.md "Hover, focus, and interaction" */
 summary::after { content: "+"; font-family: var(--mono); font-size: 18px; font-weight: 400; transition: transform .2s ease-out; }
-details[open] summary::after { content: "−"; }
-details > .faq-a { display: grid; grid-template-rows: 0fr; opacity: 0; overflow: hidden; transition: grid-template-rows .2s ease-out, opacity .2s ease-out; }
-details[open] > .faq-a { grid-template-rows: 1fr; opacity: 1; }
-details > .faq-a > p { min-height: 0; overflow: hidden; }
+details[open] summary::after { transform: rotate(45deg); }
+/* ref: grid transition-[grid-template-rows,opacity] duration-200 ease-out 0fr→1fr — EXTRACT.md "FAQ accordion"; minmax(0,·) zeroes auto min-content base (bare 0fr leaks item min-content) */
+details > .faq-a { display: grid; grid-template-rows: minmax(0, 0fr); opacity: 0; overflow: hidden; transition: grid-template-rows .2s ease-out, opacity .2s ease-out; }
+details[open] > .faq-a { grid-template-rows: minmax(0, 1fr); opacity: 1; }
+/* ref: answer p uses pb-5 pr-12 padding (not margin) — margin would leak into grid track min-content */
+details > .faq-a > p { min-height: 0; margin: 0; padding: 0 40px 22px 0; overflow: hidden; }
 details p { max-width: 660px; margin: -2px 40px 22px 0; color: rgba(255,255,255,.76); font-size: 15px; }
 
 .final-cta { padding: clamp(72px, 8vw, 116px) 0; background: var(--white); color: var(--ink); }
 .final-cta-panel { position: relative; overflow: hidden; padding: clamp(72px, 8vw, 116px) clamp(28px, 6vw, 80px); border-radius: 22px; background: var(--ink) url("assets/hero-photo.jpg") right center / auto 100% no-repeat; color: var(--white); }
-.final-cta-panel::before { position: absolute; inset: 0; content: ""; background: rgba(17,18,20,.72); }
+/* ref: 180deg dark gradient 0.3/0.5/0.6 + radial cyan aura at 50% 0% — EXTRACT.md final CTA overlay */
+.final-cta-panel::before { position: absolute; inset: 0; content: ""; pointer-events: none; background: linear-gradient(180deg, rgba(12,11,10,.3) 0%, rgba(12,11,10,.5) 58%, rgba(12,11,10,.6) 100%), radial-gradient(circle at 50% 0%, rgba(1,186,239,.12), transparent 34%); }
+/* ref: 1px top highlight from-transparent via-white/25 to-transparent — EXTRACT.md final CTA */
+.final-cta-panel::after { position: absolute; top: 0; left: 0; right: 0; height: 1px; content: ""; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent); }
 .final-cta-inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .65fr); align-items: end; gap: 80px; }
 .final-cta h2 { max-width: 800px; font-size: clamp(48px, 6.4vw, 98px); line-height: .91; }
 .final-cta-action { max-width: 390px; }
@@ -395,6 +402,18 @@ details p { max-width: 660px; margin: -2px 40px 22px 0; color: rgba(255,255,255,
   .footer-grid { align-items: start; }
   .footer-note { text-align: left; }
 }
+
+/* ref: animate-fade-in (200ms, opacity + scale) + animate-fade-in-up (400ms, opacity + 10px translateY) — EXTRACT.md "Motion and media" */
+@keyframes fade-in { from { opacity: 0; transform: scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes fade-in-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.hero-copy > * { animation: fade-in .2s var(--ease-ref) both; }
+.hero-copy > *:nth-child(2) { animation-delay: .04s; }
+.hero-copy > *:nth-child(3) { animation-delay: .08s; }
+.hero-copy > *:nth-child(4) { animation-delay: .12s; }
+.hero-copy > *:nth-child(5) { animation-delay: .16s; }
+.product-stage { animation: fade-in-up .4s var(--ease-ref) .15s both; }
+/* ref: tab content swaps and enters with a fade-in-up animation — EXTRACT.md "Use-case tabs" */
+.proof-panel.is-active, .benchmark-bars-panel.is-active { animation: fade-in-up .4s var(--ease-ref) both; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

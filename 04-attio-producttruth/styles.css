@@ -192,12 +192,38 @@ ul { padding: 0; list-style: none; }
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 25%, #000 75%, transparent 100%);
   mask-image: linear-gradient(180deg, transparent 0%, #000 25%, #000 75%, transparent 100%);
 }
+/* Ref literal: attio.com `repeating-linear-gradient(to right, currentColor 0 1px, transparent 1px 8px)`. */
+.hero-grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(to right, rgba(28,40,64,0.05) 0 1px, transparent 1px 8px);
+  opacity: 0.7;
+}
 .hero-grid-bg::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.78) 0 1px, transparent 1px 88px);
   opacity: 0.4;
+}
+
+/* Ref literal entrance: attio.com `blur(1.5px); opacity:0` → `blur(0); opacity:1`, 0.5-0.7s staggered. */
+@keyframes hero-focus-in {
+  0% { filter: blur(1.5px); opacity: 0; transform: translateY(4px); }
+  100% { filter: blur(0); opacity: 1; transform: translateY(0); }
+}
+.hero-text > .kicker { animation: hero-focus-in 0.5s var(--ease-out) 0.10s both; }
+.hero-text > .hero-h1 { animation: hero-focus-in 0.7s var(--ease-out) 0.22s both; }
+.hero-text > .hero-sub { animation: hero-focus-in 0.6s var(--ease-out) 0.42s both; }
+.hero-cta { animation: hero-focus-in 0.5s var(--ease-out) 0.58s both; }
+.hero-footnote { animation: hero-focus-in 0.5s var(--ease-out) 0.72s both; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-text > .kicker,
+  .hero-text > .hero-h1,
+  .hero-text > .hero-sub,
+  .hero-cta,
+  .hero-footnote { animation: none; }
 }
 .hero-inner {
   position: relative;
@@ -669,10 +695,27 @@ ul { padding: 0; list-style: none; }
    shipping with zero background/padding rules (comparison table rendered, everything
    else fell back to unstyled body flow on white). */
 .dark-fold {
+  position: relative;
   background: var(--navy);
   color: var(--bg);
   padding: clamp(80px, 12vh, 140px) 0;
+  overflow: hidden;
 }
+/* Ref literal: attio.com blackout section uses an SVG <pattern> 10×10 with 1px dots offset 5.5,5.5,
+   masked by radial-gradient(ellipse 70% 50% at 50% 50%, transparent 35%, #000 75%) so dots hide
+   behind centered text and emerge at edges. Recreated in CSS so no extra asset is needed. */
+.dark-fold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
+  background-size: 10px 10px;
+  background-position: 5px 5px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, transparent 35%, #000 75%);
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, transparent 35%, #000 75%);
+  pointer-events: none;
+}
+.dark-fold > .wrap { position: relative; z-index: 1; }
 .dark-fold .wrap > * + * { margin-top: clamp(64px, 10vh, 100px); }
 .kicker-light { color: rgba(250,250,251,0.56); }
 .fold-h {
@@ -787,6 +830,28 @@ ul { padding: 0; list-style: none; }
   justify-content: center;
 }
 .fold-privacy-shot img { width: 100%; height: auto; max-height: 340px; object-fit: contain; display: block; }
+
+/* Ref signature: attio.com retention-curve SVG, mirrored as buyer-readiness-through-one-call. */
+.fold-telemetry {
+  max-width: 960px;
+  margin-inline: auto;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,0.02);
+  padding: 28px clamp(20px, 4vw, 36px) 24px;
+}
+.telemetry-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.telemetry-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,250,251,0.5); }
+.telemetry-verdict { font-family: var(--sans); font-weight: 600; font-size: clamp(28px, 3vw, 38px); color: var(--bg); letter-spacing: -0.02em; margin-left: auto; }
+.telemetry-verdict small { font-size: 13px; color: rgba(250,250,251,0.5); font-weight: 400; margin-left: 6px; }
+.telemetry-legend { display: flex; gap: 18px; margin-bottom: 14px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(250,250,251,0.6); }
+.telemetry-legend i { width: 10px; height: 2px; display: inline-block; margin-right: 6px; vertical-align: middle; }
+.telemetry-svg { width: 100%; height: auto; display: block; }
+.telemetry-stages { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+.telemetry-chip { display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,0.04); font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(250,250,251,0.72); }
+.telemetry-chip i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.telemetry-chip--done { color: rgba(250,250,251,0.4); }
+.telemetry-chip--now { background: rgba(38,109,240,0.18); color: var(--bg); }
 
 /* ===== FINAL CTA ===== */
 .final-cta {

@@ -126,6 +126,24 @@ h1.hero-title {
 
 .hero-title .quiet { color: var(--graphite); font-weight: 500; }
 
+/* ref: EXTRACT.md §8 — pen-sketch annotation behind headline word, positioned top:-18%;left:-10%;width:120%;z-index:-1 (slite round-sketch signature) */
+.hero-mark {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+}
+
+.hero-sketch {
+  position: absolute;
+  top: -18%;
+  left: -10%;
+  width: 120%;
+  height: auto;
+  max-width: none;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .mark-private {
   position: relative;
   white-space: nowrap;
@@ -169,6 +187,23 @@ h1.hero-title {
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 32px;
+}
+
+/* ref: EXTRACT.md §1 — position-fixed, 64px, bg moon-dust-lighter, box-shadow:0 1px 0 0 rgba(0,0,0,0) (transparent at rest), transition box-shadow 0.2s ease */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--paper);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0);
+  transition: box-shadow 0.2s ease;
+}
+
+/* ref: EXTRACT.md §1 — hairline appears on scroll (scrolled class toggled by app.js) */
+.site-header.scrolled {
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.06);
 }
 
 .site-header .wrap {
@@ -367,6 +402,16 @@ h1.hero-title {
 .hc-mark {
   display: flex;
   align-items: center;
+}
+
+/* ref: EXTRACT.md §11 — animation: pulse-opacity 1s infinite ease-in-out */
+.hc-mark circle:nth-child(2) {
+  animation: pulse-opacity 1s infinite ease-in-out;
+}
+
+@keyframes pulse-opacity {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.6; }
 }
 
 .hc-wordmark {

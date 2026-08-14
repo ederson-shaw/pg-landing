@@ -88,6 +88,12 @@ body::before{
 }
 sup{font-size:.65em;vertical-align:super;line-height:0}
 
+/* clay page-frame: fixed max-width:74rem, z-index:1, pointer-events:none + two 1px lines
+   background-image:linear-gradient(#f4f3f0,#f4f3f0) (EXTRACT.md §2/§6, min.css .page-frame/.frame_line-vertical) */
+.page-frame{position:fixed;inset:0;max-width:74rem;margin-inline:auto;height:100%;z-index:1;pointer-events:none}
+.frame_line-vertical{position:absolute;inset:0 auto 0 0;width:1px;background-image:linear-gradient(#f4f3f0,#f4f3f0)}
+.frame_line-vertical.cc-right{inset:0 0 0 auto}
+
 .container{width:90%;max-width:var(--container);margin-inline:auto}
 .container.narrow{max-width:var(--narrow)}
 
@@ -481,6 +487,9 @@ section{padding:var(--sec-y) 0;position:relative;z-index:2}
 .close .eyebrow{color:var(--ink)}
 .bento{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto;gap:1.2rem;margin-top:2.4rem}
 .bento-tile{background:var(--paper);border:1px solid var(--oat-deep);border-radius:var(--r-lg);padding:2rem}
+/* clay updates bento: tiles on mixed oat/pom-light/blueberry/white (EXTRACT.md §1.9); pom-light bg #ffebec, blueberry bg #d7ebfe (EXTRACT.md §4) */
+.bento-founder{background:#ffebec}
+.bento-ceiling{background:#d7ebfe}
 .bento-loop{grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
 /* bespoke ink illustration, generated for this project — a hand-sketched gear loop tucked
    into the corner the SVG diagram leaves empty; the SVG stays the legible diagram, this is
@@ -496,6 +505,8 @@ section{padding:var(--sec-y) 0;position:relative;z-index:2}
 .bento-cap{font-size:.95rem;line-height:1.55;color:var(--ink);margin:0}
 .bento-cap b{color:var(--ink)}
 .founder-mark{font-family:var(--display);font-size:3rem;color:var(--cyan-base);line-height:.6;margin:0 0 .4rem}
+/* terra-card system: each card's accent = its own hue (EXTRACT.md §4); pom-light tile accent pomegranate-500 #e94d68 */
+.bento-founder .founder-mark{color:#e94d68}
 .founder-quote{font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.35;color:var(--ink);margin:0}
 .founder-sig{font-family:var(--mono);font-size:.78rem;color:var(--stone);margin:.8rem 0 0}
 .ceiling{font-family:var(--display);font-weight:600;font-size:1.15rem;line-height:1.4;color:var(--ink);margin:0}
@@ -503,7 +514,8 @@ section{padding:var(--sec-y) 0;position:relative;z-index:2}
 /* ============================================================
    8. FOOTER
    ============================================================ */
-.footer{background:var(--cream);color:var(--ink)}
+/* clay footer: background-color:#fffdf9; background-image:linear-gradient(#fff,#fffdf9 15%); position:relative (EXTRACT.md §4/§8, min.css .section_footer) */
+.footer{position:relative;background-color:var(--cream);background-image:linear-gradient(#fff,var(--cream) 15%);color:var(--ink)}
 .footer-cta{padding:5rem 0 3rem;text-align:center}
 .footer-title{font-size:clamp(1.8rem,3.4vw,2.8rem);letter-spacing:-.03em;color:var(--ink);max-width:38rem;margin:0 auto 1rem}
 .footer-sub{color:var(--stone);max-width:34rem;margin:0 auto 1.8rem}
@@ -518,7 +530,8 @@ section{padding:var(--sec-y) 0;position:relative;z-index:2}
 .foot-head{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin:0 0 .4rem}
 .foot-col a{font-size:.9rem;color:var(--ink);display:inline-block;padding:.35rem 0;min-height:44px;display:inline-flex;align-items:center}
 .foot-col a:hover{color:var(--stone)}
-.credit{border-top:1px solid var(--oat-deep);padding:1.4rem 0}
+/* clay credit bar: border-top:1px solid #d1cdc780; padding-top:3rem; padding-bottom:3rem (EXTRACT.md §8, min.css .footer_credit-bar) */
+.credit{border-top:1px solid #d1cdc780;padding:3rem 0}
 .credit-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .brand--foot{color:var(--ink);min-height:44px;display:inline-flex;align-items:center}
 .brand--foot .brand-word{font-size:1rem}
@@ -552,6 +565,7 @@ section{padding:var(--sec-y) 0;position:relative;z-index:2}
    ============================================================ */
 @media (max-width:991px){
   :root{--sec-y:4rem}
+  .page-frame{display:none}
   .hero{min-height:auto;padding-top:3.5rem}
   .machine{height:48vh;min-height:340px}
   .machine-label--before{left:4%;top:40%}

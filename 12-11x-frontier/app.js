@@ -123,11 +123,14 @@
   /* generate wave bars into [data-wave] elements */
   (function () {
     var heights = [30,55,40,75,50,65,35,60,45,70,30,55,40,65,50,35,60,45,70,30,55,40,65,50,35,60,45,70,30,55,40,65,50,35,60,45,70,30,55,40,65,50,35,60,45,70];
+    /* ref: index.raw.html audio-wire JS — random animationDelay from [50,150,300,450,600]ms per wire */
+    var delays = [50, 150, 300, 450, 600];
     document.querySelectorAll("[data-wave]").forEach(function (wave) {
       wave.innerHTML = "";
       heights.forEach(function (h) {
         var i = document.createElement("i");
         i.style.height = h + "%";
+        if (!reduce) i.style.animationDelay = delays[Math.floor(Math.random() * delays.length)] + "ms";
         wave.appendChild(i);
       });
     });

@@ -1545,6 +1545,118 @@ p {
   text-transform: uppercase;
 }
 
+/* === Integration marquee band — reclothe of ref section-integration-logos (#9) === */
+/* ref .marquee-component{overflow:hidden;display:flex} .marquee__content{flex:none;min-width:100%} duplicated track — ref/index.raw.html inline <style>. */
+.integration-band {
+  padding-top: 92px;
+  padding-bottom: 84px;
+  border-top: 1px solid var(--ink);
+}
+
+.integration-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: clamp(20px, 3vw, 44px);
+  align-items: center;
+  margin-bottom: 44px;
+}
+
+.integration-copy h2 {
+  max-width: 620px;
+  margin-bottom: 12px;
+  font-size: clamp(34px, 3.6vw, 50px);
+  line-height: 1;
+}
+
+.integration-copy > p {
+  max-width: 540px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* ref integration-arrow-left/right + arrow-stem/tip-1/tip-2, viewBox 0 0 41 130 / 0 0 44 107 — path data copied 1:1 from ref/index.raw.html. */
+.integration-arrow {
+  width: clamp(44px, 4.6vw, 68px);
+  color: var(--gold);
+}
+
+.integration-arrow svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ref arrow-stem draw-on-scroll: strokeDasharray/offset, ease:none — same IIFE as the wave strip; app.js drives dashoffset→0. */
+.arrow-stem,
+.arrow-tip-1,
+.arrow-tip-2 {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-dashoffset .9s linear;
+}
+
+/* ref .marquee-scroll{animation:marquee-scroll 70s linear infinite} @keyframes{to{translateX(calc(-100% - 3rem))}} — ref/index.raw.html. */
+.marquee-component {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  overflow: hidden;
+  /* ref mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent). */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee__content {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-around;
+  gap: 3rem;
+  min-width: 100%;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee__content span {
+  flex: 0 0 auto;
+}
+
+.marquee__content span + span::before {
+  content: "·";
+  margin-right: .6em;
+  color: var(--gold);
+}
+
+.marquee-scroll {
+  will-change: transform;
+  animation: marquee-scroll 70s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - 3rem)); }
+}
+
+/* ref @media(min-width:1920px) .marquee-cover-horizontal: width:102%, left:-1% — widens band to keep mask fade centred under wide viewports. */
+@media (min-width: 1920px) {
+  .marquee-component {
+    width: 102%;
+    margin-left: -1%;
+  }
+}
+
 @media (max-width: 991px) {
   :root {
     --content: min(760px, calc(100vw - 9vw));
@@ -1715,6 +1827,20 @@ p {
 
   .rep-section {
     gap: 50px;
+  }
+
+  .integration-band {
+    padding-top: 80px;
+    padding-bottom: 72px;
+  }
+
+  .integration-head {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 18px;
+  }
+
+  .integration-arrow {
+    width: 40px;
   }
 
   .quote-section {
@@ -2083,6 +2209,30 @@ p {
     height: 52%;
   }
 
+  .integration-band {
+    padding-top: 64px;
+    padding-bottom: 60px;
+  }
+
+  .integration-head {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .integration-arrow {
+    display: none;
+  }
+
+  .integration-copy h2 {
+    font-size: clamp(34px, 9vw, 46px);
+  }
+
+  .marquee__content {
+    gap: 2rem;
+    font-size: 11px;
+    letter-spacing: .08em;
+  }
+
   .category-section {
     padding-top: 90px;
     padding-bottom: 100px;
@@ -2211,6 +2361,13 @@ p {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  /* ref @media(prefers-reduced-motion:reduce){.marquee-scroll,.marquee__content{animation:none!important}} — ref/index.raw.html inline <style>. */
+  .marquee-scroll,
+  .marquee__content {
+    animation: none !important;
+    transform: none !important;
   }
 
   *,

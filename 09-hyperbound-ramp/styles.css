@@ -166,12 +166,6 @@ a { color: inherit; }
   position: relative;
   overflow: visible;
 }
-.hero::before {
-  content: ''; position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
-  width: 80%; height: 70%;
-  background: radial-gradient(ellipse at center, rgba(188,250,0,0.12) 0%, transparent 60%);
-  pointer-events: none; z-index: 0;
-}
 .hero-grid {
   max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter);
   display: grid; gap: 40px; position: relative; z-index: 1;
@@ -186,7 +180,21 @@ a { color: inherit; }
   border-left: 2px solid var(--green); padding-left: 12px; max-width: 42ch;
 }
 
-.hero-card-col { display: flex; flex-direction: column; align-items: center; }
+.hero-card-col { display: flex; flex-direction: column; align-items: center; position: relative; }
+/* ref: index.raw.html:351-362 — .green-blob 482px circle positioned behind
+   hero visual. Was diffuse 80%-wide ellipse. Scaled to card column width. */
+.hero-card-col::before {
+  content: '';
+  position: absolute;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(188,250,0,0.20) 0%, rgba(188,250,0,0.07) 45%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-card-col > * { position: relative; z-index: 1; }
 .hero-card-caption {
   margin-top: 14px; font-family: var(--mono); font-size: 11px;
   color: var(--text-muted); text-align: center; max-width: 36ch; letter-spacing: 0.02em;
@@ -437,9 +445,12 @@ a { color: inherit; }
 
 /* ---------- the ramp (signature — hyperbound's green-panel structure) ---------- */
 .ramp {
-  background: var(--green-soft);
+  /* ref: ra css:1545-1549 — inset green panel #F5FFE1, border-radius 28px,
+     width calc(100% - 2rem) margin 0 auto. Was edge-to-edge #f9ffe8 radius 0. */
+  background: #F5FFE1;
+  border-radius: 28px;
+  margin: 0 1rem;
   padding: var(--section-y) 0;
-  border-radius: 0;
 }
 .ramp .wrap-narrow { padding-bottom: 24px; }
 .ramp-stage {
@@ -486,15 +497,29 @@ a { color: inherit; }
 .ramp-static-note { font-family: var(--mono); font-size: 12px; color: var(--text-muted); margin-top: 24px; text-align: center; }
 
 @media (min-width: 980px) {
+  /* ref: ra css:1545 — tall scroll track (min-height 1150px) gives the pinned
+     card room to cycle through steps. Scaled to 3 beats / this card height. */
   .ramp-grid {
     display: grid;
     grid-template-columns: 510px 1fr;
     gap: 56px;
     align-items: start;
     max-width: 1100px; margin: 0 auto;
+    min-height: 740px;
   }
-  .ramp-beats { max-width: none; }
-  .ramp-beat { min-height: 110px; }
+  /* ref: ra css:1584-1587 — .ra-hiw-stage position: sticky; z-index: 3.
+     Card pins under navbar while beats column scrolls past. */
+  .ramp-grid > .live-stack {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+    z-index: 3;
+  }
+  .ramp-beats {
+    max-width: none;
+    height: 100%;
+    justify-content: space-between;
+  }
 }
 
 /* ---------- compare table ---------- */

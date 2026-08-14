@@ -182,12 +182,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .btn-primary {
-  background: var(--gradient);
+  background-image: var(--gradient);
   color: #fff;
 }
 
+/* ref: EXTRACT.md §7 — hover:bg-membership-gradient-dimmed = linear-gradient(#0003,#0003) layered over the gradient */
 .btn-primary:hover {
-  box-shadow: 0 4px 21px rgba(0, 199, 88, 0.25);
+  background-image: linear-gradient(#0003, #0003), var(--gradient);
 }
 
 .btn-primary:active { transform: scale(0.97); }
@@ -202,6 +203,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .btn-sm { padding: 0.5rem 1.125rem; font-size: 0.875rem; }
 .btn-lg { padding: 1rem 2.25rem; font-size: 1rem; }
+
+/* ref: EXTRACT.md §4 — hero CTA button "px-10 py-4 text-base font-bold", fully rounded */
+.btn-hero { padding: 1rem 2.5rem; font-size: 1rem; }
+
+/* ref: EXTRACT.md §7 — CTA arrow "transition-transform duration-300 ease-out hover:translate-x-1" (4px) */
+.btn-arrow { transition: transform 300ms ease-out; }
+.btn:hover .btn-arrow { transform: translateX(4px); }
 
 .site-header {
   position: sticky;
@@ -1137,8 +1145,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .faq-item[open] summary::after { transform: rotate(45deg); }
 
-.faq-answer { padding: 0 1.25rem 1.25rem; }
-.faq-answer p { font-size: 0.9375rem; line-height: 1.6; color: var(--warm-grey); }
+/* ref: EXTRACT.md §7 — animate-accordionDown/accordionUp, ".3s ease-in-out", height 0 -> content height */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .3s ease-in-out;
+}
+
+.faq-item.is-open .faq-answer { grid-template-rows: 1fr; }
+.faq-item.closing .faq-answer { grid-template-rows: 0fr; }
+
+.faq-answer p {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 1.25rem 1.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--warm-grey);
+}
 
 .site-footer {
   background: var(--zinc-100);
@@ -1190,4 +1214,5 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   .reveal { opacity: 1; transform: none; }
   .hero::before { display: none; }
+  .faq-item[open] .faq-answer { grid-template-rows: 1fr; }
 }

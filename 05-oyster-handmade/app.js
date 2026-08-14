@@ -74,8 +74,9 @@ if (storyCards.length && storyIndex.length && "IntersectionObserver" in window &
 /* Hand-drawn ink stroke, drawn on scroll — not faded in. Mirrors oysterhr.com's real
    arrow-drawing technique (ref/index.raw.html, "Second Section - Purple Green Card"
    IIFE): strokeDasharray set from the path's own getTotalLength(), strokeDashoffset
-   driven to 0 with ease: none. */
-const wavePaths = [...document.querySelectorAll(".live-wave-strip path")];
+   driven to 0 with ease: none. Same technique drives the integration-band arrows
+   (.arrow-stem / .arrow-tip-1 / .arrow-tip-2) flanking the marquee heading. */
+const wavePaths = [...document.querySelectorAll(".live-wave-strip path, .integration-arrow path")];
 if (wavePaths.length && "IntersectionObserver" in window && !reducedMotion.matches) {
   wavePaths.forEach((path) => {
     const length = path.getTotalLength();

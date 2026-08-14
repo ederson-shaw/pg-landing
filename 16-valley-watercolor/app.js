@@ -31,6 +31,35 @@
     });
   }
 
+  if (!reduceMotion) {
+    document.querySelectorAll(".faq-item").forEach(function (item) {
+      var summary = item.querySelector("summary");
+      if (!summary) return;
+      summary.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (item.classList.contains("animating")) return;
+        item.classList.add("animating");
+        if (item.open) {
+          item.classList.remove("is-open");
+          item.classList.add("closing");
+          setTimeout(function () {
+            item.removeAttribute("open");
+            item.classList.remove("closing");
+            item.classList.remove("animating");
+          }, 300);
+        } else {
+          item.setAttribute("open", "");
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              item.classList.add("is-open");
+              setTimeout(function () { item.classList.remove("animating"); }, 300);
+            });
+          });
+        }
+      });
+    });
+  }
+
   if (reduceMotion) return;
 
   var liveCard = document.querySelector("[data-live-card]");

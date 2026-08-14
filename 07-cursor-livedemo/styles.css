@@ -1227,6 +1227,8 @@ button:focus-visible {
   padding: 22px;
   border: 1px solid var(--line-light);
   background: rgba(38, 37, 30, 0.025);
+  /* ref: raw.html card pattern "transition-colors duration-200"; hover in .frontier-card rule */
+  transition: background-color 200ms ease;
 }
 
 .archive-card-active {
@@ -1958,10 +1960,57 @@ button:focus-visible {
 
 .live-card-shell {
   overflow: hidden;
-  border: 1.5px solid rgba(90, 195, 255, 0.32);
-  border-radius: 20px;
+  /* ref: index.raw.html #demo-window-cursor-ide — "group absolute rounded-[10px] ... box-shadow:
+     0 28px 70px rgba(0, 0, 0, 0.14), 0 14px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--color-theme-border-02)"
+     (border-02 dark = fg #edecec at 10%); the colored border+glow this card had is not in the ref. */
+  border: 0;
+  border-radius: 10px;
   background: linear-gradient(180deg, #101a26, var(--card-deep));
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 32px -16px rgba(90, 195, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.14), 0 14px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(237, 236, 236, 0.1);
+}
+
+/* ref: index.raw.html demo window title bar — "border-theme-border-02 relative flex h-7 items-center
+   justify-between border-b px-2", dots "flex items-center gap-1.5" + three
+   "inline-block h-2.5 w-2.5 rounded-full bg-theme-border-02", centered title
+   "type-product-base ... opacity-70 truncate" (12px, absolute at 50%/50%). */
+.window-titlebar {
+  position: relative;
+  display: flex;
+  height: 28px;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 0 8px;
+  border-bottom: 1px solid rgba(237, 236, 236, 0.1);
+}
+
+.window-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.window-dots i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(237, 236, 236, 0.1);
+}
+
+.window-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 70%;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  color: var(--card-text);
+  font-family: var(--body);
+  font-size: 12px;
+  opacity: 0.7;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .live-card-head {
@@ -2040,6 +2089,35 @@ button:focus-visible {
   font-size: 11.5px;
   letter-spacing: 0;
   text-transform: none;
+}
+
+/* ref: 0w7vgiyurd4_m.css .shimmer — "Working" labels use
+   linear-gradient(90deg, base 0%, base 30%, highlight 55%, base 70%, base 100%),
+   background-size:200% 100%, background-clip:text, -webkit-text-fill-color:transparent,
+   animation:shimmer 2.5s linear infinite; highlight = color-mix(text 70%, base) = #ccd3df. */
+.js .card-state:not(.is-live) {
+  background-image: linear-gradient(90deg, var(--card-muted) 0%, var(--card-muted) 30%, #ccd3df 55%, var(--card-muted) 70%, var(--card-muted) 100%);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2.5s linear infinite;
+}
+
+/* ref: 0w7vgiyurd4_m.css @keyframes shimmer{0%{background-position:200% 0}to{background-position:-200% 0}} */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+/* ref: EXTRACT.md §Scroll — reduced-motion rules disable the demo animation effects;
+   must sit after the shimmer rule to win the cascade */
+@media (prefers-reduced-motion: reduce) {
+  .js .card-state:not(.is-live) {
+    background-image: none;
+    -webkit-text-fill-color: currentcolor;
+    animation: none;
+  }
 }
 
 .live-card-context {
@@ -2409,7 +2487,16 @@ button:focus-visible {
   padding: 22px;
   border: 1px solid rgba(237, 236, 236, 0.16);
   border-radius: 4px;
-  background: rgba(237, 236, 236, 0.055);
+  /* ref: 0w7vgiyurd4_m.css .card — background-color:var(--color-theme-card-hex) (dark #1b1913) */
+  background-color: #1b1913;
+  /* ref: raw.html card pattern "transition-colors duration-200" */
+  transition: background-color 200ms ease;
+}
+
+/* ref: 0w7vgiyurd4_m.css .card:is(a):hover{background-color:var(--color-theme-card-hover-hex)}
+   (dark #201e18, light #ebeae5) */
+.quote-card:hover {
+  background-color: #201e18;
 }
 
 .quote-card:nth-child(2),
@@ -2489,7 +2576,15 @@ button:focus-visible {
   padding: 22px;
   border: 1px solid var(--line-light);
   border-radius: 4px;
-  background: var(--page-card);
+  /* ref: 0w7vgiyurd4_m.css .card — card-hex light #f2f1ed; hover rule below */
+  background-color: var(--page-card);
+  transition: background-color 200ms ease;
+}
+
+/* ref: 0w7vgiyurd4_m.css .card:is(a):hover — card-hover-hex light #ebeae5 */
+.frontier-card:hover,
+.archive-card:not(.archive-card-active):hover {
+  background-color: #ebeae5;
 }
 
 .frontier-card:nth-child(2) {

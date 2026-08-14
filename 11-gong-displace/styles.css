@@ -159,7 +159,7 @@ sup { font-size: 0.6em; vertical-align: super; line-height: 0; }
 }
 .nav-cta { margin-left: 4px; }
 
-.hero { padding-top: clamp(36px, 5vw, 64px); padding-bottom: var(--section-y); }
+.hero { padding-top: clamp(36px, 5vw, 64px); padding-bottom: var(--section-y); overflow: hidden; }
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
@@ -196,10 +196,24 @@ sup { font-size: 0.6em; vertical-align: super; line-height: 0; }
   100% { opacity: 0; transform: translateY(-0.5em); }
 }
 
-.hero-card-col { display: flex; flex-direction: column; gap: 10px; }
+.hero-card-col { display: flex; flex-direction: column; gap: 10px; position: relative; }
 .hero-card-cap {
   font-family: var(--body-font); font-size: 13px; color: var(--body-text);
   margin: 4px 0 0; max-width: 46ch; line-height: 1.5;
+}
+
+/* ref: gong.io hero right column — decorative star field behind the form card,
+   <img stars-onlight-accent.png class="absolute inset-0 w-full h-full
+   object-contain pointer-events-none" style="transform:translate(-13%, -26%)
+   scale(1.93)"/> (ref/index.raw.html, EXTRACT.md §9). Bespoke SVG sparkle
+   veil in the gong palette; sits at z -1 so it only prints on the white
+   margins around the card, like the ref's low-alpha onlight stars. */
+.hero-stars {
+  position: absolute; inset: 0;
+  background: url("assets/stars-sparkle.svg") center / contain no-repeat;
+  pointer-events: none;
+  transform: translate(-13%, -26%) scale(1.93);
+  z-index: -1;
 }
 
 /* ---------- wave strip (v2: separate, above card) ---------- */
@@ -373,6 +387,28 @@ sup { font-size: 0.6em; vertical-align: super; line-height: 0; }
 }
 .livecard.dismissed { opacity: 0.25; transform: scale(0.98); filter: grayscale(0.4); pointer-events: none; }
 .livecard, .hero-card-cap { transition: opacity .35s ease, transform .35s ease, filter .35s ease; }
+
+/* ref: gong.io hero lead-gen-form card — literal displaced edge, the device
+   this project is named after:
+   mask-image:linear-gradient(to left, transparent 2.80px, black 56px),
+   linear-gradient(to top, transparent 2.80px, black 56px);
+   mask-composite:intersect / -webkit-mask-composite:source-in
+   (ref/index.raw.html, EXTRACT.md §9). "to left" starts the gradient line at
+   the right edge, "to top" at the bottom — the card's right and bottom edges
+   dissolve into the page. Insets below keep text and buttons outside the
+   56px fade ramps, the way gong's form fields sit clear of the edge. */
+.hero-card-col .livecard {
+  -webkit-mask-image:
+    linear-gradient(to left, transparent 2.80px, black 56px),
+    linear-gradient(to top, transparent 2.80px, black 56px);
+          mask-image:
+    linear-gradient(to left, transparent 2.80px, black 56px),
+    linear-gradient(to top, transparent 2.80px, black 56px);
+  -webkit-mask-composite: source-in;
+          mask-composite: intersect;
+}
+.hero-card-col .lc-block { padding-right: 56px; }
+.hero-card-col .lc-footer { margin-bottom: 52px; }
 .hero-card-undo { margin: 0; }
 .undo-link {
   background: none; border: none; cursor: pointer; padding: 0;
@@ -421,7 +457,11 @@ sup { font-size: 0.6em; vertical-align: super; line-height: 0; }
 }
 
 /* ---------- category sentence ---------- */
-.cat-band { padding-block: var(--section-y); }
+/* ref: gong.io's page rhythm carries exactly one pale-purple section band,
+   bg-secondary-emphasis = pink-25 #f5edff (section class "relative isolate
+   ... bg-secondary-emphasis pt-20 pb-20 ... xl:pt-24 xl:pb-24", EXTRACT.md
+   §2/§7-12) — reclothed onto this mid-page statement band. */
+.cat-band { background: var(--bg-mid); padding-block: var(--section-y); }
 .cat-sentence {
   color: var(--ink); font-size: clamp(24px, 3.4vw, 42px);
   margin: 14px 0 0; line-height: 1.18;

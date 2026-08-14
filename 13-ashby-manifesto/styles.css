@@ -22,8 +22,8 @@
   /* ashby brand purple (the primary action colour) */
   --brand:        #473BCE;
   --brand-dark:   #3F34BC;
-  --brand-lit:    #6B5AE6;            /* hsl(248 65% 60%) — top of gradient */
-  --brand-grad:   linear-gradient(to bottom, #6B5AE6, #473BCE);
+  --brand-lit:    hsl(248 65% 60%);     /* ref: --colors-primaryGradient literal top colour */
+  --brand-grad:   linear-gradient(to bottom, hsl(248 65% 60%), #473BCE);
   --brand-soft:   #F3F2FF;            /* minimal-button hover bg */
   --brand-focus:  #E1DEFC;            /* focus ring */
 
@@ -101,10 +101,11 @@ a { color: inherit; }
 }
 .kicker {
   font-family: var(--sans);
-  font-size: 0.72rem;
+  /* ref: EXTRACT.md §2 — .c-erPqIQ-faDtMC-size-1: all-small-caps, 0.06em, 0.875rem, weight 500 */
+  font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-variant: all-small-caps;
   color: var(--mute);
   margin: 0 0 1.6em;
 }
@@ -118,7 +119,8 @@ a { color: inherit; }
 }
 
 /* Real computed values from ashbyhq.com's live h1: 72px (matched already)/1.1/575/-0.04em (matched already). */
-.hero-title { font-size: clamp(2.75rem, 7vw, 4.5rem); font-weight: 575; letter-spacing: -0.04em; line-height: 1.1; }
+.hero-title { font-size: clamp(2.75rem, 7vw, 4.5rem); font-weight: 575; letter-spacing: -0.04em; line-height: 1.1; max-width: 730px; margin-left: auto; margin-right: auto; }
+/* ref: EXTRACT.md §5 — .c-lesPJm-idzWccZ-css: max-width:730px; margin:0 auto; text-align:center */
 .beat-title { font-size: clamp(2rem, 4.4vw, 2.75rem); font-weight: 600; }
 
 .lede {
@@ -644,6 +646,9 @@ a { color: inherit; }
   line-height: 1.45;
 }
 
+.section-tour { border-top: 1px solid var(--hair-2); }
+/* ref: EXTRACT.md §1,§4 — .c-PJLV-igskpMx-css: border-top:1px solid var(--colors-borderMuted) */
+
 /* ----------------------------- product tour (comparison) ----------------------------- */
 .tour-grid {
   display: grid;
@@ -703,10 +708,12 @@ a { color: inherit; }
   gap: clamp(1rem, 2.5vw, 2rem);
 }
 .buyer-card {
-  padding: clamp(1.5rem, 3vw, 2rem);
-  border-radius: 8px;
+  /* ref: EXTRACT.md §3,§4 — stage cards: clamp(1.5rem,5vw,72px) padding, radii-4=16px, shadows-elevation1 */
+  padding: clamp(1.5rem, 5vw, 72px);
+  border-radius: 16px;
   border: 1px solid var(--hair);
   background: var(--paper);
+  box-shadow: 0px 0px 1px rgba(20,20,21,.18), 0px 2px 3px -2px rgba(20,20,21,.3);
 }
 .buyer-card--accent {
   background: var(--brand-soft);
