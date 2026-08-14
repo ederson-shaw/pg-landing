@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PitchGenius — coaching during the call</title>
+  <meta name="description" content="PitchGenius listens to a live sales call and tells the rep what to say next while the buyer is still in the room. The coaching happens during the call — so the ramp happens there too.">
+  <meta name="author" content="PitchGenius.AI">
+  <meta name="theme-color" content="#FFFFFF">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PitchGenius — coaching during the call">
+  <meta property="og:description" content="A real-time sales co-pilot. It tells the rep what to say next, while there is still time to change the outcome.">
+  <meta property="og:image" content="assets/mark.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PitchGenius — coaching during the call">
+  <meta name="twitter:description" content="A real-time sales co-pilot. It tells the rep what to say next, while there is still time to change the outcome.">
+
+  <link rel="icon" href="assets/mark.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400;1,8..60,500&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" role="banner">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="PitchGenius home">
+        <img class="brand-mark" src="assets/mark.png" alt="" width="28" height="28">
+        <span class="brand-word">PitchGenius</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#one-call">How it works</a>
+        <a href="#ramp">The ramp</a>
+        <a href="#managers">For managers</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="#book">Book a pilot</a>
+    </div>
+  </header>
+
+  <main id="main">
+  <span id="top"></span>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Coaching, during the call</p>
+        <h1 id="hero-title" class="display">
+          The rep ramps inside the call, <em>not in the Monday review.</em>
+        </h1>
+        <p class="lede">
+          PitchGenius listens to a live sales call and tells the rep what to say next
+          while the buyer is still in the room. The coaching happens in the conversation
+          — so the ramp happens there too.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#book">Book a pilot</a>
+          <a class="btn btn-ghost" href="#one-call">See how it works</a>
+        </div>
+        <p class="hero-private">
+          Rep calibration is private. Managers see usage and deal activity — not your answers.
+        </p>
+      </div>
+
+      <div class="hero-card-col" aria-label="The live-call card, recreated from a real call">
+        <div class="live-stack">
+          <div class="wave-strip" aria-hidden="true">
+            <svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M0,10 Q5,3 10,10 T20,10 T30,10 T40,10 T50,7 T60,10 T70,13 T80,10 T90,6 T100,10 T110,14 T120,8 T130,10 T140,12 T150,4 T160,10 T170,16 T180,9 T190,10 T200,11 T210,7 T220,12 T230,5 T240,10 T250,13 T260,8 T270,10 T280,11 T290,9 T300,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div class="stage-row" aria-hidden="true">
+            <span class="stage-step is-done">Opening</span>
+            <span class="stage-step is-current">Discovery</span>
+            <span class="stage-step">Value</span>
+            <span class="stage-step">Decision</span>
+            <span class="stage-step">Close</span>
+          </div>
+          <figure class="live-card-v2" data-beat="1">
+            <div class="v2-header">
+              <div class="v2-header-left">
+                <span class="v2-mark" aria-hidden="true"></span>
+                <span class="v2-wordmark">PitchGenius HumanCue<sup class="v2-tm">™</sup></span>
+              </div>
+              <span class="v2-sep" aria-hidden="true"></span>
+              <span class="v2-state" data-observe>buyer is still describing the screen display</span>
+              <span class="v2-right">
+                <span class="v2-readiness-label">Readiness</span>
+                <span class="v2-readiness-num" data-readiness>45</span>
+                <span class="v2-dot">·</span>
+                <span class="v2-stage">Discovery</span>
+              </span>
+            </div>
+
+            <div class="v2-body">
+              <div class="v2-block v2-move-section">
+                <p class="v2-label">NEXT BEST MOVE</p>
+                <p class="v2-value-move">Clarify the display behavior</p>
+              </div>
+              <div class="v2-block v2-say">
+                <p class="v2-label">SAY THIS</p>
+                <blockquote class="v2-quote" data-say>The display scales to fit the screen. What are you seeing on your screen?</blockquote>
+              </div>
+              <div class="v2-block v2-why-section">
+                <p class="v2-label">WHY NOW</p>
+                <p class="v2-why"><span class="v2-why-signal">reading the room</span> <span class="v2-arrow" aria-hidden="true">→</span> <span class="v2-why-reason">this is the moment it costs him something</span></p>
+              </div>
+            </div>
+
+            <div class="v2-footer">
+              <a class="v2-link" href="#one-call">Why this, now?</a>
+              <div class="v2-footer-btns">
+                <button class="v2-next" type="button">Next</button>
+                <button class="v2-dismiss" type="button">Dismiss</button>
+              </div>
+            </div>
+          </figure>
+        </div>
+        <p class="hero-card-caption">
+          A real call, recreated. One moment: readiness 45, discovery stage, the line the rep reads next.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ONE CALL, THREE BEATS (replaces the logo marquee) ============ -->
+  <section id="one-call" class="one-call" aria-labelledby="one-call-title">
+    <div class="wrap">
+      <p class="eyebrow">One call, three beats</p>
+      <h2 id="one-call-title" class="display">Before. During. After.</h2>
+      <p class="lede">
+        Every call is one story in three beats. This is the product, and it is also the
+        page's spine.
+      </p>
+      <ol class="beats">
+        <li class="beat">
+          <span class="beat-num">01</span>
+          <img src="assets/buyer-blueprint.webp" alt="The Buyer Blueprint screen: archetype, DISC personality read, trust triggers and resistance signals for the person you are about to call." loading="lazy" width="640" height="400">
+          <h3 class="beat-title">Before the call</h3>
+          <p class="beat-body">
+            Know who you're about to talk to — archetype, how they decide, what builds
+            their trust, what makes them resist. Before you dial.
+          </p>
+        </li>
+        <li class="beat beat-during">
+          <span class="beat-num">02</span>
+          <div class="beat-live-recap" aria-label="The live-call card during a call: HumanCue observation, buyer readiness 45, the next sentence to say.">
+            <div class="recap-wave" aria-hidden="true">
+              <svg viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M0,7 Q4,2 8,7 T16,7 T24,7 T32,7 T40,5 T48,7 T56,9 T64,7 T72,4 T80,7 T88,10 T96,5 T104,7 T112,8 T120,3 T128,7 T136,11 T144,6 T152,7 T160,8 T168,5 T176,8 T184,3 T192,7 T200,7" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+            </div>
+            <div class="recap-stages" aria-hidden="true"><span>Opening</span><span class="recap-now">Discovery</span><span>Value</span><span>Decision</span><span>Close</span></div>
+            <div class="recap-card">
+              <div class="recap-head">
+                <span class="recap-mark"></span>
+                <span class="recap-name">HumanCue<sup>™</sup></span>
+                <span class="recap-read">Readiness <strong>45</strong> · Discovery</span>
+              </div>
+              <div class="recap-block">
+                <span class="recap-label">NEXT BEST MOVE</span>
+                <span class="recap-val">Clarify the display behavior</span>
+              </div>
+              <div class="recap-block">
+                <span class="recap-label">SAY THIS</span>
+                <span class="recap-quote">"The display scales to fit the screen. What are you seeing on your screen?"</span>
+              </div>
+              <div class="recap-block">
+                <span class="recap-label">WHY NOW</span>
+                <span class="recap-why">reading the room <span class="recap-arrow">→</span> this is the moment it costs him something</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="beat-title">During the call</h3>
+          <p class="beat-body">
+            Know what they're feeling as they feel it. HumanCue<sup>™</sup> names what
+            the buyer is doing right now. Readiness is 45. The next sentence is ready to
+            read out loud.
+          </p>
+        </li>
+        <li class="beat">
+          <span class="beat-num">03</span>
+          <img src="assets/post-call-analysis.webp" alt="The post-call analysis: evidence-linked summary, MEDDPICC gap chips, and next best move for the following call." loading="lazy" width="640" height="400">
+          <h3 class="beat-title">After the call</h3>
+          <p class="beat-body">
+            The next call doesn't start from memory. Evidence-linked summary, MEDDPICC
+            gaps, and the next move — every claim points at the moment it came from.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ THE RAMP (signature) ============ -->
+  <section id="ramp" class="ramp" aria-labelledby="ramp-title">
+    <div class="wrap wrap-narrow">
+      <p class="eyebrow">The ramp</p>
+      <h2 id="ramp-title" class="display">
+        The same rep, three weeks in. <em>The coaching gets shorter.</em>
+      </h2>
+      <p class="lede">
+        Week one the manager marks everything. Month two the rep is the room. The
+        product carries the coaching so the manager doesn't have to — and visibly makes
+        itself less necessary.
+      </p>
+    </div>
+
+    <div class="ramp-stage" data-ramp>
+      <div class="ramp-grid">
+        <div class="live-stack">
+          <div class="wave-strip" aria-hidden="true">
+            <svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M0,10 Q5,3 10,10 T20,10 T30,10 T40,10 T50,7 T60,10 T70,13 T80,10 T90,6 T100,10 T110,14 T120,8 T130,10 T140,12 T150,4 T160,10 T170,16 T180,9 T190,10 T200,11 T210,7 T220,12 T230,5 T240,10 T250,13 T260,8 T270,10 T280,11 T290,9 T300,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div class="stage-row" aria-hidden="true">
+            <span class="stage-step is-done">Opening</span>
+            <span class="stage-step is-current">Discovery</span>
+            <span class="stage-step">Value</span>
+            <span class="stage-step">Decision</span>
+            <span class="stage-step">Close</span>
+          </div>
+          <figure class="live-card-v2 live-card-ramp" data-beat="1">
+            <div class="v2-header">
+              <div class="v2-header-left">
+                <span class="v2-mark" aria-hidden="true"></span>
+                <span class="v2-wordmark">PitchGenius HumanCue<sup class="v2-tm">™</sup></span>
+              </div>
+              <span class="v2-sep" aria-hidden="true"></span>
+              <span class="v2-state">buyer is still describing the screen display</span>
+              <span class="v2-right">
+                <span class="v2-readiness-label">Readiness</span>
+                <span class="v2-readiness-num">45</span>
+                <span class="v2-dot">·</span>
+                <span class="v2-stage">Discovery</span>
+              </span>
+            </div>
+
+            <div class="v2-body">
+              <div class="v2-block v2-move-section">
+                <p class="v2-label">NEXT BEST MOVE</p>
+                <p class="v2-value-move">Clarify the display behavior</p>
+              </div>
+              <div class="v2-block v2-collapse v2-say">
+                <div class="v2-collapse-inner">
+                  <p class="v2-label">SAY THIS</p>
+                  <blockquote class="v2-quote">The display scales to fit the screen. What are you seeing on your screen?</blockquote>
+                </div>
+              </div>
+              <div class="v2-block v2-collapse v2-why-section">
+                <div class="v2-collapse-inner">
+                  <p class="v2-label">WHY NOW</p>
+                  <p class="v2-why"><span class="v2-why-signal">reading the room</span> <span class="v2-arrow" aria-hidden="true">→</span> <span class="v2-why-reason">this is the moment it costs him something</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="v2-footer">
+              <a class="v2-link" href="#one-call">Why this, now?</a>
+              <div class="v2-footer-btns">
+                <button class="v2-next" type="button">Next</button>
+                <button class="v2-dismiss" type="button">Dismiss</button>
+              </div>
+            </div>
+
+            <svg class="marks marks-1" data-marks="1" aria-hidden="true" viewBox="0 0 510 400" preserveAspectRatio="xMidYMid meet">
+              <ellipse class="mk-circle" cx="255" cy="195" rx="210" ry="28" fill="none"/>
+              <path class="mk-arrow" d="M40 110 C 100 150, 150 175, 250 190" fill="none"/>
+              <path class="mk-underline" d="M120 230 L 405 230" fill="none"/>
+              <path class="mk-underline" d="M150 260 L 360 260" fill="none"/>
+            </svg>
+            <svg class="marks marks-2" data-marks="2" aria-hidden="true" viewBox="0 0 510 400" preserveAspectRatio="xMidYMid meet">
+              <path class="mk-arrow" d="M100 110 C 160 155, 200 180, 250 190" fill="none"/>
+            </svg>
+            <svg class="marks marks-3" data-marks="3" aria-hidden="true" viewBox="0 0 510 400" preserveAspectRatio="xMidYMid meet">
+              <path class="mk-check" d="M420 120 l 12 13 l 24 -28" fill="none"/>
+            </svg>
+          </figure>
+        </div>
+
+        <div class="ramp-beats-wrap">
+          <div class="ramp-rail" data-ramp-rail aria-hidden="true"></div>
+          <ol class="ramp-beats" data-ramp-beats>
+            <li class="ramp-beat is-active" data-beat="1">
+              <span class="ramp-week">Week one</span>
+              <p class="ramp-note">The card spells it out: HumanCue, the next move, the sentence to say, the why-now. The manager's marks are dense. The rep reads aloud.</p>
+              <p class="ramp-card-state">Card: HumanCue · Readiness 45 · Next move · <strong>Say this</strong> · <strong>Why now</strong></p>
+            </li>
+            <li class="ramp-beat" data-beat="2">
+              <span class="ramp-week">Week three</span>
+              <p class="ramp-note">The rep reads the room. The sentence is gone — they don't need it read aloud. The card keeps the move and the why. One arrow is enough.</p>
+              <p class="ramp-card-state">Card: HumanCue · Readiness 45 · Next move · <s>Say this</s> · <strong>Why now</strong></p>
+            </li>
+            <li class="ramp-beat" data-beat="3">
+              <span class="ramp-week">Month two</span>
+              <p class="ramp-note">The rep is the room. The card keeps only HumanCue, readiness, and the next move. A check, not a script. The coaching has gone quiet.</p>
+              <p class="ramp-card-state">Card: HumanCue · Readiness 45 · Next move · <s>Say this</s> · <s>Why now</s></p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <noscript>
+        <p class="ramp-static-note">
+          Week one → the manager's marks are dense. Week three → one arrow. Month two →
+          a check. The coaching thins as the rep ramps.
+        </p>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- ============ THE CATEGORY (replaces the testimonial carousel) ============ -->
+  <section class="compare" aria-labelledby="compare-title">
+    <div class="wrap">
+      <p class="eyebrow">The category</p>
+      <h2 id="compare-title" class="display">
+        Conversation intelligence tells you what the buyer said.<br>
+        This tells you what to say next.
+      </h2>
+      <p class="lede">
+        Everyone records calls. Everyone summarises calls. Nobody tells the rep what to
+        say while the buyer is still in the room.
+      </p>
+
+      <div class="compare-table" role="table" aria-label="What conversation intelligence does versus what PitchGenius does">
+        <div class="compare-row compare-head" role="row">
+          <span class="compare-cell" role="columnheader">Tool</span>
+          <span class="compare-cell" role="columnheader">Records &amp; summarises after</span>
+          <span class="compare-cell" role="columnheader">What to say next, during the call</span>
+        </div>
+        <div class="compare-row" role="row">
+          <span class="compare-cell" role="rowheader">Gong</span>
+          <span class="compare-cell yes"><span class="cell-tag">After</span>transcribes, coaches after, revenue intelligence</span>
+          <span class="compare-cell no"><span class="cell-tag">During</span>says nothing during the call</span>
+        </div>
+        <div class="compare-row" role="row">
+          <span class="compare-cell" role="rowheader">Clari / Clari Copilot</span>
+          <span class="compare-cell yes"><span class="cell-tag">After</span>forecasting, revenue ops, recording</span>
+          <span class="compare-cell no"><span class="cell-tag">During</span>no live in-conversation coaching</span>
+        </div>
+        <div class="compare-row" role="row">
+          <span class="compare-cell" role="rowheader">Chorus (ZoomInfo)</span>
+          <span class="compare-cell yes"><span class="cell-tag">After</span>recording + analytics</span>
+          <span class="compare-cell no"><span class="cell-tag">During</span>no live in-conversation coaching</span>
+        </div>
+        <div class="compare-row" role="row">
+          <span class="compare-cell" role="rowheader">Salesforce / HubSpot</span>
+          <span class="compare-cell yes"><span class="cell-tag">After</span>stores what already happened</span>
+          <span class="compare-cell no"><span class="cell-tag">During</span>doesn't tell you what to do next</span>
+        </div>
+        <div class="compare-row compare-us" role="row">
+          <span class="compare-cell" role="rowheader">PitchGenius</span>
+          <span class="compare-cell yes"><span class="cell-tag">After</span>evidence-linked summary, MEDDPICC gaps</span>
+          <span class="compare-cell yes-strong"><span class="cell-tag">During</span>what to say next, while there is still time</span>
+        </div>
+      </div>
+      <p class="compare-source">
+        Verified against Gong, Clari, Clari Copilot and Chorus: none claim what to say
+        next while the buyer is still in the room. That is the wedge.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ FOR THE MANAGER (arithmetic) ============ -->
+  <section id="managers" class="arithmetic" aria-labelledby="arith-title">
+    <div class="wrap">
+      <div class="arith-grid">
+        <div class="arith-text">
+          <p class="eyebrow">For the manager</p>
+          <h2 id="arith-title" class="display">The arithmetic, as a mechanism.</h2>
+          <p class="lede">
+            No published numbers yet — so no percentages. Four mechanisms the manager can
+            check against the org chart today.
+          </p>
+
+          <ol class="arith-list">
+            <li>
+              <h3 class="arith-name">Ramp</h3>
+              <p class="arith-body">
+                A new rep is a hole in the number for two quarters. Coaching that happens
+                during the call, on every call, is training that does not need a trainer,
+                a calendar or a recording. The ramp moves into the conversation.
+              </p>
+            </li>
+            <li>
+              <h3 class="arith-name">Coaching capacity</h3>
+              <p class="arith-body">
+                One manager cannot sit on forty calls a week. This sits on all of them.
+                The coaching capacity of the team stops being the manager's calendar.
+              </p>
+            </li>
+            <li>
+              <h3 class="arith-name">Win rate</h3>
+              <p class="arith-body">
+                The same reps close more of the same pipeline. Nothing new to buy, no new
+                headcount — the same people, with the next sentence ready when it counts.
+              </p>
+            </li>
+            <li>
+              <h3 class="arith-name">Forecast accuracy</h3>
+              <p class="arith-body">
+                Buyer readiness is scored on every call, so the pipeline stops being what
+                reps hope and starts being what buyers showed.
+              </p>
+            </li>
+          </ol>
+
+          <p class="arith-compete">
+            Your competitor's rep is going to have this. The question is whether yours
+            does first.
+          </p>
+        </div>
+
+        <figure class="arith-team">
+          <img src="assets/team-standing.png" alt="A sales team standing around a table in an open office, mid-conversation — the people whose number this page is about." loading="lazy" width="768" height="432">
+          <figcaption>The team whose number this is — the reps who ramp, the manager who can't sit on every call.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ (rep fears answered) ============ -->
+  <section id="faq" class="faq" aria-labelledby="faq-title">
+    <div class="wrap wrap-narrow">
+      <p class="eyebrow">Straight answers</p>
+      <h2 id="faq-title" class="display">What reps ask before they trust it.</h2>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is this scoring me and handing the score to my manager?</summary>
+          <p>No. Rep calibration is ten questions you answer once, privately. Managers see
+          usage and deal activity. They do not see your answers. The privacy promise ships
+          with the product.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is this replacing me?</summary>
+          <p>No. It makes you better at the human part of selling. It does not sell for you.
+          The rep is the hero. PitchGenius is the earpiece — the thing that whispers the
+          next sentence, then goes quiet.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do we start?</summary>
+          <p>Pilots, not self-serve signup. You book a pilot, we run it with your team on
+          real calls. There is no free trial button because this is not a self-serve product.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does it work with my call tool?</summary>
+          <p>It ships as a desktop app — a small always-on-top card floating over whatever
+          video call you're already in: Zoom, Meet, or Teams. Not a Chrome extension. Not a
+          post-call report.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSER ============ -->
+  <section id="book" class="closer" aria-labelledby="closer-title">
+    <div class="wrap wrap-narrow closer-inner">
+      <p class="eyebrow">Book a pilot</p>
+      <h2 id="closer-title" class="display closer-title">
+        Every closed contract you make as a seller is another piece of life you're building for your family.
+      </h2>
+      <p class="closer-sub">
+        We run pilots on real calls with real reps. Book one and see the card land on
+        your next call.
+      </p>
+      <a class="btn btn-primary btn-large" href="https://pitchgenius.ai">Book a pilot</a>
+    </div>
+  </section>
+  </main>
+
+  <footer class="foot" role="contentinfo">
+    <div class="wrap foot-inner">
+      <div class="foot-brand">
+        <img class="foot-mark" src="assets/logo-white.png" alt="PitchGenius" width="160" height="40">
+        <p class="foot-line">A real-time sales co-pilot. It tells the rep what to say next, while there is still time to change the outcome.</p>
+      </div>
+      <p class="foot-copy">© 2026 PitchGenius.AI</p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

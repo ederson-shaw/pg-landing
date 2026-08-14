@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PitchGenius — know what to say while the buyer is still in the room</title>
+<meta name="description" content="PitchGenius is a real-time sales co-pilot. It reads the buyer, the deal and the live conversation, then coaches the rep in the moment — before, during and after the call, as one loop that tightens every call.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesque:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- 1. NAV (sticky) — promo line · mark+wordmark · 4 items · one primary CTA -->
+<header class="nav" id="top">
+  <div class="nav-promo">
+    <span class="nav-promo-dot" aria-hidden="true"></span>
+    <span class="nav-promo-text">Pilots, not self-serve signup. A real co-pilot, floated over your call.</span>
+  </div>
+  <div class="nav-row">
+    <a class="brand" href="#top" aria-label="PitchGenius, go to top">
+      <img class="brand-mark" src="assets/mark.png" alt="" width="28" height="28">
+      <span class="brand-word">PitchGenius</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#loop">How it works</a>
+      <a href="#audience">Who it's for</a>
+      <a href="#live">The live call</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#book">Book a pilot<span class="hover-arrow" aria-hidden="true"><span class="icon-sm">→</span><span class="icon-sm cc-two">→</span></span></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- 2. HERO — full-bleed, text bottom-left, the machine behind it -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-grain" aria-hidden="true"></div>
+  <img class="hero-illustration" src="assets/machine-ink-backdrop.png" alt="" aria-hidden="true" loading="eager">
+  <div class="hero-illustration-tint" aria-hidden="true"></div>
+
+  <!-- the machine: one continuous inked pathway, three stations, live card mounted at centre -->
+  <div class="machine" aria-hidden="true">
+    <svg class="machine-svg" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid meet" role="img" aria-label="A hand-drawn machine diagram: before, during and after the call connected as one looping pathway.">
+      <defs>
+        <marker id="arrowhead" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" fill="#1A1714"/>
+        </marker>
+      </defs>
+      <!-- main pathway: before -> during -> after -->
+      <path class="ink-path" d="M150,300 C 320,180 460,180 600,300 C 740,420 880,420 1050,300" fill="none"/>
+      <!-- loop-back arrow: after -> before (the system compounds) -->
+      <path class="ink-loop" d="M1050,300 C 980,90 420,90 150,300" fill="none" marker-end="url(#arrowhead)"/>
+      <!-- station rings -->
+      <circle class="ink-node" cx="150" cy="300" r="13"/>
+      <circle class="ink-node ink-node--live" cx="600" cy="300" r="17"/>
+      <circle class="ink-node" cx="1050" cy="300" r="13"/>
+      <!-- tick marks along path -->
+      <g class="ink-ticks">
+        <line x1="320" y1="208" x2="334" y2="218"/><line x1="420" y1="200" x2="430" y2="214"/>
+        <line x1="770" y1="408" x2="784" y2="398"/><line x1="870" y1="414" x2="884" y2="402"/>
+      </g>
+    </svg>
+
+    <div class="machine-label machine-label--before">
+      <span class="machine-tag">01 · Before</span>
+      <span class="machine-note">Buyer Blueprint</span>
+    </div>
+    <div class="machine-label machine-label--after">
+      <span class="machine-tag">03 · After</span>
+      <span class="machine-note">MEDDPICC gaps, evidence, next move</span>
+    </div>
+    <div class="machine-loop-label">
+      <span class="machine-tag">tighter every call →</span>
+    </div>
+
+    <!-- the live card (v2 spec: minimal three-block card + separate wave + stage rows) mounted at the centre node -->
+    <div class="livecard-stack">
+      <div class="wave-row" aria-hidden="true">
+        <svg class="wave-svg" viewBox="0 0 200 34" preserveAspectRatio="none"><path d="M0,17 Q3,8 6,17 T12,17 T18,17 T24,17 T30,17 T36,17 T42,17 T48,17 T54,17 T60,17 T66,17 T72,17 T78,17 T84,17 T90,17 T96,17 T102,17 T108,17 T114,17 T120,17 T126,17 T132,17 T138,17 T144,17 T150,17 T156,17 T162,17 T168,17 T174,17 T180,17 T186,17 T192,17 T198,17" stroke="#22d3ee" stroke-width="1.4" fill="none" opacity=".55"/></svg>
+      </div>
+      <div class="stage-row" aria-hidden="true">
+        <span class="stage-step is-done">Opening</span>
+        <span class="stage-step is-current" data-stage-mini>Discovery</span>
+        <span class="stage-step is-upcoming">Value</span>
+        <span class="stage-step is-upcoming">Decision</span>
+        <span class="stage-step is-upcoming">Close</span>
+      </div>
+      <article class="livecard" aria-label="The live-call card, recreated from a real call">
+        <header class="livecard-head">
+          <span class="livecard-mark" aria-hidden="true"></span>
+          <span class="livecard-word">PitchGenius HumanCue<sup>™</sup></span>
+          <span class="livecard-sep" aria-hidden="true"></span>
+          <span class="livecard-state" data-obs>Listening</span>
+          <span class="livecard-context">Readiness <b data-readiness="45">45</b> · <span data-stage>DISCOVERY</span></span>
+        </header>
+        <div class="livecard-body">
+          <div class="livecard-block">
+            <p class="livecard-label">NEXT BEST MOVE</p>
+            <p class="livecard-move">Clarify the display behavior</p>
+          </div>
+          <div class="livecard-block">
+            <p class="livecard-label">SAY THIS</p>
+            <blockquote class="livecard-say" data-say>The display scales to fit the screen. What are you seeing on your screen?</blockquote>
+          </div>
+          <div class="livecard-block">
+            <p class="livecard-label">WHY NOW</p>
+            <p class="livecard-why" data-why><span>reading the room</span> <span class="arrow">→</span> <span class="why-reason">this is the moment it costs him something</span></p>
+          </div>
+        </div>
+        <footer class="livecard-foot">
+          <a class="livecard-link" href="#live">Why this, now?</a>
+          <span class="livecard-actions"><button type="button" class="nextbtn" data-next>Next</button><button type="button" class="dismissbtn" data-dismiss>Dismiss</button></span>
+        </footer>
+      </article>
+    </div>
+  </div>
+
+  <!-- text column, bottom-left -->
+  <div class="hero-text reveal">
+    <p class="eyebrow">Before · during · after — one loop</p>
+    <h1 class="hero-title" id="hero-title">Know what to say <span class="muted-h">while the buyer is still in the room.</span></h1>
+    <p class="hero-sub">PitchGenius reads the buyer, the deal and the live conversation — then coaches the rep in the moment, while there is still time to change the outcome.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-large" href="#book">Book a pilot<span class="hover-arrow" aria-hidden="true"><span class="icon-sm">→</span><span class="icon-sm cc-two">→</span></span></a>
+      <a class="btn btn-ghost btn-large" href="#live"><span class="wave" aria-hidden="true"></span>See the live call</a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. TRUST BAND (replaces clay logo wall) — overlapping card, honest category contrast -->
+<section class="trust" aria-labelledby="trust-title">
+  <div class="card overlap">
+    <h2 class="trust-title" id="trust-title">Conversation intelligence tells you what the buyer said. <span class="muted-h">PitchGenius tells you what to say next.</span></h2>
+    <div class="contrast">
+      <div class="contrast-col">
+        <p class="contrast-kicker">CRM</p>
+        <p class="contrast-lead">Records the deal.</p>
+        <p class="contrast-body">Stage, activity, contacts, next steps — what already happened.</p>
+      </div>
+      <div class="contrast-col">
+        <p class="contrast-kicker">Conversation intelligence</p>
+        <p class="contrast-lead">Records the call.</p>
+        <p class="contrast-body">Transcript, summary, coaching — after the fact.</p>
+      </div>
+      <div class="contrast-col contrast-col--accent">
+        <p class="contrast-kicker">PitchGenius</p>
+        <p class="contrast-lead">Reads the decision.</p>
+        <p class="contrast-body">Buyer readiness, trust signals, resistance, and the next best move — while the moment is still alive.</p>
+      </div>
+    </div>
+    <p class="trust-foot">Checked against Gong, Clari, Clari Copilot and Chorus: none of them claim live in-conversation reading. That is the wedge.</p>
+  </div>
+</section>
+
+<!-- 4. THE THREE MOMENTS (replaces clay use-cases flow tabs) -->
+<section class="moments" id="loop" aria-labelledby="moments-title">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">The spine of the product</p>
+      <h2 class="section-title" id="moments-title">Before, during, after — <span class="muted-h">one loop.</span></h2>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="The three moments of a call">
+      <button class="tab is-active" role="tab" aria-selected="true" aria-controls="panel-before" id="tab-before" data-tab="before"><span class="tab-num">01</span> Before</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="panel-during" id="tab-during" data-tab="during"><span class="tab-num">02</span> During</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="panel-after" id="tab-after" data-tab="after"><span class="tab-num">03</span> After</button>
+    </div>
+
+    <div class="panel is-active" id="panel-before" role="tabpanel" aria-labelledby="tab-before">
+      <div class="panel-text reveal">
+        <p class="panel-kicker">Before the call · Buyer Blueprint</p>
+        <h3 class="panel-title">Know who you are about to talk to, before you dial.</h3>
+        <p class="panel-body">A profile of the person built before the call — how they decide, what builds their trust, what makes them resist.</p>
+        <ul class="checklist">
+          <li>Archetype &amp; social style</li>
+          <li>DISC personality read</li>
+          <li>Trust Triggers<sup>™</sup></li>
+          <li>Resistance Signals<sup>™</sup></li>
+          <li>The likely objection, as a sentence</li>
+        </ul>
+      </div>
+      <figure class="panel-shot">
+        <img src="assets/buyer-blueprint.webp" alt="Buyer Blueprint screen: a DISC personality wheel and trust/resistance signals for a Strategic Visionary archetype." width="1024" height="683" loading="lazy">
+      </figure>
+    </div>
+
+    <div class="panel" id="panel-during" role="tabpanel" aria-labelledby="tab-during" hidden>
+      <div class="panel-text reveal">
+        <p class="panel-kicker">During the call · the live card</p>
+        <h3 class="panel-title">Know what they are feeling — as they feel it.</h3>
+        <p class="panel-body">A floating card over the call shows what the buyer is doing right now, scores how ready they are, and gives the exact sentence to say next. This is the part nobody else does.</p>
+        <ul class="checklist">
+          <li>HumanCue<sup>™</sup> — a plain read of the buyer, right now</li>
+          <li>Buyer Readiness Index<sup>™</sup>, 0–100, live</li>
+          <li>Call stage detected — Opening, Discovery, Value, Decision, Close</li>
+          <li>SAY THIS — the literal next sentence</li>
+        </ul>
+      </div>
+      <figure class="panel-shot panel-shot--card">
+        <article class="livecard livecard--mini" aria-label="The live-call card">
+          <header class="livecard-head">
+            <span class="livecard-mark" aria-hidden="true"></span>
+            <span class="livecard-word">HumanCue<sup>™</sup></span>
+            <span class="livecard-context">Readiness <b>45</b> · DISCOVERY</span>
+          </header>
+          <div class="livecard-body">
+            <div class="livecard-block">
+              <p class="livecard-label">SAY THIS</p>
+              <blockquote class="livecard-say">The display scales to fit the screen. What are you seeing on your screen?</blockquote>
+            </div>
+            <div class="livecard-block">
+              <p class="livecard-label">WHY NOW</p>
+              <p class="livecard-why"><span>reading the room</span> <span class="arrow">→</span> <span class="why-reason">this is the moment it costs him something</span></p>
+            </div>
+          </div>
+        </article>
+      </figure>
+    </div>
+
+    <div class="panel" id="panel-after" role="tabpanel" aria-labelledby="tab-after" hidden>
+      <div class="panel-text reveal">
+        <p class="panel-kicker">After the call · post-call analysis</p>
+        <h3 class="panel-title">The next call does not start from memory.</h3>
+        <p class="panel-body">When the call ends, the analysis is already there — every claim pointing at the moment it came from.</p>
+        <ul class="checklist">
+          <li>Evidence-linked call summary</li>
+          <li>Buyer Readiness Index<sup>™</sup> with a written verdict</li>
+          <li>MEDDPICC gap analysis — 8 chips, scored</li>
+          <li>Next Best Move for the following call</li>
+          <li>Update CRM →</li>
+        </ul>
+      </div>
+      <figure class="panel-shot">
+        <img src="assets/post-call-analysis.webp" alt="Post-call analysis screen: MEDDPICC gap chips, buyer readiness verdict, and recommended next moves." width="518" height="1024" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 5. THE LIVE MOMENT (replaces clay "Sculptor" prompt input) — framed panel, the justified motion -->
+<section class="live" id="live" aria-labelledby="live-title">
+  <div class="frame-line frame-line--top" aria-hidden="true"></div>
+  <div class="waveform-divider" aria-hidden="true"><img src="assets/waveform-brush.png" alt=""></div>
+  <div class="container narrow">
+    <p class="eyebrow eyebrow--center">While the moment is still alive</p>
+    <h2 class="section-title center" id="live-title">It tells you what to say, in the room, before the buyer has finished the sentence.</h2>
+
+    <div class="stage" aria-live="polite">
+      <div class="wave-row wave-row--wide" aria-hidden="true">
+        <svg class="wave-svg" viewBox="0 0 400 34" preserveAspectRatio="none"><path d="M0,17 Q4,5 8,17 T16,17 T24,17 T32,17 T40,17 T48,17 T56,17 T64,17 T72,17 T80,17 T88,17 T96,17 T104,17 T112,17 T120,17 T128,17 T136,17 T144,17 T152,17 T160,17 T168,17 T176,17 T184,17 T192,17 T200,17 T208,17 T216,17 T224,17 T232,17 T240,17 T248,17 T256,17 T264,17 T272,17 T280,17 T288,17 T296,17 T304,17 T312,17 T320,17 T328,17 T336,17 T344,17 T352,17 T360,17 T368,17 T376,17 T384,17 T392,17" stroke="#22d3ee" stroke-width="1.4" fill="none" opacity=".55"/></svg>
+      </div>
+      <div class="stage-row stage-row--wide" aria-hidden="true">
+        <span class="stage-step is-done">Opening</span>
+        <span class="stage-step is-current" data-stage-mini>Discovery</span>
+        <span class="stage-step is-upcoming">Value</span>
+        <span class="stage-step is-upcoming">Decision</span>
+        <span class="stage-step is-upcoming">Close</span>
+      </div>
+      <article class="livecard livecard--stage" aria-label="The live-call card, large">
+        <header class="livecard-head">
+          <span class="livecard-mark" aria-hidden="true"></span>
+          <span class="livecard-word">PitchGenius HumanCue<sup>™</sup></span>
+          <span class="livecard-sep" aria-hidden="true"></span>
+          <span class="livecard-state" data-obs>Listening</span>
+          <span class="livecard-context">Readiness <b data-readiness="45">45</b> · <span data-stage>DISCOVERY</span></span>
+        </header>
+        <div class="livecard-body">
+          <div class="livecard-block">
+            <p class="livecard-label">NEXT BEST MOVE</p>
+            <p class="livecard-move">Clarify the display behavior</p>
+          </div>
+          <div class="livecard-block">
+            <p class="livecard-label">SAY THIS</p>
+            <blockquote class="livecard-say" data-say>The display scales to fit the screen. What are you seeing on your screen?</blockquote>
+          </div>
+          <div class="livecard-block">
+            <p class="livecard-label">WHY NOW</p>
+            <p class="livecard-why" data-why><span>reading the room</span> <span class="arrow">→</span> <span class="why-reason">this is the moment it costs him something</span></p>
+          </div>
+        </div>
+        <footer class="livecard-foot">
+          <a class="livecard-link" href="#live">Why this, now?</a>
+          <span class="livecard-actions"><button type="button" class="nextbtn" data-next>Next</button><button type="button" class="dismissbtn" data-dismiss>Dismiss</button></span>
+        </footer>
+      </article>
+    </div>
+    <p class="live-caption">One coherent moment, from one real call. No invented numbers, anywhere on this page.</p>
+  </div>
+  <div class="frame-line frame-line--bottom" aria-hidden="true"></div>
+</section>
+
+<!-- 6. FOR THE REP + MANAGER (clay's "Reps" — one section, two audiences, one photograph) -->
+<section class="audience" id="audience" aria-labelledby="audience-title">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">Who it's for</p>
+      <h2 class="section-title" id="audience-title">For the rep in the room. <span class="muted-h">For the manager reading the team.</span></h2>
+    </header>
+
+    <div class="audience-grid">
+      <div class="audience-text reveal">
+        <h3 class="audience-h3">The rep — an unfair advantage, kept private.</h3>
+        <p class="audience-lead">You walk in already briefed, coached in the moment, and the next call starts from evidence not memory. You stop losing deals you could have saved. You stop replaying the call wondering what you missed.</p>
+        <div class="privacy">
+          <p class="privacy-q">"Is this scoring me and handing the score to my manager?"</p>
+          <p class="privacy-a">No. Your ten calibration answers are private. Managers see usage and deal activity. They do not see your answers.</p>
+          <span class="ink-check" aria-hidden="true" title="hand-drawn check"></span>
+        </div>
+        <p class="audience-note">The rep is the hero. PitchGenius is the earpiece, not the star.</p>
+        <div class="audience-ink" aria-hidden="true">
+          <img src="assets/profile-listening.png" alt="">
+        </div>
+      </div>
+      <figure class="audience-shot">
+        <img src="assets/rep-calibration.webp" alt="Rep Calibration screen showing a private Likert-scale coaching question." width="1024" height="683" loading="lazy">
+      </figure>
+    </div>
+
+    <div class="manager-band">
+      <div class="manager-text reveal">
+        <h3 class="audience-h3">The manager — it compounds, across the whole team.</h3>
+        <p class="audience-lead">The same loop tightens every call, for every rep, without anyone running a training session. Four levers, phrased as mechanisms — no invented percentages.</p>
+        <div class="levers">
+          <div class="lever"><b>Win rate</b> — same reps, more of the same pipeline closed.</div>
+          <div class="lever"><b>Ramp time</b> — a new rep performs in weeks, not quarters.</div>
+          <div class="lever"><b>Forecast accuracy</b> — readiness scored on every call, not what reps hope.</div>
+          <div class="lever"><b>Coaching capacity</b> — one tool sits on forty calls a week. No manager can.</div>
+        </div>
+        <p class="competitive">Your competitor's rep is going to have this. The question is whether yours does first.</p>
+      </div>
+      <figure class="manager-photo">
+        <img src="assets/manager-watching.png" alt="A sales manager at her desk in the evening, watching a monitor she isn't touching, lit by the screen on one side and warm room light on the other." width="1280" height="1024" loading="lazy">
+        <figcaption>A manager at the end of the day, watching a call she didn't have to sit on.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 9. THE LOOP CLOSES (replaces clay updates bento) -->
+<section class="close" aria-labelledby="close-title">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">The loop closes</p>
+      <h2 class="section-title" id="close-title">Every call makes the next one better.</h2>
+    </header>
+
+    <div class="bento">
+      <article class="bento-tile bento-loop reveal">
+        <img class="loop-gears-ink" src="assets/loop-gears-ink.png" alt="" aria-hidden="true" loading="lazy">
+        <svg class="loop-svg" viewBox="0 0 400 200" aria-hidden="true">
+          <path d="M40,100 C90,30 170,30 200,100 C230,170 310,170 360,100" class="ink-path"/>
+          <path d="M360,100 C320,20 90,20 40,100" class="ink-loop" fill="none"/>
+          <circle cx="40" cy="100" r="9" class="ink-node"/>
+          <circle cx="200" cy="100" r="11" class="ink-node ink-node--live"/>
+          <circle cx="360" cy="100" r="9" class="ink-node"/>
+        </svg>
+        <p class="bento-cap"><b>Before → during → after → before.</b> The blueprint informs the live coaching; the live call feeds the analysis; the analysis feeds the next blueprint. The same loop, across the team, tightening on its own.</p>
+      </article>
+
+      <article class="bento-tile bento-founder reveal">
+        <p class="founder-mark">"</p>
+        <p class="founder-quote">"Our branding has really got to be Human plus AI. Enhance humans — not replace them."</p>
+        <p class="founder-sig">— Russell, founder, on the branding call</p>
+      </article>
+
+      <article class="bento-tile bento-ceiling reveal">
+        <p class="ceiling">Every closed contract you make as a seller is another piece of life you're building for your family.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- 10. FOOTER — big CTA + quiet band + honest link grid + credit -->
+<footer class="footer" id="book" aria-labelledby="footer-title">
+  <div class="footer-cta">
+    <div class="container narrow">
+      <h2 class="footer-title" id="footer-title">Walk into the next call already ahead.</h2>
+      <p class="footer-sub">Pilots, not self-serve signup. A small always-on-top card, over Zoom, Meet or Teams.</p>
+      <div class="footer-actions">
+        <a class="btn btn-primary btn-large" href="#book">Book a pilot<span class="hover-arrow" aria-hidden="true"><span class="icon-sm">→</span><span class="icon-sm cc-two">→</span></span></a>
+        <a class="btn btn-ghost btn-large" href="#live">See the live call</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-grid">
+    <div class="container">
+      <div class="foot-col">
+        <p class="foot-head">Product</p>
+        <a href="#loop">How it works</a>
+        <a href="#live">The live call</a>
+        <a href="#loop">Buyer Intelligence</a>
+        <a href="#loop">Buyer Readiness Index<sup>™</sup></a>
+      </div>
+      <div class="foot-col">
+        <p class="foot-head">Company</p>
+        <a href="#book">Book a pilot</a>
+        <a href="#audience">Who it's for</a>
+        <a href="#live">See how it works</a>
+      </div>
+      <div class="foot-col">
+        <p class="foot-head">Answers</p>
+        <a href="#audience">Does it replace the rep?</a>
+        <a href="#audience">Is my calibration private?</a>
+        <a href="#audience">Where does it run?</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="credit">
+    <div class="container credit-row">
+      <a class="brand brand--foot" href="#top">
+        <img class="brand-mark" src="assets/mark.png" alt="" width="24" height="24">
+        <span class="brand-word">PitchGenius</span>
+      </a>
+      <p class="credit-text">Built for the moment it costs you something. <span class="credit-copy">© <span id="year">2026</span> PitchGenius.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>

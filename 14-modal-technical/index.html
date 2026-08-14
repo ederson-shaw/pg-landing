@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PitchGenius — what to say next, while the call is still happening</title>
+  <meta name="description" content="A real-time sales co-pilot. It listens to the live call and tells the rep what the buyer is feeling and the exact sentence to say next, while there is still time to change the outcome." />
+  <meta name="theme-color" content="#0C0D0C" />
+  <meta property="og:title" content="PitchGenius — what to say next, while the call is still happening" />
+  <meta property="og:description" content="A real-time sales co-pilot that reads the buyer and coaches the rep in the moment. Human plus AI. Enhances humans — does not replace them." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Spline+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">skip to content</a>
+
+  <div class="strip" role="note">
+    <span class="strip__dot" aria-hidden="true"></span>
+    <span class="strip__text">rep calibration is <strong>private</strong>. managers see usage and deal activity — never your answers.</span>
+  </div>
+
+  <header class="nav" id="top">
+    <a class="nav__brand" href="#top" aria-label="PitchGenius home">
+      <img class="nav__mark" src="assets/mark.png" alt="" width="28" height="28" />
+      <span class="nav__word">PitchGenius</span>
+    </a>
+    <nav class="nav__links" aria-label="primary">
+      <a href="#mechanism">mechanism</a>
+      <a href="#moments">the call</a>
+      <a href="#audit">audit</a>
+      <a href="#manager">for managers</a>
+    </nav>
+    <a class="btn btn--primary nav__cta" href="#pilot">book a pilot</a>
+  </header>
+
+  <main id="main">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <p class="kicker"><span class="kicker__rule" aria-hidden="true"></span>real-time sales co-pilot</p>
+        <h1 class="hero__title" id="hero-title">
+          Know what your buyer is ready for.
+          <span class="hero__title-accent">while the call is still happening.</span>
+        </h1>
+        <p class="hero__sub">PitchGenius listens to the live call, reads the buyer, and hands the rep the exact sentence to say next — in the moment, before the buyer hangs up. It does not sell for them.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#pilot">book a pilot</a>
+          <a class="btn btn--ghost" href="#live-card">see the live call ↓</a>
+        </div>
+      </div>
+
+      <aside class="terminal" id="terminal" aria-label="live buyer readiness readout — Russell Pontone, discovery stage">
+        <div class="terminal__head">
+          <span class="terminal__rec" aria-hidden="true"></span>
+          <span class="terminal__contact">russell&nbsp;pontone</span>
+          <span class="terminal__badge">challenger</span>
+          <span class="terminal__stage">discovery</span>
+        </div>
+        <div class="terminal__readiness">
+          <span class="terminal__num" id="readiness-num">45</span>
+          <span class="terminal__den">/100</span>
+        </div>
+        <p class="terminal__label">buyer readiness index™</p>
+        <dl class="terminal__signals" id="signals">
+          <div class="signal" data-signal="trust">
+            <dt>trust</dt>
+            <dd><span class="signal__bar"><i style="--v:0.45"></i></span><span class="signal__val">45</span></div>
+          </div>
+          <div class="signal" data-signal="urgency">
+            <dt>urgency</dt>
+            <dd><span class="signal__bar"><i style="--v:0.20"></i></span><span class="signal__val">20</span></div>
+          </div>
+          <div class="signal" data-signal="pain">
+            <dt>pain scale</dt>
+            <dd><span class="signal__bar"><i style="--v:0.60"></i></span><span class="signal__val">60</span></div>
+          </div>
+          <div class="signal" data-signal="willing">
+            <dt>willingness to move</dt>
+            <dd><span class="signal__bar"><i style="--v:0.30"></i></span><span class="signal__val">30</span></div>
+          </div>
+          <div class="signal" data-signal="hurry">
+            <dt>in no hurry</dt>
+            <dd><span class="signal__flag">flagged</span></dd>
+          </div>
+        </dl>
+        <p class="terminal__cue"><span class="terminal__cue-label">humancue™</span> buyer is still describing the screen display</p>
+      </aside>
+
+      <img class="waveform" src="assets/waveform-brush.png" alt="" aria-hidden="true" />
+    </section>
+
+    <section class="ticker" aria-label="the signals the model reads" role="note">
+      <div class="ticker__track">
+        <span>humancue™</span><span>·</span><span>trust</span><span>·</span><span>urgency</span><span>·</span><span>pain scale</span><span>·</span><span>willingness to move</span><span>·</span><span>call stage</span><span>·</span><span>meddpicc</span><span>·</span><span>next best move</span>
+        <span>humancue™</span><span>·</span><span>trust</span><span>·</span><span>urgency</span><span>·</span><span>pain scale</span><span>·</span><span>willingness to move</span><span>·</span><span>call stage</span><span>·</span><span>meddpicc</span><span>·</span><span>next best move</span>
+      </div>
+    </section>
+
+    <section class="moments" id="moments" aria-labelledby="moments-title">
+      <div class="moments__head">
+        <p class="kicker"><span class="kicker__rule" aria-hidden="true"></span>one call, three beats</p>
+        <h2 id="moments-title" class="section-title">a story the rep already knows, in the order it happens.</h2>
+        <p class="section-lede">the wedge lives in beat two. everyone records calls. everyone summarises them after. nobody tells the rep what to say while the buyer is still in the room.</p>
+      </div>
+
+      <ol class="moments__grid">
+        <li class="moment">
+          <span class="moment__n">01</span>
+          <h3 class="moment__title">before the call</h3>
+          <p class="moment__product">buyer blueprint · pre-call buyer intelligence™</p>
+          <p class="moment__body">a profile of the person you are about to talk to, built before you dial. archetype, DISC-based personality read, decision pattern, the three things that make this specific person trust you, the two or three that make them shut down, and the objection they are most likely to raise — stated as a sentence, not a category.</p>
+          <ul class="moment__list">
+            <li><span aria-hidden="true">→</span> how they decide</li>
+            <li><span aria-hidden="true">→</span> what builds their trust</li>
+            <li><span aria-hidden="true">→</span> what creates resistance</li>
+          </ul>
+        </li>
+        <li class="moment moment--accent">
+          <span class="moment__n">02</span>
+          <h3 class="moment__title">during the call</h3>
+          <p class="moment__product">humancue™ · buyer readiness index™ · live co-pilot</p>
+          <p class="moment__body">a small always-on-top card floats over whatever video call you are already in — zoom, meet, teams. it shows what the buyer is doing right now in plain language, scores readiness 0–100 live, names the stage, and hands you the next sentence to say out loud, with the reason it is the right moment to say it.</p>
+          <ul class="moment__list">
+            <li><span aria-hidden="true">→</span> what the buyer is feeling, as they feel it</li>
+            <li><span aria-hidden="true">→</span> the literal sentence to say next</li>
+            <li><span aria-hidden="true">→</span> why now, not in the next call</li>
+          </ul>
+        </li>
+        <li class="moment">
+          <span class="moment__n">03</span>
+          <h3 class="moment__title">after the call</h3>
+          <p class="moment__product">post-call analysis · meddpicc · next best move</p>
+          <p class="moment__body">the next call does not start from memory. every claim in the summary points at the moment in the call it came from. the eight MEDDPICC chips are scored strong, neutral or weak. the buyer readiness index ships with a written verdict. the next moves are listed, not implied.</p>
+          <ul class="moment__list">
+            <li><span aria-hidden="true">→</span> evidence-linked summary</li>
+            <li><span aria-hidden="true">→</span> meddpicc gap analysis</li>
+            <li><span aria-hidden="true">→</span> next best move for the next call</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section class="livecard-wrap" id="live-card" aria-labelledby="livecard-title">
+      <div class="livecard-wrap__head">
+        <p class="kicker"><span class="kicker__rule" aria-hidden="true"></span>one real moment, recreated</p>
+        <h2 id="livecard-title" class="section-title">the live card, in the state it was in at 16:29 on a real call.</h2>
+        <p class="section-lede">every number below comes from one coherent moment. the readiness is 45. the stage is discovery. the next sentence is the one the product actually surfaced. there is no second set of numbers on this page — that would be the defect.</p>
+      </div>
+
+      <article class="livecard" aria-label="live call co-pilot card — russell pontone, discovery, readiness 45">
+        <header class="livecard__bar">
+          <span class="livecard__rec" aria-hidden="true"></span>
+          <span class="livecard__contact">Russell Pontone</span>
+          <span class="livecard__arch">challenger</span>
+          <span class="livecard__spacer"></span>
+          <span class="livecard__clock">16:29</span>
+          <span class="livecard__end">■ end</span>
+        </header>
+
+        <div class="livecard__status">
+          <span class="livecard__humancue-mark" aria-hidden="true">◎</span>
+          <span class="livecard__humancue">HumanCue<sup>™</sup></span>
+          <span class="livecard__divider" aria-hidden="true"></span>
+          <span class="livecard__obs">buyer is still describing the screen display</span>
+          <span class="livecard__spacer"></span>
+          <span class="livecard__read-label">readiness</span>
+          <span class="livecard__read-num">45</span>
+          <span class="livecard__stage">discovery</span>
+        </div>
+
+        <div class="livecard__move">
+          <span class="livecard__label">next best move</span>
+          <p class="livecard__move-value">Clarify the display behavior</p>
+        </div>
+
+        <div class="livecard__say">
+          <span class="livecard__label">say this</span>
+          <blockquote class="livecard__quote"><span aria-hidden="true">“</span>The display scales to fit the screen. What are you seeing on your screen?<span aria-hidden="true">”</span></blockquote>
+        </div>
+
+        <div class="livecard__why">
+          <span class="livecard__label">why now</span>
+          <p class="livecard__why-value"><span>reading the room</span> <span class="livecard__arrow" aria-hidden="true">→</span> <span class="livecard__why-after">this is the moment it costs him something</span></p>
+        </div>
+
+        <footer class="livecard__foot">
+          <a class="livecard__link" href="#mechanism">why this, now?</a>
+          <span class="livecard__spacer"></span>
+          <button class="livecard__btn livecard__btn--ghost" type="button">dismiss</button>
+          <button class="livecard__btn livecard__btn--solid" type="button">next</button>
+        </footer>
+      </article>
+
+      <p class="livecard-wrap__caption">this is the real product surface. not a mock, not a chart with invented axes. the rep reads the quote out loud, mid-sentence, while russell is still on the line.</p>
+    </section>
+
+    <section class="mechanism" id="mechanism" aria-labelledby="mech-title">
+      <div class="mechanism__head">
+        <p class="kicker"><span class="kicker__rule" aria-hidden="true"></span>the mechanism, said plainly</p>
+        <h2 id="mech-title" class="section-title">a system you can audit. not a black box you have to trust.</h2>
+        <p class="section-lede">if the only way to defend a number is "the model said so," the number is useless on a live call. here is what is read, what the index is made of, and where it can be wrong.</p>
+      </div>
+
+      <div class="mechanism__grid">
+        <article class="mech">
+          <h3 class="mech__title">what is read</h3>
+          <ul class="mech__list">
+            <li>the words the buyer says, transcribed live</li>
+            <li>how they say them — pace, pauses, where the energy drops</li>
+            <li>the deal context from your blueprint and CRM</li>
+            <li>the stage of the call — opening, discovery, value, decision, close — detected, not set by hand</li>
+          </ul>
+        </article>
+        <article class="mech">
+          <h3 class="mech__title">what the index is made of</h3>
+          <ul class="mech__list mech__list--def">
+            <li><dfn>trust</dfn> — does this buyer believe you understand their problem</li>
+            <li><dfn>urgency</dfn> — is there a reason to move this quarter, not next</li>
+            <li><dfn>pain scale</dfn> — how much this is actually costing them today</li>
+            <li><dfn>willingness to move</dfn> — are they ready to change how they work</li>
+            <li><dfn>"in no hurry"</dfn> — the model will say this out loud when it is true</li>
+          </ul>
+          <p class="mech__note">readiness 0–100 is these signals, recomputed live. it steps in small increments — it does not jump.</p>
+        </article>
+        <article class="mech mech--warn">
+          <h3 class="mech__title">where it can be wrong</h3>
+          <ul class="mech__list">
+            <li>on a call with heavy background noise, the transcription is less sure, and so is everything downstream</li>
+            <li>early in a deal, the buyer has shown fewer signals, so the index is wider-of-the-mark by definition</li>
+            <li>it reads the buyer, not the market — a budget freeze will not appear in the call until someone names it</li>
+            <li>a buyer who is quiet out of caution looks different from a buyer who is quiet out of disinterest. the model says which it thinks. it can be wrong.</li>
+          </ul>
+          <p class="mech__note">saying what it cannot do is the most persuasive thing on this page.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="audit" id="audit" aria-labelledby="audit-title">
+      <div class="audit__inner">
+        <p class="kicker"><span class="kicker__rule" aria-hidden="true"></span>privacy, by product design</p>
+        <h2 id="audit-title" class="section-title">calibration is yours. the deal belongs to the team.</h2>
+        <p class="section-lede">the rep answers ten calibration questions once, privately, in their own words. those answers tune how the co-pilot talks to them — fast and direct, or patient and detailed. managers never see them.</p>
+
+        <dl class="audit__split">
+          <div class="audit__col">
+            <dt class="audit__col-head">the rep sees</dt>
+            <dd class="audit__col-body">their own calibration answers, their own coaching, their own readiness reads in the moment.</dd>
+          </div>
+          <div class="audit__col audit__col--manager">
+            <dt class="audit__col-head">the manager sees</dt>
+            <dd class="audit__col-body">usage and deal activity. whether the call happened, whether the next move was taken, whether the deal moved. never the rep's answers.</dd>
+          </div>
+        </dl>
+
+        <p class="audit__line">this is a product promise, not a settings toggle. it ships that way.</p>
+      </div>
+    </section>
+
+    <section class="manager" id="manager" aria-labelledby="manager-title">
+      <div class="manager__head">
+        <p class="kicker"><span class="kicker__rule" aria-hidden="true"></span>for the vp of sales</p>
+        <h2 id="manager-title" class="section-title">four mechanisms. no invented percentages.</h2>
+        <p class="section-lede">there are no published win-rate or ramp numbers yet — a fake number destroys the page for exactly the buyer it is meant to convince. what follows is the mechanism, in the manager's own language.</p>
+      </div>
+
+      <ol class="manager__grid">
+        <li class="manager__item">
+          <span class="manager__n">01</span>
+          <h3 class="manager__name">win rate</h3>
+          <p class="manager__body">the same reps close more of the same pipeline — because the rep takes the right next move in the call, not the move they would have guessed at alone afterwards.</p>
+        </li>
+        <li class="manager__item">
+          <span class="manager__n">02</span>
+          <h3 class="manager__name">ramp time</h3>
+          <p class="manager__body">a new rep performs like a good rep in weeks instead of quarters. the coaching happens during the call, where the buyer is, not in the monday review two days later.</p>
+        </li>
+        <li class="manager__item">
+          <span class="manager__n">03</span>
+          <h3 class="manager__name">forecast accuracy</h3>
+          <p class="manager__body">buyer readiness is scored on every call. the pipeline stops being what reps hope and starts being what buyers showed — in their own words, on their own calls.</p>
+        </li>
+        <li class="manager__item">
+          <span class="manager__n">04</span>
+          <h3 class="manager__name">coaching capacity</h3>
+          <p class="manager__body">one manager cannot sit on forty calls a week. this sits on all of them. the manager reads the verdicts; the rep gets the coaching.</p>
+        </li>
+      </ol>
+
+      <p class="manager__wedge">your competitor's rep is going to have this. the question is whether yours does first.</p>
+    </section>
+
+    <section class="category" aria-labelledby="category-title">
+      <div class="category__inner">
+        <p class="kicker"><span class="kicker__rule" aria-hidden="true"></span>the category, stated flat</p>
+        <h2 id="category-title" class="category__title">conversation intelligence tells you what the buyer said. pitchgenius tells you what to say next, while there is still time to change the outcome.</h2>
+        <table class="category__table">
+          <thead>
+            <tr><th scope="col">who</th><th scope="col">what they do</th><th scope="col">what they do not do</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">gong</th><td>record, transcribe, coach after the fact</td><td>say anything during the call</td></tr>
+            <tr><th scope="row">clari / copilot</th><td>forecasting, revenue ops, recording</td><td>live in-conversation coaching</td></tr>
+            <tr><th scope="row">chorus</th><td>recording and analytics</td><td>live in-conversation coaching</td></tr>
+            <tr><th scope="row">salesforce / hubspot</th><td>store what already happened</td><td>tell you what to do next</td></tr>
+            <tr class="category__us"><th scope="row">pitchgenius</th><td>reads the buyer live, coaches the rep in the moment</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="pilot" id="pilot" aria-labelledby="pilot-title">
+      <div class="pilot__inner">
+        <p class="kicker"><span class="kicker__rule" aria-hidden="true"></span>pilots, not self-serve</p>
+        <h2 id="pilot-title" class="pilot__title">every closed contract is another piece of life you are building for your family.</h2>
+        <p class="pilot__sub">we run pilots with revenue teams who want the rep to have the advantage in the room. there is no free trial, no self-serve signup, no thirty-second onboarding.</p>
+        <a class="btn btn--primary pilot__cta" href="https://pitchgenius.ai" target="_blank" rel="noopener">book a pilot</a>
+        <p class="pilot__quiet">said once, quietly. no icon next to it.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="foot__inner">
+      <div class="foot__brand">
+        <img class="foot__mark" src="assets/mark.png" alt="" width="24" height="24" />
+        <span class="foot__word">PitchGenius.AI</span>
+      </div>
+      <nav class="foot__nav" aria-label="footer">
+        <a href="#mechanism">mechanism</a>
+        <a href="#moments">the call</a>
+        <a href="#audit">privacy</a>
+        <a href="#manager">for managers</a>
+        <a href="#pilot">book a pilot</a>
+      </nav>
+      <p class="foot__copy">© PitchGenius — human plus AI. enhances humans, does not replace them.</p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

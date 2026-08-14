@@ -1,0 +1,625 @@
+/* ============================================================
+   PitchGenius — 03-clay-system
+   Structure 1:1 from clay.com (container 75rem, section rhythm,
+   hero bottom-left text, overlapping card, 2-col surfaces, bento).
+   Content 0:1. Palette pulled from clay's real CSS (EXTRACT.md)
+   per RULES.md 2026-08-14 RECLOTHE correction: white page ground,
+   sage green hero, oat cards, cream footer, black buttons.
+   The live card carries its own internal palette per
+   product-ui-live-card-v2.json (near-black navy + cyan accent).
+   ============================================================ */
+
+:root{
+  /* palette — pulled from clay.com real CSS, per RULES.md 2026-08-14 correction */
+  --paper:#FFFFFF;          /* page ground (clay: #fff) */
+  --oat:#F4F3F0;            /* lifted card fill (clay: oat-200) */
+  --oat-deep:#E5E3DF;       /* hairlines, edges */
+  --sage:#035D44;           /* hero ground (clay: hero sage) */
+  --sage-2:#004732;         /* darker sage accent */
+  --cream:#FFFDF9;          /* footer ground (clay: footer cream) */
+  --ink:#000000;            /* body + headline text (clay: #000) */
+  --stone:#5F5B53;          /* muted secondary text (clay oat-700 darkened to pass 4.5:1) */
+  --stone-2:#7C766B;        /* lighter muted (large-text only) */
+  --terra:#FC8936;          /* clay tangerine — used sparingly for eyebrow accents where clay uses terra */
+  --btn-hover:#282C35;      /* clay button hover */
+
+  /* product live-card internal palette (per product-ui-live-card-v2.json, faithful) */
+  --card-bg-1:#101A26;      /* card bg gradient top (v2 spec) */
+  --card-bg-2:#0C141E;      /* card bg gradient bottom (v2 spec) */
+  --card-page:#0D131A;      /* page bg behind card (v2 spec) */
+  --card-text:#E8EDF7;      /* primary text on card */
+  --card-soft:#F1F4FA;      /* SAY THIS quote colour (softened white, v2 spec) */
+  --card-mute:#8B96A8;      /* muted text on card */
+  --card-label:#98A2C0;     /* resting label / state muted */
+  --card-reason:#DDE4F0;    /* why-now reason text */
+  --cyan:#22D3EE;           /* cyan-lit (v2: the ONLY accent on the card, means "machine recommending") */
+  --cyan-base:#06B6D4;      /* cyan base for arrows and quote marks (v2 spec) */
+  --cyan-border:rgba(90,195,255,.32); /* card outer border (v2 spec) */
+  --gold:#D9B26A;           /* suggestion held back (v2 spec) */
+  --card-hair:rgba(255,255,255,.045); /* inner block divider (v2 spec) */
+  --card-head-hair:rgba(255,255,255,.06); /* header bottom border (v2 spec) */
+
+  /* type — Hanken Grotesque = closest free equivalent to clay's Roobert */
+  --display:"Hanken Grotesque", "Figtree", system-ui, sans-serif;
+  --body:"Hanken Grotesque", system-ui, -apple-system, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, monospace;
+  --quote:"Sora", "Hanken Grotesque", sans-serif; /* SAY THIS line only (v2 spec: Sora) */
+
+  /* rhythm (mirrors clay: 75rem container, 4/8 spacing) */
+  --container:75rem;       /* 1200px */
+  --narrow:60rem;          /* 960px */
+  --gap:1.5rem;            /* 24px */
+  --sec-y:5.5rem;          /* section vertical padding desktop */
+  --sec-y-sm:3rem;
+  --r-card:1.5rem;         /* medium radius (clay medium) */
+  --r-lg:2.5rem;           /* large card radius (clay large) */
+  --r-btn:0.75rem;         /* clay button radius */
+  /* two distinct clay easing curves, grepped from the real min.css, not one generic --ease:
+     1) --ease-btn: cubic-bezier(.075,.82,.165,1) — clay's .btn hover curve (22 occurrences
+        site-wide: .btn, .dropdown-link, .resource_item, form inputs)
+     2) --ease-content: cubic-bezier(.165,.84,.44,1) — clay's dominant curve (29 occurrences,
+        the single most-used easing on the site: cards, blog images, footer social links,
+        button-component variants) — a smoother decelerate, distinct from the button curve */
+  --ease:cubic-bezier(.075,.82,.165,1);           /* clay .btn: transition-duration:.3s */
+  --ease-content:cubic-bezier(.165,.84,.44,1);    /* clay .loam-card / image hover: .3s-.4s */
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--body);
+  font-size:1.0625rem;
+  line-height:1.6;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+/* fixed paper-grain texture, multiply-blended, low opacity — the human-made layer under
+   everything else. RESULT.md claimed this since the last pass; it was never actually
+   wired into the CSS, so the page shipped without it. Fixed here. */
+body::before{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;
+  background-image:url("assets/paper-grain.png");background-size:640px;background-repeat:repeat;
+  mix-blend-mode:multiply;opacity:.045;
+}
+sup{font-size:.65em;vertical-align:super;line-height:0}
+
+.container{width:90%;max-width:var(--container);margin-inline:auto}
+.container.narrow{max-width:var(--narrow)}
+
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.025em;line-height:1.02;margin:0}
+
+/* clay page ground is flat white — no paper texture overlay (fidelity to reference) */
+
+/* ---- focus + skip ---- */
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible,summary:focus-visible{
+  outline:2px dashed var(--ink);outline-offset:3px;border-radius:3px;
+}
+.skip{
+  position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);
+  padding:.6rem 1rem;z-index:200;border-radius:0 0 var(--r-btn) 0;
+}
+.skip:focus{left:0}
+
+/* ---- type helpers ---- */
+.eyebrow{
+  font-family:var(--mono);font-weight:500;text-transform:uppercase;
+  letter-spacing:.18em;font-size:.72rem;color:var(--ink);margin:0 0 1rem;
+}
+.eyebrow--center{text-align:center}
+.muted-h{color:var(--stone)}
+.center{text-align:center}
+
+/* ---- buttons ---- */
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--body);font-weight:600;font-size:.95rem;
+  padding:.625rem 1.1rem;border-radius:var(--r-btn);
+  border:1.5px solid transparent;cursor:pointer;
+  transition:background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
+}
+/* hover-arrow: clay's real link/button interaction — two stacked arrows that slide-swap
+   on hover (confirmed base rules, grepped verbatim from clay's min.css: .hover-arrow{
+   justify-content:center;align-items:center;display:flex} .hover-arrow.cc-second{
+   position:absolute} — clay uses this on every CTA, not an underline or a colour fade).
+   The compiled hover transform values live in Webflow's IX runtime JS, not static CSS,
+   so the travel distance below is this page's own choice; the curve is not: --ease-content,
+   clay's dominant .3s decelerate, same one now driving .reveal. */
+.hover-arrow{justify-content:center;align-items:center;display:flex;position:relative;width:.8em;height:1em;overflow:hidden}
+.hover-arrow .icon-sm{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  transition:transform .3s var(--ease-content),opacity .3s var(--ease-content)}
+.hover-arrow .icon-sm.cc-two{transform:translate(-130%,130%);opacity:0}
+.btn:hover .hover-arrow .icon-sm:not(.cc-two){transform:translate(130%,-130%);opacity:0}
+.btn:hover .hover-arrow .icon-sm.cc-two{transform:translate(0,0);opacity:1}
+.btn-primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn-primary:hover{background:var(--btn-hover);border-color:var(--btn-hover)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-large{padding:.8rem 1.4rem;font-size:1rem}
+.wave{
+  width:22px;height:10px;display:inline-block;position:relative;
+}
+.wave::before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 5px);
+  -webkit-mask:radial-gradient(circle at 50% 50%, #000 30%, transparent 70%) ;
+  mask:radial-gradient(circle at 50% 50%, #000 30%, transparent 70%);
+  transform:scaleX(2.6);
+}
+
+/* ============================================================
+   1. NAV
+   ============================================================ */
+.nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--oat-deep)}
+.nav-promo{
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+  background:var(--sage);color:var(--oat);
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;
+  padding:.4rem 1rem;
+}
+.nav-promo-dot{width:7px;height:7px;border-radius:50%;background:var(--terra);flex:0 0 auto}
+.nav-row{
+  width:90%;max-width:var(--container);margin-inline:auto;
+  display:flex;align-items:center;gap:1.5rem;
+  padding:.85rem 0;
+}
+.brand{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.1rem;min-height:44px}
+.brand-mark{width:28px;height:28px;border-radius:50%;background:var(--ink);object-fit:contain}
+.nav-links{display:flex;gap:1.6rem;margin-inline:auto}
+.nav-links a{font-size:.95rem;color:var(--ink);position:relative;padding:.5rem .55rem;display:inline-block;min-height:44px;display:inline-flex;align-items:center}
+.nav-links a::after{
+  content:"";position:absolute;left:0;right:100%;bottom:-2px;height:1.5px;background:var(--ink);
+  transition:right .25s var(--ease);
+}
+.nav-links a:hover::after,.nav-links a:focus-visible::after{right:0}
+.nav-cta{margin-left:auto}
+
+/* ============================================================
+   2. HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  min-height:88vh;
+  padding:6rem 0 0;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  background:var(--sage);
+  color:#fff;
+}
+.hero-grain{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(110% 70% at 80% 25%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(90% 60% at 15% 90%, rgba(0,0,0,.18), transparent 60%);
+}
+/* bespoke illustrated contraption, generated for this project (03-clay-system only, not
+   the shared asset pool) — the "illustrated or built object as the hero" PROMPT.md asks
+   for, sitting behind the legible SVG diagram + live card so the hero keeps the thing
+   PROMPT.md forbids losing: legibility as software, not just a charming abstract object. */
+.hero-illustration{
+  position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;
+  object-position:center 30%;opacity:.16;filter:saturate(.7);
+}
+.hero-illustration-tint{
+  position:absolute;inset:0;z-index:1;background:var(--sage);mix-blend-mode:color;opacity:.85;
+}
+/* fade hero into the white section below (clay does this) */
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:20vh;z-index:1;pointer-events:none;
+  background:linear-gradient(transparent, var(--paper));
+}
+
+/* the machine — its own band, top of the hero */
+.machine{position:relative;z-index:2;width:100%;height:54vh;min-height:380px;pointer-events:none}
+.machine-svg{position:absolute;top:0;left:0;width:100%;height:100%;opacity:.92}
+.ink-path,.ink-loop{stroke:#fff;stroke-width:2.4;fill:none;stroke-linecap:round;
+  stroke-dasharray:5 7;opacity:.7}
+.ink-loop{stroke-dasharray:2 6;opacity:.4}
+.ink-node{stroke:#fff;stroke-width:2.4;fill:var(--sage);opacity:.85}
+.ink-node--live{fill:var(--cyan);stroke:var(--cyan);opacity:1}
+.ink-ticks line{stroke:#fff;stroke-width:2;opacity:.45}
+
+.machine-label{position:absolute;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:#fff;text-align:center;opacity:.85}
+.machine-label .machine-tag{display:block;color:var(--cyan);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.66rem}
+.machine-label .machine-note{display:block;color:rgba(255,255,255,.7);font-size:.7rem}
+.machine-label--before{left:6%;top:42%;transform:translate(-30%,0)}
+.machine-label--after{right:6%;top:42%;transform:translate(30%,0)}
+.machine-loop-label{position:absolute;left:50%;top:7%;transform:translateX(-50%);font-family:var(--mono)}
+.machine-loop-label .machine-tag{color:#fff;letter-spacing:.1em;font-size:.68rem;opacity:.85}
+
+/* the live card (v2 spec: minimal three-block card), mounted at the centre node.
+   v2 spec: bg linear-gradient(180deg,#101a26,#0c141e), border 1.5px rgba(90,195,255,.32),
+   radius 20px, soft cyan glow shadow. */
+.livecard-stack{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:min(420px,38vw);z-index:3;pointer-events:auto;
+  display:flex;flex-direction:column;gap:.5rem;
+}
+/* separate wave row above the card (v2 spec: 34px tall, bg #131b26, radius 12px) */
+.wave-row{
+  background:#131B26;border:1px solid rgba(255,255,255,.065);
+  border-radius:12px;height:34px;padding:0 8px;overflow:hidden;
+}
+.wave-row--wide{height:42px}
+.wave-svg{width:100%;height:100%;display:block}
+/* separate stage row (v2 spec: plain text, opacity-differentiated, no pills) */
+.stage-row{
+  display:flex;gap:1rem;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.06em;text-transform:uppercase;padding:0 4px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;
+}
+.stage-row--wide{font-size:.78rem;gap:1.4rem}
+.stage-step{color:#fff;opacity:.34}
+.stage-step.is-done{opacity:.72}
+.stage-step.is-current{opacity:1;color:var(--cyan)}
+/* THE CARD */
+.livecard{
+  background:linear-gradient(180deg,var(--card-bg-1),var(--card-bg-2));
+  color:var(--card-text);
+  border:1.5px solid var(--cyan-border);border-radius:20px;
+  box-shadow:0 24px 60px rgba(0,0,0,.5), 0 0 32px rgba(90,195,255,.18), inset 0 1px 0 rgba(255,255,255,.05);
+  overflow:hidden;
+  font-family:var(--body);
+}
+/* header band (v2: 44px, flex row, brand + state slot + readiness context) */
+.livecard-head{
+  height:44px;min-height:44px;display:flex;align-items:center;gap:.5rem;
+  padding:0 14px;border-bottom:1px solid var(--card-head-hair);
+  background:rgba(255,255,255,.018);
+}
+.livecard-mark{width:15px;height:15px;border-radius:50%;background:var(--cyan);flex:0 0 auto;
+  box-shadow:0 0 8px rgba(34,211,238,.6)}
+.livecard-word{font-size:12.5px;font-weight:600;color:var(--card-text);letter-spacing:-.005em}
+.livecard-word sup{font-size:7px;color:var(--card-mute);vertical-align:super;line-height:0;margin-left:1px}
+.livecard-sep{width:1px;height:12px;background:rgba(255,255,255,.11);flex:0 0 auto}
+.livecard-state{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--card-mute);font-family:var(--mono)}
+.livecard-context{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--card-mute);letter-spacing:.02em}
+.livecard-context b{color:var(--cyan);font-weight:700;font-size:12px}
+/* body (v2: three blocks, 15px padding, hairline divider) */
+.livecard-body{padding:0}
+.livecard-block{padding:15px;border-bottom:1px solid var(--card-hair)}
+.livecard-block:last-child{border-bottom:0}
+.livecard-label{
+  font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--cyan);margin:0 0 6px;
+}
+.livecard-move{margin:0;font-size:21px;font-weight:500;color:var(--card-text);line-height:1.25;letter-spacing:-.01em;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.livecard-say{
+  margin:0;font-family:var(--quote);font-size:24px;font-weight:400;color:var(--card-soft);
+  line-height:1.2;letter-spacing:-.024em;position:relative;padding-left:.4rem;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.livecard-say::before,.livecard-say::after{
+  font-family:var(--display);color:var(--cyan-base);font-size:1.05em;font-weight:500;line-height:0;position:relative;
+}
+.livecard-say::before{content:"\201C";margin-right:.05em}
+.livecard-say::after{content:"\201D";margin-left:.05em}
+.livecard-why{margin:0;font-size:14px;color:var(--card-reason);line-height:1.45;font-family:var(--body)}
+.livecard-why span{color:var(--card-text)}
+.livecard-why .arrow{color:var(--cyan-base);font-weight:600;margin:0 6px}
+.livecard-why .why-reason{color:var(--card-reason)}
+/* footer band (v2: 52px, Why this now link + Next outline + Dismiss bare) */
+.livecard-foot{
+  height:52px;min-height:52px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 18px;border-top:1px solid var(--card-head-hair);background:rgba(255,255,255,.014);
+}
+.livecard-link{font-size:12px;color:var(--cyan);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;padding:.3rem 0}
+.livecard-link:hover{text-decoration:underline;text-underline-offset:2px}
+.livecard-actions{display:flex;gap:.6rem;align-items:center}
+.nextbtn{
+  background:transparent;border:1px solid rgba(6,182,212,.42);color:var(--cyan);
+  font-family:var(--body);font-size:12px;font-weight:500;
+  padding:.55rem .9rem;border-radius:.4rem;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;
+  transition:background-color .2s var(--ease);
+}
+.nextbtn:hover{background:rgba(6,182,212,.12)}
+.dismissbtn{
+  background:transparent;border:0;color:var(--card-mute);cursor:pointer;
+  font-family:var(--body);font-size:12px;padding:.55rem .6rem;min-height:44px;display:inline-flex;align-items:center;
+}
+.dismissbtn:hover{color:var(--card-text)}
+
+/* mini card (in panel-shot--card) — static, no rotation */
+.livecard--mini{position:static;transform:none;width:100%}
+.livecard--mini .livecard-say{font-size:18px;-webkit-line-clamp:3}
+.livecard--mini .livecard-move{font-size:16px}
+
+/* large card (in #live section) — same proportions, larger type */
+.livecard--stage .livecard-say{font-size:30px}
+.livecard--stage .livecard-move{font-size:24px}
+.livecard--stage .livecard-why{font-size:16px}
+
+/* hero text — sibling block BELOW the machine band, can never overlap the card */
+.hero-text{
+  position:relative;z-index:5;
+  width:90%;max-width:var(--container);margin:2rem auto 4rem;
+  max-width:46rem;
+}
+/* Real computed values from clay.com's live h1: 88px/1.0/575/-0.04em. */
+.hero-title{font-size:clamp(2.4rem,7.5vw,5.5rem);font-weight:575;letter-spacing:-.04em;line-height:1.0;margin:.4rem 0 1.1rem;color:#fff}
+.hero-sub{font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.5;color:rgba(255,255,255,.85);max-width:34rem;margin:0 0 1.8rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem}
+/* inside hero, the muted second line of the h1 is a lighter white not grey */
+.hero .muted-h{color:rgba(255,255,255,.7)}
+.hero .eyebrow{color:#fff;opacity:.85}
+/* hero buttons: primary white-on-sage stays white bg, ghost is white outline */
+.hero .btn-primary{background:#fff;color:var(--sage);border-color:#fff}
+.hero .btn-primary:hover{background:rgba(255,255,255,.9);border-color:rgba(255,255,255,.9)}
+.hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.7)}
+.hero .btn-ghost:hover{background:#fff;color:var(--sage)}
+
+/* ============================================================
+   3. TRUST BAND (overlapping card)
+   ============================================================ */
+.card{background:var(--oat);border:1px solid var(--oat-deep);border-radius:var(--r-lg);box-shadow:0 1px 0 var(--oat-deep)}
+.overlap{margin-top:-5rem;position:relative;z-index:6;padding:3rem 3rem 2.6rem}
+.trust-title{font-size:clamp(1.4rem,2.6vw,2.1rem);max-width:50rem;letter-spacing:-.02em;line-height:1.15}
+.contrast{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:2.4rem;border-top:1px solid var(--oat-deep)}
+.contrast-col{padding:1.8rem 1.6rem 0;border-right:1px solid var(--oat-deep)}
+.contrast-col:last-child{border-right:0}
+.contrast-kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);margin:0 0 .6rem}
+.contrast-lead{font-family:var(--display);font-weight:600;font-size:1.25rem;margin:0 0 .5rem;letter-spacing:-.01em}
+.contrast-body{font-size:.95rem;color:var(--stone);line-height:1.5;margin:0}
+.contrast-col--accent .contrast-kicker{color:var(--ink)}
+.contrast-col--accent .contrast-lead{color:var(--ink)}
+.trust-foot{font-family:var(--mono);font-size:.78rem;color:var(--stone);margin:2rem 0 0;line-height:1.5}
+
+/* ============================================================
+   generic section heads
+   ============================================================ */
+section{padding:var(--sec-y) 0;position:relative;z-index:2}
+.section-head{max-width:54rem;margin-bottom:3rem}
+.section-title{font-size:clamp(1.9rem,3.6vw,3rem);letter-spacing:-.03em;line-height:1.05}
+
+/* ============================================================
+   4. MOMENTS (tabs)
+   ============================================================ */
+.moments{padding-top:6.5rem}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.4rem;border-bottom:1px solid var(--oat-deep);padding-bottom:.4rem}
+.tab{
+  font-family:var(--mono);font-weight:500;font-size:.85rem;letter-spacing:.04em;
+  background:transparent;border:0;border-bottom:2px solid transparent;
+  color:var(--stone);padding:.85rem 1rem .9rem;cursor:pointer;display:inline-flex;gap:.5rem;align-items:baseline;
+  /* clay's real .tab-btn.cc-light / .tab-btn.cc-hero (the flow-section tab switcher this
+     component reclothes) uses transition:color .15s linear,background-color .15s linear —
+     LINEAR, no easing curve, deliberately snappier/flatter than the hover curves above.
+     State toggles (active tab) get the flat linear snap; hovers get a curve. */
+  transition:color .15s linear,border-color .15s linear;
+  margin-bottom:-1px;min-height:44px;
+}
+.tab .tab-num{color:var(--ink);font-size:.72rem}
+.tab:hover{color:var(--ink)}
+.tab.is-active{color:var(--ink);border-bottom-color:var(--ink)}
+.panel{display:none;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.panel.is-active{display:grid}
+.panel-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin:0 0 .9rem}
+.panel-title{font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:.9rem}
+.panel-body{color:var(--stone);font-size:1.05rem;max-width:32rem;margin-bottom:1.4rem}
+.checklist{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.checklist li{position:relative;padding-left:1.8rem;font-size:.98rem;line-height:1.4}
+.checklist li::before{
+  content:"";position:absolute;left:0;top:.45em;width:.85rem;height:.85rem;
+  border:1.5px solid var(--ink);border-radius:2px;background:var(--paper);
+}
+.checklist li::after{
+  content:"";position:absolute;left:.28rem;top:.7em;width:.3rem;height:.55rem;
+  border:solid var(--ink);border-width:0 1.6px 1.6px 0;transform:rotate(40deg);
+}
+/* buyer-blueprint.webp + rep-calibration.webp are landscape 1024x683; post-call-analysis.webp
+   is PORTRAIT 518x1024 — at width:100% with no cap it renders ~3x taller than its landscape
+   siblings and the "after" tab panel jumps height on switch (the exact bug apollo-motion
+   shipped). max-height + object-fit:contain lets every shot fill the same frame without
+   cropping the screenshot content. */
+.panel-shot{margin:0;border-radius:var(--r-card);overflow:hidden;border:1px solid var(--oat-deep);background:var(--paper);
+  display:flex;align-items:center;justify-content:center;max-height:440px}
+.panel-shot img{width:100%;height:auto;max-height:440px;object-fit:contain}
+.panel-shot--card{background:var(--sage);padding:1.4rem;display:flex;align-items:center;justify-content:center}
+
+/* ============================================================
+   5. LIVE (framed panel)
+   ============================================================ */
+.live{background:var(--oat);padding:6rem 0}
+.waveform-divider{max-width:var(--narrow);margin:0 auto 1.4rem;opacity:.7}
+.waveform-divider img{width:100%;height:auto}
+.frame-line{height:1px;background:linear-gradient(90deg,transparent,var(--oat-deep) 20%,var(--oat-deep) 80%,transparent);position:relative}
+.live .section-title{margin:.6rem auto 2.4rem;max-width:42rem}
+/* the #live section's stage is now a centred column containing the wave-row + stage-row + the livecard (large) */
+.stage{
+  margin-top:1.5rem;max-width:680px;margin-inline:auto;
+  display:flex;flex-direction:column;gap:.6rem;align-items:stretch;
+}
+.live-caption{font-family:var(--mono);font-size:.78rem;color:var(--stone);text-align:center;margin-top:1.6rem}
+
+/* ============================================================
+   6. AUDIENCE (clay "Reps" — one section, rep + manager)
+   ============================================================ */
+.audience{padding:6rem 0;background:var(--oat);border-block:1px solid var(--oat-deep)}
+.audience-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;margin-bottom:4rem}
+.audience-h3{font-family:var(--display);font-weight:600;font-size:1.4rem;letter-spacing:-.02em;line-height:1.15;margin:0 0 .9rem}
+.audience-lead{font-size:1.05rem;line-height:1.55;max-width:34rem;margin:0 0 1.4rem}
+.privacy{border-left:2px solid var(--cyan-base);padding:.4rem 0 .4rem 1.1rem;margin:1.4rem 0;position:relative}
+.privacy-q{font-family:var(--mono);font-style:italic;color:var(--stone);margin:0 0 .4rem;font-size:.92rem}
+.privacy-a{margin:0;font-weight:500;line-height:1.5}
+.ink-check{
+  position:absolute;right:-0.4rem;top:-1.4rem;width:62px;height:62px;
+  background-image:url("assets/hand-drawn-arrow-set.png");
+  background-size:300% 300%;background-position:100% 100%;
+  transform:rotate(-8deg);opacity:.85;pointer-events:none;
+}
+@media (max-width:767px){.ink-check{width:46px;height:46px;top:-1.1rem;right:-.2rem}}
+.audience-note{font-family:var(--mono);font-size:.8rem;color:var(--stone);margin-top:1.4rem}
+.audience-aside{font-family:var(--mono);font-size:.8rem;color:var(--stone);margin-top:1.2rem;line-height:1.5}
+.audience-shot{margin:0;border-radius:var(--r-card);overflow:hidden;border:1px solid var(--oat-deep);background:var(--paper);
+  display:flex;align-items:center;justify-content:center;max-height:440px}
+.audience-shot img{width:100%;height:auto;max-height:440px;object-fit:contain}
+.audience-ink{display:flex;flex-direction:column;align-items:center;gap:.4rem;margin-top:1.4rem}
+.audience-ink img{width:78px;height:auto;opacity:.85;filter:contrast(1.05)}
+
+/* manager sub-section inside the same section */
+.manager-band{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding-top:4rem;border-top:1px solid var(--oat-deep)}
+.levers-inline{list-style:none;padding:0;margin:1.2rem 0;display:grid;gap:.6rem}
+.levers-inline li{font-size:.95rem;line-height:1.5;color:var(--stone);padding-left:0}
+.levers-inline li b{color:var(--ink);font-weight:600}
+.competitive{
+  font-family:var(--display);font-weight:600;font-size:clamp(1.2rem,2vw,1.6rem);
+  letter-spacing:-.02em;line-height:1.25;margin:1.6rem 0 0;max-width:32rem;
+}
+.manager-photo{margin:0;border-radius:var(--r-card);overflow:hidden;position:relative;border:1px solid var(--oat-deep)}
+.manager-photo img{width:100%;display:block}
+.manager-photo figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(rgba(20,30,20,.55),rgba(20,30,20,.92));color:var(--oat);font-family:var(--mono);font-size:.8rem;padding:2.4rem 1.6rem .9rem;margin:0}
+
+/* ============================================================
+   9. THE LOOP CLOSES (bento)
+   ============================================================ */
+.close{background:var(--oat);color:var(--ink);padding:6rem 0}
+.close .section-title{color:var(--ink)}
+.close .eyebrow{color:var(--ink)}
+.bento{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto;gap:1.2rem;margin-top:2.4rem}
+.bento-tile{background:var(--paper);border:1px solid var(--oat-deep);border-radius:var(--r-lg);padding:2rem}
+.bento-loop{grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+/* bespoke ink illustration, generated for this project — a hand-sketched gear loop tucked
+   into the corner the SVG diagram leaves empty; the SVG stays the legible diagram, this is
+   the tactile/hand-made accent PROMPT.md's "human layer" requires. */
+.loop-gears-ink{
+  position:absolute;top:-2.2rem;right:-2.2rem;width:9rem;height:9rem;
+  opacity:.5;mix-blend-mode:multiply;transform:rotate(6deg);pointer-events:none;
+}
+.loop-svg{width:100%;height:auto;margin-bottom:1rem;position:relative;z-index:1}
+.bento-loop .ink-path,.bento-loop .ink-loop{stroke:var(--ink);opacity:.6}
+.bento-loop .ink-node{stroke:var(--ink);fill:var(--paper)}
+.bento-loop .ink-node--live{fill:var(--cyan-base);stroke:var(--cyan-base)}
+.bento-cap{font-size:.95rem;line-height:1.55;color:var(--ink);margin:0}
+.bento-cap b{color:var(--ink)}
+.founder-mark{font-family:var(--display);font-size:3rem;color:var(--cyan-base);line-height:.6;margin:0 0 .4rem}
+.founder-quote{font-family:var(--display);font-weight:500;font-size:1.15rem;line-height:1.35;color:var(--ink);margin:0}
+.founder-sig{font-family:var(--mono);font-size:.78rem;color:var(--stone);margin:.8rem 0 0}
+.ceiling{font-family:var(--display);font-weight:600;font-size:1.15rem;line-height:1.4;color:var(--ink);margin:0}
+
+/* ============================================================
+   8. FOOTER
+   ============================================================ */
+.footer{background:var(--cream);color:var(--ink)}
+.footer-cta{padding:5rem 0 3rem;text-align:center}
+.footer-title{font-size:clamp(1.8rem,3.4vw,2.8rem);letter-spacing:-.03em;color:var(--ink);max-width:38rem;margin:0 auto 1rem}
+.footer-sub{color:var(--stone);max-width:34rem;margin:0 auto 1.8rem}
+.footer-actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.footer-actions .btn-primary{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.footer-actions .btn-primary:hover{background:var(--btn-hover);border-color:var(--btn-hover)}
+.footer-actions .btn-ghost{color:var(--ink);border-color:var(--ink)}
+.footer-actions .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.footer-grid{border-top:1px solid var(--oat-deep);padding:3rem 0}
+.footer-grid .container{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.foot-col{display:flex;flex-direction:column;gap:.6rem}
+.foot-head{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin:0 0 .4rem}
+.foot-col a{font-size:.9rem;color:var(--ink);display:inline-block;padding:.35rem 0;min-height:44px;display:inline-flex;align-items:center}
+.foot-col a:hover{color:var(--stone)}
+.credit{border-top:1px solid var(--oat-deep);padding:1.4rem 0}
+.credit-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.brand--foot{color:var(--ink);min-height:44px;display:inline-flex;align-items:center}
+.brand--foot .brand-word{font-size:1rem}
+.credit-text{font-family:var(--mono);font-size:.76rem;color:var(--stone);margin:0}
+.credit-copy{color:var(--stone)}
+
+/* ============================================================
+   reveal animation (scroll-triggered, reduced-motion safe)
+   Clay's own scroll reveals (index.html inline <style>: every [scroll="pop-in"],
+   [scroll="text-in"], data-section-pillar node starts `visibility:hidden!important`
+   and is animated in by GSAP ScrollTrigger — exact stagger/offset live in compiled
+   IX JSON, not in static CSS, so not literal-copyable). What IS copyable: the curve
+   and duration this page's cards/images actually use for that class of state change —
+   --ease-content, .3s-.4s (see :root) — not the .btn hover curve, and not a generic
+   .6s ease. translateY dropped from 18px to 12px to read as a lift, not a slide.
+   ============================================================ */
+.reveal{
+  opacity:0;transform:translateY(12px);
+  transition:opacity .4s var(--ease-content),transform .4s var(--ease-content);
+  transition-delay:calc(var(--stagger,0) * 70ms);
+}
+.reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1!important;transform:none!important;transition:none}
+  .hover-arrow .icon-sm{transition:none}
+}
+
+/* ============================================================
+   RESPONSIVE — clay breakpoints 991 / 767 / 479
+   ============================================================ */
+@media (max-width:991px){
+  :root{--sec-y:4rem}
+  .hero{min-height:auto;padding-top:3.5rem}
+  .machine{height:48vh;min-height:340px}
+  .machine-label--before{left:4%;top:40%}
+  .machine-label--after{right:4%;top:40%}
+  .livecard{width:min(340px,46vw)}
+  .hero-text{margin-bottom:2.5rem}
+  .overlap{padding:2.4rem 1.8rem 2rem;margin-top:-3rem}
+  .contrast{grid-template-columns:1fr}
+  .contrast-col{border-right:0;border-bottom:1px solid var(--oat-deep);padding:1.4rem 0}
+  .contrast-col:last-child{border-bottom:0}
+  .panel,.panel.is-active{grid-template-columns:1fr;gap:1.6rem}
+  .audience-grid{grid-template-columns:1fr;gap:1.8rem}
+  .manager-band{grid-template-columns:1fr;gap:1.8rem}
+  .stage{grid-template-columns:1fr;gap:1.4rem}
+  .bento{grid-template-columns:1fr}
+  .bento-loop{grid-row:auto}
+  .footer-grid .container{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+
+@media (max-width:767px){
+  :root{--sec-y:3.2rem}
+  body{font-size:1rem}
+  .nav-promo-text{font-size:.66rem}
+  .nav-row{gap:.6rem}
+  .brand-word{font-size:1rem}
+  .hero{padding-top:2rem;min-height:auto}
+  .hero-text{margin:1rem auto 1.5rem}
+  /* on narrow screens the machine shrinks; the livecard-stack drops into normal flow below it */
+  .machine{height:auto;min-height:0;padding:0 0 .5rem;opacity:.7}
+  .machine-svg{position:relative;height:auto;aspect-ratio:1200/420;width:100%;opacity:.7}
+  .machine-label,.machine-loop-label{display:none}
+  .livecard-stack{position:relative;top:auto;left:auto;transform:none;width:100%;max-width:420px;margin:0 auto 1rem;gap:.4rem}
+  .livecard-stack .livecard{position:static;transform:none;width:100%}
+  /* small-screen card text scales down */
+  .livecard-stack .livecard-say{font-size:18px}
+  .livecard-stack .livecard-move{font-size:17px}
+  /* stage section card */
+  .livecard--stage .livecard-say{font-size:20px}
+  .livecard--stage .livecard-move{font-size:18px}
+  .stage{max-width:100%;padding:0}
+  /* stage-row: 5 steps, smaller on mobile, scroll if needed */
+  .stage-row{font-size:.62rem;gap:.5rem;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+  .stage-row .stage-step{flex-shrink:0}
+  .overlap{padding:1.8rem 1.2rem 1.6rem;margin-top:-2rem}
+  .trust-title{font-size:1.25rem}
+  .section-head{margin-bottom:2rem}
+  .tabs{gap:.2rem;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tab{padding:.6rem .5rem;font-size:.78rem;flex-shrink:0}
+  .footer-grid .container{grid-template-columns:1fr}
+  .credit-row{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .footer-cta{padding:3.5rem 0 2rem}
+  .bento{grid-template-columns:1fr}
+  .bento-loop{grid-row:auto}
+  .contrast{grid-template-columns:1fr}
+  .contrast-col{border-right:0;border-bottom:1px solid var(--oat-deep)}
+  .contrast-col:last-child{border-bottom:0}
+  .panel,.panel.is-active{grid-template-columns:1fr;gap:1.6rem}
+  .audience-grid{grid-template-columns:1fr;gap:1.8rem}
+  .manager-band{grid-template-columns:1fr;gap:1.8rem}
+  .footer-grid .container{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+
+@media (max-width:479px){
+  .hero-title{font-size:2rem}
+  .hero-cta .btn{width:100%;justify-content:center}
+  .stage-read b{font-size:1rem}
+  .livecard-foot{flex-wrap:wrap;gap:.4rem}
+  .footer-grid .container{grid-template-columns:1fr}
+}

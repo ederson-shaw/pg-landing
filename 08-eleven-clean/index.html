@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PitchGenius — know what to say next, while the buyer is still in the room</title>
+<meta name="description" content="A live sales co-pilot. It listens to the call and, while it is still happening, tells the rep what the buyer is feeling and the exact sentence to say next.">
+<meta property="og:title" content="PitchGenius — know what to say next, while the buyer is still in the room">
+<meta property="og:description" content="A live sales co-pilot that reads the buyer during the call and hands the rep the exact sentence to say next.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <div class="container nav-inner">
+    <a class="wordmark" href="#top" aria-label="PitchGenius home">
+      <img src="assets/mark.png" alt="" width="22" height="22">
+      <span>PitchGenius</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#try">Live call</a>
+      <a href="#before">Buyer intelligence</a>
+      <a href="#readiness">Readiness</a>
+      <a href="#pilot">Pilot</a>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="#pilot">Book a pilot</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- §2 HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">PitchGenius — live call co-pilot</p>
+        <h1 id="hero-title" class="display display-hero">
+          Every call tool records what the buyer said.
+          <span class="hero-claim">This one tells you what to say — while they&rsquo;re still in the room.</span>
+        </h1>
+        <p class="lede">A small card that floats over Zoom, Meet, or Teams. It reads the buyer in real time and hands you the exact sentence to say next.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#pilot">Book a pilot</a>
+          <a class="btn btn-ghost" href="#try">Try the live call &darr;</a>
+        </div>
+      </div>
+      <div class="hero-rail" aria-hidden="true">
+        <p class="rail-label">No self-serve product</p>
+        <p class="rail-text">The fastest way to know what this is, is to operate it. Scrub thirty seconds of a real call, below.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- §3 SIGNATURE: the scrubable live call -->
+  <section class="try" id="try" aria-labelledby="try-title">
+    <div class="container">
+      <header class="section-head">
+        <p class="kicker">Try it &mdash; the demo is the trial</p>
+        <h2 id="try-title" class="display display-section">Scrub thirty seconds of a real call. Watch the card read the buyer.</h2>
+        <p class="section-sub">Drag the playhead. The co-pilot assembles exactly as it does live &mdash; the observation lands, the readiness steps up, the sentence to say builds in front of you. This is one real moment, from one real call.</p>
+      </header>
+
+      <div class="call-stage" data-call-stage>
+        <div class="call-meta">
+          <span class="meta-tag">Real call excerpt</span>
+          <span class="meta-tag">Contact: Russell Pontone</span>
+          <span class="meta-tag">Stage: Discovery</span>
+        </div>
+
+        <!-- the live co-pilot card, recreated in the page palette; all data real (PRODUCT.md) -->
+        <article class="card livecard" aria-label="PitchGenius live co-pilot card" data-livecard>
+          <div class="livecard-titlebar">
+            <span class="rec-dot" data-rec-dot aria-hidden="true"></span>
+            <span class="contact">Russell Pontone</span>
+            <span class="badge">Challenger</span>
+            <span class="clock" data-clock>00:00 / 00:30</span>
+          </div>
+
+          <div class="livecard-strip">
+            <div class="cue">
+              <span class="cue-label">HumanCue&#8482;</span>
+              <p class="cue-text" data-cue-text aria-live="polite"></p>
+            </div>
+            <div class="readiness">
+              <span class="readiness-label">Readiness</span>
+              <span class="readiness-num" data-readiness>0</span>
+              <span class="readiness-stage" data-stage></span>
+            </div>
+          </div>
+
+          <div class="livecard-move" data-move-block>
+            <span class="field-label">Next best move</span>
+            <p class="move-text" data-move-text></p>
+          </div>
+
+          <div class="livecard-say" data-say-block>
+            <span class="field-label">Say this</span>
+            <blockquote class="say-quote" data-say-text></blockquote>
+          </div>
+
+          <div class="livecard-why" data-why-block>
+            <span class="field-label">Why now</span>
+            <p class="why-text"><span data-why-pre></span><span class="arrow" aria-hidden="true">&rarr;</span><span data-why-post></span></p>
+          </div>
+
+          <div class="livecard-footer">
+            <span class="why-link">Why this, now?</span>
+            <span class="footer-actions">
+              <button class="mini-btn" type="button" data-next>Next</button>
+              <button class="mini-btn ghost" type="button" data-dismiss>Dismiss</button>
+            </span>
+          </div>
+        </article>
+
+        <!-- the scrubber: a hand-painted waveform (the human layer) driving the machine card -->
+        <div class="scrub" data-scrub>
+          <div class="scrub-track">
+            <img class="waveform" src="assets/waveform-brush.png" alt="Hand-painted audio waveform of a thirty-second sales call excerpt" draggable="false">
+            <div class="scrub-fill" data-scrub-fill aria-hidden="true"></div>
+            <div class="scrub-head" data-scrub-head aria-hidden="true"></div>
+          </div>
+          <input class="scrub-input" data-scrub-input type="range" min="0" max="100" value="0" step="1" aria-label="Scrub the call excerpt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="scrub-help">
+            <span>0:00</span>
+            <span class="scrub-hint" data-scrub-hint>Drag, or use &larr; &rarr; keys</span>
+            <span>0:30</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §4 MANAGER'S ARITHMETIC (replaces the trusted-by logo wall) -->
+  <section class="arithmetic" aria-labelledby="arith-title">
+    <div class="container">
+      <header class="section-head">
+        <p class="kicker">For the VP who signs</p>
+        <h2 id="arith-title" class="display display-section">Four things that change when coaching happens during the call, not after it.</h2>
+        <p class="section-sub">No customer numbers yet &mdash; we will not invent them. These are the mechanisms, in the language of the person who buys.</p>
+      </header>
+
+      <ol class="mech-list">
+        <li class="mech">
+          <span class="mech-num">01</span>
+          <div>
+            <h3 class="mech-title">Win rate</h3>
+            <p class="mech-body">The same reps, the same pipeline, more closes. Coaching in the moment saves deals a Monday review cannot reach.</p>
+          </div>
+        </li>
+        <li class="mech">
+          <span class="mech-num">02</span>
+          <div>
+            <h3 class="mech-title">Ramp time</h3>
+            <p class="mech-body">A new rep performs like a seasoned one in weeks, because the coaching happens during the call, instead of in a review a week later.</p>
+          </div>
+        </li>
+        <li class="mech">
+          <span class="mech-num">03</span>
+          <div>
+            <h3 class="mech-title">Forecast accuracy</h3>
+            <p class="mech-body">Buyer Readiness is scored on every call, so the pipeline stops being what reps <em>hope</em> and starts being what buyers <em>showed</em>.</p>
+          </div>
+        </li>
+        <li class="mech">
+          <span class="mech-num">04</span>
+          <div>
+            <h3 class="mech-title">Coaching capacity</h3>
+            <p class="mech-body">One manager cannot sit on forty calls a week. This sits on all of them.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="competitive">Your competitor&rsquo;s rep is going to have this. The question is whether yours does first.</p>
+    </div>
+  </section>
+
+  <!-- §5 THREE-MOMENT SPINE -->
+  <section class="spine" aria-labelledby="spine-title">
+    <div class="container">
+      <header class="section-head">
+        <p class="kicker">The product, in one story</p>
+        <h2 id="spine-title" class="display display-section">Before the call. During the call. After the call.</h2>
+      </header>
+      <div class="spine-row">
+        <article class="beat">
+          <span class="beat-stage">01 &middot; Before</span>
+          <h3 class="beat-title">Know who you are about to talk to.</h3>
+          <p class="beat-body">A buyer blueprint &mdash; how they decide, what builds their trust, what makes them resist &mdash; built before you dial.</p>
+        </article>
+        <article class="beat beat-mid">
+          <span class="beat-stage">02 &middot; During</span>
+          <h3 class="beat-title">Know what they are feeling as they feel it.</h3>
+          <p class="beat-body">The live card reads the room and hands you the exact sentence to say next. <a href="#try">This is the moment you just scrubbed.</a></p>
+        </article>
+        <article class="beat">
+          <span class="beat-stage">03 &middot; After</span>
+          <h3 class="beat-title">Start the next call from evidence, not memory.</h3>
+          <p class="beat-body">Evidence-linked summary, MEDDPICC gaps, buyer readiness, and the next move &mdash; ready before you leave the desk.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- §6 BEFORE THE CALL -->
+  <section class="deepdive" id="before" aria-labelledby="before-title">
+    <div class="container deepdive-grid">
+      <div class="deepdive-media">
+        <div class="surface buyerblueprint" role="img" aria-label="Buyer Blueprint — Pre-Call Buyer Intelligence: archetype, DISC personality read, decision pattern, social style, Trust Triggers and Resistance Signals">
+          <div class="surf-head">
+            <span class="surf-dot" aria-hidden="true"></span>
+            <span class="surf-title">Buyer Blueprint &mdash; Quick View</span>
+          </div>
+          <div class="surf-body">
+            <div class="disc">
+              <div class="disc-wheel" aria-hidden="true">
+                <span class="disc-letter disc-d">D</span>
+                <span class="disc-letter disc-i">I</span>
+                <span class="disc-letter disc-s">S</span>
+                <span class="disc-letter disc-c">C</span>
+                <span class="disc-center">D</span>
+              </div>
+              <dl class="disc-spec">
+                <div><dt>Archetype</dt><dd>Strategic Visionary</dd></div>
+                <div><dt>Personality</dt><dd>DOCI &middot; D &middot; S3 &middot; C60</dd></div>
+                <div><dt>Decision pattern</dt><dd>Fast &middot; results-focused</dd></div>
+                <div><dt>Social style</dt><dd>Driver</dd></div>
+                <div><dt>Likely objection</dt><dd>Engagements are sold as thinking partnerships.</dd></div>
+              </dl>
+            </div>
+            <div class="triggers">
+              <h4 class="trig-title">Trust Triggers&#8482;</h4>
+              <ul class="trig-list">
+                <li>Present data that challenges current assumptions about their success.</li>
+                <li>Focus on territory impact and long-term growth, not just tactical fixes.</li>
+                <li>Show how the solution enhances human expertise, rather than replaces it.</li>
+              </ul>
+              <h4 class="trig-title">Resistance Signals&#8482;</h4>
+              <ul class="trig-list mute">
+                <li>Focus on policy or features without strategic context or business impact.</li>
+                <li>Implying software replaces human insight or the value of his expertise.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="deepdive-copy">
+        <p class="kicker">Before the call</p>
+        <h2 id="before-title" class="display display-section">Know who you are selling to before the call starts.</h2>
+        <p class="lede">Pre-Call Buyer Intelligence&#8482; builds a profile of the person you are about to talk to &mdash; their archetype, their DISC personality read, and the specific things that make them trust you, or shut down.</p>
+        <ul class="check-list">
+          <li>How they decide</li>
+          <li>What builds trust</li>
+          <li>What creates resistance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- §7 AFTER THE CALL -->
+  <section class="deepdive deepdive-alt" id="after" aria-labelledby="after-title">
+    <div class="container deepdive-grid deepdive-grid-rev">
+      <div class="deepdive-copy">
+        <p class="kicker">After the call</p>
+        <h2 id="after-title" class="display display-section">The next call should not start from memory.</h2>
+        <p class="lede">An evidence-linked summary &mdash; every claim points at the moment it came from. Buyer Readiness Index&#8482; with a written verdict. MEDDPICC gaps. The next move. Ready before you stand up.</p>
+        <ul class="check-list">
+          <li>Evidence-linked call summary</li>
+          <li>Buyer Readiness Index&#8482;</li>
+          <li>MEDDPICC gap analysis</li>
+          <li>Next Best Move recommendations</li>
+          <li>Update CRM &rarr;</li>
+        </ul>
+      </div>
+      <div class="deepdive-media">
+        <div class="surface postcall" role="img" aria-label="Post-call analysis: contact, Buyer Readiness verdict, MEDDPICC 65 percent, eight gap chips">
+          <div class="surf-head">
+            <span class="surf-title"><strong>Judd Barakove</strong> &middot; RevSymphony</span>
+            <span class="surf-pill">Update CRM &rarr;</span>
+          </div>
+          <div class="surf-body postcall-body">
+            <div class="post-readiness">
+              <span class="field-label">Buyer Readiness Index&#8482;</span>
+              <p class="post-verdict">Problem-aware and interested in testing a solution. Needs to see how PitchGenius delivers on its promise and how easy it is to implement.</p>
+              <div class="post-gauge"><span class="gauge-num">High</span><span class="gauge-sub">Acceptance</span></div>
+            </div>
+            <div class="post-meddpicc">
+              <div class="med-head">
+                <span class="field-label">MEDDPICC after the call</span>
+                <span class="med-score">65%</span>
+              </div>
+              <div class="chips" aria-label="MEDDPICC gap chips">
+                <span class="chip strong">M Metrics</span>
+                <span class="chip neutral">E Economic buyer</span>
+                <span class="chip strong">D Decision criteria</span>
+                <span class="chip weak">D Decision process</span>
+                <span class="chip neutral">P Paper process</span>
+                <span class="chip strong">I Identify pain</span>
+                <span class="chip weak">C Champion</span>
+                <span class="chip neutral">C Competition</span>
+              </div>
+              <div class="legend"><span class="dot strong"></span>Strong<span class="dot neutral"></span>Neutral<span class="dot weak"></span>Weak</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §8 REP CALIBRATION + PRIVACY (replaces API section; answers the rep's two fears) -->
+  <section class="calibration" aria-labelledby="calib-title">
+    <div class="container">
+      <header class="section-head">
+        <p class="kicker">For the rep on the call</p>
+        <h2 id="calib-title" class="display display-section">Two things a rep is afraid of, answered on the page.</h2>
+      </header>
+      <div class="calib-grid">
+        <article class="calib-card">
+          <p class="calib-q">&ldquo;Is this scoring me and handing the score to my manager?&rdquo;</p>
+          <p class="calib-a">No. Rep calibration is ten questions you answer once, privately. Managers see usage and deal activity. They do not see your answers.</p>
+        </article>
+        <article class="calib-card">
+          <p class="calib-q">&ldquo;Is this replacing me?&rdquo;</p>
+          <p class="calib-a">No. PitchGenius makes a salesperson better at the human part of selling. It does not sell for them.</p>
+        </article>
+        <div class="calib-card calib-demo">
+          <span class="field-label">Rep calibration &middot; question 1 of 10</span>
+          <p class="calib-stem">I am comfortable making stride decisions before I have all the information.</p>
+          <div class="likert" role="group" aria-label="Agreement scale, 1 to 5">
+            <button class="lik" type="button" aria-label="Strongly disagree" data-lik="1">1</button>
+            <button class="lik" type="button" aria-label="Disagree" data-lik="2">2</button>
+            <button class="lik selected" type="button" aria-label="Neutral, selected" data-lik="3">3</button>
+            <button class="lik" type="button" aria-label="Agree" data-lik="4">4</button>
+            <button class="lik" type="button" aria-label="Strongly agree" data-lik="5">5</button>
+          </div>
+          <div class="likert-labels"><span>Strongly disagree</span><span>Neutral</span><span>Strongly agree</span></div>
+          <p class="calib-private"><span class="lock" aria-hidden="true">&#9744;</span> Your answers are private. A manager cannot open them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §9 THE PILOT BLOCK (replaces showcase; honest) -->
+  <section class="pilot" id="pilot" aria-labelledby="pilot-title">
+    <div class="container">
+      <header class="section-head">
+        <p class="kicker">What a pilot actually is</p>
+        <h2 id="pilot-title" class="display display-section">A pilot is not a demo deck.</h2>
+      </header>
+      <div class="pilot-body">
+        <p class="pilot-lede">A rep runs the desktop app on real calls, in flight. You watch the live card read one of your own buyers. Your calibration answers stay private to the rep; you see usage and deal activity.</p>
+        <p class="pilot-lede">There is no self-serve signup. You will not find a price on this page. Bring one deal that is still in play, and decide from there.</p>
+        <div class="pilot-cta">
+          <a class="btn btn-primary" href="mailto:hello@pitchgenius.ai?subject=Book%20a%20pilot">Book a pilot &rarr;</a>
+          <a class="btn btn-ghost" href="#try">Scrub the live call again</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §10 NUMBERED SEQUENCE (before -> during -> after; replaces research timeline) -->
+  <section class="sequence" aria-labelledby="seq-title">
+    <div class="container">
+      <header class="section-head">
+        <p class="kicker">The sequence</p>
+        <h2 id="seq-title" class="display display-section">From the first dial to the next call &mdash; one read of the buyer, in order.</h2>
+      </header>
+      <div class="seq-rail" role="list">
+        <div class="seq-step" role="listitem">
+          <span class="seq-num">01</span>
+          <div class="seq-card">
+            <h3>Blueprint</h3>
+            <p>Archetype, DISC, Trust Triggers&#8482; and Resistance Signals&#8482; &mdash; before the call.</p>
+          </div>
+        </div>
+        <div class="seq-step" role="listitem">
+          <span class="seq-num">02</span>
+          <div class="seq-card">
+            <h3>Live read</h3>
+            <p>HumanCue&#8482; observation, Buyer Readiness Index&#8482;, and the sentence to say &mdash; during the call.</p>
+          </div>
+        </div>
+        <div class="seq-step" role="listitem">
+          <span class="seq-num">03</span>
+          <div class="seq-card">
+            <h3>Evidence</h3>
+            <p>MEDDPICC gaps, the verdict, and the next best move &mdash; ready after the call.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §11 CATEGORY COMPARISON (replaces safety; the wedge) -->
+  <section class="category" aria-labelledby="cat-title">
+    <div class="container">
+      <header class="section-head">
+        <p class="kicker">The category, honestly</p>
+        <h2 id="cat-title" class="display display-section">Conversation intelligence tells you what the buyer said. PitchGenius tells you what to say next.</h2>
+      </header>
+      <div class="cat-row">
+        <article class="cat-card">
+          <span class="cat-tag">The rest</span>
+          <h3>Conversation intelligence</h3>
+          <p>Records calls. Transcribes them. Coaches after the fact. Stores what already happened.</p>
+        </article>
+        <article class="cat-card cat-card-mid">
+          <span class="cat-tag">This</span>
+          <h3>PitchGenius</h3>
+          <p>Reads the buyer while the call is happening. Hands you the exact sentence to say next &mdash; while there is still time to change the outcome.</p>
+        </article>
+        <article class="cat-card cat-wedge">
+          <span class="cat-tag">The wedge</span>
+          <p class="wedge-text">Nobody else tells the rep what to say while the buyer is still in the room.</p>
+          <p class="wedge-note">Checked against Gong, Clari, Clari Copilot and Chorus &mdash; none claim live in-conversation reading.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- §12 FOUNDER STATEMENT (replaces blog) -->
+  <section class="founder" aria-labelledby="founder-title">
+    <div class="container founder-inner">
+      <p class="kicker">From the founder</p>
+      <blockquote id="founder-title" class="founder-quote">
+        &ldquo;Enhance humans &mdash; not replace them. Something very human, creative, and very, very technology. That is what I like.&rdquo;
+      </blockquote>
+      <p class="founder-sig">Russell Pontone &middot; founder, on the call</p>
+    </div>
+  </section>
+
+  <!-- §13 CLOSING CTA + FULL-BLEED PORTRAIT (the emotional turn) -->
+  <section class="closing" aria-labelledby="closing-title">
+    <div class="closing-bg" aria-hidden="true">
+      <img src="assets/rep-night-call.png" alt="A rep on a hard call at night, lit by his laptop, listening." loading="lazy">
+    </div>
+    <div class="container closing-inner">
+      <p class="closing-line" id="closing-title">&ldquo;Every closed contract you make as a seller is another piece of life you&rsquo;re building for your family.&rdquo;</p>
+      <p class="closing-attr">Russell Pontone</p>
+      <a class="btn btn-primary btn-lg" href="mailto:hello@pitchgenius.ai?subject=Book%20a%20pilot">Book a pilot</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- §14 FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a class="wordmark" href="#top">
+        <img src="assets/mark.png" alt="" width="22" height="22">
+        <span>PitchGenius</span>
+      </a>
+      <p class="footer-thesis">Human + AI. Enhance humans &mdash; not replace them.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#try">Live call</a>
+      <a href="#before">Buyer intelligence</a>
+      <a href="#after">Post-call analysis</a>
+      <a href="#readiness">Readiness</a>
+      <a href="#pilot">Book a pilot</a>
+    </nav>
+    <p class="footer-copy">&copy; <span data-year>PitchGenius.AI</span>. A live sales co-pilot. Not a recording tool.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

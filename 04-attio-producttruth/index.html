@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PitchGenius — what to say next, while there's still time</title>
+<meta name="description" content="PitchGenius reads the buyer, the deal, and the live conversation, then tells the rep what to say next while the call is still happening.">
+<meta property="og:title" content="PitchGenius — what to say next, while there's still time">
+<meta property="og:description" content="A real-time sales co-pilot. It listens to the call and tells the rep what the buyer is feeling and the exact sentence to say next.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#" aria-label="PitchGenius home">
+      <img src="assets/mark.png" alt="" width="26" height="26" class="brand-mark">
+      <span class="brand-word">PitchGenius<span class="brand-ai">.AI</span></span>
+    </a>
+    <nav class="site-nav" aria-label="primary">
+      <a href="#showcase">Product</a>
+      <a href="#showcase">Live call</a>
+      <a href="#category">Readiness</a>
+      <a href="#category">FAQ</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#book">Book a pilot</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <p class="kicker mono">a live co-pilot for the human side of the call</p>
+        <h1 id="hero-h1" class="hero-h1"><span class="reveal">"I'm twenty minutes in and I can't tell if they're bought,</span> <span class="reveal reveal-2">or being polite."</span></h1>
+        <p class="hero-sub">PitchGenius listens to the call and tells the rep what the buyer is feeling right now — and the exact sentence to say next. While there's still time to change the outcome.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#book">Book a pilot</a>
+          <a class="btn btn-ghost" href="#showcase">See the live call <span aria-hidden="true" class="caret">→</span></a>
+        </div>
+        <p class="hero-footnote mono">desktop app · floats over Zoom, Meet, Teams · not a post-call report</p>
+      </div>
+
+      <div class="live-card-v2" role="figure" aria-label="The PitchGenius HumanCue live call card, mid-call">
+        <div class="lc2-wave">
+          <div class="lc2-wave-bars" id="wave-bars" aria-hidden="true"></div>
+        </div>
+        <div class="lc2-stages" aria-label="call stage">
+          <span class="lc2-stage lc2-stage-done">Opening</span>
+          <span class="lc2-stage lc2-stage-now">Discovery</span>
+          <span class="lc2-stage lc2-stage-next">Value</span>
+          <span class="lc2-stage lc2-stage-next">Decision</span>
+          <span class="lc2-stage lc2-stage-next">Close</span>
+        </div>
+        <div class="lc2-card">
+          <div class="lc2-header">
+            <div class="lc2-h-left">
+              <span class="lc2-mark" aria-hidden="true"></span>
+              <span class="lc2-wordmark">PitchGenius HumanCue<sup class="lc2-tm">™</sup></span>
+            </div>
+            <span class="lc2-sep" aria-hidden="true"></span>
+            <span class="lc2-state" id="lc-state">Listening</span>
+            <span class="lc2-h-right">
+              <span class="lc2-readiness-label">Readiness <strong class="lc2-readiness-num" id="readiness">45</strong></span>
+              <span class="lc2-middot" aria-hidden="true">·</span>
+              <span class="lc2-stage-tag">DISCOVERY</span>
+            </span>
+          </div>
+          <div class="lc2-body">
+            <div class="lc2-block">
+              <p class="lc2-label">NEXT BEST MOVE</p>
+              <p class="lc2-move">Clarify the display behavior</p>
+            </div>
+            <div class="lc2-block">
+              <p class="lc2-label">SAY THIS</p>
+              <p class="lc2-say"><span class="lc2-quote-open" aria-hidden="true">“</span>The display scales to fit the screen. What are you seeing on your screen?<span class="lc2-quote-close" aria-hidden="true">”</span></p>
+            </div>
+            <div class="lc2-block">
+              <p class="lc2-label">WHY NOW</p>
+              <p class="lc2-why"><span class="lc2-signal">reading the room</span> <span class="lc2-arrow" aria-hidden="true">→</span> <span class="lc2-reason">this is the moment it costs him something</span></p>
+            </div>
+          </div>
+          <div class="lc2-footer">
+            <a class="lc2-why-link" href="#showcase" tabindex="-1">Why this, now?</a>
+            <span class="lc2-footer-spacer"></span>
+            <button class="lc2-btn-dismiss" type="button" tabindex="-1">Dismiss</button>
+            <button class="lc2-btn-next" type="button" tabindex="-1">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. BIG STATEMENT (attio's "Agentic revenue runs on Attio") ============ -->
+  <section class="statement" id="category" aria-labelledby="cat-h">
+    <div class="wrap">
+      <p id="cat-h" class="statement-line serif">Conversation intelligence tells you what the buyer said. <span class="emph">PitchGenius tells you what to say next, while there is still time to change the outcome.</span></p>
+      <p class="statement-note mono">checked against Gong, Clari, Clari Copilot and Chorus — none claim live in-conversation reading</p>
+    </div>
+  </section>
+
+  <!-- ============ 3. STICKY SHOWCASE (attio's signature device — replaces 3 beats) ============ -->
+  <section class="showcase" id="showcase" aria-label="How it works in one call">
+    <div class="showcase-grid">
+
+      <nav class="showcase-nav" aria-label="the three moments">
+        <a class="showcase-nav-item is-active" href="#m1" data-target="m1">
+          <span class="showcase-nav-num mono">01</span>
+          <span class="showcase-nav-quote serif">"I went in not knowing how they decide."</span>
+          <span class="showcase-nav-label mono">Buyer Blueprint — before the call</span>
+        </a>
+        <a class="showcase-nav-item" href="#m2" data-target="m2">
+          <span class="showcase-nav-num mono">02</span>
+          <span class="showcase-nav-quote serif">"something shifted in his voice and I had no idea what."</span>
+          <span class="showcase-nav-label mono">HumanCue — during the call</span>
+        </a>
+        <a class="showcase-nav-item" href="#m3" data-target="m3">
+          <span class="showcase-nav-num mono">03</span>
+          <span class="showcase-nav-quote serif">"the next call shouldn't start from memory."</span>
+          <span class="showcase-nav-label mono">Post-call analysis — after</span>
+        </a>
+      </nav>
+
+      <div class="showcase-content">
+
+        <article class="showcase-panel" id="m1">
+          <p class="showcase-pain serif">"I went in not knowing how they decide."</p>
+          <h2 class="showcase-h">Before the call, you already know who you're talking to.</h2>
+          <p class="showcase-body">A Buyer Blueprint is built before you dial — how this person decides, what builds their trust, what makes them resist, the objection they're most likely to raise. Not a category. Not a persona. This specific person.</p>
+          <div class="showcase-shot">
+            <img src="assets/buyer-blueprint.webp" alt="PitchGenius Buyer Blueprint showing the DISC wheel, archetype, trust triggers and resistance signals for a contact" loading="lazy" width="1024" height="683">
+          </div>
+          <ul class="showcase-list mono">
+            <li>Archetype &amp; DISC personality read</li>
+            <li>Trust Triggers<sup>™</sup> — the 3 things that build trust with them</li>
+            <li>Resistance Signals<sup>™</sup> — the 2–3 things that shut them down</li>
+            <li>Likely objection, stated as a sentence</li>
+          </ul>
+        </article>
+
+        <article class="showcase-panel showcase-panel-dark" id="m2">
+          <p class="showcase-pain serif">"something shifted in his voice and I had no idea what."</p>
+          <h2 class="showcase-h showcase-h-light">During the call, you know what they're feeling as they feel it.</h2>
+          <p class="showcase-body showcase-body-light">Everyone records calls. Everyone summarises afterwards. Nobody tells the rep what to say while the buyer is still in the room. The card above — the one in the hero — is that moment. It is not a Chrome extension. It is a desktop app that floats over whatever call you're already in. The rep's calibration is private; managers see usage and deal activity, not the rep's answers.</p>
+          <div class="showcase-shot showcase-shot-dark">
+            <div class="live-card-v2 live-card-v2-inline" role="figure" aria-label="The PitchGenius HumanCue live call card, mid-call">
+              <div class="lc2-wave"><div class="lc2-wave-bars lc2-wave-bars-static" aria-hidden="true"></div></div>
+              <div class="lc2-stages" aria-label="call stage">
+                <span class="lc2-stage lc2-stage-done">Opening</span>
+                <span class="lc2-stage lc2-stage-now">Discovery</span>
+                <span class="lc2-stage lc2-stage-next">Value</span>
+                <span class="lc2-stage lc2-stage-next">Decision</span>
+                <span class="lc2-stage lc2-stage-next">Close</span>
+              </div>
+              <div class="lc2-card">
+                <div class="lc2-header">
+                  <div class="lc2-h-left">
+                    <span class="lc2-mark" aria-hidden="true"></span>
+                    <span class="lc2-wordmark">PitchGenius HumanCue<sup class="lc2-tm">™</sup></span>
+                  </div>
+                  <span class="lc2-sep" aria-hidden="true"></span>
+                  <span class="lc2-state">Listening</span>
+                  <span class="lc2-h-right">
+                    <span class="lc2-readiness-label">Readiness <strong class="lc2-readiness-num">45</strong></span>
+                    <span class="lc2-middot" aria-hidden="true">·</span>
+                    <span class="lc2-stage-tag">DISCOVERY</span>
+                  </span>
+                </div>
+                <div class="lc2-body">
+                  <div class="lc2-block">
+                    <p class="lc2-label">NEXT BEST MOVE</p>
+                    <p class="lc2-move">Clarify the display behavior</p>
+                  </div>
+                  <div class="lc2-block">
+                    <p class="lc2-label">SAY THIS</p>
+                    <p class="lc2-say"><span class="lc2-quote-open" aria-hidden="true">“</span>The display scales to fit the screen. What are you seeing on your screen?<span class="lc2-quote-close" aria-hidden="true">”</span></p>
+                  </div>
+                  <div class="lc2-block">
+                    <p class="lc2-label">WHY NOW</p>
+                    <p class="lc2-why"><span class="lc2-signal">reading the room</span> <span class="lc2-arrow" aria-hidden="true">→</span> <span class="lc2-reason">this is the moment it costs him something</span></p>
+                  </div>
+                </div>
+                <div class="lc2-footer">
+                  <span class="lc2-why-link">Why this, now?</span>
+                  <span class="lc2-footer-spacer"></span>
+                  <button class="lc2-btn-dismiss" type="button" tabindex="-1">Dismiss</button>
+                  <button class="lc2-btn-next" type="button" tabindex="-1">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul class="showcase-list showcase-list-light mono">
+            <li>HumanCue<sup>™</sup> — a plain-language read of what the buyer is doing right now</li>
+            <li>Buyer Readiness Index<sup>™</sup> — 0–100, recalculated live</li>
+            <li>SAY THIS — the literal sentence, ready to read out loud</li>
+            <li>Call stage detected, not set: Opening / Discovery / Value / Decision / Close</li>
+          </ul>
+        </article>
+
+        <article class="showcase-panel" id="m3">
+          <p class="showcase-pain serif">"the next call shouldn't start from memory."</p>
+          <h2 class="showcase-h">After the call, the evidence is already organised.</h2>
+          <p class="showcase-body">Every claim in the summary points at the moment it came from. MEDDPICC gaps are scored. The next move is recommended, not guessed. CRM updates in one click.</p>
+          <div class="showcase-shot showcase-shot-portrait">
+            <img src="assets/post-call-analysis.webp" alt="PitchGenius post-call analysis showing the call summary, MEDDPICC gap chips, buyer readiness verdict and next moves" loading="lazy" width="518" height="1024">
+          </div>
+          <ul class="showcase-list mono">
+            <li>Evidence-linked call summary</li>
+            <li>Buyer Readiness Index<sup>™</sup> with a written verdict</li>
+            <li>MEDDPICC gap analysis — 8 chips, strong / neutral / weak</li>
+            <li>Next Best Move for the following call</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. DARK FOLD (comparison + arithmetic + privacy folded in — attio's dark statement pattern) ============ -->
+  <section class="dark-fold" aria-labelledby="mgr-h">
+    <div class="wrap">
+
+      <div class="fold-compare">
+        <p class="kicker mono kicker-center kicker-light">the category, honestly</p>
+        <h2 id="mgr-h" class="fold-h">What conversation intelligence does. What this does.</h2>
+        <div class="cmp-table" role="table" aria-label="Category comparison">
+          <div class="cmp-row cmp-head mono" role="row">
+            <span class="cmp-c" role="columnheader"></span>
+            <span class="cmp-c" role="columnheader">records</span>
+            <span class="cmp-c" role="columnheader">summarises</span>
+            <span class="cmp-c" role="columnheader">forecasts</span>
+            <span class="cmp-c cmp-c-last" role="columnheader">coaches live</span>
+          </div>
+          <div class="cmp-row mono" role="row">
+            <span class="cmp-c cmp-who" role="rowheader">Gong</span>
+            <span class="cmp-c" role="cell">yes</span>
+            <span class="cmp-c" role="cell">yes</span>
+            <span class="cmp-c" role="cell">revenue intel</span>
+            <span class="cmp-c cmp-c-last cmp-no" role="cell">no</span>
+          </div>
+          <div class="cmp-row mono" role="row">
+            <span class="cmp-c cmp-who" role="rowheader">Clari / Copilot</span>
+            <span class="cmp-c" role="cell">yes</span>
+            <span class="cmp-c" role="cell">yes</span>
+            <span class="cmp-c" role="cell">forecasting</span>
+            <span class="cmp-c cmp-c-last cmp-no" role="cell">no</span>
+          </div>
+          <div class="cmp-row mono" role="row">
+            <span class="cmp-c cmp-who" role="rowheader">Chorus</span>
+            <span class="cmp-c" role="cell">yes</span>
+            <span class="cmp-c" role="cell">yes</span>
+            <span class="cmp-c" role="cell">analytics</span>
+            <span class="cmp-c cmp-c-last cmp-no" role="cell">no</span>
+          </div>
+          <div class="cmp-row cmp-us mono" role="row">
+            <span class="cmp-c cmp-who" role="rowheader">PitchGenius</span>
+            <span class="cmp-c" role="cell">yes</span>
+            <span class="cmp-c" role="cell">yes</span>
+            <span class="cmp-c" role="cell">readiness per call</span>
+            <span class="cmp-c cmp-c-last cmp-yes" role="cell">yes — live</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fold-arithmetic">
+        <p class="fold-arithmetic-h mono">for the manager who signs</p>
+        <p class="fold-arithmetic-body">No percentages — we don't have customer numbers yet. What we have is the mechanism: the same reps close more of the same pipeline. A new rep performs like a good rep in weeks, because the coaching happens during the call, not in a Monday review. Buyer readiness is scored on every call, so the pipeline stops being what reps hope and starts being what buyers showed. One manager cannot sit on 40 calls a week. This sits on all of them. <span class="fold-closer serif">Your competitor's rep is going to have this. The question is whether yours does first.</span></p>
+      </div>
+
+      <div class="fold-privacy">
+        <div class="fold-privacy-text">
+          <p class="kicker mono kicker-light">private by design</p>
+          <p class="fold-privacy-line">Your calibration answers are <strong>private</strong>. Managers see usage and deal activity. They do not see your answers. This does not sell for you — it makes you better at the human part. The rep is the hero. PitchGenius is the earpiece.</p>
+          <p class="fold-privacy-faq mono">is this a chrome extension? no — a desktop app. does it score the rep? no — calibration is private. can i try it? pilots, not self-serve. book one below.</p>
+        </div>
+        <div class="fold-privacy-shot">
+          <img src="assets/rep-calibration.webp" alt="PitchGenius rep calibration — a private 10-question profile that tunes how the co-pilot coaches this specific rep" loading="lazy" width="1024" height="683">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 5. QUOTE / EMOTIONAL TURN (portrait + family line) ============ -->
+  <section class="turn" id="turn" aria-labelledby="turn-h">
+    <div class="turn-photo" aria-hidden="true">
+      <img src="assets/rep-woman-headset.png" alt="">
+    </div>
+    <div class="turn-overlay"></div>
+    <div class="wrap turn-inner">
+      <blockquote id="turn-h" class="turn-quote serif">
+        "every closed contract you make as a seller<br>
+        is another piece of life you're building<br>
+        for your family."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ 6. FINAL CTA ============ -->
+  <section class="final-cta" id="book" aria-labelledby="cta-h">
+    <div class="wrap cta-inner">
+      <h2 id="cta-h" class="cta-h serif">know what to say next.<br>while there's still time.</h2>
+      <div class="cta-actions">
+        <a class="btn btn-primary btn-lg" href="mailto:hello@pitchgenius.ai?subject=Book%20a%20pilot">Book a pilot</a>
+        <a class="btn btn-ghost btn-lg" href="#showcase">See the live call <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="cta-note mono">pitchgenius.ai · stage.pitchgenius.ai</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="assets/mark.png" alt="" width="22" height="22">
+      <span class="footer-word">PitchGenius.AI</span>
+    </div>
+    <nav class="footer-nav" aria-label="footer">
+      <div class="footer-col">
+        <p class="footer-h mono">Product</p>
+        <a href="#showcase">Buyer Blueprint</a>
+        <a href="#showcase">Live co-pilot</a>
+        <a href="#showcase">Post-call analysis</a>
+        <a href="#category">Rep calibration</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-h mono">Company</p>
+        <a href="#category">For managers</a>
+        <a href="#category">Category</a>
+        <a href="#book">Book a pilot</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-h mono">Trust</p>
+        <a href="#category">Rep privacy</a>
+        <a href="#category">FAQ</a>
+      </div>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <p class="mono">© 2026 PitchGenius.AI — human plus AI, on every call.</p>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PitchGenius — Enhance humans, not replace them.</title>
+  <meta name="description" content="PitchGenius reads the buyer, the deal and the live conversation, then coaches the rep in the moment. A real-time sales co-pilot that tells you what to say next, while there is still time to change the outcome.">
+  <meta property="og:title" content="PitchGenius — Enhance humans, not replace them.">
+  <meta property="og:description" content="Conversation intelligence tells you what the buyer said. PitchGenius tells you what to say next, while there is still time to change the outcome.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/mark.png">
+  <link rel="icon" type="image/png" href="assets/mark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="PitchGenius home">
+        <img src="assets/mark.png" alt="" class="brand-mark" width="28" height="28">
+        <span class="brand-word">PitchGenius</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#product">Product</a>
+        <a href="#tour">How it works</a>
+        <a href="#buyers">For teams</a>
+        <a href="#thesis">Thesis</a>
+      </nav>
+      <a class="btn btn-primary btn-sm" href="#book">Book a pilot</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ============ 1. HERO (ashby hero: centered H1 + product card) ============ -->
+    <section class="section section-hero" id="hero">
+      <div class="container hero-inner">
+        <p class="kicker">Manifesto &nbsp;·&nbsp; Human + AI</p>
+        <h1 class="display hero-title">
+          Enhance humans.<br>
+          <span class="muted-ink">Not replace them.</span>
+        </h1>
+        <p class="lede">
+          You are twenty minutes in. They are still nodding. You cannot tell whether they are
+          bought, or being polite. You find out three weeks later, when they stop replying.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#book">Book a pilot</a>
+          <a class="btn btn-ghost" href="#tour">See how it works</a>
+        </div>
+
+        <!-- EVIDENCE 1 — the live card, recreated from product-ui-live-card-v2.json -->
+        <figure class="live-frame" aria-label="The live-call coach card, captured during a real sales call">
+          <figcaption class="live-caption">
+            <span class="rec-dot" aria-hidden="true"></span>
+            A real moment, captured 2026-08-13 &nbsp;·&nbsp; 16:29
+          </figcaption>
+
+          <div class="lc-wave" aria-hidden="true">
+            <span style="height:2px"></span><span style="height:2px"></span><span style="height:3px"></span><span style="height:4px"></span><span style="height:4px"></span><span style="height:3px"></span><span style="height:2px"></span><span style="height:9px"></span><span style="height:8px"></span><span style="height:6px"></span><span style="height:4px"></span><span style="height:14px"></span><span style="height:12px"></span><span style="height:9px"></span><span style="height:6px"></span><span style="height:18px"></span><span style="height:16px"></span><span style="height:12px"></span><span style="height:9px"></span><span style="height:22px"></span><span style="height:19px"></span><span style="height:15px"></span><span style="height:11px"></span><span style="height:6px"></span><span style="height:21px"></span><span style="height:17px"></span><span style="height:12px"></span><span style="height:8px"></span><span style="height:22px"></span><span style="height:18px"></span><span style="height:13px"></span><span style="height:8px"></span><span style="height:22px"></span><span style="height:18px"></span><span style="height:13px"></span><span style="height:9px"></span><span style="height:21px"></span><span style="height:16px"></span><span style="height:12px"></span><span style="height:8px"></span><span style="height:5px"></span><span style="height:14px"></span><span style="height:10px"></span><span style="height:7px"></span><span style="height:4px"></span><span style="height:10px"></span><span style="height:7px"></span><span style="height:5px"></span><span style="height:3px"></span><span style="height:6px"></span><span style="height:3px"></span><span style="height:2px"></span><span style="height:2px"></span><span style="height:2px"></span>
+          </div>
+
+          <div class="lc-stages" aria-hidden="true">
+            <span class="lc-stage lc-stage--done">Opening</span>
+            <span class="lc-stage lc-stage--current">Discovery</span>
+            <span class="lc-stage lc-stage--upcoming">Value</span>
+            <span class="lc-stage lc-stage--upcoming">Decision</span>
+            <span class="lc-stage lc-stage--upcoming">Close</span>
+          </div>
+
+          <div class="live-card" id="live-card" role="group" aria-label="Live call coach">
+            <div class="lc-header">
+              <span class="lc-icon" aria-hidden="true"></span>
+              <span class="lc-wordmark">PitchGenius HumanCue<sup>™</sup></span>
+              <span class="lc-separator" aria-hidden="true"></span>
+              <span class="lc-state" data-lc-row>buyer is still describing the screen display</span>
+              <span class="lc-spacer"></span>
+              <span class="lc-context">Readiness <span class="lc-readiness-num" id="readiness">45</span> · DISCOVERY</span>
+            </div>
+
+            <div class="lc-body">
+              <div class="lc-block lc-next" data-lc-row>
+                <span class="lc-label">NEXT BEST MOVE</span>
+                <p class="lc-next-value">Clarify the display behavior</p>
+              </div>
+
+              <div class="lc-block lc-say" data-lc-row>
+                <span class="lc-label">SAY THIS</span>
+                <blockquote class="lc-quote">The display scales to fit the screen. What are you seeing on your screen?</blockquote>
+              </div>
+
+              <div class="lc-block lc-why" data-lc-row>
+                <span class="lc-label">WHY NOW</span>
+                <p class="lc-why-text">reading the room <span class="lc-arrow">→</span> this is the moment it costs him something</p>
+              </div>
+            </div>
+
+            <div class="lc-footer">
+              <a class="lc-link" href="#tour">Why this, now?</a>
+              <span class="lc-spacer"></span>
+              <span class="lc-btn lc-btn-dismiss">Dismiss</span>
+              <span class="lc-btn lc-btn-next">Next</span>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ 2. PLATFORM BAND (ashby platform band: H2 + product facets in one section) ============ -->
+    <!-- before/during/after FOLDED INTO one section, not three separate sections -->
+    <section class="section section-product" id="product">
+      <div class="container">
+        <div class="product-head">
+          <p class="kicker">The product</p>
+          <h2 class="display beat-title">
+            A complete co-pilot for every moment of the call.
+          </h2>
+          <p class="beat-lede">
+            Before, during, and after — three real surfaces from one real deal.
+            The product is one continuous presence across the entire conversation.
+          </p>
+        </div>
+
+        <div class="triptych">
+          <figure class="triptych-item">
+            <div class="triptych-label">
+              <span class="triptych-num">01</span>
+              <span class="triptych-phase">Before</span>
+            </div>
+            <div class="triptych-imgwrap">
+              <img src="assets/buyer-blueprint.webp"
+                   alt="Buyer Blueprint showing archetype Strategic Visionary, a DISC personality read, Trust Triggers and Resistance Signals."
+                   loading="lazy" width="1024" height="683">
+            </div>
+            <figcaption class="triptych-caption">
+              Pre-Call Buyer Intelligence™ &nbsp;·&nbsp; archetype <span class="cap">Strategic Visionary</span>
+            </figcaption>
+          </figure>
+
+          <figure class="triptych-item">
+            <div class="triptych-label">
+              <span class="triptych-num">02</span>
+              <span class="triptych-phase">During</span>
+            </div>
+            <div class="triptych-imgwrap triptych-miniwrap">
+              <div class="mini-card" aria-label="The live-call coach card (current design)">
+                <div class="mini-card-header">
+                  <span class="mini-icon" aria-hidden="true"></span>
+                  <span class="mini-wordmark">HumanCue<sup>™</sup></span>
+                  <span class="mini-spacer"></span>
+                  <span class="mini-context">Readiness 45 · DISCOVERY</span>
+                </div>
+                <div class="mini-block">
+                  <span class="mini-label">NEXT BEST MOVE</span>
+                  <p class="mini-value">Clarify the display behavior</p>
+                </div>
+                <div class="mini-block mini-block--say">
+                  <span class="mini-label">SAY THIS</span>
+                  <p class="mini-quote">"The display scales to fit the screen. What are you seeing on your screen?"</p>
+                </div>
+                <div class="mini-block">
+                  <span class="mini-label">WHY NOW</span>
+                  <p class="mini-why">reading the room <span class="mini-arrow">→</span> this is the moment it costs him something</p>
+                </div>
+              </div>
+            </div>
+            <figcaption class="triptych-caption">
+              Neuro-Script Live™ &nbsp;·&nbsp; HumanCue™ &amp; Buyer Readiness Index™
+            </figcaption>
+          </figure>
+
+          <figure class="triptych-item">
+            <div class="triptych-label">
+              <span class="triptych-num">03</span>
+              <span class="triptych-phase">After</span>
+            </div>
+            <div class="triptych-imgwrap">
+              <img src="assets/post-call-analysis.webp"
+                   alt="Post-call analysis with evidence-linked summary, Buyer Readiness verdict, MEDDPICC gap analysis, and next moves."
+                   loading="lazy" width="518" height="1024">
+            </div>
+            <figcaption class="triptych-caption">
+              Post-call analysis &nbsp;·&nbsp; evidence, MEDDPICC, next moves
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. PRODUCT TOUR (ashby product tour: H2 + demo / comparison) ============ -->
+    <!-- competitive wedge + category comparison FOLDED HERE, not as a separate section -->
+    <section class="section section-tour" id="tour">
+      <div class="container">
+        <div class="tour-grid">
+          <div class="tour-text">
+            <p class="kicker">What nobody else does</p>
+            <h2 class="display beat-title">The difference is the moment.</h2>
+            <p class="body-graf">
+              Conversation intelligence tells you what the buyer said.
+              PitchGenius tells you <span class="serif-em">what to say next</span>,
+              while there is still time to change the outcome.
+            </p>
+            <p class="body-graf">
+              Everyone records calls. Everyone summarises them afterwards.
+              Nobody tells the rep what to say while the buyer is still in the room.
+              Checked against Gong, Clari, Clari Copilot and Chorus — none of them
+              coach the conversation while it is happening.
+            </p>
+          </div>
+
+          <div class="tour-compare">
+            <div class="compare-scroll">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Records &amp; transcribes</th>
+                  <th>Coaches after the call</th>
+                  <th>Coaches during the call</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="compare-name">Gong</td>
+                  <td class="compare-yes">Yes</td>
+                  <td class="compare-yes">Yes</td>
+                  <td class="compare-no">No</td>
+                </tr>
+                <tr>
+                  <td class="compare-name">Clari / Copilot</td>
+                  <td class="compare-yes">Yes</td>
+                  <td class="compare-yes">Yes</td>
+                  <td class="compare-no">No</td>
+                </tr>
+                <tr>
+                  <td class="compare-name">Chorus</td>
+                  <td class="compare-yes">Yes</td>
+                  <td class="compare-yes">Yes</td>
+                  <td class="compare-no">No</td>
+                </tr>
+                <tr class="compare-us">
+                  <td class="compare-name">PitchGenius</td>
+                  <td class="compare-yes">Yes</td>
+                  <td class="compare-yes">Yes</td>
+                  <td class="compare-yes accent">Yes</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. COMPANY-STAGE GRID (ashby stage grid: H2 + audience cards) ============ -->
+    <!-- manager arithmetic FOLDED HERE as audience segmentation, not a "for the manager" section -->
+    <section class="section section-buyers" id="buyers">
+      <div class="container">
+        <div class="buyers-head">
+          <p class="kicker">For every role</p>
+          <h2 class="display beat-title">
+            The same reps. More closes.
+          </h2>
+          <p class="beat-lede">
+            The rep feels. The manager signs. Both get what they need — in one scroll, not two pages.
+          </p>
+        </div>
+
+        <div class="buyer-grid">
+          <div class="buyer-card">
+            <div class="buyer-card-head">
+              <span class="buyer-num">01</span>
+              <span class="buyer-label">For the rep</span>
+            </div>
+            <h3 class="buyer-title">An unfair advantage.</h3>
+            <p class="buyer-body">
+              You walk into the call knowing something the other reps do not.
+              You stop losing deals you could have saved. You stop replaying the call
+              wondering what you missed.
+            </p>
+          </div>
+
+          <div class="buyer-card">
+            <div class="buyer-card-head">
+              <span class="buyer-num">02</span>
+              <span class="buyer-label">For the manager</span>
+            </div>
+            <h3 class="buyer-title">The arithmetic.</h3>
+            <p class="buyer-body">
+              The same reps close more of the same pipeline, because coaching happens
+              during the call instead of in a Monday review. New reps ramp in weeks,
+              not quarters. Forecast stops being what reps hope and starts being what
+              buyers showed. One manager, who cannot sit on forty calls a week,
+              now sits on all of them.
+            </p>
+          </div>
+
+          <div class="buyer-card buyer-card--accent">
+            <div class="buyer-card-head">
+              <span class="buyer-num">03</span>
+              <span class="buyer-label">The question</span>
+            </div>
+            <h3 class="buyer-title">Who gets this first?</h3>
+            <p class="buyer-body">
+              Your competitor's rep is going to have this. The question is whether
+              yours does first.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. FOUNDER STATEMENT (replaces ashby testimonials: honest, no fake quotes) ============ -->
+    <section class="section section-thesis" id="thesis">
+      <div class="container narrow thesis-inner">
+        <p class="kicker">The thesis, in the founder's own words</p>
+        <blockquote class="founder-stmt display">
+          “Our branding has really got to be Human plus AI. Enhance humans — not replace them.
+          Something very human, creative — and very, very technology. That's what I like.”
+        </blockquote>
+
+        <div class="signature-block">
+          <p class="signature" aria-label="Founder signature">Russell&nbsp;P.</p>
+          <p class="founder-name">Founder &nbsp;·&nbsp; PitchGenius</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. VALUE PROPS (ashby value props: H2 + two columns) ============ -->
+    <!-- privacy promise FOLDED HERE as a subcolumn, not its own section -->
+    <section class="section section-values" id="values">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <p class="kicker">What this is not</p>
+            <h2 class="display beat-title">It does not sell for you.</h2>
+            <p class="body-graf">
+              The rep stays the hero. PitchGenius is the guide — calm, specific,
+              never boastful. It does not speak for you. It hands you the line,
+              and you decide.
+            </p>
+            <p class="body-graf">
+              Calibration is ten questions, answered once, that tune how the
+              co-pilot talks to the rep. Those answers are private. Managers see
+              usage and deal activity. They do not see the rep's answers. The
+              product ships with that promise.
+            </p>
+          </div>
+
+          <div>
+            <p class="kicker">What this is</p>
+            <h2 class="display beat-title">A guide that sits on every call.</h2>
+            <p class="body-graf">
+              It listens. It reads the room. It tells you what the buyer is feeling
+              as they feel it. It gives you the exact sentence to say next — and the
+              reason it is the right sentence, right now.
+            </p>
+            <p class="body-graf">
+              It is a desktop app, a small always-on-top card floating over whatever
+              video call the rep is already in. Zoom, Meet, Teams. Not a Chrome
+              extension. Not a post-call report tool.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. FINAL CTA (ashby final CTA: H2 + button) ============ -->
+    <section class="section section-closing" id="book">
+      <div class="container narrow closing-inner">
+        <p class="ceiling">
+          Every closed contract you make as a seller is another piece of life you are building
+          for your family.
+        </p>
+        <div class="closing-actions">
+          <a class="btn btn-primary btn-lg" href="mailto:pilot@pitchgenius.ai?subject=Pilot%20request">Book a pilot</a>
+          <a class="btn btn-ghost" href="#hero">See the live call</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/mark.png" alt="" class="brand-mark" width="24" height="24">
+        <span class="brand-word footer-word">PitchGenius.AI</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#product">Product</a>
+        <a href="#tour">How it works</a>
+        <a href="#buyers">For teams</a>
+        <a href="#thesis">Thesis</a>
+        <a href="mailto:pilot@pitchgenius.ai">pilot@pitchgenius.ai</a>
+      </nav>
+      <p class="footer-meta">A real-time sales co-pilot. It listens, it reads the room, it hands you the line.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

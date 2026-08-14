@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PitchGenius — what to say next, while the buyer is still on the line</title>
+<meta name="description" content="A real-time co-pilot for the rep in the call. PitchGenius reads the buyer and hands back the exact next sentence while there is still time to change the outcome.">
+<meta property="og:title" content="PitchGenius — what to say next, while the buyer is still on the line">
+<meta property="og:description" content="It does not replace Gong, Clari or Chorus. It covers the twenty minutes they cannot reach.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&family=Sora:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="PitchGenius home">
+      <img class="brand-mark" src="assets/mark.png" alt="" width="28" height="28">
+      <span class="brand-name">PitchGenius</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#difference">The difference</a>
+      <a href="#how">How it works</a>
+      <a href="#managers">For managers</a>
+      <a href="#reps">For reps</a>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="#pilot">Book a pilot</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">For teams who already own conversation intelligence</p>
+        <h1 class="display hero-h1" id="hero-h1" aria-label="We tell you what to say next — while the buyer is still on the line.">
+          We tell you what to say next&nbsp;— while the buyer is still
+          <span class="rotor" aria-hidden="true">
+            <span class="rotor-word" style="--d:0s">on the line.</span>
+            <span class="rotor-word" style="--d:6s">in the room.</span>
+            <span class="rotor-word" style="--d:12s">deciding.</span>
+          </span>
+        </h1>
+        <p class="lede">
+          PitchGenius is a real-time co-pilot for the rep in the call. It listens, reads
+          the buyer, and hands back the exact next sentence&nbsp;— while there is still
+          time to change the outcome. It does not replace Gong, Clari or Chorus. It covers
+          the twenty minutes they cannot reach.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#pilot">Book a pilot</a>
+          <a class="btn btn-ghost" href="#how">See the live call</a>
+        </div>
+      </div>
+
+      <!-- live-call card v2: minimal three-block card per product-ui-live-card-v2.json -->
+      <div class="hero-card-col">
+        <div class="wave-strip" aria-hidden="true">
+          <div class="wave-bars" id="waveBars"></div>
+        </div>
+        <div class="stage-row" aria-label="Call stage: Discovery">
+          <span class="stage stage-done">Opening</span>
+          <span class="stage-sep">/</span>
+          <span class="stage stage-current">Discovery</span>
+          <span class="stage-sep">/</span>
+          <span class="stage stage-up">Value</span>
+          <span class="stage-sep">/</span>
+          <span class="stage stage-up">Decision</span>
+          <span class="stage-sep">/</span>
+          <span class="stage stage-up">Close</span>
+        </div>
+        <div class="livecard" id="livecard">
+          <div class="lc-header">
+            <div class="lc-brand">
+              <span class="lc-icon" aria-hidden="true"></span>
+              <span class="lc-name">PitchGenius HumanCue<sup class="lc-tm">™</sup></span>
+            </div>
+            <span class="lc-sep" aria-hidden="true"></span>
+            <span class="lc-state">buyer is still describing the screen display</span>
+            <span class="lc-context">
+              <span class="lc-rd-label">Readiness</span>
+              <span class="lc-rd-num" id="readiness">45</span>
+              <span class="lc-dot">·</span>
+              <span class="lc-stage-tag">DISCOVERY</span>
+            </span>
+          </div>
+          <div class="lc-body">
+            <div class="lc-block">
+              <p class="lc-label">Next best move</p>
+              <p class="lc-move">Clarify the display behavior</p>
+            </div>
+            <div class="lc-block">
+              <p class="lc-label">Say this</p>
+              <blockquote class="lc-say">
+                <span class="lc-q" aria-hidden="true">&ldquo;</span>The display scales to fit the screen. What are you seeing on your screen?<span class="lc-q" aria-hidden="true">&rdquo;</span>
+              </blockquote>
+            </div>
+            <div class="lc-block">
+              <p class="lc-label">Why now</p>
+              <p class="lc-why">reading the room <span class="lc-arrow">&rarr;</span> this is the moment it costs him something</p>
+            </div>
+          </div>
+          <div class="lc-footer">
+            <a class="lc-why-link" href="#how">Why this, now?</a>
+            <div class="lc-actions">
+              <button type="button" class="lc-next" id="cardNext">Next</button>
+              <button type="button" class="lc-dismiss" id="cardDismiss">Dismiss</button>
+            </div>
+          </div>
+        </div>
+        <p class="hero-card-cap" id="heroCardCap">One real call. Real numbers. The card floats over Zoom, Meet or Teams&nbsp;— the rep never leaves the conversation.</p>
+        <p class="hero-card-undo" id="heroCardUndo" hidden><button type="button" id="cardUndo" class="undo-link">↺ Bring the card back</button></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE LEDGER (signature) ============ -->
+  <section class="ledger-band" id="difference" aria-labelledby="ledger-h">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">The difference, set side by side</p>
+        <h2 class="display section-h" id="ledger-h">What you already own&nbsp;— and the twenty minutes it cannot reach.</h2>
+      </header>
+
+      <div class="ledger" role="table" aria-label="Conversation intelligence compared with live in-call coaching">
+        <div class="ledger-head" role="row">
+          <div class="cell cell-left" role="columnheader">What conversation intelligence already gives you</div>
+          <div class="cell cell-right" role="columnheader">What PitchGenius adds&nbsp;— during the call</div>
+        </div>
+
+        <div class="ledger-row" role="row">
+          <div class="cell cell-left" role="rowheader">Records the call</div>
+          <div class="cell cell-right" role="cell">
+            <span class="cell-clock" aria-label="during the call">⏱ during</span>
+            Reads the buyer as they speak
+          </div>
+        </div>
+        <div class="ledger-row" role="row">
+          <div class="cell cell-left" role="rowheader">Transcribes every word</div>
+          <div class="cell cell-right" role="cell">
+            <span class="cell-clock" aria-label="during the call">⏱ during</span>
+            Hands you the exact next sentence to say
+          </div>
+        </div>
+        <div class="ledger-row" role="row">
+          <div class="cell cell-left" role="rowheader">Coaches you in Monday&rsquo;s review</div>
+          <div class="cell cell-right" role="cell">
+            <span class="cell-clock" aria-label="during the call">⏱ during</span>
+            Coaches you in this second
+          </div>
+        </div>
+        <div class="ledger-row" role="row">
+          <div class="cell cell-left" role="rowheader">Forecasts from what already happened</div>
+          <div class="cell cell-right" role="cell">
+            <span class="cell-clock" aria-label="during the call">⏱ during</span>
+            Scores readiness as it changes
+          </div>
+        </div>
+      </div>
+      <p class="ledger-note">Every row on the right is the same job&nbsp;— done while the buyer is still in the room. That is the only column with a clock in it.</p>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORY SENTENCE ============ -->
+  <section class="cat-band" aria-labelledby="cat-h">
+    <div class="wrap narrow">
+      <p class="eyebrow center">Stated flat, no adjectives</p>
+      <p class="cat-sentence display" id="cat-h">
+        Conversation intelligence tells you what the buyer said.
+        <span class="cat-accent">PitchGenius tells you what to say next, while there is still time to change the outcome.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ COMPARISON TABLE (honest — replaces the logo wall) ============ -->
+  <section class="cmp-band" aria-labelledby="cmp-h">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">Checked, not spun</p>
+        <h2 class="display section-h" id="cmp-h">Where each tool actually lives in the call.</h2>
+        <p class="section-sub">A fact about the category, not a slur against any name in it. Recording, transcription and after-the-fact coaching are solved&nbsp;— and solved well.</p>
+      </header>
+
+      <div class="cmp-table" role="table" aria-label="Conversation intelligence tools compared">
+        <div class="cmp-row cmp-head" role="row">
+          <span class="cmp-who" role="columnheader">Who</span>
+          <span class="cmp-does" role="columnheader">What they do</span>
+          <span class="cmp-cant" role="columnheader">What they do not do</span>
+        </div>
+        <div class="cmp-row" role="row">
+          <span class="cmp-who" role="rowheader">Gong</span>
+          <span class="cmp-does" role="cell">Records calls, transcribes, coaches after the fact, revenue intelligence</span>
+          <span class="cmp-cant" role="cell">Say anything during the call</span>
+        </div>
+        <div class="cmp-row" role="row">
+          <span class="cmp-who" role="rowheader">Clari / Clari Copilot</span>
+          <span class="cmp-does" role="cell">Forecasting, revenue ops, call recording</span>
+          <span class="cmp-cant" role="cell">Live in-conversation coaching</span>
+        </div>
+        <div class="cmp-row" role="row">
+          <span class="cmp-who" role="rowheader">Chorus (ZoomInfo)</span>
+          <span class="cmp-does" role="cell">Call recording and analytics</span>
+          <span class="cmp-cant" role="cell">Live in-conversation coaching</span>
+        </div>
+        <div class="cmp-row" role="row">
+          <span class="cmp-who" role="rowheader">Salesforce / HubSpot</span>
+          <span class="cmp-does" role="cell">Store what already happened</span>
+          <span class="cmp-cant" role="cell">Tell you what to do next</span>
+        </div>
+        <div class="cmp-row cmp-us" role="row">
+          <span class="cmp-who" role="rowheader">PitchGenius</span>
+          <span class="cmp-does" role="cell">Reads the buyer live and tells you the next sentence while the call is still happening</span>
+          <span class="cmp-cant cmp-cant-na" role="cell">—</span>
+        </div>
+      </div>
+      <p class="cmp-note">None of them claim live psychological reading during the conversation. That is the gap this fills.</p>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS — three moments ============ -->
+  <section class="how" id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow">How it works, in one call</p>
+        <h2 class="display section-h" id="how-h">Before. During. After.</h2>
+        <p class="section-sub">The competitive wedge lives in the middle beat and nowhere else. Everyone records. Everyone summarises. Nobody tells the rep what to say while the buyer is still in the room.</p>
+      </header>
+
+      <article class="moment moment-a">
+        <div class="moment-shot">
+          <img src="assets/buyer-blueprint.webp" alt="PitchGenius Buyer Blueprint before a call: archetype, DISC personality read, decision pattern, Trust Triggers and Resistance Signals" width="1024" height="683" loading="lazy">
+        </div>
+        <div class="moment-text">
+          <p class="moment-no">01&nbsp;— Before the call</p>
+          <h3 class="display moment-h">Know who you are about to talk to.</h3>
+          <p class="moment-body">A Buyer Blueprint is built before you dial: archetype, a DISC personality read, how they decide, what builds their trust, and the likely objection&nbsp;— stated as a sentence, not a category.</p>
+          <ul class="chip-list">
+            <li>Archetype &amp; social style</li>
+            <li>Trust Triggers<sup>™</sup></li>
+            <li>Resistance Signals<sup>™</sup></li>
+            <li>Likely objection</li>
+          </ul>
+          <p class="moment-tag">Pre-Call Buyer Intelligence<sup>™</sup></p>
+        </div>
+      </article>
+
+      <article class="moment moment-b">
+        <div class="moment-text">
+          <p class="moment-no">02&nbsp;— During the call</p>
+          <h3 class="display moment-h">Know what they are feeling, as they feel it.</h3>
+          <p class="moment-body">The floating card reads the room: a HumanCue<sup>™</sup> observation of what the buyer is doing right now, a Buyer Readiness Index<sup>™</sup> from 0&ndash;100 recalculated live, the call stage detected&nbsp;— and one literal sentence, ready to read out loud.</p>
+          <ul class="chip-list">
+            <li>HumanCue<sup>™</sup></li>
+            <li>Buyer Readiness Index<sup>™</sup></li>
+            <li>Next best move</li>
+            <li>Say this&nbsp;— verbatim</li>
+          </ul>
+          <p class="moment-tag">Neuro-Script Live<sup>™</sup></p>
+        </div>
+        <div class="moment-shot moment-shot-card">
+          <div class="wave-strip" aria-hidden="true">
+            <div class="wave-bars"></div>
+          </div>
+          <div class="stage-row" aria-label="Call stage: Discovery">
+            <span class="stage stage-done">Opening</span>
+            <span class="stage-sep">/</span>
+            <span class="stage stage-current">Discovery</span>
+            <span class="stage-sep">/</span>
+            <span class="stage stage-up">Value</span>
+            <span class="stage-sep">/</span>
+            <span class="stage stage-up">Decision</span>
+            <span class="stage-sep">/</span>
+            <span class="stage stage-up">Close</span>
+          </div>
+          <div class="livecard">
+            <div class="lc-header">
+              <div class="lc-brand">
+                <span class="lc-icon" aria-hidden="true"></span>
+                <span class="lc-name">PitchGenius HumanCue<sup class="lc-tm">™</sup></span>
+              </div>
+              <span class="lc-sep" aria-hidden="true"></span>
+              <span class="lc-state">buyer is still describing the screen display</span>
+              <span class="lc-context">
+                <span class="lc-rd-label">Readiness</span>
+                <span class="lc-rd-num">45</span>
+                <span class="lc-dot">·</span>
+                <span class="lc-stage-tag">DISCOVERY</span>
+              </span>
+            </div>
+            <div class="lc-body">
+              <div class="lc-block">
+                <p class="lc-label">Next best move</p>
+                <p class="lc-move">Clarify the display behavior</p>
+              </div>
+              <div class="lc-block">
+                <p class="lc-label">Say this</p>
+                <blockquote class="lc-say">
+                  <span class="lc-q" aria-hidden="true">&ldquo;</span>The display scales to fit the screen. What are you seeing on your screen?<span class="lc-q" aria-hidden="true">&rdquo;</span>
+                </blockquote>
+              </div>
+              <div class="lc-block">
+                <p class="lc-label">Why now</p>
+                <p class="lc-why">reading the room <span class="lc-arrow">&rarr;</span> this is the moment it costs him something</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="moment moment-c">
+        <div class="moment-shot">
+          <img src="assets/post-call-analysis.webp" alt="PitchGenius post-call analysis: evidence-linked summary, Buyer Readiness verdict and MEDDPICC gap analysis" width="518" height="1024" loading="lazy">
+        </div>
+        <div class="moment-text">
+          <p class="moment-no">03&nbsp;— After the call</p>
+          <h3 class="display moment-h">The next call does not start from memory.</h3>
+          <p class="moment-body">An evidence-linked summary where every claim points at the moment it came from, a written readiness verdict, and a MEDDPICC gap analysis across all eight chips&nbsp;— so you know exactly what to move on next.</p>
+          <ul class="chip-list">
+            <li>Evidence-linked summary</li>
+            <li>MEDDPICC gaps</li>
+            <li>Next best move</li>
+            <li>Update CRM&nbsp;→</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ FOR MANAGERS ============ -->
+  <section class="managers" id="managers" aria-labelledby="mgr-h">
+    <div class="wrap mgr-grid">
+      <div class="mgr-text">
+        <p class="eyebrow eyebrow-light">For the manager who signs</p>
+        <h2 class="display section-h section-h-light" id="mgr-h">The same reps. More of the same pipeline. Closed.</h2>
+        <p class="mgr-lede">No new headcount, nothing to rip out. PitchGenius sits on top of the stack you already bought and covers the part of the call it can&rsquo;t reach.</p>
+
+        <ol class="mech-list">
+          <li>
+            <span class="mech-no">i</span>
+            <div><h3 class="mech-h">Win rate</h3><p>The same reps close more of the same pipeline, because the right sentence lands while it still matters.</p></div>
+          </li>
+          <li>
+            <span class="mech-no">ii</span>
+            <div><h3 class="mech-h">Ramp time</h3><p>A new rep performs like a good rep in weeks, not quarters&nbsp;— the coaching happens during the call, not in Monday&rsquo;s review.</p></div>
+          </li>
+          <li>
+            <span class="mech-no">iii</span>
+            <div><h3 class="mech-h">Forecast accuracy</h3><p>Readiness is scored on every call, so the pipeline stops being what reps hope and starts being what buyers showed.</p></div>
+          </li>
+          <li>
+            <span class="mech-no">iv</span>
+            <div><h3 class="mech-h">Coaching capacity</h3><p>One manager cannot sit on forty calls a week. This sits on all of them.</p></div>
+          </li>
+        </ol>
+
+        <p class="mgr-line">Your competitor&rsquo;s rep is going to have this. The question is whether yours does first.</p>
+      </div>
+      <figure class="mgr-shot">
+        <img src="assets/manager-watching.png" alt="A sales manager watching a monitor at the end of the day, lit by the screen" width="1280" height="1024" loading="lazy">
+        <figcaption>The view from the manager&rsquo;s chair&nbsp;— every call scored, not just the ones she could sit on.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ FOR REPS ============ -->
+  <section class="reps" id="reps" aria-labelledby="rep-h">
+    <div class="wrap rep-grid">
+      <figure class="rep-shot">
+        <img src="assets/rep-night-call.png" alt="A rep on a call late in the day, lit by a laptop screen, one earbud in" width="1536" height="864" loading="lazy">
+      </figure>
+      <div class="rep-text">
+        <p class="eyebrow">For the rep in the call</p>
+        <h2 class="display section-h" id="rep-h">An unfair advantage&nbsp;— quietly, in your ear.</h2>
+        <p class="rep-lede">The rep is the hero. PitchGenius is the earpiece: it tells you what they have not said out loud, and the exact words to say next, before the moment passes.</p>
+
+        <div class="privacy">
+          <h3 class="privacy-h">Your calibration is private.</h3>
+          <p>Ten questions, answered once, tune how the co-pilot talks to you. <strong>Those answers stay private.</strong> Managers see usage and deal activity. They do not see how you answered.</p>
+        </div>
+
+        <ul class="rep-feel">
+          <li>&ldquo;I would stop losing deals I could have saved.&rdquo;</li>
+          <li>&ldquo;I would not have to guess whether they are actually interested.&rdquo;</li>
+          <li>&ldquo;I would stop replaying the call afterwards, wondering what I missed.&rdquo;</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="pilot" id="pilot" aria-labelledby="pilot-h">
+    <div class="wrap narrow pilot-inner">
+      <p class="eyebrow eyebrow-light center">Pilots, not self-serve</p>
+      <h2 class="display pilot-h" id="pilot-h">Book a pilot.</h2>
+      <p class="pilot-sub">Put it on a few of your reps for a few of your calls. Watch what changes when the coaching arrives during the call instead of after it.</p>
+      <a class="btn btn-primary btn-lg" href="https://pitchgenius.ai">Book a pilot</a>
+      <p class="pilot-ceiling">&ldquo;Every closed contract you make as a seller is another piece of life you&rsquo;re building for your family.&rdquo;</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <img class="brand-mark" src="assets/mark.png" alt="" width="24" height="24">
+      <span class="brand-name">PitchGenius</span>
+    </div>
+    <p class="foot-line">A real-time co-pilot for the rep in the call. Human plus AI&nbsp;— the human leads.</p>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="#difference">The difference</a>
+      <a href="#how">How it works</a>
+      <a href="#managers">For managers</a>
+      <a href="#reps">For reps</a>
+      <a href="#pilot">Book a pilot</a>
+    </nav>
+    <p class="foot-copy">© <span id="yr"></span> PitchGenius.AI</p>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
