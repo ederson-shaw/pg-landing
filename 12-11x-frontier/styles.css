@@ -112,11 +112,10 @@ ul { list-style: none; }
 
 /* ---------- typography (reference scale) ---------- */
 h1, h2, h3, h4, h5 {
+  font-family: "Satoshi", var(--ff-sans);
   font-weight: 500; line-height: 1; letter-spacing: -0.03em;
   text-wrap: balance;
 }
-/* Real computed values from 11x.ai's live h1: 120px/1.0/500/-0.03em — genuinely enormous, matches their restraint-elsewhere brief. */
-h1 { font-size: clamp(2.5rem, 8.3vw, 7.5rem); font-weight: 500; line-height: 1; letter-spacing: -0.03em; }
 h2 { font-size: clamp(1.9rem, 3.5vw, 3.5rem); letter-spacing: -0.04em; }
 h3 { font-size: clamp(1.4rem, 2vw, 2rem); letter-spacing: -0.02em; line-height: 1.2; }
 h4 { font-size: 1.2rem; letter-spacing: -0.02em; line-height: 1; }
@@ -668,7 +667,7 @@ p { text-wrap: pretty; }
 .founder__quote {
   margin: 1.4rem auto 0;
   max-width: 46rem;
-  font-family: var(--display, var(--ff-sans));
+  font-family: "Satoshi", var(--ff-sans);
   font-size: clamp(1.3rem, 2.4vw, 1.85rem);
   font-weight: 500;
   line-height: 1.35;
