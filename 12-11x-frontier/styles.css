@@ -676,10 +676,10 @@ p { text-wrap: pretty; }
   margin: 1.6rem 0 0;
   font-family: 'Caveat', cursive;
   font-weight: 600;
-  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  font-size: clamp(1.75rem, 3vw, 2.15rem);
   line-height: 1;
-  color: #0596a3;
-  transform: rotate(-3deg);
+  color: var(--hero-navy);
+  transform: rotate(-1.5deg);
 }
 .founder__role {
   margin: .35rem 0 0;
