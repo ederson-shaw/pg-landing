@@ -638,6 +638,8 @@ p { text-wrap: pretty; }
 .meddpicc__pct { color: var(--card-text); }
 .postcall--back .chip--strong { background: var(--cyan); border-color: var(--cyan); color: #071a31; }
 .postcall--back .legend { color: var(--card-muted); }
+.postcall--back .legend .l-strong { background: var(--cyan); }
+.postcall--back .legend .l-neutral, .postcall--back .legend .l-weak { background: transparent; border-color: var(--card-border); }
 .postcall__action { display: inline-flex; gap: .4rem; margin-top: 1.2rem; padding: .65rem .9rem; border: 1px solid var(--card-border); border-radius: 999px; color: var(--card-text); font-size: .78rem; font-weight: 700; }
 .lc__detail-toggle { flex: none; width: 1.45rem; height: 1.45rem; display: grid; place-items: center; border: 1px solid rgba(34,211,238,.34); border-radius: 50%; color: var(--cyan); font-size: .9rem; line-height: 1; }
 .lc__detail-toggle[aria-expanded="true"] { background: var(--cyan); color: var(--card-bg-2); }
