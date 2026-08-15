@@ -205,7 +205,7 @@ p { text-wrap: pretty; }
 /* reveal (no CDN) */
 /* reference EXTRACT.md #6a: headingDuration 0.5s, textDuration 0.4s, headingStagger
    0.17s, ease cubic-bezier(.2,1,.3,1) — copied exactly, not approximated */
-.rline { display: block; overflow: hidden; padding-bottom: .04em; }
+.rline { display: block; overflow: hidden; padding-bottom: .16em; margin-bottom: -.16em; }
 .rline > span { display: block; transform: translateY(115%); transition: transform .5s var(--ease); transition-delay: var(--d, 0s); }
 .is-in .rline > span { transform: translateY(0); }
 [data-fade] { opacity: 0; transform: translateY(14px); transition: opacity .4s var(--ease), transform .4s var(--ease); transition-delay: var(--d, 0s); }
@@ -513,11 +513,10 @@ p { text-wrap: pretty; }
 .nav {
   top: 0;
   color: var(--hero-navy);
-  background: rgba(255,255,255,.96);
-  border-bottom-color: rgba(7,26,49,.08);
+  background: transparent;
   padding-block: .85rem;
 }
-.nav.is-light { color: var(--hero-navy); background: rgba(255,255,255,.96); border-bottom-color: rgba(7,26,49,.08); }
+.nav.is-light { color: var(--hero-navy); background: rgba(255,255,255,.96); border-bottom-color: rgba(7,26,49,.08); backdrop-filter: saturate(140%) blur(8px); }
 .nav__links a { color: var(--hero-navy); opacity: .96; }
 .nav__links a:hover { color: #0052cc; }
 .btn--hero-ghost { color: var(--hero-navy); border-color: rgba(7,26,49,.18); background: transparent; }
@@ -539,7 +538,7 @@ p { text-wrap: pretty; }
 .hero--blue .hero__inner { z-index: 2; padding-top: clamp(8.5rem, 13vw, 11rem); text-align: left; }
 .hero__rule { width: clamp(4rem, 7vw, 6rem); height: 3px; background: var(--hero-cyan); margin-bottom: clamp(1.3rem, 2.4vw, 2.25rem); }
 .hero__headline { font-family: "Satoshi", var(--ff-sans); max-width: 1340px; color: var(--hero-navy); margin: 0; }
-.hero__headline .rline { padding-bottom: .06em; }
+.hero__headline .rline { padding-bottom: .18em; margin-bottom: -.18em; }
 .hero__headline .rline > span { transform: translateY(115%); }
 .hero__headline.is-in .rline > span { transform: translateY(0); }
 .hero__headline-light { font-size: clamp(3rem, 6.2vw, 6.65rem); font-weight: 300; line-height: .97; letter-spacing: -.055em; }
