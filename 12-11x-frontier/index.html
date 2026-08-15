@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PitchGenius — what to say next, while there's still time</title>
 <meta name="description" content="PitchGenius listens to a live sales call and, while the buyer is still in the room, tells the rep what they are feeling and the exact sentence to say next." />
-<meta name="theme-color" content="#000000" />
+<meta name="theme-color" content="#ffffff" />
 <link rel="icon" href="assets/logo-black.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,7 +19,7 @@
 <header class="nav" id="nav">
   <a class="brand" href="#main" aria-label="PitchGenius home">
     <span class="brand__mark" aria-hidden="true"></span>
-    <span class="brand__word">PitchGenius.Ai</span>
+    <span class="brand__word">PitchGenius.AI</span>
   </a>
   <nav class="nav__links" aria-label="Primary">
     <a href="#story">The call</a>
@@ -51,9 +51,13 @@
   <!-- 3. MOMENT STACK — before / during / after (skeleton = reference digital-worker cards) -->
   <section class="section section--gray" id="story" aria-label="The three moments">
     <div class="container moments">
+      <div class="story__intro" data-reveal>
+        <p class="kicker">One call, three moments</p>
+        <h2>Conversation intelligence tells you what the buyer said. PitchGenius tells you what to say next.</h2>
+      </div>
 
       <!-- BEFORE -->
-      <article class="moment" id="before">
+      <article class="moment moment--before" id="before">
         <div class="moment__media">
           <div class="flip-card" data-flip-card>
             <div class="flip-card__inner">
@@ -90,14 +94,14 @@
                     </ul>
                   </div>
                   <div class="missing-evidence">
-                    <div><h5>Missing evidence</h5><ul><li>how it actively coaches a founder to make that intuitive leap</li><li>how it helps them craft those organic, impactful value statements in real time</li></ul></div>
+                    <div><h5>Missing evidence</h5><ul><li>How it actively coaches a founder to make that intuitive leap.</li><li>How it helps them craft those organic, impactful value statements in real time.</li></ul></div>
                     <button type="button" class="evidence-btn" data-evidence aria-pressed="false">Add evidence <span aria-hidden="true">+</span></button>
                   </div>
                 </div>
               </section>
               <section class="flip-card__face flip-card__back blueprint blueprint--back" aria-hidden="true" inert>
                 <div class="bp__head"><span>Evidence to carry into the call</span><button class="card-flip" type="button" data-flip aria-pressed="false" aria-label="Show Buyer Blueprint quick view">Back <span aria-hidden="true">↙</span></button></div>
-                <p class="bp-back__quote">He has spent four decades watching &ldquo;hype-driven venture betting&rdquo; and calls himself the Prophet of Profit.</p>
+                <p class="bp-back__quote">He has spent four decades watching &ldquo;hype-driven venture betting&rdquo; and calls himself the Prophet of Profit &mdash; a sales-coaching tool will read as more startup theater until it proves it builds durable discipline instead of noise.</p>
                 <div class="bp-back__columns">
                   <div><h5>Lead with</h5><p>Data, evidence, measurable ROI, and tangible, repeatable results.</p></div>
                   <div><h5>Do not lead with</h5><p>Hype-driven language, vague proof, or product features without business outcomes.</p></div>
@@ -120,13 +124,13 @@
       </article>
 
       <!-- DURING (v2 live card) -->
-      <article class="moment moment--rev" id="during">
+      <article class="moment moment--during" id="during">
         <div class="moment__media">
           <div class="lc-wave" data-wave></div>
           <div class="lc-stage">
             <span class="done">Opening</span>
-            <span class="now">Discovery</span>
-            <span class="next">Value</span>
+            <span class="done">Discovery</span>
+            <span class="now">Value</span>
             <span class="next">Decision</span>
             <span class="next">Close</span>
           </div>
@@ -135,25 +139,25 @@
               <span class="lc__mark"></span>
               <span class="lc__name">PitchGenius HumanCue<sup>&trade;</sup></span>
               <span class="lc__sep"></span>
-              <span class="lc__state lc__state--live">buyer is still describing the screen display</span>
-                <span class="lc__ctx">Readiness <b class="rdy">45</b> <span class="dot">&middot;</span> DISCOVERY</span>
+              <span class="lc__state lc__state--live">buyer is in no hurry</span>
+                <span class="lc__ctx">Readiness <b class="rdy">25</b> <span class="dot">&middot;</span> VALUE</span>
                 <button class="lc__detail-toggle" type="button" data-details-toggle aria-expanded="false" aria-controls="lc-detail-during" aria-label="Show buyer detail scores">⌄</button>
             </div>
             <div class="lc__body">
               <div class="lc__block">
                 <div class="lc__label">Next best move</div>
-                <p class="lc__nb">Clarify the display behavior</p>
+                <p class="lc__nb">Buyer has no champion pushing this internally.</p>
               </div>
               <div class="lc__block">
                 <div class="lc__label">Say this</div>
-                <p class="lc__say">The display scales to fit the screen. What are you seeing on your screen?</p>
+                <p class="lc__say">Before we get into the mechanics, Judd &mdash; who on your team is actually pushing for a change to how you handle these calls, and what are they hoping to see happen differently?</p>
               </div>
               <div class="lc__block">
                 <div class="lc__label">Why now</div>
-                <p class="lc__why">reading the room <span class="arr">&rarr;</span> this is the moment it costs him something</p>
+                <p class="lc__why">in no hurry <span class="arr">&rarr;</span> no champion is pushing this internally</p>
               </div>
             </div>
-            <div class="lc__details" id="lc-detail-during" hidden><span>Trust</span><span>Willingness</span><span>Reached</span></div>
+            <div class="lc__details" id="lc-detail-during" hidden><span>Reached <b>Value</b></span></div>
             <div class="lc__foot">
               <button class="lc__why-toggle" type="button" data-details-toggle aria-expanded="false" aria-controls="lc-detail-during">Why this, now?</button>
               <div class="btns">
@@ -176,24 +180,24 @@
       </article>
 
       <!-- AFTER -->
-      <article class="moment" id="after">
+      <article class="moment moment--after" id="after">
         <div class="moment__media">
           <div class="readiness-shell">
             <div class="flip-card" data-flip-card>
               <div class="flip-card__inner">
                 <section class="flip-card__face flip-card__front readiness-card" aria-label="Buyer Readiness post-call diagnosis">
                   <div class="readiness__top"><span class="readiness__eyebrow">Buyer Readiness Index&trade;</span><button class="card-flip" type="button" data-flip aria-pressed="false" aria-label="Show post-call analysis">Flip card <span aria-hidden="true">↗</span></button></div>
-                  <h3 class="readiness__heading">Gerald is highly engaged with the concept of real-time synthesis but remains skeptical about whether any tool can truly replicate the intuitive leap required for high-stakes sales.</h3>
-                  <p class="readiness__score">Solution-Curious &mdash; 65/100</p>
-                  <blockquote class="readiness__quote">Gerald is deeply problem-aware and trusts the rep&rsquo;s framing of the &lsquo;synthesis&rsquo; challenge, but he is not yet convinced the technology can replace human intuition. Avoid over-selling the &lsquo;AI&rsquo; aspect; focus entirely on the mechanics of the real-time coaching prompt. The next best action is to deliver a demo that specifically addresses his skepticism about &lsquo;canned&rsquo; versus &lsquo;organic&rsquo; responses.</blockquote>
-                  <div class="readiness__meta"><span>CRM says</span><strong>discovery</strong></div>
-                  <div class="blocked-box"><strong>BLOCKED</strong><ul><li>Gerald has seen a dozen approaches fail and doubts if a tool can capture the &lsquo;intuitive leap&rsquo; and &lsquo;empathy&rsquo; required for high-level sales.</li><li>He is concerned about the difficulty of teaching this skill and whether the tool can actually &lsquo;bottle up&rsquo; the nuance of strategic thinking.</li></ul></div>
-                  <div class="readiness__bottom"><details class="transcript"><summary><span class="transcript__icon" aria-hidden="true">↳</span>Transcript this diagnosis was read from</summary><p>The diagnosis was read from the conversation about real-time synthesis, intuitive leaps, canned responses, and organic value statements.</p></details><div class="confidence"><span class="confidence__ring"><span>High</span></span><span>AI confidence</span></div></div>
+                  <h3 class="readiness__heading">Buyer has no champion pushing this internally.</h3>
+                  <p class="readiness__score">Buyer Readiness &mdash; 25/100 &middot; VALUE</p>
+                  <blockquote class="readiness__quote">In no hurry &middot; Trust 45 &middot; Urgency 20 &middot; Pain scale 60 &middot; Willingness to move 30.</blockquote>
+                  <div class="readiness__meta"><span>CRM says</span><strong>value</strong></div>
+                  <div class="blocked-box"><strong>BLOCKED</strong><ul><li>Buyer has no champion pushing this internally.</li><li>In no hurry. Willingness to move 30.</li></ul></div>
+                  <div class="readiness__bottom"><details class="transcript"><summary><span class="transcript__icon" aria-hidden="true">↳</span>Transcript this diagnosis was read from</summary><p>Judd Barakove &middot; RevSymphony &middot; VALUE</p></details><div class="confidence"><span class="confidence__ring"><span>High</span></span><span>AI confidence</span></div></div>
                 </section>
                 <section class="flip-card__face flip-card__back postcall postcall--back" aria-hidden="true" inert>
                   <div class="postcall__head"><span><b>Judd Barakove</b><small>RevSymphony</small></span><button class="card-flip" type="button" data-flip aria-pressed="false" aria-label="Show Buyer Readiness diagnosis">Back <span aria-hidden="true">↙</span></button></div>
-                  <p class="postcall__verdict">Problem-aware and interested in testing a solution, but needs to see how PitchGenius specifically delivers to its promise and how easy it is to implement.</p>
-                  <div class="meddpicc__label">MEDDPICC after the call <span class="meddpicc__pct">65%</span></div>
+                  <p class="postcall__verdict">Buyer has no champion pushing this internally.</p>
+                  <div class="meddpicc__label">MEDDPICC after the call <span class="meddpicc__pct">65%</span> <span>Acceptance High</span></div>
                   <div class="chips">
                     <div class="chip chip--strong"><b>M</b>Metrics</div><div class="chip chip--neutral"><b>E</b>Economic Buyer</div><div class="chip chip--strong"><b>D</b>Decision Criteria</div><div class="chip chip--weak"><b>D</b>Decision Process</div><div class="chip chip--neutral"><b>P</b>Paper Process</div><div class="chip chip--strong"><b>I</b>Identify Pain</div><div class="chip chip--weak"><b>C</b>Champion</div><div class="chip chip--neutral"><b>C</b>Competition</div>
                   </div>
@@ -225,7 +229,7 @@
     <div class="carousel" data-reveal>
       <div class="carousel__viewport">
         <div class="carousel__track" id="ctrack">
-          <figure class="slide">
+          <figure class="slide" id="slide-1" role="tabpanel" aria-labelledby="slide-tab-1" aria-hidden="false">
             <div class="slide__img"><img src="assets/two-at-laptop.png" alt="Two colleagues reviewing a call together." /></div>
             <div class="slide__scrim" aria-hidden="true"></div>
             <figcaption class="slide__inner">
@@ -233,7 +237,7 @@
               <p class="slide__line">You replay the call in your head and wonder what you missed.</p>
             </figcaption>
           </figure>
-          <figure class="slide">
+          <figure class="slide" id="slide-2" role="tabpanel" aria-labelledby="slide-tab-2" aria-hidden="true">
             <div class="slide__img"><img src="assets/manager-watching.png" alt="A manager watching a dark monitor." /></div>
             <div class="slide__scrim" aria-hidden="true"></div>
             <figcaption class="slide__inner">
@@ -241,7 +245,7 @@
               <p class="slide__line">The moment is already gone, and the next call starts from zero.</p>
             </figcaption>
           </figure>
-          <figure class="slide">
+          <figure class="slide" id="slide-3" role="tabpanel" aria-labelledby="slide-tab-3" aria-hidden="true">
             <div class="slide__img"><img src="assets/relief-after-call.png" alt="A rep leaning back as a call ends." /></div>
             <div class="slide__scrim" aria-hidden="true"></div>
             <figcaption class="slide__inner">
@@ -254,9 +258,9 @@
       <div class="carousel__nav">
         <span class="carousel__count" id="ccount">01 / 03</span>
         <div class="carousel__dots" id="cdots" role="tablist" aria-label="Slides">
-          <button aria-label="Slide 1" aria-selected="true"></button>
-          <button aria-label="Slide 2" aria-selected="false"></button>
-          <button aria-label="Slide 3" aria-selected="false"></button>
+          <button id="slide-tab-1" role="tab" aria-controls="slide-1" aria-label="Slide 1" aria-selected="true" tabindex="0"></button>
+          <button id="slide-tab-2" role="tab" aria-controls="slide-2" aria-label="Slide 2" aria-selected="false" tabindex="-1"></button>
+          <button id="slide-tab-3" role="tab" aria-controls="slide-3" aria-label="Slide 3" aria-selected="false" tabindex="-1"></button>
         </div>
         <span class="muted" style="font-size:.76rem">tap a dot</span>
       </div>
@@ -274,74 +278,41 @@
 
       <div class="tabs" data-reveal>
         <div class="tabs__nav" role="tablist" aria-label="Call moments">
-          <button class="tablink" role="tab" aria-selected="true" data-tab="discovery">When it speaks</button>
-          <button class="tablink" role="tab" aria-selected="false" data-tab="listening">When it&rsquo;s quiet</button>
+          <button class="tablink" id="tab-discovery" role="tab" aria-selected="true" aria-controls="pane-discovery" tabindex="0" data-tab="discovery">When it speaks</button>
+          <button class="tablink" id="tab-listening" role="tab" aria-selected="false" aria-controls="pane-listening" tabindex="-1" data-tab="listening">When it&rsquo;s quiet</button>
         </div>
 
-        <!-- DISCOVERY (Russell) -->
-        <div class="tabs__pane is-active" id="pane-discovery" role="tabpanel">
+        <div class="tabs__pane is-active" id="pane-discovery" role="tabpanel" aria-labelledby="tab-discovery" aria-hidden="false">
           <div class="tabs__copy">
-            <span class="tagline-pill">Readiness 45 &middot; Discovery</span>
-            <h3 style="margin-top:1rem">The buyer is still describing the problem. The card says: clarify it before you pitch.</h3>
-            <p>Readiness is low. They are engaged, but the deal has not cost them anything yet. Say the line, and the room changes.</p>
-            <p class="muted" style="font-size:.8rem">Real call &middot; Russell Pontone</p>
+            <span class="tagline-pill">Readiness 25 &middot; Value</span>
+            <h3>When there is no champion pushing internally, the card gives the rep the next question.</h3>
+            <p>HumanCue&trade; holds the signal, the next best move, and the exact line in one place. No post-call replay is required to find the moment.</p>
+            <p class="muted" style="font-size:.8rem">Real call &middot; Judd Barakove &middot; RevSymphony</p>
           </div>
-          <div>
-            <div class="lc-wave" data-wave></div>
-            <div class="lc-stage">
-              <span class="done">Opening</span><span class="now">Discovery</span><span class="next">Value</span><span class="next">Decision</span><span class="next">Close</span>
-            </div>
-            <div class="lc">
-              <div class="lc__head">
-                <span class="lc__mark"></span>
-                <span class="lc__name">PitchGenius HumanCue<sup>&trade;</sup></span>
-                <span class="lc__sep"></span>
-                <span class="lc__state lc__state--live">buyer is still describing the screen display</span>
-              <span class="lc__ctx">Readiness <b class="rdy">45</b> <span class="dot">&middot;</span> DISCOVERY</span>
-              <button class="lc__detail-toggle" type="button" data-details-toggle aria-expanded="false" aria-controls="lc-detail-tabs" aria-label="Show buyer detail scores">⌄</button>
-              </div>
-              <div class="lc__body">
-                <div class="lc__block"><div class="lc__label">Next best move</div><p class="lc__nb">Clarify the display behavior</p></div>
-                <div class="lc__block"><div class="lc__label">Say this</div><p class="lc__say">The display scales to fit the screen. What are you seeing on your screen?</p></div>
-                <div class="lc__block"><div class="lc__label">Why now</div><p class="lc__why">reading the room <span class="arr">&rarr;</span> this is the moment it costs him something</p></div>
-              </div>
-              <div class="lc__details" id="lc-detail-tabs" hidden><span>Trust</span><span>Willingness</span><span>Reached</span></div>
-              <div class="lc__foot">
-                <button class="lc__why-toggle" type="button" data-details-toggle aria-expanded="false" aria-controls="lc-detail-tabs">Why this, now?</button>
-                <div class="btns"><button class="lc__btn lc__btn--dismiss" type="button">Dismiss</button><button class="lc__btn lc__btn--next" type="button">Next</button></div>
-              </div>
-            </div>
+          <div class="state-rail" aria-label="Live recommendation state">
+            <div class="state-rail__head"><span>HumanCue<sup>&trade;</sup></span><span>Value</span></div>
+            <div class="state-rail__label">Next best move</div>
+            <p class="state-rail__title">Buyer has no champion pushing this internally.</p>
+            <div class="state-rail__label">Say this</div>
+            <p class="state-rail__quote">&ldquo;Before we get into the mechanics, Judd &mdash; who on your team is actually pushing for a change to how you handle these calls, and what are they hoping to see happen differently?&rdquo;</p>
+            <div class="state-rail__label">Why now</div>
+            <p class="state-rail__why">in no hurry <span>&rarr;</span> no champion is pushing this internally</p>
           </div>
         </div>
 
-        <!-- LISTENING (empty/waiting state) -->
-        <div class="tabs__pane" id="pane-listening" role="tabpanel">
+        <div class="tabs__pane" id="pane-listening" role="tabpanel" aria-labelledby="tab-listening" aria-hidden="true">
           <div class="tabs__copy">
             <span class="tagline-pill">Waiting</span>
-            <h3 style="margin-top:1rem">Sometimes the best move is to say nothing and listen.</h3>
-            <p>The card does not always have something to say. When it doesn&rsquo;t, it tells you that &mdash; instead of filling the silence with noise.</p>
+            <h3>Sometimes the best move is to say nothing and listen.</h3>
+            <p>The card does not fill silence with noise. It gives the rep a clear state, then stays out of the way.</p>
           </div>
-          <div>
-            <div class="lc-wave" data-wave></div>
-            <div class="lc-stage">
-              <span class="done">Opening</span><span class="now">Discovery</span><span class="next">Value</span><span class="next">Decision</span><span class="next">Close</span>
-            </div>
-            <div class="lc">
-              <div class="lc__head">
-                <span class="lc__mark"></span>
-                <span class="lc__name">PitchGenius HumanCue<sup>&trade;</sup></span>
-                <span class="lc__sep"></span>
-                <span class="lc__state">Listening</span>
-                <button class="lc__detail-toggle" type="button" data-details-toggle aria-expanded="false" aria-controls="lc-detail-listening" aria-label="Show buyer detail scores">⌄</button>
-              </div>
-              <div class="lc__body">
-                <div class="lc__empty">Say nothing yet. Just listen.</div>
-              </div>
-              <div class="lc__details" id="lc-detail-listening" hidden><span>Trust</span><span>Willingness</span><span>Reached</span></div>
-            </div>
+          <div class="state-rail state-rail--quiet" aria-label="Listening state">
+            <div class="state-rail__head"><span>HumanCue<sup>&trade;</sup></span><span>Listening</span></div>
+            <div class="state-rail__label">Say nothing</div>
+            <p class="state-rail__quiet-text">Say nothing yet. Just listen.</p>
+            <p class="state-rail__quiet-note">Silence is a product state, not an empty screen.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -427,7 +398,7 @@
         <div class="mech__cell">
           <span class="mech__num">iv &mdash; Coaching capacity</span>
           <h3 class="mech__title">All forty calls, not one.</h3>
-          <p class="mech__body">One manager cannot sit on forty calls a week. The co-pilot sits on all of them, and surfaces the two that need a human.</p>
+          <p class="mech__body">One manager cannot sit on forty calls a week. The co-pilot sits on all of them, so coaching can start from what buyers actually showed.</p>
         </div>
       </div>
 

@@ -36,9 +36,10 @@
       burger.addEventListener("click", function () {
         var open = nav.classList.toggle("open");
         burger.setAttribute("aria-expanded", open ? "true" : "false");
+        burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
       });
       nav.querySelectorAll(".nav__links a").forEach(function (a) {
-        a.addEventListener("click", function () { nav.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); });
+        a.addEventListener("click", function () { nav.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); burger.setAttribute("aria-label", "Open menu"); });
       });
     }
   })();
@@ -126,10 +127,28 @@
     function go(i) {
       cur = (i + n) % n;
       track.style.transform = "translateX(" + (-cur * 100) + "%)";
-      dots.forEach(function (d, idx) { d.setAttribute("aria-selected", idx === cur ? "true" : "false"); });
+      dots.forEach(function (d, idx) {
+        var selected = idx === cur;
+        d.setAttribute("aria-selected", selected ? "true" : "false");
+        d.setAttribute("tabindex", selected ? "0" : "-1");
+        if (slides[idx]) slides[idx].setAttribute("aria-hidden", selected ? "false" : "true");
+      });
       if (count) count.textContent = String(cur + 1).padStart(2, "0") + " / " + String(n).padStart(2, "0");
     }
-    dots.forEach(function (d, idx) { d.addEventListener("click", function () { go(idx); }); });
+    dots.forEach(function (d, idx) {
+      d.addEventListener("click", function () { go(idx); });
+      d.addEventListener("keydown", function (e) {
+        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft" && e.key !== "Home" && e.key !== "End") return;
+        e.preventDefault();
+        var next = idx;
+        if (e.key === "ArrowRight") next = (idx + 1) % n;
+        if (e.key === "ArrowLeft") next = (idx - 1 + n) % n;
+        if (e.key === "Home") next = 0;
+        if (e.key === "End") next = n - 1;
+        go(next);
+        dots[next].focus();
+      });
+    });
     go(0);
   })();
 
@@ -139,32 +158,32 @@
     if (!links.length) return;
     var panes = document.querySelectorAll(".tabs__pane");
     function select(btn) {
-      links.forEach(function (l) { l.setAttribute("aria-selected", l === btn ? "true" : "false"); });
+      links.forEach(function (l) {
+        var selected = l === btn;
+        l.setAttribute("aria-selected", selected ? "true" : "false");
+        l.setAttribute("tabindex", selected ? "0" : "-1");
+      });
       var tab = btn.getAttribute("data-tab");
       panes.forEach(function (p) {
         var match = p.id === "pane-" + tab;
         p.classList.toggle("is-active", match);
+        p.setAttribute("aria-hidden", match ? "false" : "true");
       });
     }
-    links.forEach(function (l) { l.addEventListener("click", function () { select(l); }); });
-  })();
-
-  /* live readiness number micro-stepping (the one product-justified motion) */
-  (function () {
-    var nodes = document.querySelectorAll(".rdy");
-    if (!nodes.length) return;
-    if (reduce) { nodes.forEach(function(n){ n.textContent = "45"; }); return; }
-    var steps = [44, 46, 45, 47, 45, 43, 45], k = 0;
-    nodes.forEach(function(n){ n.style.transition = "opacity .25s cubic-bezier(.2,1,.3,1)"; });
-    setInterval(function () {
-      if (!document.hidden) {
-        k = (k + 1) % steps.length;
-        nodes.forEach(function(n){ n.style.opacity = "0.3"; });
-        setTimeout(function () {
-          nodes.forEach(function(n){ n.textContent = String(steps[k]); n.style.opacity = "1"; });
-        }, 160);
-      }
-    }, 1900);
+    links.forEach(function (l, idx) {
+      l.addEventListener("click", function () { select(l); });
+      l.addEventListener("keydown", function (e) {
+        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft" && e.key !== "Home" && e.key !== "End") return;
+        e.preventDefault();
+        var next = idx;
+        if (e.key === "ArrowRight") next = (idx + 1) % links.length;
+        if (e.key === "ArrowLeft") next = (idx - 1 + links.length) % links.length;
+        if (e.key === "Home") next = 0;
+        if (e.key === "End") next = links.length - 1;
+        select(links[next]);
+        links[next].focus();
+      });
+    });
   })();
 
   /* generate wave bars into [data-wave] elements */
