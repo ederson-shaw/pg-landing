@@ -43,6 +43,53 @@
     }
   })();
 
+  /* before/after cards reveal their second evidence surface without adding another section */
+  (function () {
+    document.querySelectorAll("[data-flip-card]").forEach(function (card) {
+      var front = card.querySelector(".flip-card__front");
+      var back = card.querySelector(".flip-card__back");
+      if (!front || !back) return;
+      card.querySelectorAll("[data-flip]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var flipped = card.classList.toggle("is-flipped");
+          front.setAttribute("aria-hidden", flipped ? "true" : "false");
+          back.setAttribute("aria-hidden", flipped ? "false" : "true");
+          front.inert = flipped;
+          back.inert = !flipped;
+          card.querySelectorAll("[data-flip]").forEach(function (control) {
+            control.setAttribute("aria-pressed", flipped ? "true" : "false");
+          });
+          var target = flipped ? back.querySelector("[data-flip]") : front.querySelector("[data-flip]");
+          if (target) target.focus();
+        });
+      });
+    });
+  })();
+
+  (function () {
+    document.querySelectorAll("[data-details-toggle]").forEach(function (control) {
+      control.addEventListener("click", function () {
+        var target = document.getElementById(control.getAttribute("aria-controls"));
+        if (!target) return;
+        var open = target.hidden;
+        target.hidden = !open;
+        document.querySelectorAll('[aria-controls="' + target.id + '"]').forEach(function (toggle) {
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      });
+    });
+  })();
+
+  (function () {
+    document.querySelectorAll("[data-evidence]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var added = button.getAttribute("aria-pressed") === "true";
+        button.setAttribute("aria-pressed", added ? "false" : "true");
+        button.firstChild.textContent = added ? "Add evidence " : "Evidence added ";
+      });
+    });
+  })();
+
   /* reveal on scroll (line-mask + fade)
      reference (ref/EXTRACT.md #6a): trigger "top 85%", toggleActions "play none none
      reverse" — GSAP ScrollTrigger re-plays in reverse if you scroll back up past the

@@ -9,25 +9,17 @@
 <link rel="icon" href="assets/logo-black.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- 1. STRIP (fixed above nav) -->
-<div class="strip" aria-label="Notices">
-  <div class="strip__track" id="strip">
-    <div class="strip__item"><span class="strip__dot"></span> Conversation intelligence tells you what the buyer said. PitchGenius tells you what to say next.</div>
-    <div class="strip__item"><span class="strip__dot"></span> Rep calibration is private. Managers see usage and deal activity — never your answers.</div>
-  </div>
-</div>
-
-<!-- NAV (fixed below strip) -->
+<!-- NAV -->
 <header class="nav" id="nav">
   <a class="brand" href="#main" aria-label="PitchGenius home">
-    <img class="brand--white" src="assets/logo-white.png" alt="PitchGenius.AI" />
-    <img class="brand--black" src="assets/logo-black.png" alt="PitchGenius.AI" />
+    <span class="brand__mark" aria-hidden="true"></span>
+    <span class="brand__word">PitchGenius.Ai</span>
   </a>
   <nav class="nav__links" aria-label="Primary">
     <a href="#story">The call</a>
@@ -35,25 +27,25 @@
     <a href="#managers">For managers</a>
   </nav>
   <div class="nav__cta">
-    <a class="btn btn--ink-ghost" href="#how">See the live call</a>
-    <a class="btn btn--primary" href="https://pitchgenius.ai">Book a pilot</a>
+    <a class="btn btn--hero-ghost" href="#during">See the live call</a>
+    <a class="btn btn--hero-primary" href="https://pitchgenius.ai">Book a pilot</a>
     <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <main id="main">
 
-  <!-- 2. HERO — held photograph, one line, no product -->
-  <section class="hero" aria-label="Introduction">
-    <div class="hero__media">
-      <img src="assets/rep-night-call.png" alt="A sales rep on a call late at night, lit by his laptop, listening." />
-    </div>
-    <div class="hero__scrim" aria-hidden="true"></div>
-    <div class="hero__inner">
-      <h1 class="hero__line" data-reveal>
-        <span class="rline"><span>He&rsquo;s still nodding.</span></span>
+  <!-- 1. HERO — approved white/navy/cyan cover with the approved people band -->
+  <section class="hero hero--blue" aria-label="Introduction">
+    <div class="hero__inner container">
+      <div class="hero__rule" aria-hidden="true"></div>
+      <h1 class="hero__headline" data-reveal>
+        <span class="hero__headline-light rline"><span>We know</span></span>
+        <span class="hero__headline-heavy rline"><span>what you&rsquo;re thinking<span class="hero__period">.</span></span></span>
       </h1>
+      <p class="hero__sub">Conversation intelligence tells you what the buyer said.<br />PitchGenius tells you <strong>what to say next.</strong></p>
     </div>
+    <div class="hero__band" role="img" aria-label="Eight people looking straight ahead in a black-and-white portrait band"></div>
     <div class="hero__scroll" aria-hidden="true"><span class="bar"></span></div>
   </section>
 
@@ -64,36 +56,55 @@
       <!-- BEFORE -->
       <article class="moment" id="before">
         <div class="moment__media">
-          <div class="blueprint">
-            <div class="bp__head">Buyer Blueprint &mdash; quick view</div>
-            <div class="bp__grid">
-              <div class="disc" aria-label="DISC wheel">
-                <span class="d">D</span><span class="i">I</span><span class="s">S</span><span class="c">C</span>
-                <span class="disc__ctr">D</span>
-              </div>
-              <dl class="bp__rows">
-                <div><dt>Archetype</dt><dd>Strategic Visionary</dd></div>
-                <div><dt>Personality read</dt><dd>DOCI &nbsp;D &nbsp;S3 &nbsp;C60</dd></div>
-                <div><dt>Decision pattern</dt><dd>Fast &middot; results-focused</dd></div>
-                <div><dt>Social style</dt><dd>Driver</dd></div>
-              </dl>
-            </div>
-            <div class="bp__trig">
-              <div class="trig">
-                <h5>Trust Triggers&trade; <span>3 mapped for this buyer</span></h5>
-                <ul>
-                  <li>Present data that challenges assumptions about their success.</li>
-                  <li>Focus on territory impact and long-term growth.</li>
-                  <li>Show how this enhances human expertise, not replaces it.</li>
-                </ul>
-              </div>
-              <div class="resist" style="margin-top:.8rem">
-                <h5>Resistance Signals&trade; <span>2 mapped for this buyer</span></h5>
-                <ul>
-                  <li>Focus on policy or features without strategic context.</li>
-                  <li>Implying software replaces human insight.</li>
-                </ul>
-              </div>
+          <div class="flip-card" data-flip-card>
+            <div class="flip-card__inner">
+              <section class="flip-card__face flip-card__front blueprint" aria-label="Buyer Blueprint quick view">
+                <div class="bp__head"><span>Buyer Blueprint &mdash; quick view</span><button class="card-flip" type="button" data-flip aria-pressed="false" aria-label="Show Buyer Blueprint evidence">Flip card <span aria-hidden="true">↗</span></button></div>
+                <div class="bp__grid">
+                  <div class="disc disc--palette" aria-label="DISC wheel, C selected">
+                    <span class="disc__quad disc__quad--d" aria-hidden="true"></span><span class="disc__quad disc__quad--i" aria-hidden="true"></span><span class="disc__quad disc__quad--s" aria-hidden="true"></span><span class="disc__quad disc__quad--c" aria-hidden="true"></span>
+                    <span class="d">D</span><span class="i">I</span><span class="s">S</span><span class="c">C</span>
+                    <span class="disc__ctr">C</span>
+                  </div>
+                  <dl class="bp__rows">
+                    <div><dt>Archetype</dt><dd>Skeptical Profit-Driven Analyst</dd></div>
+                    <div><dt>Personality read</dt><dd>D 75 &nbsp;|&nbsp; I 40 &nbsp;|&nbsp; S 60 &nbsp;|&nbsp; C 85</dd></div>
+                    <div><dt>Decision pattern</dt><dd>Process-driven &middot; consensus</dd></div>
+                    <div><dt>Social style</dt><dd>Analytical</dd></div>
+                  </dl>
+                </div>
+                <div class="bp__trig">
+                  <div class="trig">
+                    <h5>Trust Triggers&trade; <span>3 mapped for this buyer</span></h5>
+                    <ul>
+                      <li>Present data and evidence to back up claims.</li>
+                      <li>Focus on measurable ROI and tangible, repeatable results.</li>
+                      <li>Acknowledge his extensive experience and skepticism towards fads.</li>
+                    </ul>
+                  </div>
+                  <div class="resist">
+                    <h5>Resistance Signals&trade; <span>3 mapped for this buyer</span></h5>
+                    <ul>
+                      <li>Overly enthusiastic or &ldquo;hype-driven&rdquo; language.</li>
+                      <li>Vague claims without specific proof or examples.</li>
+                      <li>Focusing on product features over business outcomes.</li>
+                    </ul>
+                  </div>
+                  <div class="missing-evidence">
+                    <div><h5>Missing evidence</h5><ul><li>how it actively coaches a founder to make that intuitive leap</li><li>how it helps them craft those organic, impactful value statements in real time</li></ul></div>
+                    <button type="button" class="evidence-btn" data-evidence aria-pressed="false">Add evidence <span aria-hidden="true">+</span></button>
+                  </div>
+                </div>
+              </section>
+              <section class="flip-card__face flip-card__back blueprint blueprint--back" aria-hidden="true" inert>
+                <div class="bp__head"><span>Evidence to carry into the call</span><button class="card-flip" type="button" data-flip aria-pressed="false" aria-label="Show Buyer Blueprint quick view">Back <span aria-hidden="true">↙</span></button></div>
+                <p class="bp-back__quote">He has spent four decades watching &ldquo;hype-driven venture betting&rdquo; and calls himself the Prophet of Profit.</p>
+                <div class="bp-back__columns">
+                  <div><h5>Lead with</h5><p>Data, evidence, measurable ROI, and tangible, repeatable results.</p></div>
+                  <div><h5>Do not lead with</h5><p>Hype-driven language, vague proof, or product features without business outcomes.</p></div>
+                </div>
+                <div class="bp-back__footer"><span>Missing evidence becomes the next proof point.</span><button type="button" class="evidence-btn" data-evidence aria-pressed="false">Add evidence <span aria-hidden="true">+</span></button></div>
+              </section>
             </div>
           </div>
         </div>
@@ -127,6 +138,7 @@
               <span class="lc__sep"></span>
               <span class="lc__state lc__state--live">buyer is still describing the screen display</span>
                 <span class="lc__ctx">Readiness <b class="rdy">45</b> <span class="dot">&middot;</span> DISCOVERY</span>
+                <button class="lc__detail-toggle" type="button" data-details-toggle aria-expanded="false" aria-controls="lc-detail-during" aria-label="Show buyer detail scores">⌄</button>
             </div>
             <div class="lc__body">
               <div class="lc__block">
@@ -142,8 +154,9 @@
                 <p class="lc__why">reading the room <span class="arr">&rarr;</span> this is the moment it costs him something</p>
               </div>
             </div>
+            <div class="lc__details" id="lc-detail-during" hidden><span>Trust</span><span>Willingness</span><span>Reached</span></div>
             <div class="lc__foot">
-              <a href="#how">Why this, now?</a>
+              <button class="lc__why-toggle" type="button" data-details-toggle aria-expanded="false" aria-controls="lc-detail-during">Why this, now?</button>
               <div class="btns">
                 <button class="lc__btn lc__btn--dismiss" type="button">Dismiss</button>
                 <button class="lc__btn lc__btn--next" type="button">Next</button>
@@ -166,26 +179,29 @@
       <!-- AFTER -->
       <article class="moment" id="after">
         <div class="moment__media">
-          <div class="postcall">
-            <div class="postcall__head">
-              <b>Judd Barakove</b><span>RevSymphony</span>
-            </div>
-            <p class="postcall__verdict">Problem-aware and interested in testing a solution, but needs to see how this delivers and how easy it is to implement.</p>
-            <div class="meddpicc__label">MEDDPICC after the call <span class="meddpicc__pct" style="margin-left:auto">65%</span></div>
-            <div class="chips">
-              <div class="chip chip--strong"><b>M</b>Metrics</div>
-              <div class="chip chip--neutral"><b>E</b>Economic Buyer</div>
-              <div class="chip chip--strong"><b>D</b>Decision Criteria</div>
-              <div class="chip chip--weak"><b>D</b>Decision Process</div>
-              <div class="chip chip--neutral"><b>P</b>Paper Process</div>
-              <div class="chip chip--strong"><b>I</b>Identify Pain</div>
-              <div class="chip chip--weak"><b>C</b>Champion</div>
-              <div class="chip chip--neutral"><b>C</b>Competition</div>
-            </div>
-            <div class="legend">
-              <span><i class="l-strong"></i>Strong</span>
-              <span><i class="l-neutral"></i>Neutral</span>
-              <span><i class="l-weak"></i>Weak</span>
+          <div class="readiness-shell">
+            <div class="flip-card" data-flip-card>
+              <div class="flip-card__inner">
+                <section class="flip-card__face flip-card__front readiness-card" aria-label="Buyer Readiness post-call diagnosis">
+                  <div class="readiness__top"><span class="readiness__eyebrow">Buyer Readiness Index&trade;</span><button class="card-flip" type="button" data-flip aria-pressed="false" aria-label="Show post-call analysis">Flip card <span aria-hidden="true">↗</span></button></div>
+                  <h3 class="readiness__heading">Gerald is highly engaged with the concept of real-time synthesis but remains skeptical about whether any tool can truly replicate the intuitive leap required for high-stakes sales.</h3>
+                  <p class="readiness__score">Solution-Curious &mdash; 65/100</p>
+                  <blockquote class="readiness__quote">Gerald is deeply problem-aware and trusts the rep&rsquo;s framing of the &lsquo;synthesis&rsquo; challenge, but he is not yet convinced the technology can replace human intuition. Avoid over-selling the &lsquo;AI&rsquo; aspect; focus entirely on the mechanics of the real-time coaching prompt. The next best action is to deliver a demo that specifically addresses his skepticism about &lsquo;canned&rsquo; versus &lsquo;organic&rsquo; responses.</blockquote>
+                  <div class="readiness__meta"><span>CRM says</span><strong>discovery</strong></div>
+                  <div class="blocked-box"><strong>BLOCKED</strong><ul><li>Gerald has seen a dozen approaches fail and doubts if a tool can capture the &lsquo;intuitive leap&rsquo; and &lsquo;empathy&rsquo; required for high-level sales.</li><li>He is concerned about the difficulty of teaching this skill and whether the tool can actually &lsquo;bottle up&rsquo; the nuance of strategic thinking.</li></ul></div>
+                  <div class="readiness__bottom"><details class="transcript"><summary><span class="transcript__icon" aria-hidden="true">↳</span>Transcript this diagnosis was read from</summary><p>The diagnosis was read from the conversation about real-time synthesis, intuitive leaps, canned responses, and organic value statements.</p></details><div class="confidence"><span class="confidence__ring"><span>High</span></span><span>AI confidence</span></div></div>
+                </section>
+                <section class="flip-card__face flip-card__back postcall postcall--back" aria-hidden="true" inert>
+                  <div class="postcall__head"><span><b>Judd Barakove</b><small>RevSymphony</small></span><button class="card-flip" type="button" data-flip aria-pressed="false" aria-label="Show Buyer Readiness diagnosis">Back <span aria-hidden="true">↙</span></button></div>
+                  <p class="postcall__verdict">Problem-aware and interested in testing a solution, but needs to see how PitchGenius specifically delivers to its promise and how easy it is to implement.</p>
+                  <div class="meddpicc__label">MEDDPICC after the call <span class="meddpicc__pct">65%</span></div>
+                  <div class="chips">
+                    <div class="chip chip--strong"><b>M</b>Metrics</div><div class="chip chip--neutral"><b>E</b>Economic Buyer</div><div class="chip chip--strong"><b>D</b>Decision Criteria</div><div class="chip chip--weak"><b>D</b>Decision Process</div><div class="chip chip--neutral"><b>P</b>Paper Process</div><div class="chip chip--strong"><b>I</b>Identify Pain</div><div class="chip chip--weak"><b>C</b>Champion</div><div class="chip chip--neutral"><b>C</b>Competition</div>
+                  </div>
+                  <div class="legend"><span><i class="l-strong"></i>Strong</span><span><i class="l-neutral"></i>Neutral</span><span><i class="l-weak"></i>Weak</span></div>
+                  <div class="postcall__action">Update CRM <span aria-hidden="true">&rarr;</span></div>
+                </section>
+              </div>
             </div>
           </div>
         </div>
@@ -283,14 +299,16 @@
                 <span class="lc__sep"></span>
                 <span class="lc__state lc__state--live">buyer is still describing the screen display</span>
               <span class="lc__ctx">Readiness <b class="rdy">45</b> <span class="dot">&middot;</span> DISCOVERY</span>
+              <button class="lc__detail-toggle" type="button" data-details-toggle aria-expanded="false" aria-controls="lc-detail-tabs" aria-label="Show buyer detail scores">⌄</button>
               </div>
               <div class="lc__body">
                 <div class="lc__block"><div class="lc__label">Next best move</div><p class="lc__nb">Clarify the display behavior</p></div>
                 <div class="lc__block"><div class="lc__label">Say this</div><p class="lc__say">The display scales to fit the screen. What are you seeing on your screen?</p></div>
                 <div class="lc__block"><div class="lc__label">Why now</div><p class="lc__why">reading the room <span class="arr">&rarr;</span> this is the moment it costs him something</p></div>
               </div>
+              <div class="lc__details" id="lc-detail-tabs" hidden><span>Trust</span><span>Willingness</span><span>Reached</span></div>
               <div class="lc__foot">
-                <a href="#during">Why this, now?</a>
+                <button class="lc__why-toggle" type="button" data-details-toggle aria-expanded="false" aria-controls="lc-detail-tabs">Why this, now?</button>
                 <div class="btns"><button class="lc__btn lc__btn--dismiss" type="button">Dismiss</button><button class="lc__btn lc__btn--next" type="button">Next</button></div>
               </div>
             </div>
@@ -315,10 +333,12 @@
                 <span class="lc__name">PitchGenius HumanCue<sup>&trade;</sup></span>
                 <span class="lc__sep"></span>
                 <span class="lc__state">Listening</span>
+                <button class="lc__detail-toggle" type="button" data-details-toggle aria-expanded="false" aria-controls="lc-detail-listening" aria-label="Show buyer detail scores">⌄</button>
               </div>
               <div class="lc__body">
                 <div class="lc__empty">Say nothing yet. Just listen.</div>
               </div>
+              <div class="lc__details" id="lc-detail-listening" hidden><span>Trust</span><span>Willingness</span><span>Reached</span></div>
             </div>
           </div>
         </div>
@@ -364,7 +384,7 @@
   </div>
 
   <!-- 7. STICKY PIN — held competitive line -->
-  <section class="pin" id="advantage" aria-label="The unfair advantage">
+  <section class="pin pin--light" id="advantage" aria-label="The unfair advantage">
     <div class="pin__bg"><img src="assets/competitor-floor-night.png" alt="" /></div>
     <div class="pin__scrim" aria-hidden="true"></div>
     <div class="pin__sticky">
@@ -429,6 +449,23 @@
         </table>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 8b. FOUNDER STATEMENT (source: 13-ashby-manifesto's signature block, liked at the
+       2026-08-14 meeting and confirmed against PRODUCT.md's sanctioned "founder statement,
+       one paragraph, signed" replacement for a testimonial section; quote is verbatim from
+       MESSAGE.md, the founder's own words on the call) -->
+  <section class="section--sm founder" id="founder" aria-label="The thesis, in the founder's own words" data-reveal>
+    <div class="container container-md" style="margin-inline:auto;text-align:center">
+      <p class="kicker">The thesis, in the founder&rsquo;s own words</p>
+      <blockquote class="founder__quote">
+        &ldquo;Our branding has really got to be Human plus AI. Enhance humans &mdash; not
+        replace them. Something very human, creative &mdash; and very, very technology.
+        That&rsquo;s what I like.&rdquo;
+      </blockquote>
+      <p class="founder__sig" aria-label="Founder signature">Russell P.</p>
+      <p class="founder__role">Founder, PitchGenius.AI</p>
     </div>
   </section>
 
