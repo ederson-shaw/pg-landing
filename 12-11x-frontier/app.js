@@ -26,9 +26,7 @@
     var burger = document.getElementById("burger");
     if (!nav) return;
     function onScroll() {
-      var hero = document.querySelector(".hero");
-      var limit = hero ? hero.offsetHeight - 120 : 600;
-      nav.classList.toggle("is-light", window.scrollY > limit);
+      nav.classList.toggle("is-light", window.scrollY > 24);
     }
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -77,16 +75,6 @@
         document.querySelectorAll('[aria-controls="' + target.id + '"]').forEach(function (toggle) {
           toggle.setAttribute("aria-expanded", open ? "true" : "false");
         });
-      });
-    });
-  })();
-
-  (function () {
-    document.querySelectorAll("[data-evidence]").forEach(function (button) {
-      button.addEventListener("click", function () {
-        var added = button.getAttribute("aria-pressed") === "true";
-        button.setAttribute("aria-pressed", added ? "false" : "true");
-        button.firstChild.textContent = added ? "Add evidence " : "Evidence added ";
       });
     });
   })();
