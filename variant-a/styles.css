@@ -602,19 +602,19 @@ h3 { font-size: var(--fs-h3); }
 .blueprint-disc__ring { fill: none; stroke: var(--blue); stroke-width: 1.5; }
 .blueprint-disc__axis { fill: none; stroke: var(--gray-line); stroke-width: 1; }
 .blueprint-disc__dot { fill: #E64A19; }
-.disc-axis { font-size: 12px; font-weight: 700; text-anchor: middle; }
+.disc-axis { font-size: 14px; font-weight: 700; text-anchor: middle; }
 .disc-axis--d { fill: #D32F2F; opacity: .46; }
 .disc-axis--i { fill: #E65100; opacity: .46; }
 .disc-axis--s { fill: #F57C00; opacity: .46; }
 .disc-axis--c { fill: #E64A19; opacity: 1; }
 .disc-annotation { fill: #E64A19; font-size: 14px; font-weight: 700; text-anchor: middle; }
 .disc-annotation--sub { fill: #E64A19; font-size: 12px; font-weight: 700; letter-spacing: .08em; opacity: .82; }
-.blueprint__scores { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; color: var(--gray); font-size: 12px; font-weight: 700; line-height: 1.2; }
+.blueprint__scores { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; color: var(--gray); font-size: 14px; font-weight: 700; line-height: 1.2; }
 .blueprint__score-separator { color: var(--gray); }
 .blueprint__score--d { color: #D32F2F; opacity: .58; }
 .blueprint__score--i { color: #E65100; opacity: .58; }
 .blueprint__score--s { color: #F57C00; opacity: .58; }
-.blueprint__score--c { color: #E64A19; font-size: 14px; font-weight: 700; }
+.blueprint__score--c { color: #E64A19; font-weight: 700; }
 .blueprint__profile dl { display: grid; margin-top: 8px; }
 .blueprint__profile dl > div { display: grid; grid-template-columns: minmax(6.5rem, .8fr) minmax(0, 1.2fr); gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--gray-line); }
 .blueprint__profile dt, .blueprint__objection > p { color: var(--gray); font-size: 12px; font-weight: 700; letter-spacing: .07em; line-height: 1.25; text-transform: uppercase; }
