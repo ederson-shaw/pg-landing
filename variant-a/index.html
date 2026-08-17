@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#ffffff" />
 <link rel="icon" href="assets/logo-black.png" />
 <link rel="stylesheet" href="styles.css" />
-<noscript><style>[data-reveal]{opacity:1;transform:none}[data-stagger]>*{opacity:1 !important;transform:none !important}.rline>span{transform:none}.hero__headline .rline>span{transform:none}</style></noscript>
+<noscript><style>[data-reveal],.vocabulary[data-reveal]{opacity:1;transform:none}[data-stagger]>*{opacity:1 !important;transform:none !important}.vocabulary [data-stagger]>*{opacity:1 !important;transform:none !important}.rline>span{transform:none}.hero__headline .rline>span{transform:none}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -32,7 +32,7 @@
 
 <main id="main">
 
-  <!-- APPROVED HERO — matched to the client's mockup: no rule, no subheadline, dark band base. -->
+  <!-- APPROVED HERO — matched to the client's mockup: light composition, full-width band, frozen anchors. -->
   <section class="hero hero--blue" aria-label="Introduction">
     <div class="hero__inner">
       <div class="hero__rule" aria-hidden="true"></div>
@@ -79,16 +79,68 @@
       <div class="story-stack">
 
         <article class="moment moment--before" id="before" style="--stack: 1">
-          <div class="moment__bar"><span><b>01</b> before the call</span><span>pre-call signal</span></div>
+          <div class="moment__bar"><span><b>01</b> before the call</span><span>Pre-Call Buyer Intelligence<sup>&trade;</sup></span></div>
           <div class="moment__grid">
             <div class="moment__copy" data-reveal>
               <p class="kicker">start with the person</p>
               <h2>Know who you&rsquo;re about to talk to, before you dial.</h2>
               <p>See how this person decides, what earns their trust, and where they&rsquo;ll push back &mdash; before the first question.</p>
-              <ul class="moment__list" data-stagger><li>How they decide</li><li>What builds their trust</li><li>What makes them resist</li></ul>
+              <ul class="moment__list"><li>How they decide</li><li class="moment__item--trust">Trust Triggers<sup>&trade;</sup> &mdash; what builds their trust</li><li class="moment__item--resistance">Resistance Signals<sup>&trade;</sup> &mdash; what makes them resist</li></ul>
             </div>
             <div class="moment__media">
-              <div class="moment__photo" data-parallax><img src="assets/rep-night-call.png" alt="A sales rep listening to a call in a dim office." /></div>
+              <article class="buyer-blueprint" aria-label="Buyer Blueprint for the next call">
+                <div class="blueprint__head">
+                  <div>
+                    <h3>Buyer Blueprint</h3>
+                    <p class="blueprint__operational">Pre-Call Buyer Intelligence<sup>&trade;</sup> &middot; quick view</p>
+                  </div>
+                </div>
+                <div class="blueprint__top">
+                  <div class="blueprint__disc">
+                    <p class="blueprint__section-label">DISC read</p>
+                    <svg class="blueprint-disc" viewBox="0 0 240 240" role="img" aria-label="DISC wheel: D 75, I 40, S 60, C 85. C is the primary conclusion.">
+                      <circle class="blueprint-disc__field" cx="120" cy="120" r="103"></circle>
+                      <path class="blueprint-disc__quadrant blueprint-disc__quadrant--c" d="M120 120H223A103 103 0 0 1 120 223Z"></path>
+                      <circle class="blueprint-disc__ring" cx="120" cy="120" r="103"></circle>
+                      <path class="blueprint-disc__axis" d="M17 120H223M120 17V223"></path>
+                      <circle class="blueprint-disc__dot" cx="158" cy="172" r="7" aria-hidden="true"></circle>
+                      <text class="disc-axis disc-axis--d" x="48" y="72">D</text>
+                      <text class="disc-axis disc-axis--i" x="192" y="72">I</text>
+                      <text class="disc-axis disc-axis--s" x="48" y="177">S</text>
+                      <text class="disc-axis disc-axis--c" x="192" y="177">C</text>
+                      <text class="disc-annotation" x="158" y="138">C 85</text>
+                      <text class="disc-annotation disc-annotation--sub" x="158" y="154">primary</text>
+                    </svg>
+                    <p class="blueprint__scores"><span class="blueprint__score--d">D 75</span><span class="blueprint__score-separator" aria-hidden="true">&middot;</span><span class="blueprint__score--i">I 40</span><span class="blueprint__score-separator" aria-hidden="true">&middot;</span><span class="blueprint__score--s">S 60</span><span class="blueprint__score-separator" aria-hidden="true">&middot;</span><span class="blueprint__score--c">C 85</span></p>
+                  </div>
+                  <div class="blueprint__profile">
+                    <p class="blueprint__section-label">Profile</p>
+                    <dl>
+                      <div><dt>Archetype</dt><dd>Strategic Visionary</dd></div>
+                      <div><dt>Decision pattern</dt><dd>Fast <span aria-hidden="true">&bull;</span> results-focused</dd></div>
+                      <div><dt>Social style</dt><dd>Driver</dd></div>
+                    </dl>
+                    <div class="blueprint__objection">
+                      <p>Likely objection</p>
+                      <q>If this does not change the outcome quickly, I do not need another layer in the call.</q>
+                    </div>
+                  </div>
+                </div>
+                <div class="blueprint__signals">
+                  <section class="blueprint__signal-group blueprint__signal-group--trust" aria-labelledby="blueprint-trust-title">
+                    <h4 id="blueprint-trust-title">Trust Triggers<sup>&trade;</sup></h4>
+                    <ul><li>Show the outcome before the feature.</li><li>Bring a clear path from decision to result.</li><li>Give them room to test the logic.</li></ul>
+                  </section>
+                  <section class="blueprint__signal-group blueprint__signal-group--resistance" aria-labelledby="blueprint-resistance-title">
+                    <h4 id="blueprint-resistance-title">Resistance Signals<sup>&trade;</sup></h4>
+                    <ul><li>Starting with detail before the business outcome.</li><li>A slow path with no clear next move.</li><li>Claims that ask for trust before showing the proof.</li></ul>
+                  </section>
+                </div>
+                <details class="blueprint__missing">
+                  <summary><span>Evidence to verify</span><span class="blueprint__missing-status">pending</span></summary>
+                  <p>how coaching turns a buyer signal into a next sentence</p>
+                </details>
+              </article>
             </div>
           </div>
         </article>
@@ -99,8 +151,8 @@
             <div class="moment__copy" data-reveal>
               <p class="kicker">read the room</p>
               <h2>Know what they&rsquo;re feeling as they feel it &mdash; and what to say next.</h2>
-              <p>A small desktop card floats over the video call &mdash; Zoom, Meet, or Teams. It listens, names the buyer signal, and gives the rep the exact sentence to say next.</p>
-              <ul class="moment__list" data-stagger><li>HumanCue<sup>&trade;</sup> names the live signal</li><li>Readiness 25 tracks the buyer &mdash; never a score on you</li><li>The rep stays the voice in the room</li></ul>
+              <p>A small desktop card floats over the video call &mdash; Zoom, Meet, or Teams. Neuro-Script Live<sup>&trade;</sup> listens, names the buyer signal, and gives the rep the exact sentence to say next.</p>
+              <ul class="moment__list"><li>HumanCue<sup>&trade;</sup> names the live signal</li><li>Readiness 25 tracks the buyer &mdash; never a score on you</li><li>The rep stays the voice in the room</li></ul>
             </div>
             <div class="moment__media">
               <div class="lc-stage"><span>Opening</span><span>Discovery</span><strong>Value</strong><span>Decision</span><span>Close</span></div>
@@ -121,18 +173,26 @@
               <p class="kicker">keep the thread</p>
               <h2>The next call doesn&rsquo;t start from memory.</h2>
               <p>Every claim in the summary points at the moment it came from. The signal, the gaps, and the next move are ready before you open CRM.</p>
-              <ul class="moment__list" data-stagger><li>Evidence-linked call summary</li><li>Written verdict from the call</li><li>MEDDPICC gap analysis</li><li>Next Best Move for the following call</li></ul>
+              <ul class="moment__list"><li>Evidence-linked call summary</li><li>Buyer Readiness Index<sup>&trade;</sup> &mdash; the verdict, written</li><li>MEDDPICC gap analysis</li><li>Next Best Move for the following call</li></ul>
             </div>
             <div class="moment__media">
+              <div class="postcall-stage">
               <div class="flip-card postcall-flip" data-flip-card>
                 <div class="flip-card__inner">
-                  <section class="flip-card__face flip-card__front product-surface postcall-card" aria-label="Post-call summary for Judd Barakove">
+                  <section class="flip-card__face flip-card__front product-surface postcall-card postcall-card--readiness" aria-label="Buyer Readiness diagnosis for Judd Barakove">
                     <div class="surface-head"><span class="surface-title">Post-call summary</span><span class="surface-meta">Judd Barakove</span><button class="card-flip" type="button" data-flip aria-pressed="false" aria-label="Show MEDDPICC snapshot">snapshot &rarr;</button></div>
-                    <div class="postcall-card__identity"><span>RevSymphony</span><b>VALUE</b><span>25 / 100</span></div>
-                    <h3>Buyer has no champion pushing this internally.</h3>
-                    <blockquote class="postcall__signal">In no hurry &middot; Trust 45 &middot; Urgency 20 &middot; Pain scale 60 &middot; Willingness to move 30.</blockquote>
-                    <p class="postcall__evidence">Evidence-linked summary &middot; next move carried into the following call.</p>
-                    <div class="postcall__bottom"><details><summary>&rarr; Show source call</summary><p>Judd Barakove &middot; RevSymphony &middot; VALUE</p></details><span class="acceptance">Acceptance <b>High</b></span></div>
+                    <div class="readiness-card__body">
+                      <div class="readiness-card__main">
+                        <p class="readiness-card__eyebrow">Buyer Readiness Index<sup>&trade;</sup></p>
+                        <h3>Judd has no champion pushing the change forward, so the deal is not ready to move.</h3>
+                        <p class="readiness-card__score">Readiness 25 &middot; VALUE &mdash; no champion</p>
+                        <blockquote class="postcall__signal">The signals read: In no hurry &middot; Trust 45 &middot; Urgency 20 &middot; Pain 60 &middot; Willingness to move 30. With no champion pushing internally, the call has not turned concern into movement.</blockquote>
+                        <p class="readiness-card__crm"><b>CRM says:</b> <span>VALUE</span></p>
+                        <div class="readiness-card__blocked"><h4>BLOCKED</h4><ul><li>No internal champion detected</li><li>Decision authority unclear</li><li>Consensus risk on this deal</li></ul></div>
+                        <details class="readiness-card__transcript"><summary>Transcript this diagnosis was read from</summary><p>&ldquo;I need to run this by the team.&rdquo; &mdash; Judd Barakove &middot; RevSymphony &middot; VALUE</p></details>
+                      </div>
+                      <div class="ai-confidence" aria-label="AI confidence: High"><svg class="ai-confidence__ring" viewBox="0 0 96 96" role="img" aria-label="High AI confidence"><circle class="ai-confidence__track" cx="48" cy="48" r="39"></circle><circle class="ai-confidence__progress" cx="48" cy="48" r="39"></circle><text x="48" y="51">High</text></svg><span>AI confidence</span></div>
+                    </div>
                   </section>
                   <section class="flip-card__face flip-card__back product-surface postcall-card postcall-card--back" aria-label="MEDDPICC snapshot for Judd Barakove" aria-hidden="true" inert>
                     <div class="surface-head"><span class="surface-title">MEDDPICC snapshot</span><span class="surface-meta">post-call</span><button class="card-flip" type="button" data-flip aria-pressed="false" aria-label="Show post-call summary">back &larr;</button></div>
@@ -143,9 +203,29 @@
                   </section>
                 </div>
               </div>
+              </div>
             </div>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="vocabulary" aria-labelledby="vocabulary-title">
+    <div class="container vocabulary__inner" data-reveal>
+      <div class="vocabulary__heading">
+        <p class="kicker">the call, named</p>
+        <h2 id="vocabulary-title">Seven signals. One conversation.</h2>
+        <p class="lead">The same vocabulary follows the buyer from the first question to the next call.</p>
+      </div>
+      <div class="vocabulary__list" data-stagger>
+        <div class="vocabulary__row"><div class="vocabulary__name">HumanCue<sup>&trade;</sup></div><p>The live signal at the top of your card while you talk.</p><span class="vocabulary__moment">during</span></div>
+        <div class="vocabulary__row"><div class="vocabulary__name">Neuro-Script Live<sup>&trade;</sup></div><p>It reads the room and writes the next sentence for you.</p><span class="vocabulary__moment">during</span></div>
+        <div class="vocabulary__row"><div class="vocabulary__name">live call guidance</div><p>You get the sentence while the buyer is still talking.</p><span class="vocabulary__moment">during</span></div>
+        <div class="vocabulary__row"><div class="vocabulary__name">Pre-Call Buyer Intelligence<sup>&trade;</sup></div><p>Know who is across the screen before you dial.</p><span class="vocabulary__moment">before</span></div>
+        <div class="vocabulary__row vocabulary__row--trust"><div class="vocabulary__name">Trust Triggers<sup>&trade;</sup></div><p>Three details make this buyer trust you.</p><span class="vocabulary__moment">before</span></div>
+        <div class="vocabulary__row vocabulary__row--resistance"><div class="vocabulary__name">Resistance Signals<sup>&trade;</sup></div><p>Notice what makes this buyer pull back from the conversation.</p><span class="vocabulary__moment">before</span></div>
+        <div class="vocabulary__row"><div class="vocabulary__name">Buyer Readiness Index<sup>&trade;</sup></div><p>The verdict says how ready the buyer is to move.</p><span class="vocabulary__moment">after</span></div>
       </div>
     </div>
   </section>
@@ -199,7 +279,7 @@
         <div class="manager__photo" data-parallax><img src="assets/manager-portrait.jpg" alt="A manager watching a screen in a quiet office." /><div class="manager__readout"><span>real call &middot; Judd Barakove</span><strong>25 / 100</strong><small>VALUE &middot; acceptance High</small></div></div>
         <div class="manager__brief"><p class="manager__eyebrow">the operating logic</p><h3>See what buyers showed. Coach from there.</h3><p>The signal and the next move stay tied to the evidence. The pipeline stops being what reps hope and starts being what buyers showed.</p><dl class="manager__ledger" data-stagger><div><dt>win rate</dt><dd>the same reps close more of the same pipeline</dd></div><div><dt>ramp time</dt><dd>coaching happens during the call, not only in a Monday review</dd></div><div><dt>forecast accuracy</dt><dd>readiness gives the forecast something real to stand on</dd></div><div><dt>coaching capacity</dt><dd>one manager can start from all the calls, not one</dd></div></dl><p class="manager__privacy">Managers see usage and deal activity. They do not see rep calibration answers.</p></div>
       </div>
-      <div class="compare-wrap" data-reveal><p class="kicker">the category, stated flat</p><table class="compare"><thead><tr><th>who</th><th>what they do</th><th>what they don&rsquo;t do</th></tr></thead><tbody><tr><th>Gong</th><td>Records, transcribes, coaches after the fact.</td><td>Say anything during the call.</td></tr><tr><th>Clari / Clari Copilot</th><td>Forecasting, revenue ops, call recording.</td><td>Live in-conversation coaching.</td></tr><tr><th>Chorus (ZoomInfo)</th><td>Call recording and analytics.</td><td>Live in-conversation coaching.</td></tr><tr><th>Salesforce / HubSpot</th><td>Store what already happened.</td><td>Tell you what to do next.</td></tr><tr class="compare__pitch"><th>PitchGenius</th><td>Reads the room and tells you what to say while the buyer is still there.</td><td>&mdash;</td></tr></tbody></table></div>
+      <div class="compare-wrap" data-reveal><p class="kicker">the category, stated flat</p><table class="compare"><thead><tr><th>who</th><th>what they do</th><th>what they don&rsquo;t do</th></tr></thead><tbody><tr class="compare__pitch"><th>PitchGenius</th><td>Reads the room and tells you what to say while the buyer is still there.</td><td>&mdash;</td></tr><tr><th>Gong</th><td>Records, transcribes, coaches after the fact.</td><td>Say anything during the call.</td></tr><tr><th>Clari / Clari Copilot</th><td>Forecasting, revenue ops, call recording.</td><td>Live in-conversation coaching.</td></tr><tr><th>Chorus (ZoomInfo)</th><td>Call recording and analytics.</td><td>Live in-conversation coaching.</td></tr><tr><th>Salesforce / HubSpot</th><td>Store what already happened.</td><td>Tell you what to do next.</td></tr></tbody></table></div>
     </div>
     <div class="midcta" aria-label="Try it">
       <div class="container midcta__inner" data-reveal>
