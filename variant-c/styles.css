@@ -83,12 +83,12 @@ a { color: inherit; }
 
 /* ── 01 hero ─────────────────────────── */
 .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; padding-top: 5.5rem; overflow: clip; }
-.hero__inner { width: 100%; max-width: var(--max); margin-inline: auto; padding: clamp(3rem, 8vh, 6rem) var(--gutter) clamp(2rem, 5vh, 4rem); }
+.hero__inner { flex: 0 0 auto; min-height: 0; width: 100%; max-width: var(--max); margin-inline: auto; padding: clamp(3rem, 8vh, 6rem) var(--gutter) clamp(2rem, 5vh, 4rem); }
 .hero__headline { font-family: var(--sans); font-weight: 300; font-size: clamp(2.6rem, 6.2vw, 5.6rem); letter-spacing: -.04em; line-height: 1.04; color: var(--ink); }
 .rline--heavy > span { font-weight: 700; letter-spacing: -.045em; }
 .hero__sub { max-width: 34rem; margin-top: 1.6rem; color: var(--ink-2); font-size: 1.15rem; }
 .hero__cta { margin-top: 1.9rem; }
-.hero__band { height: clamp(16rem, 34vh, 26rem); background: url("assets/c-hero-band.png") center top / cover no-repeat; filter: grayscale(1); }
+.hero__band { flex: 0 0 50svh; height: 50svh; min-height: 0; margin-top: auto; background: url("assets/c-hero-band.png") 50% 0 / 100% auto no-repeat; filter: grayscale(1); }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .hero__band { animation: hero-bloom linear both; animation-timeline: view(); animation-range: exit 0% exit 60%; }
@@ -850,3 +850,5 @@ html, body { overflow-x: clip; }
   .s14__period, .s15__closing, .s15__closing-line--cyan, .s16__closing { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
   .s16__photo { opacity: 1 !important; transform: none !important; }
 }
+
+@media (max-width: 760px) { .hero__band { background-size: auto 100%; background-position: 50% 0; } }
