@@ -101,14 +101,48 @@
     indexTargets.forEach((target) => indexObserver.observe(target));
   }
 
-  document.querySelectorAll('[data-detail-toggle]').forEach((button) => {
-    const panel = button.closest('.live-card')?.querySelector('[data-detail-panel]');
+  document.querySelectorAll('.live-card').forEach((card) => {
+    const panel = card.querySelector('[data-detail-panel]');
     if (!panel) return;
-    button.addEventListener('click', () => {
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', String(!isExpanded));
-      button.textContent = isExpanded ? 'Why this, now?' : 'Hide context';
-      panel.hidden = isExpanded;
+    const detailButtons = [...card.querySelectorAll('[data-detail-toggle]')];
+    const setDetailState = (expanded) => {
+      detailButtons.forEach((button) => {
+        button.setAttribute('aria-expanded', String(expanded));
+        if (button.classList.contains('live-card__why')) button.textContent = expanded ? 'Hide context' : 'Why this, now?';
+      });
+      panel.hidden = !expanded;
+    };
+    detailButtons.forEach((button) => button.addEventListener('click', () => setDetailState(button.getAttribute('aria-expanded') !== 'true')));
+    const body = card.querySelector('.live-card__blocks, .h-live-card__body');
+    const status = card.querySelector('[data-live-status]');
+    card.querySelectorAll('[data-live-next], [data-live-dismiss]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const state = card.querySelector('.live-card__state');
+        if (button.hasAttribute('data-live-dismiss') && body && status) {
+          body.hidden = true;
+          panel.hidden = true;
+          status.hidden = false;
+          card.classList.add('is-dismissed');
+          setDetailState(false);
+          return;
+        }
+        if (!state) return;
+        const previous = state.textContent;
+        state.textContent = 'Next selected';
+        card.classList.add('is-acted');
+        window.setTimeout(() => {
+          state.textContent = previous;
+          card.classList.remove('is-acted');
+        }, 1100);
+      });
+    });
+    card.querySelector('[data-live-restore]')?.addEventListener('click', (event) => {
+      if (!body || !status) return;
+      body.hidden = false;
+      status.hidden = true;
+      card.classList.remove('is-dismissed');
+      card.querySelector('[data-live-next]')?.focus({ preventScroll: true });
+      event.currentTarget.blur();
     });
   });
 })();

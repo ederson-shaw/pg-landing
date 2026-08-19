@@ -1,0 +1,241 @@
+/* PitchGenius product design tokens — copied from the real desktop product.
+   Layouts remain variant-specific; type, ink, accents and data face do not. */
+@font-face { font-family: "PG Space Grotesk"; src: url("assets/fonts/SpaceGrotesk-latin.woff2") format("woff2"); font-style: normal; font-weight: 500 700; font-display: swap; }
+@font-face { font-family: "PG Sora"; src: url("assets/fonts/Sora-latin.woff2") format("woff2"); font-style: normal; font-weight: 400 800; font-display: swap; }
+@font-face { font-family: "PG JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-latin.woff2") format("woff2"); font-style: normal; font-weight: 400 600; font-display: swap; }
+
+:root {
+  --pg-paper: #ffffff;
+  --pg-ink: #071a31;
+  --pg-ink-soft: #45556e;
+  --pg-grid: rgba(7, 26, 49, .07);
+  --pg-teal: #0d9488;
+  --pg-teal-bright: #2dd4bf;
+  --pg-teal-text: #0f766e;
+  --pg-indigo: #6366f1;
+  --pg-good: #34d399;
+  --pg-warn: #fbbf24;
+  --pg-risk: #fb7185;
+  --pg-app-ink: #0b1424;
+  --pg-app-bg: #f4f6fb;
+}
+
+body {
+  --ink: var(--pg-ink);
+  --ink-deep: var(--pg-app-ink);
+  --paper: var(--pg-paper);
+  --paper-blue: var(--pg-app-bg);
+  --warm: var(--pg-app-bg);
+  --cyan: var(--pg-teal-bright);
+  --cyan-deep: var(--pg-teal-text);
+  --line: #d6dee8;
+  --muted: var(--pg-ink-soft);
+  --risk: var(--pg-risk);
+  --white: var(--pg-paper);
+  --display: "PG Space Grotesk", system-ui, sans-serif;
+  --body: "PG Sora", system-ui, sans-serif;
+  --mono: "PG JetBrains Mono", ui-monospace, monospace;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--body);
+}
+
+h1, h2, h3, h4 { font-family: var(--display); }
+.chapter-label, .eyebrow, .field-index, .font-data,
+.field-card__top, .field-state, .hero__buyers figcaption span,
+.hero__chapter, .hero__field-caption { font-family: var(--mono); }
+.button--cyan { color: var(--pg-ink); background: var(--pg-teal-bright); }
+.button--cyan:hover { background: #5eead4; }
+.button--dark { color: #fff; background: var(--pg-ink); }
+.button--dark:hover { background: var(--pg-app-ink); }
+.site-nav, .text-action { color: var(--pg-ink-soft); }
+.brand__mark, .brand__dot, .site-nav a:hover, .site-nav a:focus-visible,
+.text-action:hover { color: var(--pg-teal-text); }
+.site-nav a::after { background: var(--pg-teal-text); }
+.eyebrow--cyan, .chapter-label span { color: var(--pg-teal-text); }
+.chapter--dark .eyebrow--cyan, .chapter--ink .eyebrow--cyan,
+.chapter--photo .eyebrow--cyan { color: var(--pg-teal-bright); }
+::selection { background: var(--pg-teal-bright); color: var(--pg-ink); }
+
+/* HumanCue readout — a compact HTML recreation of the desktop app's
+   BUYER READINESS block. It is deliberately a readout, not a decorative
+   chart: stage, named signals, and values stay in one contained surface. */
+.live-card__readout {
+  padding: .78rem 1rem .82rem;
+  color: #dfe8fb;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: #131b26;
+}
+.live-card__readout-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .65rem;
+  min-width: 0;
+}
+.live-card__readout-top span,
+.live-card__stages,
+.live-card__signals b {
+  font-family: var(--mono);
+}
+.live-card__readout-top span {
+  color: #7b89a8;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.live-card__readout-top b {
+  min-width: 0;
+  overflow: hidden;
+  color: #dfe8fb;
+  font-size: 10.5px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.live-card__stages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .26rem;
+  margin-top: .62rem;
+  color: #68728f;
+  font-size: 8px;
+  letter-spacing: .035em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.live-card__stages span {
+  padding: .24rem .38rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+.live-card__stages span.is-current {
+  color: #071a31;
+  background: var(--pg-teal-bright);
+  border-color: var(--pg-teal-bright);
+  font-weight: 700;
+}
+.live-card__signals {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: .48rem .72rem;
+  margin-top: .72rem;
+}
+.live-card__signals > span {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(2.25rem, .8fr) auto;
+  align-items: center;
+  gap: .34rem;
+  min-width: 0;
+}
+.live-card__signals b {
+  min-width: 0;
+  overflow: hidden;
+  color: #98a2c0;
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.live-card__signals i {
+  display: block;
+  min-width: 0;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+}
+.live-card__signals em {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--pg-warn);
+}
+.live-card__signals > span:nth-child(2) em { background: var(--pg-risk); }
+.live-card__signals > span:nth-child(3) em { background: var(--pg-warn); }
+.live-card__signals > span:nth-child(4) em { background: var(--pg-warn); }
+.live-card__signals strong {
+  width: 1.45rem;
+  color: var(--pg-warn);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  text-align: right;
+}
+.live-card__signals > span:nth-child(2) strong { color: var(--pg-risk); }
+@media (max-width: 720px) {
+  .live-card__readout { padding: .68rem .8rem .72rem; }
+  .live-card__readout-top span { font-size: 8.5px; }
+  .live-card__readout-top b { font-size: 9.5px; }
+  .live-card__stages { margin-top: .5rem; font-size: 7px; }
+  .live-card__signals { gap: .42rem .6rem; margin-top: .58rem; }
+  .live-card__signals > span { grid-template-columns: minmax(0, 1fr) minmax(1.8rem, .72fr) auto; gap: .25rem; }
+  .live-card__signals b { font-size: 7.5px; }
+  .live-card__signals strong { font-size: 8.5px; }
+}
+@media (max-width: 380px) {
+  .live-card__readout-top { display: block; }
+  .live-card__readout-top b { display: block; margin-top: .24rem; }
+  .live-card__signals { grid-template-columns: 1fr; }
+}
+
+.live-card__signal-note {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .55rem;
+  align-items: baseline;
+  padding: .62rem 1rem .68rem;
+  color: #c8d5e5;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: #0d1722;
+}
+.live-card__signal-note span {
+  color: var(--pg-teal-bright);
+  font-family: var(--mono);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+.live-card__signal-note p {
+  min-width: 0;
+  margin: 0;
+  color: #b8c8d8;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+
+/* The real overlay is a wide panel over the call. Once the readiness readout
+   is present, keep enough room for the complete card instead of clipping its
+   WHY NOW/footer against the stage's overflow edge. H's ledger stage owns its
+   own sizing and is intentionally excluded here. */
+@media (min-width: 721px) {
+  .call-stage:not(.h-live-stage) { min-height: 760px; }
+  .call-stage:not(.h-live-stage) > .live-card {
+    top: 15%;
+    width: min(48%, 390px);
+    min-width: 290px;
+  }
+}
+@media (max-width: 720px) {
+  .call-stage:not(.h-live-stage) { min-height: 700px; }
+  .call-stage:not(.h-live-stage) > .live-card {
+    top: 10%;
+    left: 5%;
+    width: min(88%, 390px);
+    min-width: 0;
+  }
+}
+@media (min-width: 1121px) {
+  .call-stage:not(.h-live-stage) > .live-card { width: min(40%, 310px); min-width: 270px; }
+}
+
+.closing__actions .button--cyan { order: 1; color: var(--pg-ink); border-color: var(--pg-teal-bright); background: var(--pg-teal-bright); }
+.closing__actions .button--light { order: 2; }
+@media (max-width: 720px) {
+  .live-card__signal-note { grid-template-columns: 1fr; gap: .22rem; padding: .58rem .8rem .64rem; }
+  .live-card__signal-note p { font-size: 9.5px; }
+}

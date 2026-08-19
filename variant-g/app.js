@@ -111,4 +111,40 @@
       panel.hidden = isExpanded;
     });
   });
+
+  document.querySelectorAll('.live-card').forEach((card) => {
+    const next = card.querySelector('[data-cue-next]');
+    const dismiss = card.querySelector('[data-cue-dismiss]');
+    const reset = card.querySelector('[data-cue-reset]');
+    const blocks = card.querySelector('[data-cue-current]');
+    const status = card.querySelector('[data-cue-status]');
+    const state = card.querySelector('.live-card__state');
+    if (!next || !dismiss || !reset || !blocks || !status) return;
+
+    next.addEventListener('click', () => {
+      if (card.dataset.cueState === 'dismissed') return;
+      card.dataset.cueState = 'advanced';
+      if (state) state.textContent = 'Ready';
+      card.setAttribute('aria-label', 'HumanCue example decision support, ready for the next buyer signal');
+      next.textContent = 'Next ✓';
+    });
+
+    dismiss.addEventListener('click', () => {
+      card.dataset.cueState = 'dismissed';
+      blocks.hidden = true;
+      status.hidden = false;
+      if (state) state.textContent = 'Quiet';
+      card.setAttribute('aria-label', 'HumanCue is quiet while evidence is insufficient');
+      reset.focus({ preventScroll: true });
+    });
+
+    reset.addEventListener('click', () => {
+      card.dataset.cueState = 'active';
+      blocks.hidden = false;
+      status.hidden = true;
+      if (state) state.textContent = 'Listening';
+      card.setAttribute('aria-label', 'HumanCue example decision support');
+      next.textContent = 'Next';
+    });
+  });
 })();

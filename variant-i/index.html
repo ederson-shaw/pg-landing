@@ -9,6 +9,8 @@
   <link rel="icon" href="assets/i-mark.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="i-theme.css" />
+  <link rel="stylesheet" href="i-polish.css" />
+  <link rel="stylesheet" href="source-design.css" />
   <noscript><style>[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body class="variant-i">
@@ -82,7 +84,13 @@
         <p class="hero__field-caption">Observed signal → useful hypothesis → open question.</p>
       </div>
       <figure class="hero__buyers" data-reveal style="--reveal-delay:.18s">
-        <img src="assets/f-buyer-field.webp" width="2172" height="724" alt="Four thoughtful executive buyers in black-and-white portraits" />
+        <div class="hero__portrait-grid" aria-label="Five buyer portraits">
+          <img src="assets/i-hero-01.jpg" width="2000" height="1333" alt="Buyer portrait, direct and attentive" />
+          <img src="assets/i-hero-02.jpg" width="2000" height="1333" alt="Buyer portrait, composed and analytical" />
+          <img src="assets/i-hero-03.jpg" width="2000" height="1333" alt="Buyer portrait, watching closely" />
+          <img src="assets/i-hero-04.jpg" width="2000" height="1333" alt="Buyer portrait, considering a decision" />
+          <img src="assets/i-hero-05.jpg" width="2000" height="1333" alt="Buyer portrait, pausing before a response" />
+        </div>
         <figcaption><span>THE BUYER FIELD</span><p>Different people. Different context. One pipeline stage cannot explain every decision.</p></figcaption>
         <i class="hero__buyers-signal" aria-hidden="true"></i>
       </figure>
@@ -95,13 +103,13 @@
       <div class="chapter-label" data-reveal><span>02</span><p>The invisible problem</p></div>
       <div class="problem__statement" data-reveal>
         <p class="eyebrow eyebrow--cyan">THE PART YOUR CRM CAN’T SEE</p>
-        <h2>The calendar can look calm.<br><em>The conversation can turn.</em></h2>
+        <h2>The deal changes<br><em>before the pipeline does.</em></h2>
         <p>The stage can stay the same. The meeting can stay on the calendar. The forecast can still look healthy. And a buyer can be reconsidering the decision underneath all of it.</p>
         <p class="problem__close">PitchGenius was built for that interval.</p>
       </div>
       <div class="problem__visual" data-reveal style="--reveal-delay:.12s">
         <figure class="problem__scene">
-          <img src="assets/i-problem.webp" width="2000" height="1275" loading="eager" decoding="async" fetchpriority="high" alt="A seller pausing over the evidence from a buyer conversation" />
+          <img src="assets/i-problem-reference.jpg" width="2000" height="1333" loading="eager" decoding="async" fetchpriority="high" alt="A seller pausing over the evidence from a buyer conversation" />
           <figcaption><span>THE SELLER CAN SEE ACTIVITY.</span><span>The buyer may already be reconsidering.</span></figcaption>
         </figure>
         <figure class="movement-map" aria-labelledby="movement-map-caption">
@@ -129,7 +137,7 @@
       <div class="chapter-label chapter-label--light" data-reveal><span>03</span><p>What the system observes</p></div>
       <div class="evidence__intro" data-reveal>
         <p class="eyebrow eyebrow--cyan">NOT MIND READING</p>
-        <h2>Words are one part<br>of the <em>decision field.</em></h2>
+        <h2>What the buyer says<br>is only part of what<br>they’re telling you.</h2>
         <p>PitchGenius brings together evidence surrounding the buyer, conversation, and deal to understand what may be changing beneath the literal words.</p>
       </div>
       <div class="evidence-orbit" data-reveal style="--reveal-delay:.12s" role="group" aria-label="Evidence sources surrounding the buyer">
@@ -149,7 +157,7 @@
       <div class="chapter-label" data-reveal><span>04</span><p>The unified platform</p></div>
       <div class="system__heading" data-reveal>
         <p class="eyebrow">ONE CONTINUOUS INTELLIGENCE LAYER</p>
-        <h2>One buyer. Six passes<br>through the <em>conversation field.</em></h2>
+        <h2>One buyer.<br>One evolving <em>intelligence layer.</em></h2>
         <p>Preparation becomes live observation. Live observation becomes readiness evidence, deal clarity, and coaching. The next conversation begins with better context.</p>
       </div>
       <ol class="system-flow" aria-label="The PitchGenius intelligence loop">
@@ -207,7 +215,7 @@
 
     <!-- 07 / HumanCue transition -->
     <section class="cue-transition chapter chapter--photo" id="cue-transition" data-section="cue-transition">
-      <img src="assets/i-transition.webp" width="2000" height="1335" loading="eager" decoding="async" alt="A seller listening in a dim remote conversation" />
+      <img src="assets/i-transition-reference.jpg" width="2000" height="1333" loading="eager" decoding="async" alt="A seller listening closely before responding" />
       <div class="cue-transition__shade"></div>
       <div class="cue-transition__content" data-reveal>
         <p class="eyebrow eyebrow--cyan">HUMANCUE™ / THE LIVE MOMENT</p>
@@ -229,7 +237,7 @@
       </div>
       <div class="call-stage" data-reveal style="--reveal-delay:.12s" role="group" aria-label="A live sales conversation with a compact HumanCue support panel">
         <div class="call-stage__meeting">
-          <div class="meeting-bar"><span class="meeting-bar__person"><i></i> Russell Pontone</span><span>Discovery · 21:34</span><span class="meeting-bar__end" aria-hidden="true">End</span></div>
+          <div class="meeting-bar"><span class="meeting-bar__person"><i></i> Russell Pontone</span><span>Discovery</span><span class="meeting-bar__end" aria-hidden="true">End</span></div>
           <div class="meeting-content">
             <div class="meeting-content__portrait"><img src="assets/f-meeting-buyer.webp" width="1672" height="941" loading="eager" decoding="async" alt="A buyer in a remote discovery conversation" /></div>
             <div class="meeting-content__camera"><span>Seller view</span><i></i></div>
@@ -239,16 +247,29 @@
         </div>
         <div class="cue-evidence" role="group" aria-label="HumanCue checks signal, context, evidence, meaning, and actionability before surfacing a cue">
           <div class="cue-evidence__wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <ol class="cue-evidence__stages" aria-hidden="true"><li>Signal</li><li>Context</li><li>Evidence</li><li>Meaning</li><li>Actionability</li></ol>
+          <ol class="cue-evidence__stages" aria-label="HumanCue stage row"><li>Opening</li><li class="is-current">Discovery</li><li>Value</li><li>Decision</li><li>Close</li></ol>
         </div>
         <article class="live-card" aria-label="HumanCue example decision support">
-          <header class="live-card__head"><span class="live-card__brand"><i></i> HumanCue™</span><span class="live-card__context">45 · DISCOVERY</span></header>
-          <div class="live-card__meta"><span><strong>Buyer signal</strong> Screen behavior remains the live observation.</span></div>
-          <section><h3>Next best move</h3><p>Clarify the display behavior.</p></section>
-          <section><h3>Say this</h3><p class="live-card__quote">“The display scales to fit the screen. What are you seeing on your screen?”</p></section>
-          <section><h3>Why now</h3><p>reading the room <span>→</span> this is the moment it costs him something</p></section>
-          <footer><button class="live-card__why" type="button" data-detail-toggle aria-expanded="false" aria-controls="humancue-context">Why this, now?</button><span class="live-card__chrome" aria-hidden="true">listening</span></footer>
-          <div class="live-card__detail" id="humancue-context" hidden data-detail-panel><span><b>Context</b> The buyer is still describing the display; do not jump ahead.</span><span><b>Evidence</b> This is a live observation, not a conclusion about intent.</span></div>
+          <header class="live-card__head"><span class="live-card__brand"><i></i> HumanCue™</span><span class="live-card__state">Listening</span><span class="live-card__context">Readiness 45 · DISCOVERY</span></header>
+          <div class="live-card__readout" aria-label="Example buyer readiness readout">
+            <div class="live-card__readout-top"><span>BUYER READINESS</span><b>45 / 100 · not sold yet</b></div>
+            <div class="live-card__stages"><span>Opening</span><span class="is-current">Discovery</span><span>Value</span><span>Decision</span><span>Close</span></div>
+            <div class="live-card__signals">
+              <span><b>Trust</b><i><em style="width:46%"></em></i><strong>46</strong></span>
+              <span><b>Urgency</b><i><em style="width:30%"></em></i><strong>30</strong></span>
+              <span><b>Feels safe</b><i><em style="width:58%"></em></i><strong>58</strong></span>
+              <span><b>Willingness to move</b><i><em style="width:52%"></em></i><strong>52</strong></span>
+            </div>
+          </div>
+          <div class="live-card__signal-note"><span>BUYER SIGNAL</span><p>Buyer is still describing the screen display.</p></div>
+          <div class="live-card__blocks">
+            <section><h3>Next best move</h3><p>Clarify the display behavior.</p></section>
+            <section><h3>Say this</h3><p class="live-card__quote">“The display scales to fit the screen. What are you seeing on your screen?”</p></section>
+            <section><h3>Why now</h3><p>The buyer is describing the screen, not the outcome. Resolve the observation before moving to value.</p></section>
+          </div>
+          <footer><button class="live-card__why" type="button" data-detail-toggle aria-expanded="false" aria-controls="humancue-context">Why this, now?</button><div class="live-card__actions"><button type="button" data-live-next>Next</button><button type="button" data-live-dismiss>Dismiss</button></div></footer>
+          <div class="live-card__detail" id="humancue-context" hidden data-detail-panel><span><b>Trust</b> not measured</span><span><b>Willingness</b> not measured</span><span><b>Reached</b> Discovery</span></div>
+          <div class="live-card__status" hidden data-live-status aria-live="polite"><p>HumanCue stays quiet until there is a useful, evidenced next move.</p><button type="button" data-live-restore>Bring the cue back</button></div>
         </article>
       </div>
       <div class="humancue__outcome" data-reveal>
@@ -314,7 +335,7 @@
         <p class="coaching__mechanism"><b>The management mechanism.</b> Same-pipeline closing keeps the lesson close to the work. Live coaching happens during calls rather than only in review. Buyer evidence gives managers a clearer basis for forecast discussion. One manager can extend coaching beyond the calls they can attend.</p>
       </div>
       <div class="coaching__record" data-reveal style="--reveal-delay:.1s" role="group" aria-label="Manager coaching report example">
-        <div class="coaching__image"><img src="assets/f-manager-coaching.webp" width="1672" height="941" loading="eager" decoding="async" alt="A manager reviewing conversation evidence with a seller" /></div>
+        <div class="coaching__image"><img src="assets/i-coaching.jpg" width="2000" height="1333" loading="eager" decoding="async" alt="A seller pausing over evidence before a decision" /></div>
         <article class="coaching-report"><header><span>Manager Coaching Report</span><small>Pattern review / not a call score</small></header><dl><div><dt>What changed</dt><dd>Implementation concern surfaced late in the conversation.</dd></div><div><dt>What the rep saw</dt><dd>The seller noticed the buyer’s shift in pace and asked for an example.</dd></div><div><dt>What the rep missed</dt><dd>The concern was linked to decision ownership, not only product detail.</dd></div><div class="coaching-report__risk"><dt>What blocked movement</dt><dd>No buyer-owned next action brought the implementation owner into the decision.</dd></div><div><dt>What to coach</dt><dd>Explore ownership before explaining the implementation path.</dd></div><div><dt>What happens next</dt><dd>Use the next call to validate who carries this risk internally.</dd></div></dl><footer>These are not script mistakes. <strong>They are judgment patterns.</strong></footer></article>
       </div>
     </section>
@@ -330,7 +351,7 @@
         <article><span class="development-path__number">03</span><h3>Better judgment</h3><p>The seller begins to identify the decision pattern before guidance is needed.</p><div class="cue-mini cue-mini--one"><i></i><i></i><i></i></div></article>
         <article><span class="development-path__number">04</span><h3>The human call</h3><p>The work is internalized: listen, investigate, validate, then move.</p><div class="cue-mini cue-mini--none"><i></i><i></i><i></i></div></article>
       </div>
-      <figure class="development__portrait" data-reveal style="--reveal-delay:.12s"><img src="assets/f-rep-development.webp" width="1672" height="941" loading="eager" decoding="async" alt="A seller preparing notes and developing judgment between conversations" /><figcaption>Practice stays close to the work.</figcaption></figure>
+      <figure class="development__portrait" data-reveal style="--reveal-delay:.12s"><img src="assets/i-development.jpg" width="2000" height="1333" loading="eager" decoding="async" alt="Two sellers comparing notes between conversations" /><figcaption>Practice stays close to the work.</figcaption></figure>
       <p class="development__close" data-reveal>Call <span>→</span> evidence <span>→</span> coaching <span>→</span> reinforcement <span>→</span> improvement</p>
       <p class="development__privacy" data-reveal><strong>Rep Calibration stays private.</strong> Managers see usage and deal activity. They do not see a seller’s calibration answers.</p>
     </section>
@@ -364,11 +385,11 @@
 
     <!-- 16 / Close -->
     <section class="closing chapter chapter--photo" id="close" data-section="close">
-      <img src="assets/i-close-human.webp" width="2000" height="1335" loading="eager" decoding="async" alt="Two colleagues comparing notes during a working conversation" />
+      <img src="assets/i-close-reference.jpg" width="2000" height="1333" loading="eager" decoding="async" alt="Two colleagues comparing notes during a working conversation" />
       <div class="closing__overlay"></div>
       <div class="closing__content" data-reveal>
         <p class="eyebrow eyebrow--cyan">THE FUTURE OF THE SALES PROFESSION</p>
-        <h2>Understand more.<br><em>Stay human in the call.</em></h2>
+        <h2>See more.<br><em>Understand more.<br>Sell like a human.</em></h2>
         <p>PitchGenius gives salespeople better awareness before, during, and after a conversation—without taking them out of it.</p>
         <div class="closing__actions"><a class="button button--cyan" href="#humancue">See HumanCue live <svg class="icon icon--arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M4 2h6v6"/></svg></a><a class="button button--light" href="https://pitchgenius.ai">Book a pilot <svg class="icon icon--arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M4 2h6v6"/></svg></a></div>
         <p class="closing__manifesto">Technology should make sales professionals stronger, not more replaceable.</p>

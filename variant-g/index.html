@@ -8,6 +8,7 @@
   <title>PitchGenius — see the decision while it is still moving</title>
   <link rel="icon" href="assets/g-mark.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="source-design.css" />
   <noscript><style>[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
@@ -81,8 +82,14 @@
         <p class="hero__field-caption">Observed signal → useful hypothesis → open question.</p>
       </div>
       <figure class="hero__buyers" data-reveal style="--reveal-delay:.18s">
-        <img src="assets/f-buyer-field.webp" width="2172" height="724" alt="Four thoughtful executive buyers in black-and-white portraits" />
-        <figcaption><span>THE BUYER FIELD</span><p>Different people. Different context. One pipeline stage cannot explain every decision.</p></figcaption>
+        <div class="hero__portrait-strip" aria-label="Five buyer portraits">
+          <img src="assets/g-buyer-01.jpg" width="5568" height="3712" alt="Buyer portrait" />
+          <img src="assets/g-buyer-02.jpg" width="6240" height="4160" alt="Buyer portrait, composed and analytical" />
+          <img src="assets/g-buyer-03.jpg" width="3888" height="5184" alt="Buyer portrait, watching closely" />
+          <img src="assets/g-buyer-04.jpg" width="2550" height="3300" alt="Buyer portrait, considering a decision" />
+          <img src="assets/g-buyer-05.jpg" width="6240" height="4160" alt="" />
+        </div>
+        <figcaption><span>THE BUYER FIELD / 05 PORTRAITS</span><p>Different people. Different context. One pipeline stage cannot explain every decision.</p></figcaption>
         <i class="hero__buyers-signal" aria-hidden="true"></i>
       </figure>
       <svg class="hero__trace" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 74C112 56 166 86 254 65s150-42 239-16 143 34 228 6 137-38 214-8 143 23 265-16"/><circle cx="254" cy="65" r="5"/><circle cx="493" cy="49" r="5"/><circle cx="721" cy="55" r="5"/><circle cx="935" cy="47" r="5"/></svg>
@@ -228,7 +235,7 @@
       </div>
       <div class="call-stage" data-reveal style="--reveal-delay:.12s" role="group" aria-label="A live sales conversation with a compact HumanCue support panel">
         <div class="call-stage__meeting">
-          <div class="meeting-bar"><span class="meeting-bar__person"><i></i> Russell Pontone</span><span>Discovery · 21:34</span><span class="meeting-bar__end" aria-hidden="true">End</span></div>
+          <div class="meeting-bar"><span class="meeting-bar__person"><i></i> Russell Pontone</span><span>Discovery · live</span><span class="meeting-bar__end" aria-hidden="true">End</span></div>
           <div class="meeting-content">
             <div class="meeting-content__portrait"><img src="assets/f-meeting-buyer.webp" width="1672" height="941" loading="eager" decoding="async" alt="A buyer in a remote discovery conversation" /></div>
             <div class="meeting-content__camera"><span>Seller view</span><i></i></div>
@@ -238,16 +245,36 @@
         </div>
         <div class="cue-evidence" role="group" aria-label="HumanCue checks signal, context, evidence, meaning, and actionability before surfacing a cue">
           <div class="cue-evidence__wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <ol class="cue-evidence__stages" aria-hidden="true"><li>Signal</li><li>Context</li><li>Evidence</li><li>Meaning</li><li>Actionability</li></ol>
+          <ol class="cue-evidence__stages" aria-label="HumanCue stage row"><li>Opening</li><li class="is-current">Discovery</li><li>Value</li><li>Decision</li><li>Close</li></ol>
         </div>
         <article class="live-card" aria-label="HumanCue example decision support">
-          <header class="live-card__head"><span class="live-card__brand"><i></i> HumanCue™</span><span class="live-card__context">45 · DISCOVERY</span></header>
-          <div class="live-card__meta"><span><strong>Buyer signal</strong> Screen behavior remains the live observation.</span></div>
-          <section><h3>Next best move</h3><p>Clarify the display behavior.</p></section>
-          <section><h3>Say this</h3><p class="live-card__quote">“The display scales to fit the screen. What are you seeing on your screen?”</p></section>
-          <section><h3>Why now</h3><p>reading the room <span>→</span> this is the moment it costs him something</p></section>
-          <footer><button class="live-card__why" type="button" data-detail-toggle aria-expanded="false" aria-controls="humancue-context">Why this, now?</button><span class="live-card__chrome" aria-hidden="true">listening</span></footer>
-          <div class="live-card__detail" id="humancue-context" hidden data-detail-panel><span><b>Context</b> The buyer is still describing the display; do not jump ahead.</span><span><b>Evidence</b> This is a live observation, not a conclusion about intent.</span></div>
+          <header class="live-card__head">
+            <span class="live-card__brand"><i></i> HumanCue™</span>
+            <span class="live-card__state">Listening</span>
+            <span class="live-card__context">Readiness 45 · DISCOVERY</span>
+          </header>
+          <div class="live-card__readout" aria-label="Example buyer readiness readout">
+            <div class="live-card__readout-top"><span>BUYER READINESS</span><b>45 / 100 · not sold yet</b></div>
+            <div class="live-card__stages"><span>Opening</span><span class="is-current">Discovery</span><span>Value</span><span>Decision</span><span>Close</span></div>
+            <div class="live-card__signals">
+              <span><b>Trust</b><i><em style="width:46%"></em></i><strong>46</strong></span>
+              <span><b>Urgency</b><i><em style="width:30%"></em></i><strong>30</strong></span>
+              <span><b>Feels safe</b><i><em style="width:58%"></em></i><strong>58</strong></span>
+              <span><b>Willingness to move</b><i><em style="width:52%"></em></i><strong>52</strong></span>
+            </div>
+          </div>
+          <div class="live-card__signal-note"><span>BUYER SIGNAL</span><p>Buyer is still describing the screen display.</p></div>
+          <div class="live-card__blocks" data-cue-current>
+            <section><h3>Next best move</h3><p>Clarify the display behavior.</p></section>
+            <section><h3>Say this</h3><p class="live-card__quote">“The display scales to fit the screen. What are you seeing on your screen?”</p></section>
+            <section><h3>Why now</h3><p>The buyer is describing the screen, not the outcome. Resolve the observation before moving to value.</p></section>
+          </div>
+          <footer>
+            <button class="live-card__why" type="button" data-detail-toggle aria-expanded="false" aria-controls="humancue-context">Why this, now?</button>
+            <span class="live-card__actions"><button type="button" data-cue-next>Next</button><button type="button" data-cue-dismiss>Dismiss</button></span>
+          </footer>
+          <div class="live-card__detail" id="humancue-context" hidden data-detail-panel><span><b>Trust</b> not measured</span><span><b>Willingness</b> not measured</span><span><b>Reached</b> Discovery</span></div>
+          <div class="live-card__status" hidden data-cue-status><p>HumanCue stays quiet until there is a useful, evidenced next move.</p><button type="button" data-cue-reset>Bring the cue back</button></div>
         </article>
       </div>
       <div class="humancue__outcome" data-reveal>
@@ -351,7 +378,7 @@
       <div class="chapter-label" data-reveal><span>15</span><p>The category difference</p></div>
       <div class="difference__heading" data-reveal><p class="eyebrow eyebrow--cyan">A DIFFERENT OBJECT OF ATTENTION</p><h2>Move the question<br>from the rep <em>to the buyer.</em></h2></div>
       <div class="question-pairs" data-reveal style="--reveal-delay:.08s">
-        <div class="question-pairs__head"><span>Most sales AI asks</span><span>PitchGenius asks</span></div>
+        <div class="question-pairs__head"><span>Most sales AI asks</span><span aria-hidden="true"></span><span>PitchGenius asks</span></div>
         <article><p>What did the rep say?</p><i aria-hidden="true"><svg viewBox="0 0 24 12" focusable="false"><path d="M1 6h22M6 1 1 6l5 5M18 1l5 5-5 5"/></svg></i><p>What changed with the buyer?</p></article>
         <article><p>Did the rep follow the process?</p><i aria-hidden="true"><svg viewBox="0 0 24 12" focusable="false"><path d="M1 6h22M6 1 1 6l5 5M18 1l5 5-5 5"/></svg></i><p>Did the buyer become more ready?</p></article>
         <article><p>What did the call contain?</p><i aria-hidden="true"><svg viewBox="0 0 24 12" focusable="false"><path d="M1 6h22M6 1 1 6l5 5M18 1l5 5-5 5"/></svg></i><p>What changed in the decision?</p></article>
@@ -367,7 +394,7 @@
       <div class="closing__overlay"></div>
       <div class="closing__content" data-reveal>
         <p class="eyebrow eyebrow--cyan">THE FUTURE OF THE SALES PROFESSION</p>
-        <h2>Understand more.<br><em>Stay human in the call.</em></h2>
+        <h2>See more.<br><em>Understand more.<br>Sell like a human.</em></h2>
         <p>PitchGenius gives salespeople better awareness before, during, and after a conversation—without taking them out of it.</p>
         <div class="closing__actions"><a class="button button--cyan" href="#humancue">See HumanCue live <svg class="icon icon--arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M4 2h6v6"/></svg></a><a class="button button--light" href="https://pitchgenius.ai">Book a pilot <svg class="icon icon--arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 10 10 2M4 2h6v6"/></svg></a></div>
         <p class="closing__manifesto">Technology should make sales professionals stronger, not more replaceable.</p>

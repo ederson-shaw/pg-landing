@@ -88,6 +88,16 @@
   window.addEventListener('scroll', revealNow, { passive: true });
   window.setTimeout(revealNow, 80);
 
+  const systemSteps = [...document.querySelectorAll('.system-flow li')];
+  if ('IntersectionObserver' in window && systemSteps.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const systemObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('is-current');
+      });
+    }, { threshold: .55, rootMargin: '-12% 0px -28% 0px' });
+    systemSteps.forEach((step) => systemObserver.observe(step));
+  }
+
   const indexLinks = [...document.querySelectorAll('[data-index] a')];
   const indexTargets = indexLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
   if ('IntersectionObserver' in window && indexTargets.length) {
@@ -109,6 +119,41 @@
       button.setAttribute('aria-expanded', String(!isExpanded));
       button.textContent = isExpanded ? 'Why this, now?' : 'Hide context';
       panel.hidden = isExpanded;
+    });
+  });
+
+  document.querySelectorAll('[data-live-dismiss]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const card = button.closest('.live-card');
+      const body = card?.querySelector('.live-card__blocks, .h-live-card__body');
+      const detail = card?.querySelector('[data-detail-panel]');
+      const status = card?.querySelector('[data-live-status]');
+      if (!card || !body || !status) return;
+      body.hidden = true;
+      if (detail) detail.hidden = true;
+      status.hidden = false;
+      card.classList.add('is-dismissed');
+      card.querySelector('[data-detail-toggle]')?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.querySelectorAll('[data-live-restore]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const card = button.closest('.live-card');
+      const body = card?.querySelector('.live-card__blocks, .h-live-card__body');
+      const status = card?.querySelector('[data-live-status]');
+      if (!card || !body || !status) return;
+      body.hidden = false;
+      status.hidden = true;
+      card.classList.remove('is-dismissed');
+      card.querySelector('[data-live-next]')?.focus({ preventScroll: true });
+    });
+  });
+
+  document.querySelectorAll('[data-live-next]').forEach((button) => {
+    button.addEventListener('click', () => {
+      button.textContent = button.textContent === 'Held' ? 'Next' : 'Held';
+      button.classList.toggle('is-held');
     });
   });
 })();
