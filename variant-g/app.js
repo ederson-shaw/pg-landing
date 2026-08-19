@@ -101,15 +101,21 @@
     indexTargets.forEach((target) => indexObserver.observe(target));
   }
 
-  document.querySelectorAll('[data-detail-toggle]').forEach((button) => {
-    const panel = button.closest('.live-card')?.querySelector('[data-detail-panel]');
-    if (!panel) return;
-    button.addEventListener('click', () => {
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', String(!isExpanded));
-      button.textContent = isExpanded ? 'Why this, now?' : 'Hide context';
-      panel.hidden = isExpanded;
+  const syncDetailState = (card, expanded) => {
+    card.querySelectorAll('[data-detail-toggle]').forEach((control) => {
+      control.setAttribute('aria-expanded', String(expanded));
+      control.setAttribute('aria-label', expanded ? 'Hide HumanCue context' : 'Show HumanCue context');
+      if (control.classList.contains('live-card__why')) control.textContent = expanded ? 'Hide context' : 'Why this, now?';
     });
+    const panel = card.querySelector('[data-detail-panel]');
+    if (panel) panel.hidden = !expanded;
+  };
+
+  document.querySelectorAll('[data-detail-toggle]').forEach((button) => {
+    const card = button.closest('.live-card');
+    const panel = card?.querySelector('[data-detail-panel]');
+    if (!panel || !card) return;
+    button.addEventListener('click', () => syncDetailState(card, panel.hidden));
   });
 
   document.querySelectorAll('.live-card').forEach((card) => {
@@ -118,6 +124,7 @@
     const reset = card.querySelector('[data-cue-reset]');
     const blocks = card.querySelector('[data-cue-current]');
     const status = card.querySelector('[data-cue-status]');
+    const detail = card.querySelector('[data-detail-panel]');
     const state = card.querySelector('.live-card__state');
     if (!next || !dismiss || !reset || !blocks || !status) return;
 
@@ -131,17 +138,22 @@
 
     dismiss.addEventListener('click', () => {
       card.dataset.cueState = 'dismissed';
+      card.classList.add('is-dismissed');
       blocks.hidden = true;
+      if (detail) syncDetailState(card, false);
       status.hidden = false;
       if (state) state.textContent = 'Quiet';
+      next.textContent = 'Next';
       card.setAttribute('aria-label', 'HumanCue is quiet while evidence is insufficient');
       reset.focus({ preventScroll: true });
     });
 
     reset.addEventListener('click', () => {
       card.dataset.cueState = 'active';
+      card.classList.remove('is-dismissed');
       blocks.hidden = false;
       status.hidden = true;
+      syncDetailState(card, false);
       if (state) state.textContent = 'Listening';
       card.setAttribute('aria-label', 'HumanCue example decision support');
       next.textContent = 'Next';

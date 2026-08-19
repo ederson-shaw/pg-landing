@@ -1,0 +1,215 @@
+/* Canonical HumanCue v2 surface.
+   Rebuilt from assets/product-ui-live-card-v2.json and the shipping desktop
+   app: wave + plain stage row + one minimal card with three outputs. */
+.call-stage:not(.h-live-stage) > .pg-hc-card,
+.h-live-stage .h-cue-readout .pg-hc-card {
+  position: absolute !important;
+  z-index: 9;
+  top: 6% !important;
+  right: 4% !important;
+  left: auto !important;
+  width: min(50%, 360px) !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  color: #e8edf7;
+  border: 1.5px solid rgba(90,195,255,.32);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #101a26, #0c141e);
+  box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 32px -16px rgba(90,195,255,.4), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.h-live-stage .h-cue-readout {
+  display: block !important;
+  position: absolute !important;
+  top: 5% !important;
+  right: 2% !important;
+  left: auto !important;
+  width: min(50%, 360px) !important;
+  max-width: 360px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.h-live-stage .h-cue-readout .pg-hc-card { width: 100% !important; }
+.pg-hc-top {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) auto !important;
+  align-items: center !important;
+  gap: .7rem !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 0 14px !important;
+  border-bottom: 1px solid rgba(255,255,255,.06) !important;
+  background: rgba(255,255,255,.018) !important;
+}
+.pg-hc-brand,
+.pg-hc-context { display: flex; align-items: center; min-width: 0; }
+.pg-hc-brand { gap: .45rem; }
+.pg-hc-brand strong { overflow: hidden; color: #e8edf7; font: 600 12.5px/1 var(--display, system-ui); text-overflow: ellipsis; white-space: nowrap; }
+.pg-hc-brand sup { position: relative; top: -.3em; margin-left: .08em; color: #8b96a8; font: 600 7px/1 var(--mono, ui-monospace); }
+.pg-hc-mark { position: relative; width: 15px; height: 15px; flex: 0 0 15px; border: 1px solid #22d3ee; border-radius: 50%; }
+.pg-hc-mark::after { content: ""; position: absolute; inset: 4px; border-radius: 50%; background: #22d3ee; }
+.pg-hc-state { margin-left: .65rem; padding-left: .65rem; border-left: 1px solid rgba(255,255,255,.11); color: #8b96a8; font: 500 9.5px/1 var(--mono, ui-monospace); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+.pg-hc-context { justify-content: flex-end; gap: .45rem; color: #8b96a8; font: 500 9px/1 var(--mono, ui-monospace); white-space: nowrap; }
+.pg-hc-readout b { color: #22d3ee; font-weight: 700; }
+.pg-hc-fold { width: 20px; height: 20px; padding: 0; color: #8b96a8; border: 1px solid rgba(255,255,255,.1); border-radius: 5px; background: rgba(255,255,255,.03); font-size: 12px; line-height: 1; }
+.pg-hc-fold:hover, .pg-hc-fold:focus-visible { color: #22d3ee; border-color: rgba(34,211,238,.5); }
+.pg-hc-main { padding: 0 !important; }
+.pg-hc-cues { display: grid !important; gap: 0 !important; margin: 0 !important; }
+.pg-hc-cues > section { min-width: 0; padding: 15px 16px !important; border-bottom: 1px solid rgba(255,255,255,.045) !important; }
+.pg-hc-cues h3 { margin: 0 0 .48rem !important; color: #22d3ee !important; font: 600 9.5px/1.1 var(--mono, ui-monospace) !important; letter-spacing: .12em; text-transform: uppercase; }
+.pg-hc-cues p { margin: 0 !important; color: #e8edf7 !important; font-size: 15px !important; font-weight: 500 !important; line-height: 1.4 !important; }
+.pg-hc-next { border-left: 0 !important; }
+.pg-hc-next p { font-size: 21px !important; font-weight: 500 !important; line-height: 1.25 !important; }
+.pg-hc-next small { display: none !important; }
+.pg-hc-say p { color: #f1f4fa !important; font: 400 22px/1.28 var(--display, Sora, system-ui) !important; letter-spacing: -.024em; }
+.pg-hc-say p::before { content: "“"; color: #06b6d4; font-size: 1.05em; }
+.pg-hc-say p::after { content: "”"; color: #06b6d4; font-size: 1.05em; }
+.pg-hc-why p { color: #dde4f0 !important; font-size: 15px !important; line-height: 1.45 !important; }
+.pg-hc-why p b { margin: 0 .35rem; color: #06b6d4; font-weight: 600; }
+.pg-hc-actions { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: .7rem !important; min-height: 52px !important; padding: 0 18px !important; border-top: 1px solid rgba(255,255,255,.06) !important; background: rgba(255,255,255,.014) !important; }
+.pg-hc-actions button { min-height: 28px; padding: .3rem .45rem; color: #8b96a8; border: 0; background: transparent; font-size: 10px; }
+.pg-hc-actions .live-card__why { color: #22d3ee !important; }
+.pg-hc-actions .live-card__actions { display: flex; align-items: center; gap: .5rem; }
+.pg-hc-actions [data-cue-next], .pg-hc-actions [data-live-next] { color: #22d3ee; border: 1px solid rgba(6,182,212,.42); border-radius: 5px; }
+.pg-hc-detail[hidden], .pg-hc-status[hidden], .pg-hc-card [hidden] { display: none !important; }
+.pg-hc-detail { display: grid !important; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .6rem; padding: 12px 16px; color: #c3cfdd; border-top: 1px solid rgba(255,255,255,.045); background: rgba(255,255,255,.02); font-size: 12.5px; line-height: 1.35; }
+.pg-hc-detail dl { display: contents; margin: 0; }
+.pg-hc-detail dt { color: #8b96a8; font: 600 8px/1.2 var(--mono, ui-monospace); letter-spacing: .08em; text-transform: uppercase; }
+.pg-hc-detail dd { margin: .2rem 0 0; }
+.pg-hc-status { padding: 16px; color: #dfe8fb; border-top: 1px solid rgba(255,255,255,.045); font-size: 14px; line-height: 1.45; }
+.pg-hc-status p { margin: 0 0 .7rem; }
+.pg-hc-status button { padding: .4rem .6rem; color: #22d3ee; border: 1px solid rgba(6,182,212,.42); border-radius: 5px; background: transparent; font-size: 10px; }
+.pg-hc-card button:focus-visible { outline: 2px solid #22d3ee; outline-offset: 2px; }
+
+/* Keep the product's separate wave and stage row above the card. */
+.cue-evidence { display: block !important; position: absolute !important; z-index: 10; top: 1.5% !important; right: 4% !important; left: auto !important; width: min(50%, 360px) !important; }
+.cue-evidence__wave { display: flex !important; align-items: center; gap: 3px; height: 34px; padding: 0 12px; border: 1px solid rgba(255,255,255,.065); border-radius: 12px; background: #131b26; }
+.cue-evidence__wave i { flex: 1 1 0; min-width: 2px; height: 35%; border-radius: 99px; background: rgba(232,236,247,.35); animation: pg-hc-wave 1.4s ease-in-out infinite alternate; }
+.cue-evidence__wave i:nth-child(2n) { height: 68%; animation-delay: .12s; }
+.cue-evidence__wave i:nth-child(3n) { height: 95%; animation-delay: .24s; }
+.cue-evidence__stages { display: flex !important; justify-content: space-between; gap: .5rem; margin: 8px 2px 0; padding: 0; color: #e8edf7; list-style: none; font: 500 10px/1 var(--mono, ui-monospace); }
+.cue-evidence__stages li { opacity: .34; white-space: nowrap; }
+.cue-evidence__stages li:first-child { opacity: .72; }
+.cue-evidence__stages li.is-current { opacity: 1; color: #22d3ee; }
+.h-cue-wave { display: flex !important; align-items: center; gap: 3px; height: 34px; padding: 0 12px; border: 1px solid rgba(255,255,255,.065); border-radius: 12px; background: #131b26; }
+.h-cue-wave i { flex: 1 1 0; min-width: 2px; height: 35%; border-radius: 99px; background: rgba(232,236,247,.35); animation: pg-hc-wave 1.4s ease-in-out infinite alternate; }
+.h-cue-wave i:nth-child(2n) { height: 68%; animation-delay: .12s; }
+.h-cue-wave i:nth-child(3n) { height: 95%; animation-delay: .24s; }
+.h-stage-row { display: flex !important; justify-content: space-between; gap: .5rem; margin: 8px 2px 0; padding: 0; color: #e8edf7; list-style: none; font: 500 10px/1 var(--mono, ui-monospace); }
+.h-stage-row li { opacity: .34; white-space: nowrap; }
+.h-stage-row li:first-child { opacity: .72; }
+.h-stage-row li.is-current { opacity: 1; color: #22d3ee; }
+@keyframes pg-hc-wave { to { transform: scaleY(.42); opacity: .54; } }
+.call-stage:not(.h-live-stage), .h-live-stage { min-height: 720px !important; overflow: visible !important; }
+@media (max-width:1120px) and (min-width:721px) {
+  .call-stage:not(.h-live-stage) > .pg-hc-card, .h-live-stage .h-cue-readout .pg-hc-card { width: min(58%, 360px) !important; }
+  .cue-evidence, .h-live-stage .h-cue-readout { width: min(58%, 360px) !important; }
+  .h-live-stage .h-cue-readout .pg-hc-card { width: 100% !important; }
+  .call-stage:not(.h-live-stage), .h-live-stage { min-height: 720px !important; }
+}
+@media (max-width:720px) {
+  .call-stage:not(.h-live-stage), .h-live-stage { min-height: 620px !important; }
+  .call-stage:not(.h-live-stage) > .pg-hc-card, .h-live-stage .h-cue-readout .pg-hc-card { top: 8% !important; right: 3% !important; left: 3% !important; width: auto !important; }
+  .cue-evidence, .h-live-stage .h-cue-readout { top: 2% !important; right: 3% !important; left: 3% !important; width: auto !important; max-width: none !important; }
+  .pg-hc-brand strong { font-size: 10.5px; }
+  .pg-hc-state { display: inline; margin-left: .35rem; padding-left: .35rem; font-size: 8px; letter-spacing: .08em; }
+  .pg-hc-cues > section { padding: 14px 15px !important; }
+  .pg-hc-next p { font-size: 20px !important; }
+  .pg-hc-say p { font-size: 20px !important; }
+  .pg-hc-why p { font-size: 14px !important; }
+  .cue-evidence__stages, .h-stage-row { font-size: 9px; gap: .25rem; }
+}
+@media (max-width:390px) {
+  .pg-hc-top { grid-template-columns: minmax(0,1fr) auto !important; padding-inline: 11px !important; }
+  .pg-hc-brand strong { max-width: 19ch; }
+  .pg-hc-context { gap: .25rem; font-size: 8px; }
+  .pg-hc-detail { grid-template-columns: 1fr; gap: .5rem; }
+  .cue-evidence__stages, .h-stage-row { font-size: 8px; }
+}
+@media (max-width:720px) {
+  .pg-hc-brand strong { font-size: 9px !important; }
+  .pg-hc-state { display: inline !important; font-size: 7.5px !important; }
+  body.variant-h .h-live-card .pg-hc-state { display: inline !important; }
+}
+@media (max-width:340px) {
+  .pg-hc-brand strong { font-size: 8px !important; }
+  .pg-hc-state { font-size: 6.5px !important; }
+  .pg-hc-context { gap: .18rem; font-size: 6.5px; letter-spacing: -.03em; }
+  .pg-hc-fold { width: 17px; height: 17px; }
+}
+/* The wave and plain-text stage row are separate product chrome; keep the
+   card below them so they never disappear underneath the opaque panel. */
+.call-stage:not(.h-live-stage) > .pg-hc-card { top: 13% !important; }
+.h-live-stage .h-cue-readout .pg-hc-card { top: calc(100% + 8px) !important; }
+@media (prefers-reduced-motion: reduce) {
+  .cue-evidence__wave i, .h-cue-wave i { animation: none !important; transform: none !important; }
+}
+@media (max-width:460px) {
+  .intelligence-loop { overflow-x: clip !important; }
+  .intelligence-loop__heading, .intelligence-loop__heading h2 { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+}
+
+/* Final fidelity pass: keep the shipping card's large Sora money line
+   legible, and give its collapsed context the product's two-column shape. */
+@media (min-width:721px) {
+  .call-stage:not(.h-live-stage) > .pg-hc-card,
+  .cue-evidence { width: min(68%, 500px) !important; }
+  .h-live-stage .h-cue-readout { width: min(68%, 500px) !important; max-width: 500px !important; }
+}
+.pg-hc-say p,
+.live-card.pg-hc-card .pg-hc-say p,
+body.variant-h .h-live-card .pg-hc-say p {
+  font-size: clamp(20px, 2.57vw, 37px) !important;
+  font-family: var(--body, Sora, system-ui) !important;
+  font-weight: 400 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.024em !important;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.pg-hc-detail { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+
+/* H's legacy ledger rules positioned the old rich card absolutely. At
+   tablet/mobile the native reconstruction is a real flow, so the card can
+   never cover the chapter copy. */
+@media (max-width:1120px) {
+  .h-live-stage {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) !important;
+    align-items: start !important;
+    gap: 1rem !important;
+    min-height: 0 !important;
+  }
+  .h-live-stage .h-cue-readout {
+    position: relative !important;
+    inset: auto !important;
+    grid-column: 2;
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  .h-live-stage .h-cue-readout .pg-hc-card {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+  }
+}
+@media (max-width:680px) {
+  .h-live-stage {
+    grid-template-columns: 1fr !important;
+    gap: 1.1rem !important;
+  }
+  .h-live-stage .h-call-window,
+  .h-live-stage .h-cue-readout { grid-column: 1; width: 100% !important; max-width: none !important; }
+  .h-live-stage .h-cue-readout { margin-top: 0; }
+}
+
+/* Keep the decorative hero route inside the field on narrow H canvases. */
+@media (max-width:680px) {
+  body.variant-h .hero__field { overflow: hidden !important; }
+  body.variant-h .hero__field .field-path { inset: 1rem !important; }
+  body.variant-h .hero__field .field-path__line { inset: 5% 4% !important; transform: rotate(-8deg) !important; }
+}

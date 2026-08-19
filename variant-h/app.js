@@ -108,6 +108,7 @@
     const setDetailState = (expanded) => {
       detailButtons.forEach((button) => {
         button.setAttribute('aria-expanded', String(expanded));
+        button.setAttribute('aria-label', expanded ? 'Hide HumanCue context' : 'Show HumanCue context');
         if (button.classList.contains('live-card__why')) button.textContent = expanded ? 'Hide context' : 'Why this, now?';
       });
       panel.hidden = !expanded;
@@ -117,6 +118,7 @@
     const status = card.querySelector('[data-live-status]');
     card.querySelectorAll('[data-live-next], [data-live-dismiss]').forEach((button) => {
       button.addEventListener('click', () => {
+        if (card.classList.contains('is-dismissed')) return;
         const state = card.querySelector('.live-card__state');
         if (button.hasAttribute('data-live-dismiss') && body && status) {
           body.hidden = true;
@@ -124,6 +126,9 @@
           status.hidden = false;
           card.classList.add('is-dismissed');
           setDetailState(false);
+          if (state) state.textContent = 'Quiet';
+          card.querySelector('[data-live-next]')?.replaceChildren(document.createTextNode('Next'));
+          card.setAttribute('aria-label', 'HumanCue is quiet while evidence is insufficient');
           return;
         }
         if (!state) return;
@@ -141,6 +146,10 @@
       body.hidden = false;
       status.hidden = true;
       card.classList.remove('is-dismissed');
+      card.querySelector('[data-live-next]')?.replaceChildren(document.createTextNode('Next'));
+      card.querySelector('.live-card__state')?.replaceChildren(document.createTextNode('Listening'));
+      card.setAttribute('aria-label', 'HumanCue live buyer-state support panel');
+      setDetailState(false);
       card.querySelector('[data-live-next]')?.focus({ preventScroll: true });
       event.currentTarget.blur();
     });

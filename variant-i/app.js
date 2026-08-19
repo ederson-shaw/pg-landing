@@ -112,13 +112,18 @@
   }
 
   document.querySelectorAll('[data-detail-toggle]').forEach((button) => {
-    const panel = button.closest('.live-card')?.querySelector('[data-detail-panel]');
-    if (!panel) return;
-    button.addEventListener('click', () => {
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', String(!isExpanded));
-      button.textContent = isExpanded ? 'Why this, now?' : 'Hide context';
-      panel.hidden = isExpanded;
+      const card = button.closest('.live-card');
+      const panel = card?.querySelector('[data-detail-panel]');
+      if (!panel) return;
+      button.addEventListener('click', () => {
+        if (card?.classList.contains('is-dismissed')) return;
+        const expanded = panel.hidden;
+        card.querySelectorAll('[data-detail-toggle]').forEach((control) => {
+          control.setAttribute('aria-expanded', String(expanded));
+          control.setAttribute('aria-label', expanded ? 'Hide HumanCue context' : 'Show HumanCue context');
+          if (control.classList.contains('live-card__why')) control.textContent = expanded ? 'Hide context' : 'Why this, now?';
+        });
+      panel.hidden = !expanded;
     });
   });
 
@@ -133,7 +138,14 @@
       if (detail) detail.hidden = true;
       status.hidden = false;
       card.classList.add('is-dismissed');
-      card.querySelector('[data-detail-toggle]')?.setAttribute('aria-expanded', 'false');
+      card.querySelectorAll('[data-detail-toggle]').forEach((control) => {
+        control.setAttribute('aria-expanded', 'false');
+        control.setAttribute('aria-label', 'Show HumanCue context');
+        if (control.classList.contains('live-card__why')) control.textContent = 'Why this, now?';
+      });
+      card.querySelector('[data-live-next]')?.replaceChildren(document.createTextNode('Next'));
+      card.querySelector('.live-card__state')?.replaceChildren(document.createTextNode('Quiet'));
+      card.setAttribute('aria-label', 'HumanCue is quiet while evidence is insufficient');
     });
   });
 
@@ -146,12 +158,21 @@
       body.hidden = false;
       status.hidden = true;
       card.classList.remove('is-dismissed');
+      card.querySelector('[data-live-next]')?.replaceChildren(document.createTextNode('Next'));
+      card.querySelector('.live-card__state')?.replaceChildren(document.createTextNode('Listening'));
+      card.querySelectorAll('[data-detail-toggle]').forEach((control) => {
+        control.setAttribute('aria-expanded', 'false');
+        control.setAttribute('aria-label', 'Show HumanCue context');
+        if (control.classList.contains('live-card__why')) control.textContent = 'Why this, now?';
+      });
+      card.setAttribute('aria-label', 'HumanCue live buyer-state support panel');
       card.querySelector('[data-live-next]')?.focus({ preventScroll: true });
     });
   });
 
   document.querySelectorAll('[data-live-next]').forEach((button) => {
     button.addEventListener('click', () => {
+      if (button.closest('.live-card')?.classList.contains('is-dismissed')) return;
       button.textContent = button.textContent === 'Held' ? 'Next' : 'Held';
       button.classList.toggle('is-held');
     });
