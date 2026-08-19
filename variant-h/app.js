@@ -154,4 +154,64 @@
       event.currentTarget.blur();
     });
   });
+
+
+  // Desktop HumanCue placement is interactive: the seller can move the live
+  // surface away from a face or any other important call detail.
+  const dragMedia = window.matchMedia('(min-width:1121px)');
+  const clampDragOffset = (target, container, x, y) => {
+    if (!dragMedia.matches) return;
+    const rect = target.getBoundingClientRect();
+    const bounds = container.getBoundingClientRect();
+    const maxX = Math.max(0, bounds.width - rect.width);
+    const maxY = Math.max(0, bounds.height - rect.height);
+    const nextX = Math.max(0, Math.min(maxX, x));
+    const nextY = Math.max(0, Math.min(maxY, y));
+    target.style.transform = 'translate3d(' + nextX + 'px, ' + nextY + 'px, 0)';
+    target.dataset.pgDragX = String(nextX);
+    target.dataset.pgDragY = String(nextY);
+  };
+
+  document.querySelectorAll('[data-drag-handle]').forEach((handle) => {
+    const card = handle.closest('.live-card');
+    const target = card?.closest('.h-cue-readout') || card;
+    const container = target?.closest('.h-live-stage, .call-stage');
+    if (!target || !container) return;
+    handle.title = 'Drag to reposition HumanCue';
+    const readOffset = (key) => Number(target.dataset[key] || 0);
+    const moveBy = (dx, dy) => clampDragOffset(target, container, readOffset('pgDragX') + dx, readOffset('pgDragY') + dy);
+
+    let pointerStart = null;
+    handle.addEventListener('pointerdown', (event) => {
+      if (!dragMedia.matches || event.button !== 0 || event.target.closest('button, a')) return;
+      pointerStart = { x: event.clientX, y: event.clientY, offsetX: readOffset('pgDragX'), offsetY: readOffset('pgDragY') };
+      target.classList.add('pg-hc-dragging');
+      card?.setAttribute('aria-grabbed', 'true');
+      handle.setPointerCapture?.(event.pointerId);
+      event.preventDefault();
+    });
+    handle.addEventListener('pointermove', (event) => {
+      if (!pointerStart) return;
+      clampDragOffset(target, container, pointerStart.offsetX + event.clientX - pointerStart.x, pointerStart.offsetY + event.clientY - pointerStart.y);
+      event.preventDefault();
+    });
+    const stopDrag = (event) => {
+      if (!pointerStart) return;
+      handle.releasePointerCapture?.(event.pointerId);
+      pointerStart = null;
+      target.classList.remove('pg-hc-dragging');
+      card?.setAttribute('aria-grabbed', 'false');
+    };
+    handle.addEventListener('pointerup', stopDrag);
+    handle.addEventListener('pointercancel', stopDrag);
+    handle.addEventListener('keydown', (event) => {
+      if (!dragMedia.matches) return;
+      const step = event.shiftKey ? 48 : 16;
+      const moves = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] };
+      const move = moves[event.key];
+      if (!move) return;
+      moveBy(move[0], move[1]);
+      event.preventDefault();
+    });
+  });
 })();

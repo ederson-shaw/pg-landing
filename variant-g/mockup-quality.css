@@ -81,16 +81,7 @@
 .pg-hc-status button { padding: .4rem .6rem; color: #22d3ee; border: 1px solid rgba(6,182,212,.42); border-radius: 5px; background: transparent; font-size: 10px; }
 .pg-hc-card button:focus-visible { outline: 2px solid #22d3ee; outline-offset: 2px; }
 
-/* Keep the product's separate wave and stage row above the card. */
-.cue-evidence { display: block !important; position: absolute !important; z-index: 10; top: 1.5% !important; right: 4% !important; left: auto !important; width: min(50%, 360px) !important; }
-.cue-evidence__wave { display: flex !important; align-items: center; gap: 3px; height: 34px; padding: 0 12px; border: 1px solid rgba(255,255,255,.065); border-radius: 12px; background: #131b26; }
-.cue-evidence__wave i { flex: 1 1 0; min-width: 2px; height: 35%; border-radius: 99px; background: rgba(232,236,247,.35); animation: pg-hc-wave 1.4s ease-in-out infinite alternate; }
-.cue-evidence__wave i:nth-child(2n) { height: 68%; animation-delay: .12s; }
-.cue-evidence__wave i:nth-child(3n) { height: 95%; animation-delay: .24s; }
-.cue-evidence__stages { display: flex !important; justify-content: space-between; gap: .5rem; margin: 8px 2px 0; padding: 0; color: #e8edf7; list-style: none; font: 500 10px/1 var(--mono, ui-monospace); }
-.cue-evidence__stages li { opacity: .34; white-space: nowrap; }
-.cue-evidence__stages li:first-child { opacity: .72; }
-.cue-evidence__stages li.is-current { opacity: 1; color: #22d3ee; }
+/* Keep the product's separate wave and plain-text stage row above the card. */
 .h-cue-wave { display: flex !important; align-items: center; gap: 3px; height: 34px; padding: 0 12px; border: 1px solid rgba(255,255,255,.065); border-radius: 12px; background: #131b26; }
 .h-cue-wave i { flex: 1 1 0; min-width: 2px; height: 35%; border-radius: 99px; background: rgba(232,236,247,.35); animation: pg-hc-wave 1.4s ease-in-out infinite alternate; }
 .h-cue-wave i:nth-child(2n) { height: 68%; animation-delay: .12s; }
@@ -103,28 +94,28 @@
 .call-stage:not(.h-live-stage), .h-live-stage { min-height: 720px !important; overflow: visible !important; }
 @media (max-width:1120px) and (min-width:721px) {
   .call-stage:not(.h-live-stage) > .pg-hc-card, .h-live-stage .h-cue-readout .pg-hc-card { width: min(58%, 360px) !important; }
-  .cue-evidence, .h-live-stage .h-cue-readout { width: min(58%, 360px) !important; }
+  .h-live-stage .h-cue-readout { width: min(58%, 360px) !important; }
   .h-live-stage .h-cue-readout .pg-hc-card { width: 100% !important; }
   .call-stage:not(.h-live-stage), .h-live-stage { min-height: 720px !important; }
 }
 @media (max-width:720px) {
   .call-stage:not(.h-live-stage), .h-live-stage { min-height: 620px !important; }
   .call-stage:not(.h-live-stage) > .pg-hc-card, .h-live-stage .h-cue-readout .pg-hc-card { top: 8% !important; right: 3% !important; left: 3% !important; width: auto !important; }
-  .cue-evidence, .h-live-stage .h-cue-readout { top: 2% !important; right: 3% !important; left: 3% !important; width: auto !important; max-width: none !important; }
+  .h-live-stage .h-cue-readout { top: 2% !important; right: 3% !important; left: 3% !important; width: auto !important; max-width: none !important; }
   .pg-hc-brand strong { font-size: 10.5px; }
   .pg-hc-state { display: inline; margin-left: .35rem; padding-left: .35rem; font-size: 8px; letter-spacing: .08em; }
   .pg-hc-cues > section { padding: 14px 15px !important; }
   .pg-hc-next p { font-size: 20px !important; }
   .pg-hc-say p { font-size: 20px !important; }
   .pg-hc-why p { font-size: 14px !important; }
-  .cue-evidence__stages, .h-stage-row { font-size: 9px; gap: .25rem; }
+  .h-stage-row { font-size: 9px; gap: .25rem; }
 }
 @media (max-width:390px) {
   .pg-hc-top { grid-template-columns: minmax(0,1fr) auto !important; padding-inline: 11px !important; }
   .pg-hc-brand strong { max-width: 19ch; }
   .pg-hc-context { gap: .25rem; font-size: 8px; }
   .pg-hc-detail { grid-template-columns: 1fr; gap: .5rem; }
-  .cue-evidence__stages, .h-stage-row { font-size: 8px; }
+  .h-stage-row { font-size: 8px; }
 }
 @media (max-width:720px) {
   .pg-hc-brand strong { font-size: 9px !important; }
@@ -142,7 +133,7 @@
 .call-stage:not(.h-live-stage) > .pg-hc-card { top: 13% !important; }
 .h-live-stage .h-cue-readout .pg-hc-card { top: calc(100% + 8px) !important; }
 @media (prefers-reduced-motion: reduce) {
-  .cue-evidence__wave i, .h-cue-wave i { animation: none !important; transform: none !important; }
+  .h-cue-wave i { animation: none !important; transform: none !important; }
 }
 @media (max-width:460px) {
   .intelligence-loop { overflow-x: clip !important; }
@@ -152,8 +143,7 @@
 /* Final fidelity pass: keep the shipping card's large Sora money line
    legible, and give its collapsed context the product's two-column shape. */
 @media (min-width:721px) {
-  .call-stage:not(.h-live-stage) > .pg-hc-card,
-  .cue-evidence { width: min(68%, 500px) !important; }
+  .call-stage:not(.h-live-stage) > .pg-hc-card { width: min(47%, 410px) !important; }
   .h-live-stage .h-cue-readout { width: min(68%, 500px) !important; max-width: 500px !important; }
 }
 .pg-hc-say p,
@@ -207,9 +197,160 @@ body.variant-h .h-live-card .pg-hc-say p {
   .h-live-stage .h-cue-readout { margin-top: 0; }
 }
 
+/* Give the live surface a deliberate safe zone: the buyer remains visible on
+   the right while the card lives over the quiet wall on the left. */
+@media (min-width:1121px) {
+  .call-stage:not(.h-live-stage) > .h-cue-wave {
+    position: absolute !important;
+    z-index: 10;
+    top: 1.5% !important;
+    right: auto !important;
+    left: 4% !important;
+    width: min(47%, 410px) !important;
+  }
+  .call-stage:not(.h-live-stage) > .h-stage-row {
+    position: absolute !important;
+    z-index: 10;
+    top: calc(1.5% + 42px) !important;
+    right: auto !important;
+    left: 4% !important;
+    width: min(47%, 410px) !important;
+    margin-top: 8px !important;
+  }
+  .call-stage:not(.h-live-stage) > .pg-hc-card {
+    top: 27% !important;
+    right: auto !important;
+    left: 4% !important;
+    width: min(47%, 410px) !important;
+  }
+  .h-live-stage .h-cue-readout {
+    top: 16% !important;
+    right: auto !important;
+    left: 3% !important;
+    width: min(48%, 440px) !important;
+    max-width: 440px !important;
+  }
+  .pg-hc-top { cursor: grab; user-select: none; touch-action: none; }
+  .pg-hc-top:active,
+  .pg-hc-card.is-dragging .pg-hc-top,
+  .pg-hc-dragging .pg-hc-top { cursor: grabbing; }
+  .pg-hc-card.is-dragging,
+  .pg-hc-dragging { transition: none !important; }
+}
+
+@media (min-width:721px) and (max-width:1120px) {
+  .call-stage:not(.h-live-stage) > .h-cue-wave {
+    position: absolute !important;
+    z-index: 10;
+    top: 1.5% !important;
+    right: auto !important;
+    left: 1% !important;
+    width: min(52%, 300px) !important;
+  }
+  .call-stage:not(.h-live-stage) > .h-stage-row {
+    position: absolute !important;
+    z-index: 10;
+    top: calc(1.5% + 42px) !important;
+    right: auto !important;
+    left: 1% !important;
+    width: min(52%, 300px) !important;
+    margin-top: 8px !important;
+    color: #355166 !important;
+  }
+  .call-stage:not(.h-live-stage) > .h-stage-row li.is-current { color: #007b85 !important; }
+  .call-stage:not(.h-live-stage) > .pg-hc-card {
+    top: 27% !important;
+    right: auto !important;
+    left: 1% !important;
+    width: min(52%, 300px) !important;
+  }
+}
+
+/* On phones the meeting and the recommendation are a readable vertical
+   sequence. This keeps the face unobstructed and prevents a tiny overlay. */
+@media (max-width:720px) {
+  .call-stage:not(.h-live-stage) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: .8rem !important;
+    min-height: 0 !important;
+    padding-bottom: 1rem;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+  .call-stage:not(.h-live-stage) .call-stage__meeting {
+    position: relative !important;
+    inset: auto !important;
+    order: 1;
+    width: 100% !important;
+    height: clamp(260px, 78vw, 430px) !important;
+  }
+  .call-stage:not(.h-live-stage) > .h-cue-wave {
+    position: relative !important;
+    inset: auto !important;
+    order: 2;
+    width: 100% !important;
+  }
+  .call-stage:not(.h-live-stage) > .h-stage-row {
+    position: relative !important;
+    inset: auto !important;
+    order: 3;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .call-stage:not(.h-live-stage) > .pg-hc-card {
+    position: relative !important;
+    inset: auto !important;
+    order: 4;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+}
+
 /* Keep the decorative hero route inside the field on narrow H canvases. */
 @media (max-width:680px) {
   body.variant-h .hero__field { overflow: hidden !important; }
   body.variant-h .hero__field .field-path { inset: 1rem !important; }
   body.variant-h .hero__field .field-path__line { inset: 5% 4% !important; transform: rotate(-8deg) !important; }
 }
+
+/* The header keeps all four canonical tokens in one 44px line even when the
+   landing-page overlay narrows. Shrink the utility typography before allowing
+   the product name or the readiness reading to disappear. */
+@media (min-width:721px) {
+  .pg-hc-top { grid-template-columns: max-content auto !important; gap: .35rem !important; padding-inline: 10px !important; }
+  .pg-hc-brand strong { flex: 0 0 auto; max-width: none; font-size: 10px !important; letter-spacing: -.025em; }
+  .pg-hc-state { margin-left: .35rem; padding-left: .35rem; font-size: 8px; }
+  .pg-hc-context { gap: .25rem; font-size: 8px; }
+}
+@media (max-width:720px) {
+  .pg-hc-top { grid-template-columns: max-content auto !important; gap: .25rem !important; padding-inline: 8px !important; }
+  .pg-hc-brand { gap: .25rem; }
+  .pg-hc-mark { width: 11px; height: 11px; flex-basis: 11px; }
+  .pg-hc-mark::after { inset: 3px; }
+  .pg-hc-brand strong { flex: 0 0 auto; max-width: none; font-size: 8px !important; letter-spacing: -.035em; }
+  .pg-hc-state { margin-left: .25rem; padding-left: .25rem; font-size: 6.5px !important; letter-spacing: .06em; }
+  .pg-hc-context { gap: .18rem; font-size: 7px; letter-spacing: -.025em; }
+  .pg-hc-fold { width: 18px; height: 18px; }
+}
+@media (max-width:340px) {
+  .pg-hc-brand strong { font-size: 7px !important; }
+  .pg-hc-state { font-size: 6px !important; }
+  .pg-hc-context { font-size: 6.5px; }
+}
+
+/* The spoken recommendation is product output, never decorative filler: it
+   must remain complete at every supported width. */
+.pg-hc-say p,
+body.variant-h .h-live-card__body .live-card__quote {
+  display: block !important;
+  overflow: visible !important;
+  -webkit-box-orient: initial !important;
+  -webkit-line-clamp: unset !important;
+}
+@media (min-width:1121px) {
+  .call-stage:not(.h-live-stage) > .h-stage-row { color: #355166 !important; }
+  .call-stage:not(.h-live-stage) > .h-stage-row li.is-current { color: #007b85 !important; }
+}
+body.variant-h .pg-hc-state { display: inline-block !important; }
