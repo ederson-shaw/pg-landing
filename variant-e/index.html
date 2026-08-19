@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="PitchGenius helps salespeople understand evidence of buyer movement before, during, and after the call." />
+  <meta name="theme-color" content="#f8fbfb" />
+  <title>PitchGenius — the buyer behind the deal</title>
+  <link rel="icon" href="assets/logo-black.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <noscript><style>[data-reveal],[data-reveal-group]>*{opacity:1!important;transform:none!important}.trace-path{stroke-dashoffset:0!important}</style></noscript>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#main" aria-label="PitchGenius home">
+      <svg class="brand__mark" viewBox="0 0 30 30" aria-hidden="true" focusable="false">
+        <path d="M7 24V6h8.1c4.3 0 7 2.2 7 5.8s-2.7 5.8-7 5.8H7M15.1 6c4.3 0 7 2.2 7 5.8" />
+      </svg>
+      <span>PitchGenius<span class="brand__dot">.</span>AI</span>
+    </a>
+    <nav class="nav__links" id="primary-nav" aria-label="Primary navigation">
+      <a href="#e02">The problem</a>
+      <a href="#e04">The system</a>
+      <a href="#e12">For managers</a>
+    </nav>
+    <div class="nav__actions">
+      <a class="text-link nav__live" href="#e08">See HumanCue live <span aria-hidden="true">↗</span></a>
+      <a class="button button--ink" href="https://pitchgenius.ai">Book a pilot</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-haspopup="true" aria-label="Open menu">
+        <span class="sr-only" id="menu-toggle-label">Open menu</span>
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 01 / a buyer is an evidence field, not a record -->
+    <section class="hero chapter" id="e01" aria-labelledby="hero-title">
+      <div class="chapter-mark" aria-hidden="true"><span>01</span><i></i><small>OPENING<br />OBSERVATION</small></div>
+      <div class="hero__copy">
+        <p class="eyebrow eyebrow--signal" data-reveal>BUYER INTELLIGENCE / IN THE MOMENT</p>
+        <h1 id="hero-title" data-reveal style="--delay:.07s">
+          <span>Your buyer is telling you</span>
+          <strong>more than they’re saying.</strong>
+        </h1>
+        <a class="text-link hero__link" data-reveal style="--delay:.17s" href="#e02">Follow the evidence <span aria-hidden="true">↓</span></a>
+      </div>
+
+      <aside class="hero__margin-note" data-reveal style="--delay:.24s" aria-label="How PitchGenius handles buyer information">
+        <p class="margin-note__label">AN EVIDENCE DISCIPLINE</p>
+        <p>Direct evidence is kept separate from the current hypothesis. Missing information stays visible.</p>
+        <div class="certainty-key" aria-label="Evidence key">
+          <span><i class="key-known"></i>Known</span>
+          <span><i class="key-likely"></i>Likely</span>
+          <span><i class="key-unknown"></i>Unknown</span>
+        </div>
+      </aside>
+
+      <figure class="hero__portrait-strip" data-reveal style="--delay:.12s">
+        <img src="assets/e-portrait-band.webp" width="1916" height="821" alt="A line of composed, thoughtful business leaders" />
+        <figcaption><span>THE BUYER</span><span>Not a pipeline field.</span></figcaption>
+      </figure>
+      <div class="hero__trace" aria-hidden="true">
+        <span class="hero__trace-dot"></span>
+        <span class="hero__trace-line"></span>
+        <span class="hero__trace-label">observed change</span>
+      </div>
+    </section>
+
+    <!-- 02 / the mismatch starts before the status changes -->
+    <section class="problem chapter" id="e02" aria-labelledby="problem-title">
+      <div class="chapter-mark" aria-hidden="true"><span>02</span><i></i><small>THE INVISIBLE<br />PROBLEM</small></div>
+      <div class="problem__copy">
+        <p class="eyebrow eyebrow--signal" data-reveal>THE PART YOUR CRM CAN’T SEE</p>
+        <h2 id="problem-title" data-reveal style="--delay:.06s">The deal changes<br /><strong>before the pipeline does.</strong></h2>
+        <p class="problem__body" data-reveal style="--delay:.13s">The stage can stay the same. The meeting can stay on the calendar. The forecast can still look healthy. And the buyer can already be changing.</p>
+        <p class="statement" data-reveal style="--delay:.19s">PitchGenius was built for that moment.</p>
+      </div>
+      <div class="problem__ledger" data-reveal style="--delay:.22s" aria-label="Pipeline and buyer evidence comparison">
+        <div class="ledger-row ledger-row--quiet"><span>CRM</span><b>Proposal</b><em>unchanged</em></div>
+        <div class="ledger-row ledger-row--quiet"><span>CRM</span><b>Follow-up scheduled</b><em>unchanged</em></div>
+        <div class="ledger-row ledger-row--signal"><span>BUYER</span><b>Decision owner unconfirmed</b><em>evidence gap</em></div>
+        <div class="ledger-row ledger-row--risk"><span>BUYER</span><b>Implementation concern surfaced</b><em>needs attention</em></div>
+      </div>
+      <figure class="problem__image" data-reveal style="--delay:.1s">
+        <img src="assets/e-problem-call.webp" width="1672" height="941" loading="lazy" decoding="async" alt="A sales professional listening closely during a remote call" />
+        <figcaption>THE CONVERSATION IS STILL HAPPENING.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 03 / evidence is wider than literal words -->
+    <section class="evidence chapter chapter--dark" id="e03" data-nav-theme="dark" aria-labelledby="evidence-title">
+      <div class="chapter-mark chapter-mark--light" aria-hidden="true"><span>03</span><i></i><small>THE EVIDENCE<br />FIELD</small></div>
+      <header class="evidence__heading">
+        <p class="eyebrow eyebrow--signal" data-reveal>WHAT PITCHGENIUS OBSERVES</p>
+        <h2 id="evidence-title" data-reveal style="--delay:.05s">What the buyer says<br />is only part of what<br /><strong>they’re telling you.</strong></h2>
+      </header>
+      <div class="evidence__intro" data-reveal style="--delay:.15s">
+        <p>PitchGenius brings together evidence surrounding the buyer, the conversation, and the deal to help a salesperson understand what may be changing beneath the surface.</p>
+        <p class="evidence__not">Not mind reading.</p>
+        <p class="evidence__words">Evidence.<br />Signals.<br />Context.<br />Movement.</p>
+      </div>
+      <div class="signal-map" data-reveal style="--delay:.1s" aria-label="A signal trace through the conversation">
+        <svg viewBox="0 0 860 410" role="img" aria-label="A conversation trace annotated with pause, hesitation, confidence, risk, and commitment">
+          <path class="signal-map__baseline" d="M20 216H840" />
+          <path class="trace-path" id="signal-trace" d="M24 281C80 277 124 239 178 236c56-4 66 69 130 58 69-12 89-154 151-126 43 20 42 80 89 73 54-8 65-157 131-139 49 14 65 80 149 3" />
+          <g class="signal-map__tag signal-map__tag--bottom"><circle cx="178" cy="236" r="6" /><path d="M178 245v54" /><text x="178" y="328">pause</text></g>
+          <g class="signal-map__tag signal-map__tag--top"><circle cx="308" cy="294" r="6" /><path d="M308 285v-62" /><text x="308" y="194">hesitation</text></g>
+          <g class="signal-map__tag signal-map__tag--top"><circle cx="459" cy="168" r="6" /><path d="M459 159v-71" /><text x="459" y="58">confidence</text></g>
+          <g class="signal-map__tag signal-map__tag--bottom signal-map__tag--risk"><circle cx="548" cy="241" r="6" /><path d="M548 250v52" /><text x="548" y="332">risk</text></g>
+          <g class="signal-map__tag signal-map__tag--top"><circle cx="709" cy="102" r="6" /><path d="M709 93V42" /><text x="709" y="25">commitment</text></g>
+        </svg>
+      </div>
+      <div class="signal-map-mobile" data-reveal style="--delay:.1s" aria-label="A conversation trace showing five observable buyer signals">
+        <svg viewBox="0 0 320 144" aria-hidden="true" focusable="false">
+          <path class="signal-map-mobile__baseline" d="M16 100H304" />
+          <path class="signal-map-mobile__trace" d="M18 111C42 110 55 90 78 91c27 1 23 34 48 29 26-5 34-74 61-59 18 10 17 37 36 33 25-5 28-70 58-60 19 7 22 30 34 10" />
+          <circle cx="78" cy="91" r="4" /><circle cx="126" cy="120" r="4" /><circle cx="187" cy="61" r="4" /><circle cx="223" cy="94" r="4" /><circle cx="281" cy="35" r="4" />
+        </svg>
+        <ol class="signal-map-mobile__labels">
+          <li><i></i><span>PAUSE</span></li>
+          <li><i></i><span>HESITATION</span></li>
+          <li><i></i><span>CONFIDENCE</span></li>
+          <li class="is-risk"><i></i><span>RISK</span></li>
+          <li><i></i><span>COMMITMENT</span></li>
+        </ol>
+      </div>
+      <ol class="evidence__types" data-reveal-group aria-label="Types of evidence">
+        <li><b>WORDS</b><span>What was actually said.</span></li>
+        <li><b>CONTEXT</b><span>What happened before and after it.</span></li>
+        <li><b>BEHAVIOR</b><span>Participation, commitments, and stakeholder actions.</span></li>
+        <li><b>CONVERSATIONAL CHANGE</b><span>Pauses, rhythm, hesitation, and engagement shifts.</span></li>
+        <li><b>DEAL EVIDENCE</b><span>CRM history, prior calls, MEDDPICC evidence, and next steps.</span></li>
+      </ol>
+      <p class="evidence__close" data-reveal>The buyer becomes the missing intelligence layer.</p>
+    </section>
+
+    <!-- 04 / the platform reads like a continuous record -->
+    <section class="system chapter" id="e04" aria-labelledby="system-title">
+      <div class="chapter-mark" aria-hidden="true"><span>04</span><i></i><small>ONE CONTINUOUS<br />SYSTEM</small></div>
+      <header class="system__heading">
+        <p class="eyebrow eyebrow--signal" data-reveal>THE UNIFIED PLATFORM</p>
+        <h2 id="system-title" data-reveal style="--delay:.05s">One buyer.<br /><strong>One evolving intelligence layer.</strong></h2>
+        <p data-reveal style="--delay:.12s">PitchGenius develops an initial understanding before the call, tests it against the live conversation, and turns what happened into clearer readiness, deal reality, and coaching.</p>
+      </header>
+
+      <ol class="system__rail" aria-label="The PitchGenius buyer intelligence loop">
+        <li data-reveal style="--delay:.02s">
+          <span class="system__number">01</span><span class="system__pin" aria-hidden="true"></span>
+          <div><b>UNDERSTAND</b><h3>Pre-Call Buyer Intelligence™</h3><p>Build an initial evidence-based understanding of the individual buyer.</p></div>
+          <em>What may matter<br />before the call?</em>
+        </li>
+        <li data-reveal style="--delay:.07s">
+          <span class="system__number">02</span><span class="system__pin" aria-hidden="true"></span>
+          <div><b>PREPARE</b><h3>Buyer’s Blueprint™</h3><p>Turn that evidence into a practical conversation strategy.</p></div>
+          <em>How should this<br />conversation begin?</em>
+        </li>
+        <li data-reveal style="--delay:.12s">
+          <span class="system__number">03</span><span class="system__pin" aria-hidden="true"></span>
+          <div><b>PERCEIVE</b><h3>HumanCue™</h3><p>Recognize meaningful buyer movement while it can still affect the outcome.</p></div>
+          <em>What just changed<br />in the room?</em>
+        </li>
+        <li data-reveal style="--delay:.17s">
+          <span class="system__number">04</span><span class="system__pin" aria-hidden="true"></span>
+          <div><b>MEASURE</b><h3>Buyer Readiness Index™</h3><p>Evaluate evidence that the buyer is becoming more or less ready to act.</p></div>
+          <em>Is the decision<br />actually moving?</em>
+        </li>
+        <li data-reveal style="--delay:.22s">
+          <span class="system__number">05</span><span class="system__pin system__pin--risk" aria-hidden="true"></span>
+          <div><b>SEE REALITY</b><h3>Readiness vs. Deal Stage</h3><p>Compare buyer-supported movement with seller-reported CRM progression.</p></div>
+          <em>Does the record<br />match the buyer?</em>
+        </li>
+        <li data-reveal style="--delay:.27s">
+          <span class="system__number">06</span><span class="system__pin" aria-hidden="true"></span>
+          <div><b>IMPROVE</b><h3>Manager Coaching Report</h3><p>Turn recurring seller judgment patterns into individual coaching.</p></div>
+          <em>What becomes<br />better next time?</em>
+        </li>
+      </ol>
+      <p class="system__foot" data-reveal>Prepare <span>→</span> Observe <span>→</span> Validate <span>→</span> Adjust <span>→</span> Learn</p>
+    </section>
+
+    <!-- 05 / the intelligence brief exposes certainty, it does not fake it -->
+    <section class="precall chapter" id="e05" aria-labelledby="precall-title">
+      <div class="chapter-mark" aria-hidden="true"><span>05</span><i></i><small>PRE-CALL<br />INTELLIGENCE</small></div>
+      <div class="precall__copy">
+        <p class="eyebrow eyebrow--signal" data-reveal>PRE-CALL BUYER INTELLIGENCE™</p>
+        <h2 id="precall-title" data-reveal style="--delay:.06s">Walk into the call knowing<br /><strong>more than the account.</strong></h2>
+        <p data-reveal style="--delay:.13s">Traditional preparation tells the seller what company they are calling. PitchGenius helps them understand how this particular buyer may evaluate information, respond to risk, communicate, and approach a decision.</p>
+        <p class="statement" data-reveal style="--delay:.18s">Know what you know.<br />Know what you don’t.</p>
+      </div>
+
+      <article class="evidence-ledger" data-reveal style="--delay:.13s" aria-label="Executive intelligence brief">
+        <header class="evidence-ledger__head">
+          <span>EXECUTIVE INTELLIGENCE BRIEF</span>
+          <span>BEFORE THE CALL / CURRENT VIEW</span>
+        </header>
+        <div class="evidence-ledger__sources">
+          <p>INPUTS INTO THE BRIEF</p>
+          <ul>
+            <li>Previous calls</li><li>CRM notes</li><li>Emails</li><li>Discovery answers</li>
+            <li>Role &amp; company context</li><li>Meeting history</li>
+          </ul>
+        </div>
+        <div class="evidence-ledger__columns">
+          <section>
+            <header><i class="key-known"></i><h3>KNOWN</h3><small>Direct evidence</small></header>
+            <ul><li>Stated decision criteria</li><li>Prior conversations</li><li>Stakeholders named</li><li>Known objections</li><li>Previous next steps</li></ul>
+          </section>
+          <section>
+            <header><i class="key-likely"></i><h3>LIKELY</h3><small>Supported inference</small></header>
+            <ul><li>Communication tendencies</li><li>Trust requirements</li><li>Possible risk sensitivity</li><li>Decision orientation</li><li>Useful conversation approach</li></ul>
+          </section>
+          <section>
+            <header><i class="key-unknown"></i><h3>UNKNOWN</h3><small>Missing or unproven</small></header>
+            <ul><li>Economic buyer</li><li>Decision ownership</li><li>Stakeholder influence</li><li>Unresolved risk</li><li>Readiness gaps</li></ul>
+          </section>
+        </div>
+        <footer>Preparation is a starting hypothesis — not a personality diagnosis.</footer>
+      </article>
+    </section>
+
+    <!-- 06 / a brief is a strategy, not another dashboard -->
+    <section class="blueprint chapter" id="e06" aria-labelledby="blueprint-title">
+      <div class="chapter-mark" aria-hidden="true"><span>06</span><i></i><small>THE BUYER’S<br />BLUEPRINT</small></div>
+      <header class="blueprint__heading">
+        <p class="eyebrow eyebrow--signal" data-reveal>BUYER’S BLUEPRINT™</p>
+        <h2 id="blueprint-title" data-reveal style="--delay:.06s">Stop running the same call<br /><strong>with every buyer.</strong></h2>
+        <p data-reveal style="--delay:.12s">Two executives can have the same title, the same problem, the same budget, and the same CRM stage — and require completely different conversations.</p>
+      </header>
+      <article class="blueprint-sheet" data-reveal style="--delay:.13s" aria-label="A Buyer’s Blueprint strategy brief">
+        <header><span>BUYER STRATEGY BLUEPRINT</span><span>STARTING HYPOTHESIS / REV 01</span></header>
+        <div class="blueprint-sheet__rows">
+          <section><span>01</span><div><h3>THE OBJECTIVE</h3><p>What needs to change by the end of this conversation?</p></div></section>
+          <section><span>02</span><div><h3>THE READINESS HYPOTHESIS</h3><p>Where does the buyer appear to be in the decision?</p></div></section>
+          <section><span>03</span><div><h3>TRUST TRIGGERS</h3><p>What may create confidence — and what still needs to be tested?</p></div></section>
+          <section><span>04</span><div><h3>QUESTIONS &amp; RISK</h3><p>What is missing, and what could prevent movement?</p></div></section>
+          <section><span>05</span><div><h3>THE APPROACH</h3><p>Challenge. Explore. Clarify. Validate. Or wait.</p></div></section>
+        </div>
+        <footer><span>METHODOLOGY</span><b>Challenger</b><b>SPIN</b><b>NEPQ</b><b>MEDDPICC</b><em>Prepare → Observe → Validate → Adjust</em></footer>
+      </article>
+      <p class="blueprint__close" data-reveal>The buyer determines the strategy.</p>
+    </section>
+
+    <!-- 07 / the real meeting tests every previous assumption -->
+    <section class="cue-entry chapter chapter--dark" id="e07" data-nav-theme="dark" aria-labelledby="cue-entry-title">
+      <div class="chapter-mark chapter-mark--light" aria-hidden="true"><span>07</span><i></i><small>THE CALL<br />BEGINS</small></div>
+      <figure class="cue-entry__image">
+        <img src="assets/e-cue-transition.webp" width="1672" height="941" loading="lazy" decoding="async" alt="A salesperson focused on the person speaking in a remote meeting" />
+      </figure>
+      <div class="cue-entry__veil" aria-hidden="true"></div>
+      <div class="cue-entry__copy">
+        <p class="cue-word" data-reveal>HUMAN<span>CUE</span><sup>™</sup></p>
+        <h2 id="cue-entry-title" data-reveal style="--delay:.08s">Then the call starts.</h2>
+        <p data-reveal style="--delay:.25s">And everything can change.</p>
+        <span class="cue-entry__signal" data-reveal style="--delay:.35s"><i></i>LIVE SIGNAL</span>
+      </div>
+    </section>
+
+    <!-- 08 / HumanCue intentionally occupies only the edge of the meeting -->
+    <section class="human-cue chapter" id="e08" aria-labelledby="human-cue-title">
+      <div class="chapter-mark" aria-hidden="true"><span>08</span><i></i><small>LIVE<br />DECISION SUPPORT</small></div>
+      <header class="human-cue__heading">
+        <p class="eyebrow eyebrow--signal" data-reveal>HUMANCUE™ LIVE COPILOT</p>
+        <h2 id="human-cue-title" data-reveal style="--delay:.06s">HumanCue speaks<br /><strong>only when something matters.</strong></h2>
+        <p data-reveal style="--delay:.13s">Most live AI gives the salesperson more information to process. HumanCue is designed to do the opposite.</p>
+        <p class="human-cue__product-note" data-reveal style="--delay:.17s">A small, always-on-top desktop app over the seller’s existing video call — not a browser extension or a post-call report.</p>
+      </header>
+      <div class="human-cue__workbench">
+        <figure class="meeting-window" data-reveal style="--delay:.12s">
+          <img src="assets/e-live-buyer.webp" width="1672" height="941" loading="lazy" decoding="async" alt="A buyer speaking during a consequential video meeting" />
+          <aside class="cue-panel cue-panel--canonical" aria-label="Example compact HumanCue interface">
+            <header><strong>Human<span>Cue</span>™</strong><span>45 · DISCOVERY</span></header>
+            <div class="cue-panel__live"><span><i></i>LISTENING</span><time datetime="PT45S">00:45</time></div>
+            <div class="cue-panel__wave" aria-hidden="true"><svg viewBox="0 0 210 18"><path d="M1 9h24l7-3 8 8 9-13 11 16 10-10 9 4h27l7-3 8 8 9-13 10 16 11-10 8 4h42" /></svg></div>
+            <div class="cue-panel__stages" aria-label="Five call stages"><span>OPENING</span><span class="is-current">DISCOVERY</span><span>VALUE</span><span>DECISION</span><span>CLOSE</span></div>
+            <div class="cue-panel__signal"><small>BUYER SIGNAL</small><span>Buyer is describing the display.</span></div>
+            <div class="cue-panel__move"><small>NEXT BEST MOVE</small><p>Clarify the display behavior.</p></div>
+            <div class="cue-panel__say"><small>SAY THIS</small><p>“What are you seeing on your screen?”</p></div>
+            <div class="cue-panel__why"><small>WHY THIS NOW?</small><button class="cue-panel__why-toggle" type="button" data-cue-detail-toggle aria-expanded="false" aria-controls="cue-detail">Show context</button></div>
+            <div class="cue-panel__detail" id="cue-detail" hidden>Evidence: the buyer returned to the display before moving on.</div>
+          </aside>
+          <figcaption>The buyer remains visually dominant. HumanCue occupies the edge of the working display.</figcaption>
+        </figure>
+        <ol class="cue-gates" data-reveal style="--delay:.25s" aria-label="How HumanCue decides whether to intervene">
+          <li><span>01</span><div><b>SIGNAL</b><p>Did something meaningfully change?</p></div></li>
+          <li><span>02</span><div><b>CONTEXT</b><p>What was happening when it changed?</p></div></li>
+          <li><span>03</span><div><b>EVIDENCE</b><p>Is there enough support to treat it seriously?</p></div></li>
+          <li><span>04</span><div><b>MEANING</b><p>Why might this matter to the buyer or deal?</p></div></li>
+          <li><span>05</span><div><b>ACTIONABILITY</b><p>Can the salesperson do something useful now?</p></div></li>
+        </ol>
+        <aside class="cue-handoff" data-reveal style="--delay:.3s" aria-label="Post-call evidence handoff">
+          <p class="cue-handoff__label">POST-CALL EVIDENCE</p>
+          <p class="cue-handoff__intro">Designed to sit alongside Zoom, Google Meet, and Microsoft Teams — without changing where the seller works.</p>
+          <dl>
+            <div><dt>SUMMARY</dt><dd>Implementation concern surfaced after the display discussion.</dd></div>
+            <div><dt>MEDDPICC</dt><dd>Economic buyer remains unconfirmed.</dd></div>
+            <div><dt>NEXT MOVE</dt><dd>Confirm the buyer-owned implementation path.</dd></div>
+            <div><dt>UPDATE CRM</dt><dd>Review evidence before it enters the record.</dd></div>
+          </dl>
+        </aside>
+      </div>
+      <p class="human-cue__quiet" data-reveal>If not, HumanCue stays quiet.</p>
+      <p class="human-cue__close" data-reveal>HumanCue coaches the decision — not just the sentence.</p>
+    </section>
+
+    <!-- 09 / human judgment stays at the center -->
+    <section class="belief chapter chapter--dark" id="e09" data-nav-theme="dark" aria-labelledby="belief-title">
+      <div class="chapter-mark chapter-mark--light" aria-hidden="true"><span>09</span><i></i><small>THE HUMAN<br />ROLE</small></div>
+      <div class="belief__copy" data-reveal>
+        <p class="eyebrow eyebrow--signal">A HUMAN-FIRST BELIEF</p>
+        <h2 id="belief-title">AI shouldn’t sell for you.</h2>
+        <i aria-hidden="true"></i>
+        <p>It should make you better.</p>
+      </div>
+    </section>
+
+    <!-- 10 / readiness describes the decision, not activity -->
+    <section class="readiness chapter" id="e10" aria-labelledby="readiness-title">
+      <div class="chapter-mark" aria-hidden="true"><span>10</span><i></i><small>BUYER<br />READINESS</small></div>
+      <header class="readiness__heading">
+        <p class="eyebrow eyebrow--signal" data-reveal>BUYER READINESS INDEX™</p>
+        <h2 id="readiness-title" data-reveal style="--delay:.05s">A deal can move stages<br /><strong>without the buyer moving at all.</strong></h2>
+        <p data-reveal style="--delay:.12s">Sales systems measure seller activity. PitchGenius looks for evidence of buyer investment and decision movement.</p>
+      </header>
+      <div class="readiness__dimensions" data-reveal style="--delay:.1s" aria-label="Dimensions of buyer readiness">
+        <p class="readiness__caption">THE EVIDENCE UNDER THE INDEX</p>
+        <div class="dimension"><span>TRUST</span><i aria-hidden="true"></i><p>Is the buyer increasingly comfortable relying on the seller and solution?</p></div>
+        <div class="dimension"><span>CONFIDENCE</span><i aria-hidden="true"></i><p>Is uncertainty around the decision decreasing?</p></div>
+        <div class="dimension"><span>URGENCY</span><i aria-hidden="true"></i><p>Is there evidence that action matters now?</p></div>
+        <div class="dimension"><span>EMOTIONAL SAFETY</span><i aria-hidden="true"></i><p>Can the buyer discuss concerns and consequences openly?</p></div>
+        <div class="dimension"><span>PERCEIVED RISK</span><i class="dimension--risk" aria-hidden="true"></i><p>Is risk becoming resolved — or increasing?</p></div>
+        <div class="dimension"><span>WILLINGNESS TO MOVE</span><i aria-hidden="true"></i><p>Is the buyer investing real effort into the next decision step?</p></div>
+      </div>
+      <div class="readiness__examples" data-reveal style="--delay:.18s">
+        <p class="readiness__caption">ACTIVITY IS NOT THE SAME AS COMMITMENT</p>
+        <div><small>WEAK SIGNAL</small><p>“This looks interesting.”</p><span>⇢</span><small>STRONGER EVIDENCE</small><p>Buyer introduces the economic buyer.</p></div>
+        <div><small>WEAK SIGNAL</small><p>“Send me a proposal.”</p><span>⇢</span><small>STRONGER EVIDENCE</small><p>Buyer agrees to a decision process and an internal action.</p></div>
+        <div><small>WEAK SIGNAL</small><p>“I’ll speak with my team.”</p><span>⇢</span><small>STRONGER EVIDENCE</small><p>Buyer schedules the conversation and involves the seller.</p></div>
+      </div>
+      <p class="readiness__close" data-reveal>What still has to happen before this buyer is ready?</p>
+    </section>
+
+    <!-- 11 / process health and buyer health are different records -->
+    <section class="alignment chapter" id="e11" aria-labelledby="alignment-title">
+      <div class="chapter-mark" aria-hidden="true"><span>11</span><i></i><small>STAGE /<br />READINESS</small></div>
+      <header class="alignment__heading">
+        <p class="eyebrow eyebrow--signal" data-reveal>BUYER READINESS VS. DEAL STAGE</p>
+        <h2 id="alignment-title" data-reveal style="--delay:.05s">Same deal.<br /><strong>Two completely different truths.</strong></h2>
+      </header>
+      <div class="alignment__reports">
+        <article class="stage-report" data-reveal style="--delay:.1s">
+          <header><span>CRM REALITY</span><small>SELLER PROCESS</small></header>
+          <dl><div><dt>CRM STAGE</dt><dd>Proposal</dd></div><div><dt>ACTIVITY</dt><dd>Demo completed</dd></div><div><dt>DELIVERY</dt><dd>Proposal delivered</dd></div><div><dt>NEXT STEP</dt><dd>Follow-up scheduled</dd></div><div><dt>FORECAST</dt><dd>Positive</dd></div></dl>
+          <footer><span>STATUS</span><b>HEALTHY</b></footer>
+        </article>
+        <article class="buyer-report" data-reveal style="--delay:.16s">
+          <header><span>BUYER REALITY</span><small>DECISION EVIDENCE</small></header>
+          <ul><li>Implementation risk unresolved</li><li>Economic buyer unknown</li><li>No buyer-owned next step</li><li>Willingness to move appears lower</li><li>Readiness weakened</li></ul>
+          <footer><span>STATUS</span><b>AT RISK</b></footer>
+        </article>
+      </div>
+      <div class="alignment__verdict" data-reveal>
+        <p>CRM stages describe the seller’s process.<br /><strong>Buyer readiness describes the buyer’s decision.</strong></p>
+        <p>Your CRM knows where the deal is. PitchGenius helps you understand where the buyer is.</p>
+      </div>
+    </section>
+
+    <!-- 12 / coaches need patterns, not another call score -->
+    <section class="coaching chapter" id="e12" aria-labelledby="coaching-title">
+      <div class="chapter-mark" aria-hidden="true"><span>12</span><i></i><small>MANAGER<br />COACHING</small></div>
+      <figure class="coaching__photo" data-reveal>
+        <img src="assets/e-manager.webp" width="474" height="392" loading="lazy" decoding="async" alt="A manager studying patterns from recent sales conversations" />
+        <figcaption>THE MANAGER’S VIEW / PATTERNS ACROSS CALLS</figcaption>
+      </figure>
+      <div class="coaching__copy">
+        <p class="eyebrow eyebrow--signal" data-reveal>MANAGER COACHING REPORT</p>
+        <h2 id="coaching-title" data-reveal style="--delay:.06s">You don’t need another call score.<br /><strong>You need to know what the rep missed.</strong></h2>
+        <p data-reveal style="--delay:.12s">Managers cannot attend every conversation. PitchGenius combines call evidence, HumanCue interventions, buyer-readiness movement, MEDDPICC evidence, and seller behavior to reveal patterns worth coaching.</p>
+        <p class="coaching__arithmetic" data-reveal style="--delay:.18s"><strong>THE MANAGEMENT MATH</strong> Better seller judgment can help the same team close more of the pipeline, shorten ramp through live reinforcement, add buyer evidence to forecasts, and extend coaching beyond the calls one manager can attend.</p>
+      </div>
+      <article class="coaching-report" data-reveal style="--delay:.16s" aria-label="Manager coaching report">
+        <header><span>SELLER JUDGMENT REVIEW</span><span>FOCUS / RECURRING PATTERN</span></header>
+        <div class="coaching-report__grid">
+          <section><h3>WHAT CHANGED</h3><p>Implementation concern surfaced after an otherwise positive proposal conversation.</p></section>
+          <section><h3>WHAT THE REP SAW</h3><p>Buyer’s request to slow the rollout discussion.</p></section>
+          <section class="coaching-report__miss"><h3>WHAT THE REP MISSED</h3><p>The buyer returned to risk twice, but the response moved back to feature explanation.</p></section>
+          <section><h3>WHAT BLOCKED MOVEMENT</h3><p>No shared view of ownership or a safe implementation path.</p></section>
+          <section><h3>WHAT TO COACH</h3><p>Explore perceived risk before explaining; test the missing stakeholder.</p></section>
+          <section><h3>WHAT HAPPENS NEXT</h3><p>Use this moment as a concrete rehearsal before the next executive call.</p></section>
+        </div>
+        <footer>These are not isolated script mistakes. <b>They are judgment patterns.</b></footer>
+      </article>
+      <p class="coaching__close" data-reveal>Coach the behavior.<br />Not the score.</p>
+    </section>
+
+    <!-- 13 / assistance can become less frequent as judgement improves -->
+    <section class="development chapter" id="e13" aria-labelledby="development-title">
+      <div class="chapter-mark" aria-hidden="true"><span>13</span><i></i><small>REP<br />DEVELOPMENT</small></div>
+      <div class="development__copy">
+        <p class="eyebrow eyebrow--signal" data-reveal>DEVELOPMENT OVER TIME</p>
+        <h2 id="development-title" data-reveal style="--delay:.06s">The goal isn’t to make the rep<br /><strong>need more AI.</strong></h2>
+        <p class="development__second" data-reveal style="--delay:.13s">It’s to make the rep better at making the right call.</p>
+      </div>
+      <figure class="development__image" data-reveal style="--delay:.1s">
+        <img src="assets/e-development.webp" width="1672" height="941" loading="lazy" decoding="async" alt="A sales professional developing better judgment through focused practice" />
+      </figure>
+      <ol class="development__progression" data-reveal-group aria-label="A four-stage path from support to seller judgment">
+        <li><span>01</span><div><b>FIRST CALLS</b><p>HumanCue makes missed moments visible.</p></div></li>
+        <li><span>02</span><div><b>IN PRACTICE</b><p>The seller learns to name the buyer signal.</p></div></li>
+        <li><span>03</span><div><b>REINFORCEMENT</b><p>Coaching turns evidence into rehearsal.</p></div></li>
+        <li><span>04</span><div><b>JUDGMENT</b><p>Prompts reduce as judgment becomes fluent.</p></div></li>
+      </ol>
+      <div class="development__trace" data-reveal style="--delay:.18s" aria-label="HumanCue prompt frequency reduces as seller judgment improves">
+        <header><span>PROMPT FREQUENCY</span><span>FREQUENT</span><span>INFREQUENT</span></header>
+        <div class="development__line" aria-hidden="true"><i class="cue-dot cue-dot--one"></i><i class="cue-dot cue-dot--two"></i><i class="cue-dot cue-dot--three"></i><i class="cue-dot cue-dot--four"></i><i class="cue-dot cue-dot--five"></i><i class="cue-dot cue-dot--six"></i><i class="cue-dot cue-dot--seven"></i><i class="cue-dot cue-dot--eight"></i></div>
+        <footer><span>Visible prompts</span><span>Patterns reinforced</span><span>Fluent judgment</span></footer>
+      </div>
+      <ol class="development__loop" data-reveal><li>CALL</li><li>EVIDENCE</li><li>COACHING</li><li>REINFORCEMENT</li><li>IMPROVEMENT</li></ol>
+      <p class="development__close" data-reveal>The software improves the seller.<br />Not just the deal.</p>
+      <p class="development__privacy" data-reveal><strong>REP CALIBRATION IS PRIVATE.</strong> Calibration answers are private. Managers see usage and deal activity — not the answers.</p>
+    </section>
+
+    <!-- 14 / all product learning returns to the next conversation -->
+    <section class="loop chapter chapter--dark" id="e14" data-nav-theme="dark" aria-labelledby="loop-title">
+      <div class="chapter-mark chapter-mark--light" aria-hidden="true"><span>14</span><i></i><small>THE INTELLIGENCE<br />LOOP</small></div>
+      <header class="loop__heading">
+        <p class="eyebrow eyebrow--signal" data-reveal>THE INTELLIGENCE LOOP</p>
+        <h2 id="loop-title" data-reveal style="--delay:.05s">Every conversation<br /><strong>makes the next one smarter.</strong></h2>
+        <p data-reveal style="--delay:.12s">Not because PitchGenius knows everything. Because the evidence gets better.</p>
+      </header>
+      <div class="loop__diagram" data-reveal style="--delay:.1s" aria-label="A circular system connecting the six PitchGenius product chapters">
+        <svg viewBox="0 0 860 560" role="img" aria-label="The continuous buyer intelligence loop">
+          <path class="loop__line" d="M197 141C281 35 475 31 610 117c135 87 151 278 45 399-99 112-300 122-425 17C119 434 97 269 197 141Z" />
+          <path class="loop__direction" d="M286 74l20-17-3 20" aria-hidden="true" />
+          <g class="loop__node"><circle cx="198" cy="140" r="15"/><text x="198" y="96">01</text><text x="198" y="184">UNDERSTAND</text><text x="198" y="207">Pre-Call Intelligence</text></g>
+          <g class="loop__node"><circle cx="430" cy="78" r="15"/><text x="430" y="38">02</text><text x="430" y="122">PREPARE</text><text x="430" y="145">Buyer’s Blueprint</text></g>
+          <g class="loop__node"><circle cx="654" cy="172" r="15"/><text x="654" y="132">03</text><text x="654" y="216">PERCEIVE</text><text x="654" y="239">HumanCue</text></g>
+          <g class="loop__node"><circle cx="656" cy="390" r="15"/><text x="656" y="350">04</text><text x="656" y="434">MEASURE</text><text x="656" y="457">Buyer Readiness</text></g>
+          <g class="loop__node loop__node--risk"><circle cx="428" cy="493" r="15"/><text x="428" y="453">05</text><text x="428" y="537">SEE REALITY</text><text x="428" y="560">Readiness vs. Stage</text></g>
+          <g class="loop__node"><circle cx="201" cy="395" r="15"/><text x="201" y="355">06</text><text x="201" y="439">IMPROVE</text><text x="201" y="462">Manager Coaching</text></g>
+        </svg>
+      </div>
+      <ol class="loop__mobile-list" data-reveal-group aria-label="The continuous buyer intelligence loop">
+        <li><span>01</span><div><b>UNDERSTAND</b><small>Pre-Call Intelligence</small></div></li>
+        <li><span>02</span><div><b>PREPARE</b><small>Buyer’s Blueprint</small></div></li>
+        <li><span>03</span><div><b>PERCEIVE</b><small>HumanCue</small></div></li>
+        <li><span>04</span><div><b>MEASURE</b><small>Buyer Readiness</small></div></li>
+        <li class="is-risk"><span>05</span><div><b>SEE REALITY</b><small>Readiness vs. Stage</small></div></li>
+        <li><span>06</span><div><b>IMPROVE</b><small>Manager Coaching</small></div></li>
+        <li class="loop__mobile-return"><span aria-hidden="true">↺</span><div><b>BETTER EVIDENCE</b><small>returns to the next buyer.</small></div></li>
+      </ol>
+      <div class="loop__reasons" data-reveal>
+        <p>Previous calls improve preparation. Live behavior corrects previous assumptions. Readiness exposes what changed. Deal outcomes reveal which signals mattered. Coaching improves seller decisions.</p>
+        <p><strong>One buyer.<br />One evolving intelligence layer.</strong></p>
+      </div>
+    </section>
+
+    <!-- 15 / the object of attention changes -->
+    <section class="difference chapter" id="e15" aria-labelledby="difference-title">
+      <div class="chapter-mark" aria-hidden="true"><span>15</span><i></i><small>THE CATEGORY<br />DIFFERENCE</small></div>
+      <header class="difference__heading">
+        <h2 id="difference-title" data-reveal>Most sales AI asks:</h2>
+        <p data-reveal style="--delay:.05s">PITCHGENIUS ASKS:</p>
+      </header>
+      <div class="difference__rows" data-reveal-group aria-label="Questions traditional sales AI and PitchGenius ask">
+        <div><p>What did the rep say?</p><i>vs.</i><strong>What happened with the buyer?</strong></div>
+        <div><p>Did the rep follow the process?</p><i>vs.</i><strong>Did the buyer become more ready?</strong></div>
+        <div><p>What did the call contain?</p><i>vs.</i><strong>What changed in the decision?</strong></div>
+        <div><p>What should the AI say?</p><i>vs.</i><strong>What should the salesperson notice?</strong></div>
+        <div><p>Where did the rep move the opportunity?</p><i>vs.</i><strong>Did the buyer actually move with it?</strong></div>
+      </div>
+      <p class="difference__close" data-reveal>Sales AI should help<br />the rep decide.<br /><strong>Not decide for them.</strong></p>
+    </section>
+
+    <!-- 16 / close with the human interaction, not the product -->
+    <section class="closing chapter chapter--dark" id="e16" data-nav-theme="dark" aria-labelledby="closing-title">
+      <div class="chapter-mark chapter-mark--light" aria-hidden="true"><span>16</span><i></i><small>THE FUTURE<br />OF SALES</small></div>
+      <figure class="closing__image"><img src="assets/e-human-close.webp" width="1672" height="941" loading="lazy" decoding="async" alt="Two people in a focused, consequential sales conversation" /></figure>
+      <div class="closing__shade" aria-hidden="true"></div>
+      <div class="closing__copy">
+        <p class="eyebrow eyebrow--signal" data-reveal>THE FUTURE OF THE SALES PROFESSION</p>
+        <h2 id="closing-title" data-reveal style="--delay:.07s">See more.<br />Understand more.<br /><strong>Sell like a human.</strong></h2>
+        <p data-reveal style="--delay:.14s">PitchGenius gives salespeople better awareness before, during, and after the conversation — without taking them out of it.</p>
+        <div class="closing__actions" data-reveal style="--delay:.2s">
+          <a class="button button--signal" href="#e08">See HumanCue live <span aria-hidden="true">↗</span></a>
+          <a class="text-link text-link--light" href="https://pitchgenius.ai">Book a pilot <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="closing__manifesto" data-reveal style="--delay:.25s">Technology should make sales professionals stronger, not more replaceable.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="footer__brand brand" href="#main" aria-label="PitchGenius home">
+      <svg class="brand__mark" viewBox="0 0 30 30" aria-hidden="true"><path d="M7 24V6h8.1c4.3 0 7 2.2 7 5.8s-2.7 5.8-7 5.8H7M15.1 6c4.3 0 7 2.2 7 5.8" /></svg>
+      <span>PitchGenius<span class="brand__dot">.</span>AI</span>
+    </a>
+    <div><a href="#e02">The problem</a><a href="#e04">The system</a><a href="#e12">For managers</a><a href="https://pitchgenius.ai">pitchgenius.ai</a></div>
+    <p>© 2026 PitchGenius.AI <span>•</span> Human judgment, made stronger.</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
