@@ -1,0 +1,32 @@
+/* PitchGenius I tokens — the conversation-field layout remains in i-theme.css. */
+@font-face { font-family: "PG Space Grotesk"; src: url("assets/fonts/SpaceGrotesk-latin.woff2") format("woff2"); font-style: normal; font-weight: 500 700; font-display: swap; }
+@font-face { font-family: "PG Sora"; src: url("assets/fonts/Sora-latin.woff2") format("woff2"); font-style: normal; font-weight: 400 800; font-display: swap; }
+@font-face { font-family: "PG JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-latin.woff2") format("woff2"); font-style: normal; font-weight: 400 600; font-display: swap; }
+
+:root { --pg-paper: #ffffff; --pg-ink: #071a31; --pg-ink-soft: #45556e; --pg-teal: #0d9488; --pg-teal-bright: #2dd4bf; --pg-teal-text: #0f766e; --pg-indigo: #6366f1; --pg-risk: #fb7185; --pg-app-ink: #0b1424; --pg-app-bg: #f4f6fb; }
+body.variant-i { --i-ink: var(--pg-ink); --i-deep: var(--pg-app-ink); --i-paper: var(--pg-paper); --i-blue: var(--pg-app-bg); --i-warm: var(--pg-app-bg); --i-cyan: var(--pg-teal-bright); --i-cyan-deep: var(--pg-teal-text); --i-line: #d6dee8; --i-muted: var(--pg-ink-soft); --display: "PG Space Grotesk", system-ui, sans-serif; --body: "PG Sora", system-ui, sans-serif; --mono: "PG JetBrains Mono", ui-monospace, monospace; font-family: var(--body); }
+
+.variant-i .hero__lede { max-width: 24rem; color: var(--pg-ink-soft); font-size: clamp(1.18rem, 1.7vw, 1.45rem); font-weight: 600; letter-spacing: -.035em; line-height: 1.25; }
+.variant-i h1, .variant-i h2, .variant-i h3, .variant-i h4 { font-family: var(--display); }
+.variant-i .chapter-label, .variant-i .eyebrow, .variant-i .field-index, .variant-i .font-data, .variant-i .field-card__top, .variant-i .field-state, .variant-i .hero__buyers figcaption span, .variant-i .hero__chapter, .variant-i .hero__field-caption { font-family: var(--mono); }
+.variant-i .button--cyan { color: var(--pg-ink); background: var(--pg-teal-bright); }
+.variant-i .button--cyan:hover { background: #5eead4; }
+.variant-i .button--dark { color: #fff; background: var(--pg-ink); }
+.variant-i .button--dark:hover { background: var(--pg-app-ink); }
+.variant-i .site-nav, .variant-i .text-action { color: var(--pg-ink-soft); }
+.variant-i .brand__mark, .variant-i .brand__dot, .variant-i .site-nav a:hover, .variant-i .site-nav a:focus-visible, .variant-i .text-action:hover { color: var(--pg-teal-text); }
+.variant-i .site-nav a::after { background: var(--pg-teal-text); }
+::selection { background: var(--pg-teal-bright); color: var(--pg-ink); }
+
+.variant-i .closing__actions .button--cyan { order: 1; color: var(--pg-ink); border-color: var(--pg-teal-bright); background: var(--pg-teal-bright); }
+.variant-i .closing__actions .button--light { order: 2; color: #edf7f8; border-color: rgba(237,247,248,.75); background: transparent; }
+
+/* Page 12 names the recurring coaching patterns without invented outcomes. */
+.coaching-patterns { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(13rem, .55fr) minmax(0, 1.45fr); gap: 1.5rem clamp(2rem, 5vw, 5rem); align-items: start; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+.coaching-patterns__intro span { color: var(--cyan-deep); font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .1em; line-height: 1.3; text-transform: uppercase; }
+.coaching-patterns__intro p { max-width: 28ch; margin-top: .65rem; color: var(--muted); font-size: .86rem; line-height: 1.45; }
+.coaching-patterns ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem .8rem; }
+.coaching-patterns li { min-height: 3.15rem; display: flex; align-items: center; padding: .7rem .75rem; color: var(--ink); border-left: 2px solid var(--cyan); background: color-mix(in srgb, var(--paper-blue) 68%, transparent); font-size: .82rem; font-weight: 650; line-height: 1.28; }
+@media (max-width: 820px) { .coaching-patterns { grid-template-columns: 1fr; gap: 1.25rem; } .coaching-patterns__intro p { max-width: 42ch; } .coaching-patterns ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .coaching-patterns ul { grid-template-columns: 1fr; } }
+.blueprint-sheet__grid .blueprint-sheet__approach { grid-column: auto; }
