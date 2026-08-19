@@ -28,9 +28,11 @@
     }
 
     if (isOpen && focusFirst) {
-      window.setTimeout(() => {
-        if (menu.classList.contains('is-open') && !menu.inert) menuLinks[0]?.focus();
-      }, 48);
+      const focusFirstLink = () => {
+        if (menu.classList.contains('is-open') && !menu.inert) menuLinks[0]?.focus({ preventScroll: true });
+      };
+      focusFirstLink();
+      window.setTimeout(focusFirstLink, 48);
     }
     if (!isOpen && returnFocus && isMobile) toggle.focus();
   };

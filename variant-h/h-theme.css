@@ -206,3 +206,132 @@ body.variant-h {
 @media (prefers-reduced-motion: reduce) {
   .variant-h .hero__ink, .variant-h .hero__trace path, .variant-h .evidence-orbit__lines path { animation: none; clip-path: none; stroke-dashoffset: 0; }
 }
+
+/* Final responsive hardening: keep the ledger and its evidence inside the gutter. */
+.variant-h .evidence-orbit { width: 100%; margin: 0; transform: none; }
+.variant-h .evidence-ledger__sources span,
+.variant-h .evidence-ledger__sources i { color: var(--h-cyan); }
+.variant-h .evidence-ledger__sources p { color: #d6e5e7; }
+.variant-h .development__portrait img { object-position: 65% center; }
+
+/* Structural direction — H is a decision record, not a recoloured signal field. */
+.variant-h .field-index { display: none; }
+.variant-h .hero {
+  grid-template-areas: "copy field" "buyers buyers";
+  grid-template-columns: minmax(0, .92fr) minmax(390px, .78fr);
+  column-gap: clamp(2.4rem, 6vw, 7rem);
+  row-gap: 3.2rem;
+  min-height: min(980px, calc(100svh - 78px));
+}
+.variant-h .hero__copy { grid-area: copy; align-self: center; }
+.variant-h .hero__field { grid-area: field; align-self: center; min-height: 520px; border: 1px solid rgba(7,26,49,.42); background: #edf4f1; box-shadow: 14px 14px 0 rgba(0,123,133,.1); }
+.variant-h .hero__field::before,
+.variant-h .hero__field::after,
+.variant-h .hero__trace { display: none; }
+.variant-h .field-card { box-shadow: none; }
+.variant-h .field-card--source { top: 8%; left: 7%; width: 86%; }
+.variant-h .field-card--known { top: 36%; right: 7%; width: 82%; }
+.variant-h .field-card--likely { top: 58%; left: 7%; width: 82%; }
+.variant-h .field-card--unknown { right: 7%; bottom: 6%; width: 82%; }
+.variant-h .field-path { inset: 17% 12% 13%; }
+.variant-h .hero__buyers { grid-area: buyers; }
+.variant-h .hero__line { white-space: normal; }
+
+.variant-h .problem__visual { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(220px, .85fr); gap: 1.1rem; align-self: center; padding-top: 0; }
+.variant-h .problem__scene { height: 460px; margin: 0; box-shadow: 10px 10px 0 rgba(7,26,49,.09); }
+.variant-h .movement-map { min-height: 460px; margin: 0; padding: 1.25rem; box-shadow: none; }
+.variant-h .movement-map__row { grid-template-columns: 1fr; gap: .7rem; padding: 1.15rem 0; }
+.variant-h .movement-map__note { display: block; }
+.variant-h .movement-map__signal { min-height: 145px; grid-template-columns: 1fr; gap: .45rem; }
+.variant-h .movement-map__signal::before { top: 12px; right: auto; bottom: 13px; left: 4px; width: 1px; height: auto; background: linear-gradient(var(--cyan-deep), var(--risk)); }
+.variant-h .signal-point,
+.variant-h .signal-point:nth-child(2),
+.variant-h .signal-point:nth-child(3) { padding: 0 0 0 1.15rem; }
+.variant-h .signal-point i,
+.variant-h .signal-point:nth-child(2) i,
+.variant-h .signal-point:nth-child(3) i { top: .35rem; left: 0; }
+
+.variant-h .evidence-orbit { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: center; gap: .85rem; min-height: 0; }
+.variant-h .evidence-orbit::before,
+.variant-h .evidence-orbit__lines { display: none; }
+.variant-h .evidence-orbit__core { position: static; grid-column: 1 / -1; width: auto; min-height: 124px; aspect-ratio: auto; padding: 1.25rem; border-radius: 0; box-shadow: none; transform: none; }
+.variant-h .orbit-tag { position: static; width: auto; min-height: 92px; padding: .75rem .85rem; border: 1px solid rgba(24,217,230,.26); border-left: 3px solid var(--h-cyan); background: rgba(4,19,34,.48); }
+.variant-h .orbit-tag--change { grid-column: 1 / -1; }
+.variant-h .system-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--h-ink); }
+.variant-h .system-flow::before { display: none; }
+.variant-h .system-flow li { min-height: 190px; padding: 1.2rem; border-right: 1px solid rgba(7,26,49,.15); border-bottom: 1px solid rgba(7,26,49,.15); }
+.variant-h .system-flow li:nth-child(3n) { border-right: 0; }
+.variant-h .system-flow li::before { position: static; display: block; width: 22px; height: 22px; margin-bottom: 1.1rem; border: 0; }
+.variant-h .system-flow li > div { padding-left: 0; }
+.variant-h .system__loop-line { max-width: 34rem; padding-top: .8rem; border-top: 1px solid var(--h-cyan-deep); }
+
+.variant-h .evidence-ledger__sources p { color: #d6e5e7; }
+.variant-h .evidence-ledger__sources { min-height: 94px; }
+.variant-h .ledger-state { min-height: 240px; }
+.variant-h .blueprint-sheet { box-shadow: 10px 10px 0 rgba(7,26,49,.08); }
+.variant-h .humancue { background: #f3eee6; }
+.variant-h .call-stage { border: 1px solid rgba(7,26,49,.2); box-shadow: 10px 10px 0 rgba(0,123,133,.1); }
+.variant-h .live-card { border-radius: 0; }
+.variant-h .readiness-spectrum { border-left: 3px solid var(--h-cyan-deep); box-shadow: none; }
+.variant-h .reality-split { border-top-color: var(--h-ink); }
+.variant-h .reality-split__divide { background: var(--h-cyan-deep); }
+.variant-h .coaching-report { box-shadow: 10px 10px 0 rgba(7,26,49,.075); }
+.variant-h .development-path article { min-height: 112px; }
+.variant-h .cue-mini i { width: 15px; height: 19px; }
+
+/* H's loop is a numbered case trail; the circular diagram belongs to G. */
+.variant-h .loop-diagram { display: none; }
+.variant-h .loop-diagram svg { color: var(--h-cyan); }
+.variant-h .loop-mobile-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 1rem 0 0; border-top: 1px solid rgba(24,217,230,.5); }
+.variant-h .loop-mobile-flow li { display: grid; grid-template-columns: 34px 1fr; gap: .7rem; min-height: 122px; padding: 1rem .7rem .9rem 0; border-bottom: 1px solid rgba(24,217,230,.2); }
+.variant-h .loop-mobile-flow li:nth-child(3n+2), .variant-h .loop-mobile-flow li:nth-child(3n+3) { padding-left: .8rem; border-left: 1px solid rgba(24,217,230,.2); }
+.variant-h .loop-mobile-flow li > span { display: grid; place-items: center; width: 25px; height: 25px; color: var(--h-deep); border-radius: 0; background: var(--h-cyan); font-family: var(--mono); font-size: 9px; font-weight: 800; }
+.variant-h .loop-mobile-flow b { color: var(--h-cyan); font-size: .9rem; }
+.variant-h .loop-mobile-flow p { margin-top: .2rem; color: #b9cbd1; font-size: .72rem; line-height: 1.35; }
+.variant-h .intelligence-loop__close { max-width: 45rem; }
+.variant-h .question-pairs { max-width: 960px; }
+.variant-h .question-pairs article { min-height: 88px; border-left: 3px solid transparent; }
+.variant-h .question-pairs article:hover { border-left-color: var(--h-cyan-deep); }
+
+@media (max-width: 980px) {
+  .variant-h .hero { grid-template-areas: "copy" "field" "buyers"; grid-template-columns: 1fr; min-height: auto; }
+  .variant-h .hero__field { min-height: 500px; }
+  .variant-h .problem__visual { grid-template-columns: 1fr; }
+  .variant-h .problem__scene, .variant-h .movement-map { min-height: 0; height: auto; }
+  .variant-h .problem__scene { height: 300px; }
+  .variant-h .movement-map { min-height: 390px; }
+  .variant-h .evidence-orbit { grid-template-columns: 1fr 1fr; }
+  .variant-h .system-flow { grid-template-columns: 1fr 1fr; }
+  .variant-h .system-flow li { min-height: 160px; }
+  .variant-h .system-flow li:nth-child(3n) { border-right: 1px solid rgba(7,26,49,.15); }
+  .variant-h .system-flow li:nth-child(2n) { border-right: 0; }
+  .variant-h .loop-mobile-flow { grid-template-columns: 1fr 1fr; }
+  .variant-h .loop-mobile-flow li:nth-child(3n+2), .variant-h .loop-mobile-flow li:nth-child(3n+3) { padding-left: 0; border-left: 0; }
+  .variant-h .loop-mobile-flow li:nth-child(2n) { padding-left: .8rem; border-left: 1px solid rgba(24,217,230,.2); }
+}
+@media (max-width: 620px) {
+  .variant-h .hero__field { min-height: 455px; box-shadow: 7px 7px 0 rgba(0,123,133,.1); }
+  .variant-h .hero__buyers { height: 148px; }
+  .variant-h .evidence-orbit { grid-template-columns: 1fr; gap: .65rem; }
+  .variant-h .evidence-orbit__core, .variant-h .orbit-tag--change { grid-column: auto; }
+  .variant-h .orbit-tag { min-height: 0; }
+  .variant-h .system-flow { grid-template-columns: 1fr; }
+  .variant-h .system-flow li, .variant-h .system-flow li:nth-child(2n), .variant-h .system-flow li:nth-child(3n) { min-height: 0; border-right: 0; }
+  .variant-h .loop-mobile-flow { grid-template-columns: 1fr; }
+  .variant-h .loop-mobile-flow li, .variant-h .loop-mobile-flow li:nth-child(2n) { min-height: 0; padding: .9rem 0; border-left: 0; }
+  .variant-h .movement-map { min-height: 0; }
+}
+
+/* Keep the ledger headline intentional on wide screens; at tablet widths the
+   composition stacks before the two evidence columns become cramped. */
+@media (min-width: 1121px) {
+  .variant-h .hero { grid-template-columns: minmax(0, 1.08fr) minmax(390px, .8fr); }
+  .variant-h .hero h1 { max-width: none; font-size: clamp(3.25rem, 4.6vw, 5.4rem); }
+  .variant-h .hero__line { white-space: nowrap; }
+}
+@media (min-width: 981px) and (max-width: 1120px) {
+  .variant-h .hero { grid-template-areas: "copy" "field" "buyers"; grid-template-columns: 1fr; min-height: auto; }
+  .variant-h .hero h1 { max-width: 16ch; }
+  .variant-h .hero__line { white-space: normal; }
+  .variant-h .hero__field { width: min(100%, 680px); justify-self: end; }
+}
