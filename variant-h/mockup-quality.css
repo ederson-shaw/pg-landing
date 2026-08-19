@@ -164,10 +164,10 @@ body.variant-h .h-live-card .pg-hc-say p {
   font-weight: 400 !important;
   line-height: 1.05 !important;
   letter-spacing: -.024em !important;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
+  /* Never truncate the product's actual recommendation. Let the card grow
+     by a line at narrow widths so the buyer-facing sentence remains whole. */
+  display: block;
+  overflow: visible;
 }
 .pg-hc-detail { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
 
