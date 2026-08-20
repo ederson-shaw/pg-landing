@@ -96,6 +96,13 @@
 .l-product-rail{position:relative;z-index:1;display:grid;grid-template-columns:repeat(6,1fr);gap:9px;padding:27px 21px 30px}
 .l-product-rail span{position:relative;display:grid;align-content:start;gap:8px;min-height:115px;padding:13px 11px;border:1px solid var(--l-border);border-radius:6px;background:#fff;color:var(--l-body);font-size:13px;line-height:1.22}.l-product-rail b{color:var(--l-cyan);font:750 11px/1 Mono,ui-monospace,monospace}.l-product-rail small{color:var(--l-muted);font-size:11px;letter-spacing:0;text-transform:none}.l-product-rail span.is-live{border-color:#40aeb7;box-shadow:inset 0 3px #0a8e9b,0 8px 18px rgba(7,28,49,.08)}.l-product-rail span:not(:last-child):after{content:"→";position:absolute;right:-13px;top:44%;z-index:2;color:var(--l-cyan);font-size:16px}
 
+/* The platform proof is a handoff between real working surfaces, not a
+   second copy of the six-step marketing rail above. */
+.l-handoff-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr);align-items:stretch;gap:10px;padding:27px 23px 30px}
+.l-handoff-grid article{display:grid;align-content:start;gap:9px;min-height:135px;padding:16px 14px;border:1px solid var(--l-border);border-radius:6px;background:#fff}
+.l-handoff-grid article.is-live{border-color:#47adb4;box-shadow:inset 0 3px #0a8e9b,0 8px 18px rgba(7,28,49,.08)}
+.l-handoff-grid article b{font-size:17px;line-height:1.24}.l-handoff-grid article span{color:var(--l-body);font-size:13px;line-height:1.35}.l-handoff-grid>em{display:grid;place-items:center;color:var(--l-cyan);font-size:22px;font-style:normal}
+
 /* 05 / brief and 06 / blueprint */
 .l-brief-grid,.l-blueprint-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:24px}
 .l-brief-grid article,.l-blueprint-grid>div{display:grid;align-content:start;gap:10px;min-height:128px;padding:16px 15px;border:1px solid var(--l-border);border-top:3px solid #0a8794;border-radius:6px;background:#fff}.l-brief-grid article:nth-child(2){border-top-color:#c2833b}.l-brief-grid article:nth-child(3){border-top-color:#8295a3}.l-brief-grid b,.l-blueprint-grid b{font-size:17px;line-height:1.25}.l-brief-grid span{color:var(--l-muted);font-size:13px;line-height:1.35}.l-blueprint-grid{grid-template-columns:1fr 1fr}.l-blueprint-grid>div{min-height:115px;border-top-width:1px}.l-blueprint-grid small{color:var(--l-cyan)}.l-blueprint-accent{background:#fff8ec!important;border-color:#d9b77e!important}.l-blueprint-accent small{color:var(--l-amber)!important}
@@ -110,6 +117,7 @@
 
 /* 10 / readiness and 11 / alignment */
 .l-readiness-row{position:relative;z-index:1;display:grid;grid-template-columns:.7fr 1.15fr 30px .9fr 1.45fr;align-items:center;gap:13px;padding:20px 23px;border-bottom:1px solid var(--l-border);font-size:14px}.l-readiness-row>span{color:var(--l-muted);font:750 10px/1.25 Mono,ui-monospace,monospace;letter-spacing:.08em}.l-readiness-row>b{font-size:15px;line-height:1.3}.l-readiness-row em{font-style:normal;color:var(--l-cyan);font-size:21px;text-align:center}.l-readiness-row .l-readiness-strong{color:var(--l-cyan)}.l-readiness-row:last-of-type{border-bottom:0}.l-alignment-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 45px 1fr;align-items:stretch;gap:14px;padding:24px}.l-alignment-grid article{display:grid;align-content:start;gap:10px;padding:17px;border:1px solid var(--l-border);border-radius:6px;background:rgba(255,255,255,.65)}.l-alignment-grid article b{font-size:18px;line-height:1.25}.l-alignment-grid article span{color:var(--l-body);font-size:14px}.l-alignment-grid small{color:var(--l-cyan)}.l-alignment-arrow{display:grid!important;place-items:center;border:0!important;background:transparent!important;color:var(--l-cyan);font-size:25px}.l-alignment-warning{border-color:#d5ad72!important;background:#fff8ea!important}.l-alignment-warning small{color:var(--l-amber)!important}
+.l-readiness-plan{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:25px 23px 29px}.l-readiness-plan article{display:grid;align-content:start;gap:9px;min-height:145px;padding:16px 15px;border:1px solid var(--l-border);border-radius:6px;background:#fff}.l-readiness-plan article.is-next{border-color:#53b7be;background:#effafa;box-shadow:inset 0 3px #0a8e9b}.l-readiness-plan b{font-size:17px;line-height:1.25}.l-readiness-plan span{color:var(--l-body);font-size:13px;line-height:1.35}
 
 /* 12 / 13 manager and coaching workbenches */
 .l-board--reps,.l-board--coaching{background:var(--l-panel)}.l-rep-list{position:relative;z-index:1;padding:5px 18px}.l-rep-row{display:grid;grid-template-columns:32px minmax(125px,1.1fr) minmax(84px,.7fr) minmax(150px,1.4fr);align-items:center;gap:10px;min-height:52px;border-bottom:1px solid var(--l-border);font-size:13px;animation:l-row-in .45s ease both;animation-delay:calc(var(--row) * 45ms)}.l-rep-row:last-child{border-bottom:0}.l-avatar{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#dcecf0;color:var(--l-cyan);font:750 10px/1 Mono,ui-monospace,monospace}.l-rep-name{display:grid;gap:2px;min-width:0}.l-rep-name b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px}.l-rep-name small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--l-muted);font-size:11px;letter-spacing:0;text-transform:none;font-family:Inter,system-ui,sans-serif}.l-rep-state{justify-self:start;padding:4px 7px;border:1px solid var(--l-border);border-radius:999px;color:var(--l-cyan);font:750 9px/1.2 Mono,ui-monospace,monospace;letter-spacing:.05em;white-space:nowrap}.l-state--watch,.l-state--new-signal{border-color:#d7b786;color:var(--l-amber);background:#fff8ea}.l-state--diverged{border-color:#deaaa7;color:#a44540;background:#fff2f0}.l-state--ready-to-coach{border-color:#9ab5df;color:#335c99;background:#f2f6ff}.l-rep-note{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--l-body);font-size:12px}.l-coaching-summary{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:21px 18px 4px}.l-coaching-summary>div{display:grid;gap:8px;padding:13px 14px;border:1px solid var(--l-border);border-radius:6px;background:#fff}.l-coaching-summary b{font-size:15px;line-height:1.25}.l-coaching-summary small{font-size:10px}.l-board--coaching .l-rep-list{padding-top:4px}.l-board--coaching .l-rep-row{min-height:45px}.l-board--coaching .l-rep-row:nth-child(n+5){display:none}
@@ -149,10 +157,45 @@
 .l-enhanced .readiness-note[data-reveal],
 .l-enhanced .alignment-bottom[data-reveal],
 .l-enhanced .coaching-bottom[data-reveal],
-.l-enhanced .development-bottom[data-reveal]{opacity:1;transform:none}
+.l-enhanced .development-bottom[data-reveal],
+.l-enhanced .platform-loop[data-reveal],
+.l-enhanced .patterns[data-reveal],
+.l-enhanced .development-benefits[data-reveal]{opacity:1;transform:none}
 .l-enhanced .hero-photo[data-reveal],.l-enhanced .split-photo[data-reveal],
 .l-enhanced .wide-photo[data-reveal],.l-enhanced .close-photo[data-reveal]{opacity:1;transform:none}
+
+/* Structural content must never be absent on a deep link or anchor jump. The
+   product surfaces keep their own wave/row/meter motion; only the old slide-in
+   wrapper is made deterministic so the page cannot show an empty stage. */
+.l-enhanced [data-reveal]{opacity:1;transform:none}
+.l-enhanced .readiness-evidence>div{opacity:1!important;transform:none!important;animation:none!important}
 .l-board--coaching .l-rep-row:nth-child(n+5){display:grid}
+
+@media (max-width:820px){.header-actions>.button{min-height:44px;padding-inline:14px;font-size:12px}}
+@media (max-width:390px){.header-actions>.button{min-height:44px;padding-inline:12px;font-size:11.5px}}
+
+@media (max-width:480px){
+  /* The blind-spot comparison is a reading surface, not a two-column
+     spreadsheet. Stack it before the labels become a narrow three-line masthead. */
+  #problem.l-enhanced .blind-card{grid-template-columns:1fr}
+  #problem.l-enhanced .blind-card>div+div{border-top:1px solid var(--l-border);border-left:0}
+}
+
+@media (min-width:1200px){
+  /* The proof band belongs to the chapter above; keep the handoff close enough
+     to read as one product story instead of a detached slide. */
+  .l-enhanced .l-feature-band{margin-top:64px}
+  .l-enhanced.split-page .l-feature-band{margin-top:52px}
+  .l-enhanced.p8 .l-feature-band{margin-top:68px}
+}
+
+@media (min-width:821px) and (max-width:1100px){
+  .leadership-page.l-enhanced{padding-right:var(--gutter)!important}
+  .leadership-page.l-enhanced .split-copy{width:100%;max-width:none}
+  .leadership-page.l-enhanced .split-photo{width:min(62%,560px);max-width:none;margin-left:auto;margin-right:auto}
+}
+
+@media (max-width:620px){.l-board-head{font-size:11px}.l-board-head i{font-size:10px}.l-board small{font-size:10px}.l-rep-state{font-size:10px}.l-rep-note{font-size:12.5px}}
 .belief-copy h2:last-child{margin-top:48px}.belief-copy .cyan-rule{margin-top:90px}
 
 /* HumanCue's explanatory rail is part of the dark product surface. Keeping
@@ -160,6 +203,40 @@
    pass (the direct description nearly disappeared). */
 .p8 .l-feature-band{padding:28px;border:1px solid #456a7e;border-radius:10px;background:linear-gradient(145deg,#0c2b43,#071a2a)}
 .p8 .l-feature-band .l-feature-copy h3{color:#fff!important}.p8 .l-feature-band .l-feature-copy>p{color:#c4d7de!important}
+
+/* The live surface must not leave a blank mobile canvas while its observer
+   waits for a second intersection. Keep the product frame present from the
+   first paint; the wave, rows and hover states still carry the motion. */
+.p8 .laptop[data-reveal]{opacity:1;transform:none}
+
+/* 12 / revenue leadership: at tablet width the portrait is a second row,
+   never an absolutely-positioned layer over the decision copy. */
+@media (min-width:821px) and (max-width:1100px){
+  .leadership-page.l-enhanced{display:flex;flex-direction:column;padding-right:var(--gutter)}
+  .leadership-page.l-enhanced .split-copy{width:100%;max-width:none}
+  .leadership-page.l-enhanced .split-photo{position:relative;top:auto;right:auto;width:min(46%,420px);max-width:none;height:auto;aspect-ratio:749 / 805;margin:48px 0 0 auto}
+  .leadership-page.l-enhanced .l-feature-band{grid-template-columns:1fr}
+}
+
+/* Product labels remain metadata, but metadata is still read by a manager on
+   a phone. Keep the functional type above the 10px “microcopy” threshold. */
+.l-board-head{font-size:12px}.l-board-head i{font-size:11px}.l-board small{font-size:11px}.l-chip{font-size:10px}.l-rep-state{font-size:10px}.l-rep-note{font-size:12.5px}
+
+@media (max-width:600px){
+  /* Match the real Copilot reading density: the reason is a compact context
+     line, not a fourth full-height answer card. */
+  .p8 .screen{height:640px}
+  .p8 .hc-section{padding:9px 0}
+  .p8 .hc-section label{margin-bottom:4px;font-size:9px}
+  .p8 .hc-section:nth-child(5) p{font-size:20px;line-height:1.14}
+  .p8 .hc-section:nth-child(6) p{font-size:13px;line-height:1.28}
+  .p8 .hc-section:nth-child(7){display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px;align-items:baseline;padding:8px 0}
+  .p8 .hc-section:nth-child(7) label{margin:0;white-space:nowrap}
+  .p8 .hc-section:nth-child(7) p{font-size:12px;line-height:1.28}
+  .p8 .hc-actions{padding-top:9px}
+}
+
+@media (max-width:360px){.p8 .screen{height:680px}}
 
 /* Section rhythm: content now occupies the calibrated whitespace instead of
    leaving a wide unused field underneath each headline. */
@@ -250,11 +327,13 @@
   .l-compare-grid{grid-template-columns:1fr;gap:7px;padding:15px}.l-compare-divider{min-height:22px;transform:rotate(90deg)}
   .l-trace{grid-template-columns:1fr 1fr;gap:8px;margin:18px 14px 20px;padding-top:0}.l-trace span{min-height:76px}.l-trace span:nth-child(5){grid-column:1 / -1}
   .l-product-rail{grid-template-columns:1fr 1fr;padding:16px 14px 20px}.l-product-rail span{min-height:92px}.l-product-rail span:after{display:none!important}.l-product-rail span:nth-child(4):before{display:none}
+  .l-handoff-grid{grid-template-columns:1fr;gap:8px;padding:16px 14px 20px}.l-handoff-grid>em{min-height:17px;transform:rotate(90deg)}.l-handoff-grid article{min-height:0;padding:14px}.l-handoff-grid article b{font-size:16px}
   .l-brief-grid,.l-blueprint-grid{grid-template-columns:1fr;padding:14px;gap:8px}.l-brief-grid article,.l-blueprint-grid>div{min-height:0;padding:14px}.l-blueprint-grid{grid-template-columns:1fr 1fr}.l-blueprint-grid>div{min-height:96px}
   .l-board--moment,.l-board--belief{align-items:flex-start;padding:18px 16px;gap:14px}.l-board--moment b,.l-board--belief b{font-size:19px}.l-board--moment span:not(.l-live-dot),.l-board--belief span:not(.l-belief-mark){font-size:13px}
   .l-mini-wave{gap:3px;height:37px}.l-mini-wave i{width:3px}
   .l-cue-context{padding:18px 15px 14px}.l-cue-context b{font-size:17px}.l-cue-actions{grid-template-columns:1fr;margin:0 15px}.l-cue-actions article{min-height:0;padding:14px 0;border-right:0;border-bottom:1px solid rgba(185,221,231,.18)}.l-cue-actions article:last-child{border-bottom:0}.l-cue-actions b{font-size:15px}
   .l-readiness-row{grid-template-columns:1fr;gap:7px;padding:16px 14px}.l-readiness-row em{justify-self:start;transform:rotate(90deg);margin:1px 0}.l-readiness-row>b{font-size:15px}
+  .l-readiness-plan{grid-template-columns:1fr;padding:16px 14px 20px;gap:8px}.l-readiness-plan article{min-height:0;padding:14px}.l-readiness-plan b{font-size:16px}
   .l-alignment-grid{grid-template-columns:1fr;gap:8px;padding:14px}.l-alignment-arrow{min-height:20px;transform:rotate(90deg)}
   .l-rep-list{padding:4px 14px}.l-rep-row{grid-template-columns:30px minmax(0,1fr) auto;grid-template-areas:"avatar name state" "avatar note note";gap:3px 8px;padding:9px 0;min-height:0}.l-avatar{grid-area:avatar}.l-rep-name{grid-area:name}.l-rep-state{grid-area:state}.l-rep-note{grid-area:note;padding-bottom:2px;white-space:normal;font-size:12px}.l-coaching-summary{grid-template-columns:1fr;margin:14px 14px 2px}.l-board--coaching .l-rep-row:nth-child(n+5){display:grid}
   .l-development-track{grid-template-columns:1fr;padding:15px 14px 19px;gap:8px}.l-development-track article{min-height:0}.l-prompt-meter{height:35px}
@@ -272,7 +351,7 @@
 
 @media (max-width:380px){
   .l-feature-band{margin-top:45px}.l-feature-copy h3{font-size:29px}.l-feature-copy>p{font-size:15px}
-  .l-board-head{gap:9px}.l-board-head i{max-width:45%;overflow:hidden;text-overflow:ellipsis}.l-board-foot{gap:8px}.l-board-foot span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .l-board-head{gap:9px}.l-board-head i{max-width:48%;overflow:visible;text-overflow:clip;white-space:normal;text-align:right}.l-board-foot{gap:8px;align-items:flex-start}.l-board-foot span:first-child{min-width:0;overflow:visible;text-overflow:clip;white-space:normal}
   .l-blueprint-grid{grid-template-columns:1fr}.l-blueprint-grid>div{min-height:0}
 }
 
