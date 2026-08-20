@@ -37,6 +37,18 @@
     section.append(details);
   });
 
+  /* The Hero proof belongs to the photograph. Keeping it as a sibling makes
+     the first fold read like two unrelated columns and lets the board fall
+     below a tall portrait at wide viewports. Nesting the existing HTML board
+     in the figure gives it a real anchor without changing any message. */
+  const heroPhoto = document.querySelector('#top .hero-photo');
+  const heroBand = document.querySelector('#top > .l-feature-band--hero');
+  if (heroPhoto && heroBand && !heroBand.dataset.heroAnchored) {
+    heroBand.dataset.heroAnchored = 'true';
+    heroBand.classList.add('polish-hero-band');
+    heroPhoto.append(heroBand);
+  }
+
   const readinessFigure = document.querySelector('#readiness .readiness-top figure');
   if (readinessFigure) {
     readinessFigure.classList.add('polish-readiness-figure');
