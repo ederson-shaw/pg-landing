@@ -1,0 +1,81 @@
+/* Mid-page reconstruction: sections 07–11.
+   One product surface per chapter. This layer deliberately removes the
+   appended marketing boards that made the narrative read like a slide deck. */
+:root{
+  --mid-ink:#071827;
+  --mid-navy:#081321;
+  --mid-slate:#526979;
+  --mid-line:#a9bdc8;
+  --mid-cyan:#00b9d0;
+  --mid-cyan-deep:#006d7e;
+  --mid-quiet:#eaf1f4;
+  --mid-amber:#ffc451;
+}
+
+/* 07 / Transition: the photo remains the scene. The short rail is an actual
+   live state, never a second headline or opaque hero card. */
+#cue-transition .l-feature-band{display:none!important}
+.mid-transition-proof{
+  position:absolute;z-index:4;left:75px;bottom:58px;display:flex;align-items:center;gap:15px;
+  width:min(510px,calc(100% - 150px));padding:14px 17px;border:1px solid rgba(139,205,216,.68);
+  background:rgba(5,17,30,.88);color:#f5fbfd;
+}
+.mid-transition-proof__live{display:grid;place-items:center;width:12px;height:12px;border:2px solid var(--mid-cyan);border-radius:50%;box-shadow:0 0 0 4px rgba(0,185,208,.11)}
+.mid-transition-proof__copy{display:grid;gap:4px;min-width:0}.mid-transition-proof small{color:var(--mid-cyan);font:700 12px/1.2 Mono,ui-monospace,monospace;letter-spacing:.1em}.mid-transition-proof b{font-size:17px;line-height:1.25;letter-spacing:-.015em}.mid-transition-proof span{color:#c5d7df;font-size:14px;line-height:1.35}
+
+/* 08 / HumanCue: this is the one canonical live product surface. */
+#humancue .l-feature-band{display:none!important}
+.p8{background:#f8fafb;color:var(--mid-ink)}
+.p8 .top{align-items:center}
+.p8 .laptop{padding:12px 12px 17px;border:1px solid #b7c9d2;border-radius:15px 15px 8px 8px;background:#dbe5e9;box-shadow:none}
+.p8 .screen{height:650px;border-radius:9px;background:#c7d3d8}
+.p8 .meeting{filter:grayscale(10%) contrast(.97) brightness(.81);background-position:center 43%}
+.p8 .meeting:after{bottom:18px;left:18px;border:1px solid rgba(255,255,255,.5);background:rgba(4,16,27,.72);font-size:12px}
+.p8 .hc{right:18px;bottom:18px;width:min(650px,calc(100% - 36px));border:1px solid #365265;border-radius:10px;background:#091321;box-shadow:none;font-size:14px}
+.p8 .hc-top{grid-template-columns:minmax(130px,1fr) auto auto auto auto;grid-template-areas:"name pill listen timer end";gap:12px;padding:13px 16px;border-color:#243847;cursor:grab}
+.p8 .hc-name{font-size:13px;letter-spacing:0}.p8 .hc-name:before{width:10px;height:10px;margin-right:9px;box-shadow:none}
+.p8 .pill{padding:4px 8px;border-color:#0b8296;border-radius:999px;color:#28d5e6;font-size:10px}.p8 .listen{font-size:10px;letter-spacing:.08em}.p8 .timer{font-size:12px}.p8 .end{min-width:76px;min-height:38px;border-color:#526271;border-radius:7px;background:#192230;color:#e2e9ef;font-size:12px}
+.p8 .hc-main{display:grid!important;grid-template-columns:max-content minmax(0,1fr) max-content;column-gap:12px;align-items:center;padding:15px 18px 16px}
+.p8 .hc-brand{grid-column:1;grid-row:1;padding:0;margin:0;color:#24d4e4;font-size:14px}.p8 .buyer-state{grid-column:2;grid-row:1;margin:0;color:var(--mid-amber);font-size:14px;line-height:1.3}.p8 .hc-stats{grid-column:3;grid-row:1;gap:10px;margin:0;color:#98adba;font-size:11px;white-space:nowrap}.p8 .hc-stats b{color:#23d1e4}
+.p8 .hc-section,.p8 .hc-actions,.p8 .cue-status{grid-column:1 / -1}
+.p8 .hc-section{padding:14px 0;border-color:#203443}.p8 .hc-section label{margin-bottom:6px;color:#28d5e6;font-size:11px;letter-spacing:.12em}.p8 .hc-section b{font-size:23px;line-height:1.17}.p8 .hc-section p{font-size:16px;line-height:1.42;color:#d9e3ea}
+.p8 .hc-section:nth-child(5) p{font-size:30px;line-height:1.1;letter-spacing:-.04em}.p8 .hc-section:nth-child(6){display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:14px;align-items:baseline;padding:10px 0;border-color:#1a2c39}.p8 .hc-section:nth-child(6) label{margin:0;color:#efa598}.p8 .hc-section:nth-child(6) p{font-size:13px;line-height:1.35;color:#b8c8d1}.p8 .hc-section:nth-child(7){display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:14px;align-items:baseline;padding:10px 0;border-color:#1a2c39}.p8 .hc-section:nth-child(7) label{margin:0;color:#99b5c2}.p8 .hc-section:nth-child(7) p{font-size:13px;line-height:1.35;color:#b8c8d1}
+.p8 .hc-actions{padding-top:13px}.p8 .hc-actions button{min-height:40px;padding:8px 14px;border-radius:7px;font-size:13px}.p8 .hc-actions .next{border-color:#08aac1;background:#063341;color:#39e1ed}.p8 .cue-status{padding:5px 0;color:#d4e2e9;font-size:15px}.p8 .cue-status button{min-height:40px;padding:8px 0;color:#35e0eb;font-size:14px}
+.p8 .hc [hidden]{display:none!important}.p8 .hc.is-quiet{min-height:106px}.p8 .hc.is-quiet .hc-top{border-bottom:0}.p8 .hc.is-quiet .hc-main{display:block!important;padding:17px 18px}.p8 .hc.is-quiet .cue-status{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.p8 .logic{margin-top:60px;gap:16px}.p8 .logic .step{border-top-color:#b9cbd3}.p8 .logic strong{font-size:14px}.p8 .logic p{font-size:14px}.p8 .outputs{margin-top:42px}.p8 .output p{font-size:15px}.p8 .quiet{font-size:34px}.p8 .close{font-size:29px}
+
+/* 09 / Belief needs only its thesis. No decorative PG pseudo-product card. */
+#belief .l-feature-band{display:none!important}
+.belief-page{min-height:760px}.belief-copy{max-width:1040px}.belief-copy h2{max-width:960px}
+
+/* 10 / Readiness: the source evidence table is the product. It gets a single
+   screen treatment with decisive labels instead of a duplicate handoff board. */
+#readiness .l-feature-band{display:none!important}
+.readiness-page .readiness-top figure{border:1px solid var(--mid-line);border-radius:8px;box-shadow:none}.readiness-page .readiness-top img{object-position:center 40%}
+.readiness-page .readiness-evidence{margin-top:58px;padding:0;border:1.5px solid #8ca5b4;border-radius:8px;background:#fff;box-shadow:none;overflow:hidden}.readiness-page .readiness-evidence header{padding:17px 20px;background:var(--mid-ink);color:#e8f3f6;font-size:12px;letter-spacing:.05em}.readiness-page .readiness-evidence>div{grid-template-columns:minmax(0,.9fr) 42px minmax(0,1.3fr);min-height:92px;padding:15px 20px;border-color:#cad8de}.readiness-page .readiness-evidence>div p{font-size:16px;line-height:1.38}.readiness-page .readiness-evidence>div p:first-child{color:#526776}.readiness-page .readiness-evidence>div p:last-child{color:var(--mid-ink);font-weight:700}.readiness-page .readiness-evidence>div b{color:var(--mid-cyan-deep);font-weight:700}.readiness-page .readiness-tabs span{border-color:#b4c8d1;background:#fff;font-size:14px}.readiness-page .readiness-bottom{font-size:30px;letter-spacing:-.035em}
+
+/* 11 / Alignment: replace two competing lists with one manager decision view. */
+#alignment .l-feature-band{display:none!important}
+#alignment .alignment-panels{display:none!important}
+.mid-manager-screen{margin-top:72px;border:1.5px solid #809cac;border-radius:9px;background:#fff;overflow:hidden;color:var(--mid-ink)}
+.mid-manager-head{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:17px 21px;border-bottom:1px solid #b8c9d1;background:var(--mid-ink);color:#fff}.mid-manager-head strong{font-size:15px;letter-spacing:-.01em}.mid-manager-head span{color:#8fe4ec;font:700 11px/1.2 Mono,ui-monospace,monospace;letter-spacing:.09em}
+.mid-manager-summary{display:grid;grid-template-columns:1.05fr .95fr;gap:0;border-bottom:1px solid #c6d4da}.mid-manager-status,.mid-manager-action{padding:22px}.mid-manager-status{display:grid;grid-template-columns:1fr 1fr;gap:22px;border-right:1px solid #c6d4da}.mid-manager-side+ .mid-manager-side{border-left:1px solid #c6d4da;padding-left:22px}.mid-manager-screen small{display:block;color:#58707f;font:700 12px/1.2 Mono,ui-monospace,monospace;letter-spacing:.08em}.mid-manager-status b{display:block;margin-top:9px;font-size:22px;line-height:1.12}.mid-manager-status b span{color:#9b600e}.mid-manager-status p,.mid-manager-action p{margin-top:8px;color:#506775;font-size:15px;line-height:1.4}.mid-manager-action b{display:block;margin-top:9px;font-size:20px;line-height:1.22}
+.mid-manager-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:0}.mid-stakeholders,.mid-evidence{padding:22px}.mid-stakeholders{border-right:1px solid #c6d4da}.mid-stakeholder{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid #d9e3e7}.mid-stakeholder:last-child,.mid-evidence li:last-child{border-bottom:0}.mid-stakeholder b{font-size:16px}.mid-stakeholder span{color:#5f7684;font-size:14px}.mid-tag{padding:4px 7px;border:1px solid #9bb2bd;border-radius:999px;color:#0c6676;font:700 10px/1 Mono,ui-monospace,monospace;white-space:nowrap}.mid-tag--watch{border-color:#e4bf83;color:#966018;background:#fff9ec}.mid-evidence ul{margin:12px 0 0;padding:0;list-style:none}.mid-evidence li{padding:11px 0;border-bottom:1px solid #d9e3e7;color:#405969;font-size:15px;line-height:1.35}.mid-evidence li:before{content:"↗";display:inline-block;margin-right:8px;color:var(--mid-cyan-deep);font-weight:800}
+
+@media (prefers-reduced-motion:no-preference){.mid-transition-proof__live{animation:mid-live 1.8s ease-in-out infinite}}@keyframes mid-live{50%{box-shadow:0 0 0 7px rgba(0,185,208,.03)}}
+@media (prefers-reduced-motion:reduce){.mid-transition-proof__live{animation:none!important}}
+
+@media (max-width:1199px){
+  .p8 .hc{width:min(570px,calc(100% - 30px))}.p8 .screen{height:650px}.p8 .hc-top{grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"name pill end" "listen timer timer";gap:6px 9px}.p8 .hc-main{display:block!important}.p8 .hc-brand{padding-top:0;margin-bottom:10px}.p8 .buyer-state{margin-bottom:10px}.p8 .hc-stats{margin-bottom:2px}
+}
+@media (max-width:820px){
+  .transition-page{min-height:760px}.mid-transition-proof{left:var(--gutter);bottom:30px;width:calc(100% - (var(--gutter) * 2));padding:13px 14px}.mid-transition-proof b{font-size:16px}.mid-transition-proof span{font-size:13px}
+  .p8 .laptop{margin-top:38px}.p8 .screen{height:640px}.p8 .hc{right:12px;bottom:12px;width:calc(100% - 24px)}.p8 .hc-main{padding:13px 15px 14px}.p8 .hc-section{padding:11px 0}.p8 .hc-section b{font-size:20px}.p8 .hc-section:nth-child(5) p{font-size:26px}.p8 .logic{grid-template-columns:1fr 1fr;gap:18px;margin-top:42px}.p8 .logic p{font-size:13px}.p8 .outputs{grid-template-columns:1fr 1fr}
+  .belief-page{min-height:650px}.readiness-page .readiness-evidence>div{grid-template-columns:minmax(0,1fr) 28px minmax(0,1.15fr);padding:15px}.mid-manager-screen{margin-top:54px}.mid-manager-head{padding:15px 16px}.mid-manager-summary,.mid-manager-grid{grid-template-columns:1fr}.mid-manager-status,.mid-stakeholders{border-right:0;border-bottom:1px solid #c6d4da}.mid-manager-side+ .mid-manager-side{border-left:0;border-top:1px solid #c6d4da;padding:18px 0 0;margin-top:18px}.mid-manager-status,.mid-manager-action,.mid-stakeholders,.mid-evidence{padding:18px}
+}
+@media (max-width:600px){
+  .transition-page .transition-copy{top:145px}.mid-transition-proof{align-items:flex-start}.mid-transition-proof__live{margin-top:5px;flex:0 0 auto}.p8 .screen{height:610px}.p8 .hc-top{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name end" "pill listen" "timer timer";gap:6px 8px;padding:10px 12px}.p8 .hc-name{font-size:12px}.p8 .end{min-width:64px;min-height:36px}.p8 .hc-main{padding:11px 13px 12px}.p8 .hc-brand{font-size:13px}.p8 .buyer-state{font-size:13px}.p8 .hc-stats{gap:8px;font-size:10px}.p8 .hc-section{padding:9px 0}.p8 .hc-section label{font-size:10px}.p8 .hc-section b{font-size:18px}.p8 .hc-section:nth-child(5) p{font-size:22px}.p8 .hc-section:nth-child(6),.p8 .hc-section:nth-child(7){display:block;padding:8px 0}.p8 .hc-section:nth-child(6) label,.p8 .hc-section:nth-child(7) label{margin-bottom:4px}.p8 .hc-section:nth-child(6) p,.p8 .hc-section:nth-child(7) p{font-size:12px}.p8 .hc-actions{padding-top:9px}.p8 .hc-actions button{min-height:44px;font-size:13px}.p8 .logic{grid-template-columns:1fr;margin-top:38px}.p8 .outputs{grid-template-columns:1fr}.p8 .quiet{font-size:29px}
+  .readiness-page .readiness-tabs{gap:7px}.readiness-page .readiness-tabs span{min-height:52px;font-size:13px}.readiness-page .readiness-evidence{margin-top:44px}.readiness-page .readiness-evidence header{padding:15px;font-size:11px}.readiness-page .readiness-evidence>div{grid-template-columns:1fr;gap:7px;padding:16px 15px}.readiness-page .readiness-evidence>div b{justify-self:start;transform:rotate(90deg);line-height:1}.readiness-page .readiness-evidence>div p{font-size:16px}.readiness-page .readiness-bottom{font-size:25px;line-height:1.16}
+  .mid-manager-head{align-items:flex-start;flex-direction:column;gap:7px}.mid-manager-status b{font-size:23px}.mid-manager-action b{font-size:19px}.mid-stakeholder b{font-size:15px}.mid-stakeholder span,.mid-evidence li,.mid-manager-status p,.mid-manager-action p{font-size:14px}
+}
+@media (max-width:360px){.p8 .screen{height:645px}.p8 .hc-section:nth-child(5) p{font-size:20px}.p8 .hc-actions{gap:7px}.p8 .hc-actions button{padding-inline:10px}.mid-transition-proof span{font-size:12px}}
