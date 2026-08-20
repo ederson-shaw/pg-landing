@@ -131,3 +131,255 @@ section[id]{scroll-margin-top:var(--header)}
      controls instead of clipping them at the top edge. */
   .p8 .screen{height:485px}
 }
+
+/* K typography and rhythm pass ------------------------------------------------
+   The inherited artboard had generous calibration margins and a deliberately
+   tiny HumanCue card. The copy and section order stay intact; these final
+   tokens make the same content scan like a real product at a readable size. */
+@media (min-width:821px){
+  .hero-copy>p{margin-top:38px}
+  .hero-ctas{margin-top:48px}
+  .hero-foot{margin-top:48px!important}
+  .hero-copy h1{max-width:820px}
+}
+
+@media (min-width:1600px){
+  /* Preserve the deliberate editorial three-line cadence from the supplied
+     hero reference; the HTML keeps a real space after the break. */
+  .hero-layout{grid-template-columns:minmax(0,1fr) minmax(640px,750px);gap:52px}
+  .hero-copy h1{width:820px;max-width:100%}
+}
+
+/* Information labels are secondary, not illegible. */
+.page:not(.p8) .eyebrow{font-size:12px;line-height:1.3;letter-spacing:.035em}
+.blind-card b,.platform-flow b,.state-cards b,.blueprint-table b,
+.alignment-panels article>b,.leadership-states b,.coaching-grid b,
+.patterns>b{font-size:12px;letter-spacing:.055em}
+.moments-grid b{font-size:15px;line-height:1.35}
+.source-chips span{font-size:14px;padding:10px 15px}
+.state-cards p,.blueprint-table p,.coaching-grid p,.leadership-states p{font-size:14px;line-height:1.5}
+.readiness-evidence header{font-size:11px;letter-spacing:.035em}
+.readiness-evidence p{font-size:15px;line-height:1.45}
+.alignment-panels article>b{font-size:12px}
+.coaching-grid p{margin-top:13px}
+.patterns{font-size:14px;line-height:1.4}
+.development-columns b{font-size:12px;letter-spacing:.045em}
+.loop-orbit li{font-size:12px;line-height:1.35}
+.loop-orbit li b{font-size:12px}
+.hero-foot{color:#5a7086!important}
+.risk-list li:before{font-size:14px;top:2px}
+.text-link span,.header-live span{font-size:20px}
+
+@media (min-width:1200px){
+  .platform-flow{margin-top:96px}
+  .platform-loop{margin-top:104px}
+  .precall-page .state-cards{margin-top:48px}
+  .blueprint-table{margin-top:88px}
+  .alignment-panels{margin-top:88px}
+  .alignment-panels article{min-height:370px}
+}
+
+@media (max-width:600px){
+  .moments-page>.eyebrow{margin-bottom:28px}
+  .moments-page>h2{font-size:clamp(32px,8.2vw,48px);line-height:1.12;letter-spacing:-.02em}
+}
+
+@media (max-width:820px){
+  .menu-toggle span{width:22px;height:2px;margin:4px 0}
+  .precall-page .split-photo{aspect-ratio:4 / 3}
+}
+
+.state-cards article{position:relative;min-height:154px;padding:27px 27px 24px;border-top:3px solid var(--cyan)}
+.state-cards article:nth-child(2){border-top-color:var(--amber)}
+.state-cards article:nth-child(3){border-top-color:#7a8d9e}
+.state-cards article:before{content:"";display:block;width:9px;height:9px;margin-bottom:17px;border-radius:50%;background:currentColor;color:var(--cyan)}
+.state-cards article:nth-child(2):before{color:var(--amber)}
+.state-cards article:nth-child(3):before{color:#7a8d9e}
+.state-cards b{display:block}
+.state-cards p{margin-top:12px;font-size:15px;line-height:1.45}
+.blueprint-table article:nth-child(odd){background:#fbfdfe}
+
+/* A single off-node cue makes the loop read as a process, not a static ring. */
+.loop-orbit:after{content:"↗";position:absolute;left:calc(50% + 150px);top:calc(50% - 214px);z-index:2;color:var(--cyan-bright);font:700 22px/1 Inter,sans-serif;text-shadow:0 0 14px rgba(16,217,221,.35);transform:rotate(18deg);pointer-events:none}
+@media (max-width:820px){
+  .loop-orbit:after{left:calc(50% + 103px);top:calc(50% - 156px);font-size:18px}
+}
+
+/* Motion is attached to evidence moments, not sprayed across every element. */
+@media (prefers-reduced-motion:no-preference){
+  @keyframes k-flow-node{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+  @keyframes k-evidence-in{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+  @keyframes k-bar-fill{from{transform:scaleY(.35);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
+  @keyframes k-live-pulse{0%,100%{box-shadow:0 0 0 2px rgba(255,95,92,.11)}50%{box-shadow:0 0 0 5px rgba(255,95,92,.02)}}
+  @keyframes k-loop-arrow{0%,100%{opacity:.62;transform:rotate(18deg) translate(0,0)}50%{opacity:1;transform:rotate(18deg) translate(3px,-3px)}}
+  .platform-flow.is-visible li{animation:k-flow-node .58s cubic-bezier(.2,.7,.25,1) both}
+  .platform-flow.is-visible li:nth-child(2){animation-delay:.08s}
+  .platform-flow.is-visible li:nth-child(3){animation-delay:.16s}
+  .platform-flow.is-visible li:nth-child(4){animation-delay:.24s}
+  .platform-flow.is-visible li:nth-child(5){animation-delay:.32s}
+  .platform-flow.is-visible li:nth-child(6){animation-delay:.4s}
+  .readiness-evidence.is-visible>div{animation:k-evidence-in .5s ease both}
+  .readiness-evidence.is-visible>div:nth-child(2){animation-delay:.1s}
+  .readiness-evidence.is-visible>div:nth-child(3){animation-delay:.2s}
+  .readiness-evidence.is-visible>div:nth-child(4){animation-delay:.3s}
+  .development-card.is-visible .prompt-bars i{animation:k-bar-fill .42s ease both}
+  .development-card.is-visible .prompt-bars i:nth-child(2){animation-delay:.06s}
+  .development-card.is-visible .prompt-bars i:nth-child(3){animation-delay:.12s}
+  .development-card.is-visible .prompt-bars i:nth-child(4){animation-delay:.18s}
+  .development-card.is-visible .prompt-bars i:nth-child(5){animation-delay:.24s}
+  .development-card.is-visible .prompt-bars i:nth-child(6){animation-delay:.3s}
+  .p8 .hc-name:before{animation:k-live-pulse 1.8s ease-in-out infinite}
+  .loop-orbit:after{animation:k-loop-arrow 2.8s ease-in-out infinite}
+}
+
+/* HumanCue — a product-shaped mockup, not a thumbnail. The layout remains
+   inside the existing laptop scene, but its hierarchy follows the real Copilot
+   card: header, live context, next move, spoken line, signal, action footer. */
+.p8,.p8 *{font-family:Inter,system-ui,sans-serif}
+.p8{padding-top:92px;padding-bottom:100px}
+.p8 .top{grid-template-columns:minmax(360px,.46fr) minmax(0,.54fr);gap:64px}
+.p8 .title{font-size:clamp(52px,3.2vw,60px);line-height:1.02;letter-spacing:-.048em}
+.p8 .body{font-size:19px;line-height:1.55;max-width:600px;margin-top:28px}
+.p8 .laptop{padding:12px 12px 18px;border-radius:18px 18px 10px 10px;background:#e8edf1;box-shadow:0 22px 58px rgba(7,26,49,.18)}
+.p8 .screen{height:640px;border-radius:10px;background:#dfe5ea}
+.p8 .meeting{background-image:url('assets/PitchGenius-Photo-Page-08-HumanCue-Collaboration.png');filter:grayscale(16%) contrast(.98) brightness(.9);background-position:center 46%}
+.p8 .meeting:after{bottom:18px;left:18px;padding:7px 10px;font-size:12px;letter-spacing:.02em}
+.p8 .hc{right:15px;bottom:15px;width:min(450px,calc(100% - 28px));border-radius:13px;background:#080d1c;border:1px solid rgba(148,184,211,.22);box-shadow:0 18px 44px rgba(0,0,0,.35);font-size:14px;line-height:1.35}
+.p8 .hc-top{display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"name pill end" "listen timer timer";gap:5px 9px;align-items:center;padding:12px 15px;border-bottom:1px solid rgba(255,255,255,.12);cursor:grab}
+.p8 .hc-name{grid-area:name;min-width:0;margin:0;overflow:hidden;text-overflow:ellipsis;font-size:13px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+.p8 .hc-name:before{content:"";display:inline-block;width:9px;height:9px;margin-right:9px;border-radius:50%;background:#ff5f5c;vertical-align:1px;box-shadow:0 0 0 3px rgba(255,95,92,.12)}
+.p8 .pill{grid-area:pill;padding:4px 8px;border:1px solid rgba(6,182,212,.62);border-radius:999px;color:#22d3ee;font-size:10px;font-weight:700;letter-spacing:.08em}
+.p8 .listen{grid-area:listen;color:#22d3ee;font-size:11px;letter-spacing:.06em}
+.p8 .timer{grid-area:timer;justify-self:end;color:#a6b4c6;font:11px/1.2 Mono,ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.p8 .end{grid-area:end;justify-self:end;min-width:62px;min-height:34px;padding:6px 10px;border:1px solid rgba(255,255,255,.2);border-radius:8px;background:#182130;color:#d9e3ef;font-size:12px}
+.p8 .hc-main{padding:0 18px 15px}
+.p8 .hc-brand{position:relative;padding-top:15px;margin-bottom:8px;color:#22d3ee;font-size:14px;font-weight:700;letter-spacing:-.01em}
+.p8 .hc-brand:before{content:"◉";display:inline-block;margin-right:7px;color:#22d3ee;font-size:14px}
+.p8 .buyer-state{margin-bottom:11px;color:#f5b94b;font-size:14px;font-weight:500;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.p8 .hc-stats{display:flex;align-items:center;gap:18px;margin-bottom:2px;color:#9daec0;font:11px/1.3 Mono,ui-monospace,monospace;text-transform:uppercase;letter-spacing:.035em}
+.p8 .hc-stats b{color:#22d3ee;font-weight:700}
+.p8 .hc-section{padding:13px 0;border-top:1px solid rgba(255,255,255,.1)}
+.p8 .hc-section label{display:block;margin-bottom:7px;color:#22d3ee;font:600 10px/1.2 Mono,ui-monospace,monospace;letter-spacing:.14em}
+.p8 .hc-section b{display:block;color:#f3f7fb;font-size:21px;line-height:1.18;letter-spacing:-.02em}
+.p8 .hc-section p{margin:0;color:#d1dae5;font-size:14px;line-height:1.42}
+.p8 .hc-section:nth-child(5) p{color:#f3f7fb;font-size:24px;line-height:1.16;font-weight:650;letter-spacing:-.035em}
+.p8 .hc-section:nth-child(6) p{color:#d1dae5;font-size:14px;line-height:1.4}
+.p8 .hc-section:nth-child(7){padding-top:10px;padding-bottom:9px;border-top-color:rgba(255,255,255,.075)}
+.p8 .hc-section:nth-child(7) label{color:#ef8c83;font-size:9px}
+.p8 .hc-section:nth-child(7) p{color:#aebdca;font-size:13px}
+.p8 .hc-actions{display:flex;justify-content:flex-end;align-items:center;gap:10px;padding-top:13px}
+.p8 .hc-actions button{min-height:36px;padding:7px 12px;border:1px solid rgba(255,255,255,.18);border-radius:7px;background:transparent;color:#cbd6e1;font-size:12px}
+.p8 .hc-actions .next{border-color:rgba(6,182,212,.75);color:#22d3ee;background:rgba(6,182,212,.06)}
+.p8 .cue-status{padding:10px 0 0;color:#b9c7d4;font-size:12px}
+.p8 .cue-status button{font-size:12px}
+.p8 .logic{gap:16px;margin-top:48px}
+.p8 .logic .n{font-size:12px;line-height:1.3;letter-spacing:.13em}
+.p8 .logic strong{font-size:14px;line-height:1.25;margin:8px 0}
+.p8 .logic p{font-size:13px;line-height:1.45}
+.p8 .quiet{font-size:36px;line-height:1.2;margin-top:42px}
+.p8 .outputs{gap:22px;margin-top:46px}
+.p8 .output h4{font-size:12px}
+.p8 .output p{font-size:14px;line-height:1.45}
+.p8 .close{font-size:30px;line-height:1.2;margin-top:48px}
+
+@media (min-width:821px){
+  /* The real desktop Copilot keeps its live controls on one calm header rail. */
+  .p8 .hc-top{grid-template-columns:minmax(0,1fr) auto auto auto auto;grid-template-areas:"name pill listen timer end";gap:8px;align-items:center;padding:12px 15px}
+  .p8 .listen{white-space:nowrap;justify-self:start}
+  .p8 .timer{justify-self:end}
+}
+
+@media (max-width:900px){
+  .p8{padding-top:100px;padding-bottom:80px}
+  .p8 .top{display:block}
+  .p8 .title{font-size:clamp(43px,10vw,58px)}
+  .p8 .body{font-size:17px;margin-top:25px}
+  .p8 .laptop{margin-top:42px;padding:10px 10px 15px}
+  .p8 .screen{height:700px}
+  .p8 .hc{right:12px;bottom:13px;width:calc(100% - 24px);transform:none}
+  .p8 .hc-top{padding:11px 13px}
+  .p8 .hc-main{padding:0 16px 14px}
+  .p8 .hc-section:nth-child(5) p{font-size:23px}
+  .p8 .logic{margin-top:38px}
+}
+@media (max-width:820px){
+  /* Let the headline find a natural mobile measure instead of orphaning
+     “buyer?” or “the” simply because the desktop artboard contains <br>s. */
+  .hero-copy h1 br{display:none}
+}
+@media (max-width:600px){
+  .p8 .screen{height:710px}
+  .p8 .hc-section b{font-size:19px}
+  .p8 .hc-section:nth-child(5) p{font-size:22px}
+  .p8 .hc-section p,.p8 .hc-section:nth-child(6) p{font-size:14px}
+  .p8 .logic p{font-size:13px}
+}
+@media (max-width:390px){
+  .p8 .wrap{width:calc(100% - 32px)}
+  .p8 .screen{height:710px}
+  .p8 .hc{right:10px;width:calc(100% - 20px)}
+  .p8 .hc-top{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name end" "pill listen" "timer timer";gap:6px 8px}
+  .p8 .pill{justify-self:start}
+  .p8 .listen{justify-self:end}
+  .p8 .timer{justify-self:end}
+  .p8 .hc-section:nth-child(5) p{font-size:21px}
+}
+
+/* Final micro-audit corrections: preserve the message while eliminating
+   clipped context, orphaned endings, and undersized control targets. */
+.keep-together{white-space:nowrap}
+.p8 .buyer-state{white-space:normal;overflow:visible;text-overflow:clip;min-width:0}
+.p8 .hc-section:nth-child(7) label{font-size:10px;letter-spacing:.12em}
+.development-cycle{font-size:14px;line-height:1.45;letter-spacing:.02em}
+.transition-copy{max-width:640px}
+
+@media (min-width:901px){
+  /* The live card's context is one product-style rail, matching the real
+     Copilot surface: identity, buyer state, readiness/stage. The content
+     blocks below remain full width and retain the supplied copy. */
+  /* The supplied Copilot reference is a wide 600px reading surface; keep
+     that proportion inside the meeting frame so the buyer state never
+     collapses into a narrow, multi-line badge. */
+  .p8 .hc{width:min(600px,calc(100% - 28px))}
+  .p8 .hc-main{display:grid;grid-template-columns:max-content minmax(110px,1fr) max-content;column-gap:12px;align-items:center}
+  .p8 .hc-brand{grid-column:1;grid-row:1;white-space:nowrap;padding-top:0;margin-bottom:0}
+  .p8 .buyer-state{grid-column:2;grid-row:1;margin:0;line-height:1.25}
+  .p8 .hc-stats{grid-column:3;grid-row:1;gap:10px;margin:0;white-space:nowrap}
+  .p8 .hc-section,.p8 .hc-actions,.p8 .cue-status{grid-column:1 / -1}
+}
+
+@media (max-width:820px){
+  .menu-toggle{min-width:44px;min-height:44px;display:grid;place-items:center}
+  .transition-copy{max-width:calc(100% - 40px)}
+  .development-cycle{font-size:13px;line-height:1.45}
+  .readiness-copy{width:100%;min-width:0}
+  .readiness-top h2{width:100%;min-width:0}
+}
+
+@media (max-width:600px){
+  /* Keep the complete thought on a compact, intentional mobile measure; the
+     previous 37px setting left “it.” stranded as a sixth line. */
+  .readiness-top h2{font-size:clamp(32px,8.5vw,50px);line-height:1.14;letter-spacing:-.05em}
+}
+
+@media (max-width:420px){
+  .keep-together{white-space:normal}
+}
+
+@media (max-width:360px){
+  /* At the narrowest supported canvas the readable cue wraps more lines; give
+     the live surface enough vertical room instead of clipping its footer. */
+  .p8 .screen{height:780px}
+}
+
+@media (min-width:901px) and (max-width:1199px){
+  /* Tablet cards are narrower than the desktop Copilot rail. Stack the
+     context row before the evidence blocks so no label or sentence is clipped
+     inside the dark surface. */
+  .p8 .screen{height:680px}
+  .p8 .hc-top{grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"name pill end" "listen timer timer";gap:5px 8px}
+  .p8 .hc-main{display:block}
+  .p8 .hc-brand{padding-top:15px;margin-bottom:8px}
+  .p8 .buyer-state{margin-bottom:11px}
+  .p8 .hc-stats{gap:18px;margin-bottom:2px}
+}
