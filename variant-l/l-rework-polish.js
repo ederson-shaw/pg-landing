@@ -49,6 +49,65 @@
     heroPhoto.append(heroBand);
   }
 
+  /* Rebuild the Hero proof as one compact, app-shaped surface. The original
+     enhancement was a marketing card with two equal boxes; this version keeps
+     the same words but gives them the hierarchy of the live product: chrome,
+     call context, a live trace, then the CRM → buyer evidence relationship. */
+  const heroBoard = document.querySelector('#top .l-board--hero');
+  if (heroBoard && !heroBoard.dataset.appSurface) {
+    heroBoard.dataset.appSurface = 'true';
+    heroBoard.setAttribute('aria-label', 'HumanCue live buyer-evidence preview');
+    heroBoard.innerHTML = `
+      <div class="hero-app-chrome">
+        <span class="hero-app-close" aria-hidden="true"><i></i></span>
+        <strong>HumanCue™</strong>
+        <span class="hero-app-live">LIVE</span>
+      </div>
+      <div class="hero-app-signal">
+        <article><small>CRM ACTIVITY</small><strong>Proposal sent</strong></article>
+        <span class="hero-app-plus" aria-hidden="true">→</span>
+        <article class="is-buyer"><small>BUYER EVIDENCE</small><strong>Implementation risk returned</strong></article>
+      </div>
+      <div class="hero-app-footer"><span>before / during / after the call</span><b aria-hidden="true"></b></div>`;
+  }
+
+  /* On a wide Hero the disclosure belongs to the thesis column, directly
+     after its supporting line. Leaving it after the full two-column grid
+     creates an avoidable band of empty space under the copy. Keep it in the
+     section flow at tablet/mobile widths so the image remains the next visual
+     beat, and move it back on resize without duplicating the control. */
+  const heroSection = document.querySelector('#top');
+  const heroCopy = heroSection?.querySelector('.hero-copy');
+  const heroLayout = heroSection?.querySelector('.hero-layout');
+  const heroLearn = heroSection?.querySelector(':scope > .polish-learn');
+  if (heroSection && heroCopy && heroLayout && heroLearn && heroBand) {
+    const syncHeroPlacement = () => {
+      const width = window.innerWidth;
+      const wide = width >= 1101;
+      const tablet = width >= 721 && width <= 1100;
+      if (tablet) {
+        if (heroBand.parentElement !== heroLayout) heroLayout.append(heroBand);
+        if (heroLearn.parentElement !== heroLayout) heroLayout.append(heroLearn);
+        heroBand.classList.add('hero-band-grid');
+        heroLearn.classList.add('hero-learn-grid');
+        delete heroLearn.dataset.inlineHero;
+        return;
+      }
+      if (heroBand.parentElement !== heroPhoto) heroPhoto.append(heroBand);
+      heroBand.classList.remove('hero-band-grid');
+      heroLearn.classList.remove('hero-learn-grid');
+      if (wide && heroLearn.parentElement !== heroCopy) {
+        heroCopy.append(heroLearn);
+        heroLearn.dataset.inlineHero = 'true';
+      } else if (!wide && heroLearn.parentElement !== heroSection) {
+        heroSection.append(heroLearn);
+        delete heroLearn.dataset.inlineHero;
+      }
+    };
+    syncHeroPlacement();
+    window.addEventListener('resize', syncHeroPlacement, { passive: true });
+  }
+
   const readinessFigure = document.querySelector('#readiness .readiness-top figure');
   if (readinessFigure) {
     readinessFigure.classList.add('polish-readiness-figure');

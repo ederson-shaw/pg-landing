@@ -1,6 +1,59 @@
 /* Final visual polish after the structural rework. These are deliberately
    small corrections, not another layer of decorative UI. */
 
+/* The product uses a sharper editorial face than the original Inter-only
+   pass. Keep Space Grotesk for the claim and Sora for supporting copy; reserve the
+   existing JetBrains face for actual interface metadata. Loading locally keeps
+   the first fold deterministic and avoids a system-font swap. */
+@font-face{font-family:Satoshi;src:url('assets/fonts/Satoshi-Variable.woff2') format('woff2');font-weight:300 900;font-style:normal;font-display:swap}
+@font-face{font-family:Sora;src:url('assets/fonts/Sora-latin.woff2') format('woff2');font-weight:300 800;font-style:normal;font-display:swap}
+@font-face{font-family:SpaceGrotesk;src:url('assets/fonts/SpaceGrotesk-latin.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
+
+/* One editorial canvas: headings, proof and the disclosure share the same
+   measure instead of each inheriting a different full-width calculation. */
+#top.l-enhanced,
+#top.l-enhanced .hero-layout,
+#top.l-enhanced>.polish-learn{--hero-max:1800px}
+#top.l-enhanced .hero-layout{max-width:var(--hero-max);margin-inline:auto}
+#top.l-enhanced>.polish-learn{max-width:var(--hero-max);margin-inline:auto}
+#top.l-enhanced .hero-copy h1,
+#top.l-enhanced .hero-copy h1 *{font-family:SpaceGrotesk,Inter,system-ui,sans-serif;font-weight:650}
+#top.l-enhanced .hero-copy>p,
+#top.l-enhanced .hero-foot{font-family:Sora,Inter,system-ui,sans-serif}
+#top.l-enhanced .hero-copy h1{font-size:clamp(52px,3.55vw,66px);line-height:1;letter-spacing:-.045em}
+#top.l-enhanced .hero-copy>p{max-width:650px;font-size:18px;line-height:1.5}
+#top.l-enhanced .hero-foot{max-width:650px;margin-top:60px!important;padding-left:16px;border-left:2px solid #6eaeb0;font-size:16px!important;line-height:1.5!important;color:#536d80!important}
+
+/* The hero surface is an app state, not a marketing card. A quiet window
+   chrome, stronger grouping, and legible data scale make the relationship
+   between CRM activity and buyer evidence read at a glance. */
+#top.l-enhanced .hero-photo>.polish-hero-band{right:18px;bottom:-16px;width:min(420px,62%)}
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero{border:1px solid #4e7990;border-radius:11px;background:#081e32;box-shadow:0 18px 38px rgba(4,20,34,.28);overflow:hidden}
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero .l-board-head{position:relative;min-height:48px;padding:15px 17px 14px 59px;background:#0c2a43;border-bottom:1px solid rgba(185,221,231,.23);font-family:Mono,ui-monospace,monospace;font-size:12px;letter-spacing:.12em}
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero .l-board-head:before{content:"";position:absolute;left:18px;top:20px;width:23px;height:8px;background:radial-gradient(circle at 3px 4px,#f36d67 0 3px,transparent 3.5px),radial-gradient(circle at 12px 4px,#eab65c 0 3px,transparent 3.5px),radial-gradient(circle at 21px 4px,#52c6a4 0 3px,transparent 3.5px)}
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero .l-board-head span{color:#20d7df;font-weight:700}
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero .l-board-head i{color:#a8c2ce;font-size:11px;font-style:normal;letter-spacing:.1em}
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero .l-hero-signal{grid-template-columns:minmax(0,1fr) 28px minmax(0,1.15fr);gap:10px;padding:17px}
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero .l-hero-signal>div{gap:8px;padding:14px 13px;border:1px solid rgba(185,221,231,.26);border-radius:6px;background:rgba(255,255,255,.055)}
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero .l-hero-signal small{font-family:Mono,ui-monospace,monospace;font-size:11px;letter-spacing:.1em;color:#9fc2cd}
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero .l-hero-signal b{font-family:Sora,Inter,system-ui,sans-serif;font-size:17px;line-height:1.22;color:#f6fbfd}
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero .l-hero-signal em{font-size:22px;color:#22d8df}
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero .l-hero-signal .l-hero-signal--buyer{border-color:#18b9c5;background:rgba(13,157,173,.16)}
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero .l-board-foot{min-height:38px;padding:10px 17px;border-top:1px solid rgba(185,221,231,.2);font-family:Mono,ui-monospace,monospace;font-size:11px;letter-spacing:.045em;color:#c5d9df}
+
+/* A single choreographed entrance replaces the identical reveal on every
+   chapter. The rest of the page stays stable; motion is reserved for the
+   thesis, its human proof, and the product state. */
+@keyframes l-hero-copy-in{from{opacity:0;transform:translate3d(-18px,0,0)}to{opacity:1;transform:none}}
+@keyframes l-hero-photo-in{from{opacity:0;transform:translate3d(22px,10px,0)}to{opacity:1;transform:none}}
+@keyframes l-hero-panel-in{from{opacity:0;transform:translate3d(0,18px,0) scale(.985)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){
+  .l-enhanced [data-reveal].is-visible{animation:none!important;transform:none!important}
+  #top.l-enhanced .hero-copy{animation:l-hero-copy-in .7s cubic-bezier(.2,.72,.22,1) both}
+  #top.l-enhanced .hero-photo{animation:l-hero-photo-in .78s .08s cubic-bezier(.2,.72,.22,1) both}
+  #top.l-enhanced .hero-photo>.polish-hero-band{animation:l-hero-panel-in .62s .28s cubic-bezier(.2,.72,.22,1) both}
+}
+
 /* The loop is a real reading diagram on a phone; its labels may not become
    caption-sized just to fit the orbit. Give the nodes a little more width and
    let the ring breathe vertically. */
@@ -191,7 +244,56 @@
   .polish-readiness-main article strong{font-size:18px}
 }
 
-@media (prefers-reduced-motion:reduce){.polish-learn summary span{transition:none}}
+@media (prefers-reduced-motion:reduce){.polish-learn summary span{transition:none!important}}
+
+/* Explicit open-state ink: currentColor was resolving to white on the light
+   Hero, leaving an apparently empty circle in the interactive state. */
+.polish-learn[open]>summary>span{
+  transform:rotate(90deg)!important;
+  background:#005f73!important;
+  color:#fff!important;
+}
+.page--navy:not(#top)>.polish-learn[open]>summary>span,
+.page--photo:not(#top)>.polish-learn[open]>summary>span,
+.p8>.polish-learn[open]>summary>span{
+  background:#39d2d8!important;
+  color:#071c31!important;
+}
+
+/* The old observer supplies transitions to many data-reveal wrappers. Keep
+   the page still and premium; only the explicitly authored Hero entrances
+   should move. */
+.l-enhanced [data-reveal]{transition:none!important}
+
+@media (min-width:721px) and (max-width:1100px){
+  /* The tablet grid's first row is governed by the copy column. Stretch the
+     portrait into that same row so the proof begins immediately beneath it,
+     instead of leaving a visible 140px void under the image. */
+  #top.l-enhanced .hero-photo{
+    align-self:stretch!important;
+    height:auto!important;
+    min-height:0;
+    display:flex!important;
+    flex-direction:column;
+  }
+  #top.l-enhanced .hero-photo>img{
+    flex:1 1 auto;
+    height:100%!important;
+    min-height:0;
+    aspect-ratio:auto!important;
+    object-fit:cover;
+    object-position:center top;
+  }
+}
+
+#top.l-enhanced .hero-app-signal small,
+#top.l-enhanced .hero-app-signal article.is-buyer small{white-space:nowrap;letter-spacing:.025em}
+
+@media (min-width:1101px){
+  /* The panel's restrained 28px shadow needs a little breathing room inside
+     the section's overflow-hidden canvas. */
+  #top.l-enhanced{min-height:840px!important;padding-bottom:58px}
+}
 
 /* Keep structural content visible for anchors and no-JS captures, while
    still giving the observer a meaningful entrance moment. The base opacity is
@@ -243,3 +345,538 @@
 @media (prefers-reduced-motion:reduce){
   .mid-transition-proof__live{animation:none!important}
 }
+
+/* Final Hero calibration (kept last so no inherited K/L calibration can
+   silently undo it). */
+#top.l-enhanced .hero-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(44px,4vw,72px)}
+#top.l-enhanced .hero-photo>.polish-hero-band{right:18px;bottom:-16px;width:min(420px,62%)}
+#top.l-enhanced>.polish-learn{width:100%;max-width:var(--hero-max);margin-left:auto;margin-right:auto}
+@media (min-width:821px) and (max-width:1100px){
+  #top.l-enhanced .hero-layout{grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:28px}
+  #top.l-enhanced .hero-photo>.polish-hero-band{right:0;bottom:-12px;width:300px}
+  #top.l-enhanced>.polish-learn{width:100%;margin-left:auto;margin-right:auto}
+}
+@media (max-width:820px){
+  #top.l-enhanced .hero-layout{max-width:none}
+  #top.l-enhanced .hero-photo>.polish-hero-band{right:auto;bottom:auto;width:calc(100% - 18px);margin:-18px auto 0}
+  #top.l-enhanced .hero-copy h1{font-size:clamp(40px,10.8vw,58px);line-height:.99;letter-spacing:-.045em}
+}
+
+/* Native-looking Hero app surface. This intentionally does not imitate a
+   screenshot: it uses the same dark instrument-panel language as the live
+   product while keeping the evidence words legible at every breakpoint. */
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero[data-app-surface]{padding:0;color:#f4fbfc;font-family:Sora,Inter,system-ui,sans-serif}
+#top.l-enhanced .hero-app-chrome{display:flex;align-items:center;gap:12px;min-height:41px;padding:10px 14px;border-bottom:1px solid rgba(186,223,232,.19);background:#0b2941}
+#top.l-enhanced .hero-app-chrome strong{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#27d7dd;font:700 11px/1.2 Mono,ui-monospace,monospace;letter-spacing:.12em}
+#top.l-enhanced .hero-app-dots{display:flex;flex:0 0 auto;gap:4px}
+#top.l-enhanced .hero-app-dots i{width:6px;height:6px;border-radius:50%;background:#ed756e}
+#top.l-enhanced .hero-app-dots i:nth-child(2){background:#e8bd62}
+#top.l-enhanced .hero-app-dots i:nth-child(3){background:#56c4a3}
+#top.l-enhanced .hero-app-live{display:flex;align-items:center;gap:6px;margin-left:auto;color:#b3cbd4;font:700 10px/1.2 Mono,ui-monospace,monospace;letter-spacing:.1em}
+#top.l-enhanced .hero-app-live b{width:6px;height:6px;border-radius:50%;background:#20d7df;box-shadow:0 0 0 4px rgba(32,215,223,.12)}
+#top.l-enhanced .hero-app-context{display:flex;align-items:center;gap:9px;padding:8px 15px 7px;color:#c3d6dd;font:600 11px/1.2 Mono,ui-monospace,monospace;letter-spacing:.05em}
+#top.l-enhanced .hero-app-person{color:#f1f8fa;font-family:Sora,Inter,system-ui,sans-serif;font-size:12px;letter-spacing:0}
+#top.l-enhanced .hero-app-stage{padding:4px 7px;border:1px solid rgba(32,215,223,.45);border-radius:999px;color:#23d5db;font-size:10px}
+#top.l-enhanced .hero-app-time{margin-left:auto;color:#90adb9}
+#top.l-enhanced .hero-app-signal{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1.15fr);align-items:center;gap:9px;padding:11px 15px 12px}
+#top.l-enhanced .hero-app-signal article{display:grid;gap:5px;min-width:0;padding:10px 11px;border:1px solid rgba(186,223,232,.25);border-radius:6px;background:rgba(255,255,255,.055)}
+#top.l-enhanced .hero-app-signal article.is-buyer{border-color:#18b7c4;background:rgba(13,157,173,.15)}
+#top.l-enhanced .hero-app-signal small{color:#9fc2cd;font:700 10px/1.2 Mono,ui-monospace,monospace;letter-spacing:.1em}
+#top.l-enhanced .hero-app-signal strong{color:#f4fbfc;font:700 clamp(14px,1.15vw,16px)/1.2 Sora,Inter,system-ui,sans-serif;letter-spacing:-.025em}
+#top.l-enhanced .hero-app-signal strong{overflow-wrap:anywhere}
+#top.l-enhanced .hero-app-signal span:not(.hero-app-plus){color:#a9c4ce;font:400 10px/1.25 Sora,Inter,system-ui,sans-serif}
+#top.l-enhanced .hero-app-plus{color:#20d7df;text-align:center;font:600 22px/1 Sora,Inter,system-ui,sans-serif}
+#top.l-enhanced .hero-app-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:32px;padding:7px 15px;border-top:1px solid rgba(186,223,232,.19);color:#bdd3da;font:600 10px/1.2 Mono,ui-monospace,monospace;letter-spacing:.045em}
+#top.l-enhanced .hero-app-footer b{width:6px;height:6px;border-radius:50%;background:#20d7df}
+@media (max-width:600px){
+  #top.l-enhanced .hero-app-chrome{padding-inline:13px}
+  #top.l-enhanced .hero-app-context{padding-inline:13px}
+  #top.l-enhanced .hero-app-signal{grid-template-columns:1fr 16px 1fr;gap:6px;padding-inline:13px}
+  #top.l-enhanced .hero-app-signal article{padding:11px 10px}
+  #top.l-enhanced .hero-app-signal strong{font-size:14px}
+  #top.l-enhanced .hero-app-signal span:not(.hero-app-plus){font-size:9px}
+  #top.l-enhanced .hero-app-footer{padding-inline:13px;font-size:9px}
+}
+@media (max-width:1100px){
+  #top.l-enhanced .hero-app-chrome{align-items:flex-start;min-height:45px}
+  #top.l-enhanced .hero-app-chrome strong{overflow:visible;text-overflow:clip;white-space:normal;line-height:1.15}
+  #top.l-enhanced .hero-app-live{align-self:flex-start}
+}
+@media (max-width:360px){
+  #top.l-enhanced .hero-app-signal{grid-template-columns:1fr;gap:6px}
+  #top.l-enhanced .hero-app-plus{height:11px;line-height:11px;transform:rotate(90deg)}
+  #top.l-enhanced .hero-app-signal strong{font-size:15px}
+}
+
+/* Quiet product palette: teal is a live-state accent, not a border system.
+   Buyer risk uses a restrained amber plane so the two evidence types are
+   understandable without a wall of cyan. */
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero[data-app-surface]{background:#0b1424;border-color:#35475a;box-shadow:0 14px 28px rgba(5,15,27,.25)}
+#top.l-enhanced .hero-app-chrome{background:#111d2d;border-color:rgba(203,219,230,.14)}
+#top.l-enhanced .hero-app-chrome strong{color:#c9d8df}
+#top.l-enhanced .hero-app-live{color:#a9bac5}
+#top.l-enhanced .hero-app-live b,#top.l-enhanced .hero-app-footer b{background:#2dd4bf;box-shadow:0 0 0 4px rgba(45,212,191,.12)}
+#top.l-enhanced .hero-app-context{color:#a9bac5;border-bottom:1px solid rgba(203,219,230,.12)}
+#top.l-enhanced .hero-app-person{color:#f4f7f9}
+#top.l-enhanced .hero-app-stage{border-color:#607586;color:#c4d1d8}
+#top.l-enhanced .hero-app-signal article{border-color:#35475a;background:#15263a}
+#top.l-enhanced .hero-app-signal article.is-buyer{border-color:#a87838;background:#2a241b}
+#top.l-enhanced .hero-app-signal small{color:#aebfca}
+#top.l-enhanced .hero-app-signal article.is-buyer small{color:#e6bd73}
+#top.l-enhanced .hero-app-signal strong{color:#f7fafb}
+#top.l-enhanced .hero-app-signal article.is-buyer strong{color:#fff3d8}
+#top.l-enhanced .hero-app-signal span:not(.hero-app-plus){color:#aebfca}
+#top.l-enhanced .hero-app-signal article.is-buyer span:not(.hero-app-plus){color:#d7c7a7}
+#top.l-enhanced .hero-app-plus{color:#2dd4bf}
+#top.l-enhanced .hero-app-footer{border-color:rgba(203,219,230,.14);color:#b8c8d0}
+#top.l-enhanced>.polish-learn{border-color:#a9bdc8}
+@media (min-width:1101px){
+  #top.l-enhanced .hero-photo>.polish-hero-band{bottom:24px}
+  #top.l-enhanced>.polish-learn{margin-top:0}
+}
+
+/* Motion audit: no decorative waveform, meter, orbit-arrow, or pulsing
+   pseudo-element should compete with the evidence. Keep only the deliberate
+   Hero entrance above; live states remain legible as static indicators. */
+@media (prefers-reduced-motion:no-preference){
+  .l-enhanced .l-mini-wave i,
+  .l-enhanced .l-prompt-meter i,
+  .l-enhanced .cue-wave span,
+  .l-enhanced .cue-mini-wave i,
+  .l-enhanced .p8 .hc-name:before,
+  .l-enhanced .loop-orbit:after,
+  .l-enhanced .mid-transition-proof__live{animation:none!important}
+}
+
+/* HumanCue-derived shell: one live indicator, no fake browser chrome or
+   invented meeting metadata. The surface communicates one thing: logged CRM
+   activity is interpreted against buyer evidence. */
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero[data-app-surface]{background:#0d131a;border-color:#394957;border-radius:9px;box-shadow:0 14px 28px rgba(5,15,27,.22)}
+#top.l-enhanced .hero-app-chrome{min-height:42px;padding:11px 14px;background:#131b26;border-color:rgba(221,232,237,.14)}
+#top.l-enhanced .hero-app-close{display:grid;place-items:center;width:8px;height:8px;flex:0 0 8px}
+#top.l-enhanced .hero-app-close i{width:7px;height:7px;border-radius:50%;background:#ee726d}
+#top.l-enhanced .hero-app-chrome strong{color:#c8d5dc;font:700 10px/1.2 Mono,ui-monospace,monospace;letter-spacing:.1em}
+#top.l-enhanced .hero-app-live{margin-left:auto;color:#9eafb9;font:700 10px/1.2 Mono,ui-monospace,monospace;letter-spacing:.08em}
+#top.l-enhanced .hero-app-signal{grid-template-columns:minmax(0,1fr) 25px minmax(0,1.15fr);gap:8px;padding:13px 14px 14px}
+#top.l-enhanced .hero-app-signal article{gap:6px;padding:12px 11px;border-color:#394957;border-radius:5px;background:#162432}
+#top.l-enhanced .hero-app-signal article.is-buyer{border-color:#9d6c5e;background:#252327}
+#top.l-enhanced .hero-app-signal small{color:#9eafb9;font:700 10px/1.2 Mono,ui-monospace,monospace;letter-spacing:.1em}
+#top.l-enhanced .hero-app-signal article.is-buyer small{color:#dea297}
+#top.l-enhanced .hero-app-signal strong{font:700 clamp(14px,1.1vw,16px)/1.2 Sora,Inter,system-ui,sans-serif;color:#f4f7f8;overflow-wrap:anywhere}
+#top.l-enhanced .hero-app-signal article.is-buyer strong{color:#fff0eb}
+#top.l-enhanced .hero-app-plus{color:#75c9bc;font:600 21px/1 Sora,Inter,system-ui,sans-serif}
+#top.l-enhanced .hero-app-footer{min-height:31px;padding:7px 14px;border-color:rgba(221,232,237,.14);color:#aebec6;font:600 10px/1.2 Mono,ui-monospace,monospace}
+#top.l-enhanced .hero-app-footer b{width:6px;height:6px;background:#75c9bc;box-shadow:none}
+@media (max-width:1100px){
+  #top.l-enhanced .hero-app-chrome{align-items:flex-start}
+  #top.l-enhanced .hero-app-chrome strong{white-space:normal;overflow:visible;text-overflow:clip}
+}
+@media (max-width:360px){
+  #top.l-enhanced .hero-app-signal{grid-template-columns:1fr;gap:6px;padding-inline:13px}
+  #top.l-enhanced .hero-app-plus{height:10px;line-height:10px;transform:rotate(90deg)}
+}
+@media (min-width:1101px){
+  #top.l-enhanced .hero-photo>.polish-hero-band{width:min(390px,60%)}
+  .site-header{padding-inline:60px}
+}
+@media (min-width:821px) and (max-width:1100px){
+  .site-header{padding-inline:40px}
+}
+
+/* Hero final pass: the opening should feel like one considered instrument,
+   not a photo with a floating sales card. These rules intentionally come last
+   so the old K/L calibration cannot reintroduce the dead space, fake chrome,
+   or amber treatment that the product does not use. */
+#top.l-enhanced .hero-layout{max-width:var(--hero-max);margin-inline:auto}
+#top.l-enhanced .hero-copy h1{font-family:SpaceGrotesk,Inter,system-ui,sans-serif;font-weight:650;letter-spacing:-.035em}
+#top.l-enhanced .hero-photo{aspect-ratio:1.04 / 1;}
+#top.l-enhanced .hero-photo>img{height:100%;object-fit:cover;object-position:center top}
+#top.l-enhanced .hero-photo>.polish-hero-band{right:18px;bottom:24px;width:min(390px,60%)}
+#top.l-enhanced>.polish-learn{width:min(650px,100%);max-width:650px;margin-left:0;margin-right:auto;margin-top:0}
+#top.l-enhanced .hero-copy>.polish-learn{width:min(650px,100%);max-width:650px;margin:0}
+
+#top.l-enhanced .hero-photo>.polish-hero-band .l-board--hero[data-app-surface]{
+  background:#0d131a;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:9px;
+  box-shadow:0 14px 28px rgba(5,15,27,.22);
+}
+#top.l-enhanced .hero-app-chrome{
+  min-height:42px;
+  padding:11px 14px;
+  background:#131b26;
+  border-bottom-color:rgba(255,255,255,.08);
+}
+#top.l-enhanced .hero-app-chrome strong{
+  color:#eef1fb;
+  font:650 13px/1.15 SpaceGrotesk,Inter,system-ui,sans-serif;
+  letter-spacing:-.015em;
+  white-space:nowrap;
+  overflow:visible;
+}
+#top.l-enhanced .hero-app-close i{background:#ee726d}
+#top.l-enhanced .hero-app-live{color:#7b89a8;font-size:10px}
+#top.l-enhanced .hero-app-signal{grid-template-columns:minmax(0,1fr) 25px minmax(0,1.15fr);gap:8px;padding:13px 14px 14px}
+#top.l-enhanced .hero-app-signal article,
+#top.l-enhanced .hero-app-signal article.is-buyer{
+  gap:6px;
+  padding:12px 11px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:5px;
+  background:#131b26;
+}
+#top.l-enhanced .hero-app-signal small,
+#top.l-enhanced .hero-app-signal article.is-buyer small{color:#7b89a8;font:700 10px/1.2 Mono,ui-monospace,monospace;letter-spacing:.1em}
+#top.l-enhanced .hero-app-signal strong,
+#top.l-enhanced .hero-app-signal article.is-buyer strong{color:#eef1fb;font:650 clamp(14px,1.1vw,16px)/1.2 Sora,Inter,system-ui,sans-serif;letter-spacing:-.025em;overflow-wrap:anywhere}
+#top.l-enhanced .hero-app-plus{color:#06b6d4;font:650 21px/1 Sora,Inter,system-ui,sans-serif}
+#top.l-enhanced .hero-app-footer{min-height:31px;padding:7px 14px;border-color:rgba(255,255,255,.08);color:#7b89a8;font:600 10px/1.2 Mono,ui-monospace,monospace;letter-spacing:.045em}
+#top.l-enhanced .hero-app-footer b{width:6px;height:6px;background:#06b6d4;box-shadow:none}
+
+@media (min-width:1101px){
+  #top.l-enhanced .hero-photo{max-width:800px}
+  #top.l-enhanced>.polish-learn{margin-top:0}
+}
+@media (min-width:821px) and (max-width:1100px){
+  #top.l-enhanced .hero-layout{grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:28px}
+  #top.l-enhanced .hero-photo{height:auto;aspect-ratio:auto}
+  #top.l-enhanced .hero-photo>img{display:block;height:auto;aspect-ratio:1.04 / 1}
+  #top.l-enhanced .hero-photo>.polish-hero-band{position:relative;right:auto;bottom:auto;width:min(300px,100%);margin:14px 0 0 auto}
+  #top.l-enhanced>.polish-learn{width:calc(50% - 14px);max-width:none;margin-left:0;margin-right:auto}
+}
+@media (min-width:561px) and (max-width:820px){
+  #top.l-enhanced{padding-top:92px;padding-bottom:42px}
+  #top.l-enhanced .hero-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(220px,.85fr);gap:24px;align-items:start;margin-top:20px}
+  #top.l-enhanced .hero-copy{max-width:none;padding-top:18px}
+  #top.l-enhanced .hero-copy h1{max-width:430px;font-size:clamp(44px,6.5vw,52px);line-height:1.01}
+  #top.l-enhanced .hero-copy h1 br{display:none!important}
+  #top.l-enhanced .hero-copy>p{max-width:390px;margin-top:18px;font-size:17px}
+  #top.l-enhanced .hero-ctas{gap:15px;margin-top:22px}
+  #top.l-enhanced .hero-foot{max-width:390px;margin-top:28px!important;font-size:15px!important}
+  #top.l-enhanced .hero-photo{height:auto;aspect-ratio:auto}
+  #top.l-enhanced .hero-photo>img{display:block;height:auto;aspect-ratio:1.04 / 1}
+  #top.l-enhanced .hero-photo>.polish-hero-band{position:relative;right:auto;bottom:auto;width:100%;margin:14px 0 0}
+  #top.l-enhanced>.polish-learn{width:calc(50% - 12px);max-width:none;margin-left:0;margin-right:auto}
+}
+@media (max-width:820px){
+  #top.l-enhanced{padding-top:72px}
+  #top.l-enhanced .hero-layout{gap:16px;margin-top:20px}
+  #top.l-enhanced .hero-copy>p{margin-top:16px}
+  #top.l-enhanced .hero-ctas{margin-top:18px}
+  #top.l-enhanced .hero-foot{margin-top:24px!important}
+  #top.l-enhanced .hero-photo{aspect-ratio:auto;margin-top:0}
+  #top.l-enhanced .hero-photo>img{height:auto;aspect-ratio:1 / 1.04}
+  #top.l-enhanced .hero-photo>.polish-hero-band{right:auto;bottom:auto;width:calc(100% - 18px);margin:-18px auto 0}
+  #top.l-enhanced>.polish-learn{width:100%;max-width:none;margin-top:32px}
+  #top.l-enhanced .hero-app-chrome{align-items:center}
+  #top.l-enhanced .hero-app-chrome strong{font-size:13px;white-space:nowrap}
+  #top.l-enhanced .hero-app-live{align-self:center}
+}
+@media (max-width:600px){
+  #top.l-enhanced .hero-layout{display:flex;flex-direction:column}
+  #top.l-enhanced .hero-copy{padding-top:0}
+  #top.l-enhanced .hero-copy h1{font-size:clamp(38px,10.8vw,44px);line-height:.99}
+  #top.l-enhanced .hero-app-signal{grid-template-columns:minmax(0,1fr) 18px minmax(0,1.22fr);gap:6px;padding-inline:13px}
+  #top.l-enhanced .hero-app-signal article{padding:11px 10px}
+  #top.l-enhanced .hero-app-signal small{font-size:9px;letter-spacing:.075em}
+  #top.l-enhanced .hero-app-signal strong{font-size:14px}
+  #top.l-enhanced .hero-app-footer{padding-inline:13px;font-size:9px}
+}
+@media (max-width:360px){
+  #top.l-enhanced .hero-app-signal{grid-template-columns:minmax(0,.88fr) 18px minmax(0,1.42fr);gap:5px;padding-inline:11px}
+  #top.l-enhanced .hero-app-plus{height:auto;line-height:1;transform:none}
+  #top.l-enhanced .hero-app-signal article{padding:10px 9px}
+  #top.l-enhanced .hero-app-signal strong{font-size:13px;line-height:1.18}
+  #top.l-enhanced .hero-app-signal small{font-size:8.5px}
+}
+
+/* Only the Hero has a choreographed entrance. Every other chapter remains
+   immediately readable at an anchor or in a capture; repeated fade-ins read
+   as a loading bug, not product motion. */
+@media (prefers-reduced-motion:no-preference){
+  .l-enhanced [data-reveal].is-visible{animation:none!important}
+  #top.l-enhanced .hero-copy{animation:l-hero-copy-in .7s cubic-bezier(.2,.72,.22,1) both}
+  #top.l-enhanced .hero-photo{animation:l-hero-photo-in .78s .08s cubic-bezier(.2,.72,.22,1) both}
+  #top.l-enhanced .hero-photo>.polish-hero-band{animation:l-hero-panel-in .62s .28s cubic-bezier(.2,.72,.22,1) both}
+}
+
+@media (prefers-reduced-motion:reduce){
+  #top.l-enhanced .hero-copy,
+  #top.l-enhanced .hero-photo,
+  #top.l-enhanced .hero-photo>img,
+  #top.l-enhanced .hero-photo>.polish-hero-band{animation:none!important;transform:none!important;opacity:1!important}
+}
+
+/* Stable tablet grid: keep the semantic figure as a real box and give the
+   proof the exact width of the portrait. The second row starts both controls
+   together, so neither the app nor Learn more drifts into dead space. */
+@media (min-width:721px) and (max-width:1100px){
+  #top.l-enhanced .hero-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);grid-template-areas:"copy photo" "learn proof";grid-template-rows:auto auto;gap:18px 28px;align-items:start}
+  #top.l-enhanced .hero-copy{grid-area:copy;max-width:none}
+  #top.l-enhanced .hero-copy h1{font-size:clamp(48px,3.55vw,52px);line-height:1.02}
+  #top.l-enhanced .hero-photo{display:block!important;grid-area:photo;width:100%;height:auto;aspect-ratio:auto;overflow:visible}
+  #top.l-enhanced .hero-photo>img{display:block;width:100%;height:auto;aspect-ratio:1.04 / 1;object-fit:cover;animation:none!important}
+  #top.l-enhanced .hero-band-grid{grid-area:proof;position:relative;right:auto;bottom:auto;width:100%;margin:0;align-self:start}
+  #top.l-enhanced .hero-band-grid>.l-feature-copy{display:none!important}
+  #top.l-enhanced .hero-band-grid .l-board--hero{width:100%!important;max-width:none!important}
+  #top.l-enhanced .hero-learn-grid{grid-area:learn;width:100%;max-width:none;margin:0;align-self:start}
+}
+@media (max-width:720px){
+  #top.l-enhanced .hero-layout{display:flex;flex-direction:column}
+  #top.l-enhanced .hero-photo{display:block!important;width:100%;height:auto;aspect-ratio:auto;overflow:visible}
+  #top.l-enhanced .hero-photo>img{display:block;width:100%;height:auto;aspect-ratio:1 / 1.04;object-fit:cover;animation:none!important}
+}
+
+/* A product label can be compact without becoming a broken caption. Avoid
+   arbitrary character breaks and keep the smallest live-state ink at 10px. */
+#top.l-enhanced .hero-app-signal strong,
+#top.l-enhanced .hero-app-signal article.is-buyer strong{overflow-wrap:break-word;word-break:normal}
+#top.l-enhanced .hero-app-signal small,
+#top.l-enhanced .hero-app-signal article.is-buyer small{font-size:10px;letter-spacing:.075em}
+#top.l-enhanced .hero-app-signal strong,
+#top.l-enhanced .hero-app-signal article.is-buyer strong{font-size:clamp(13px,1.1vw,16px)}
+#top.l-enhanced .hero-app-live,#top.l-enhanced .hero-app-footer{font-size:10px}
+
+/* Once the proof moves into the tablet grid it is no longer a descendant of
+   .hero-photo. Keep the exact HumanCue shell in both placements; otherwise
+   the old blue/inter card quietly returns only at 821–1100px. */
+#top.l-enhanced .polish-hero-band .l-board--hero[data-app-surface]{
+  padding:0;
+  color:#eef1fb;
+  font-family:Sora,Inter,system-ui,sans-serif;
+  background:#0d131a;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:9px;
+  box-shadow:0 14px 28px rgba(5,15,27,.22);
+  overflow:hidden;
+}
+@media (min-width:721px) and (max-width:1100px){
+  #top.l-enhanced .hero-app-signal strong,
+  #top.l-enhanced .hero-app-signal article.is-buyer strong{font-size:14px}
+}
+@media (max-width:720px){
+  #top.l-enhanced .hero-app-signal small,
+  #top.l-enhanced .hero-app-signal article.is-buyer small{font-size:10px;letter-spacing:.06em}
+  #top.l-enhanced .hero-app-signal strong,
+  #top.l-enhanced .hero-app-signal article.is-buyer strong{font-size:13px}
+}
+@media (max-width:360px){
+  /* Preserve the full evidence phrase on the smallest canvas; a short
+     vertical connector is clearer than splitting “Implementation” in half. */
+  #top.l-enhanced .hero-app-signal{grid-template-columns:1fr;gap:6px;padding-inline:11px}
+  #top.l-enhanced .hero-app-plus{height:12px;line-height:12px;transform:rotate(90deg)}
+  #top.l-enhanced .hero-app-signal article{padding:10px 9px}
+}
+
+@media (prefers-reduced-motion:no-preference){
+  #top.l-enhanced .hero-photo>img{animation:none!important}
+  #top.l-enhanced .hero-band-grid{animation:l-hero-panel-in .62s .28s cubic-bezier(.2,.72,.22,1) both}
+}
+@media (min-width:1101px){
+  /* Keep the proof on the jacket/desk area, never across the buyer's face. */
+  #top.l-enhanced .hero-photo>.polish-hero-band{bottom:-38px}
+}
+@media (min-width:1101px) and (max-width:1599px){
+  #top.l-enhanced .hero-photo>.polish-hero-band{bottom:-56px}
+}
+@media (min-width:1600px){
+  /* The taller wide portrait gives the proof enough jacket below the face;
+     keep the complete panel inside a 900px first viewport. */
+  #top.l-enhanced .hero-photo>.polish-hero-band{bottom:24px}
+}
+
+/* -------------------------------------------------------------------------
+   Editorial finish: disclosures and the Hero proof share a real alignment
+   system. Earlier passes centered a 1120px rule inside 1320px chapters and
+   left the tablet feature-band's two-column minimum in charge of the app
+   surface. That is why Learn more looked detached and the 1024px preview was
+   only 230px wide. These rules are intentionally last: one clear contract,
+   no selector tug-of-war.
+   ------------------------------------------------------------------------- */
+
+/* A disclosure is a navigational rail, not a hairline floating in the middle
+   of a slide. Direct section children inherit the section's own gutter, so
+   headings, evidence, and Learn more begin on the same x-coordinate. */
+.l-enhanced:not(#top)>.polish-learn{
+  width:100%;
+  max-width:none;
+  margin:30px 0 0;
+  border-top:1.5px solid #8ea8b3;
+  border-bottom:1px solid #b8c8d0;
+}
+.polish-learn summary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:64px;
+  padding:15px 0;
+  color:#005f73;
+  font:700 16px/1.2 SpaceGrotesk,Sora,Inter,system-ui,sans-serif;
+  letter-spacing:-.012em;
+  cursor:pointer;
+  list-style:none;
+}
+.polish-learn summary::-webkit-details-marker{display:none}
+.polish-learn summary:focus-visible{outline:3px solid rgba(6,182,212,.4);outline-offset:5px}
+.polish-learn summary span{
+  display:grid;
+  place-items:center;
+  width:30px;
+  height:30px;
+  flex:0 0 30px;
+  border:1px solid currentColor;
+  border-radius:50%;
+  font:500 23px/1 SpaceGrotesk,Sora,Inter,system-ui,sans-serif;
+  transition:transform .2s ease,background-color .2s ease,color .2s ease;
+}
+.polish-learn[open] summary span{transform:rotate(90deg);background:currentColor;color:#fff}
+.polish-learn__body{
+  max-width:780px;
+  padding:0 0 24px;
+  color:#29495d;
+}
+.polish-learn__body p{
+  margin:0;
+  font:500 17px/1.55 Sora,Inter,system-ui,sans-serif;
+  letter-spacing:-.008em;
+}
+.polish-learn__body small{
+  display:block;
+  margin-top:14px;
+  color:#587386;
+  font:650 12px/1.25 Mono,ui-monospace,monospace;
+  letter-spacing:.07em;
+}
+.page--navy:not(#top)>.polish-learn,
+.page--photo:not(#top)>.polish-learn,
+.p8>.polish-learn{border-top-color:rgba(205,226,233,.52);border-bottom-color:rgba(205,226,233,.26)}
+.page--navy:not(#top)>.polish-learn summary,
+.page--photo:not(#top)>.polish-learn summary,
+.p8>.polish-learn summary{color:#39d2d8}
+.page--navy:not(#top)>.polish-learn__body,
+.page--photo:not(#top)>.polish-learn__body,
+.p8>.polish-learn__body{color:#c9dce2}
+.page--navy:not(#top)>.polish-learn__body small,
+.page--photo:not(#top)>.polish-learn__body small,
+.p8>.polish-learn__body small{color:#9eb9c4}
+
+/* HumanCue's .wrap is the actual 1280px canvas. The disclosure belongs to
+   that canvas, not to the full-bleed white section around it. */
+.p8>.polish-learn{width:min(1280px,calc(100% - 112px));max-width:none;margin:30px auto 0}
+
+/* The photo and proof are two cells in the same Hero composition on tablet.
+   Make the band a single block so the old feature-grid minimum cannot create
+   a narrow first column or a panel detached from the portrait. */
+@media (min-width:721px) and (max-width:1100px){
+  #top.l-enhanced .hero-band-grid{
+    display:block!important;
+    width:100%!important;
+    padding:0!important;
+  }
+  #top.l-enhanced .hero-band-grid .l-board--hero{
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+  }
+  #top.l-enhanced .hero-app-signal{
+    grid-template-columns:minmax(0,.85fr) 18px minmax(0,1.25fr);
+    gap:7px;
+  }
+  #top.l-enhanced .hero-app-signal strong{font-size:14px;line-height:1.2}
+}
+
+/* At 320px, preserving the two evidence cells is clearer than stacking a
+   240px tall card. The buyer phrase gets the wider cell and never breaks a
+   word in the middle. */
+@media (max-width:360px){
+  #top.l-enhanced .hero-app-signal{
+    grid-template-columns:minmax(0,.8fr) 18px minmax(0,1.35fr)!important;
+    gap:5px!important;
+    padding:11px!important;
+  }
+  #top.l-enhanced .hero-app-plus{height:auto!important;line-height:1!important;transform:none!important}
+  #top.l-enhanced .hero-app-signal article{padding:10px 8px!important}
+  #top.l-enhanced .hero-app-signal small{font-size:9.5px!important;letter-spacing:.045em!important}
+  #top.l-enhanced .hero-app-signal strong{font-size:13px!important;line-height:1.2!important;overflow-wrap:normal!important;word-break:normal!important}
+}
+
+@media (max-width:900px){
+  .p8>.polish-learn{width:calc(100% - 36px);margin-left:18px;margin-right:18px}
+}
+
+/* Transition is full-bleed; keep its rail inside the photograph's own gutter
+   and above the cover layer. */
+#cue-transition.l-enhanced>.polish-learn{
+  position:absolute;
+  z-index:5;
+  left:var(--gutter);
+  right:var(--gutter);
+  bottom:0;
+  width:auto!important;
+  max-width:none;
+  margin:0!important;
+}
+
+/* The HumanCue chapter is full-bleed around a fixed .wrap. Match that inner
+   canvas explicitly; the generic section rule must not widen this rail to the
+   viewport edge. */
+#humancue.l-enhanced.p8>.polish-learn{
+  width:min(1280px,calc(100% - 112px))!important;
+  max-width:none!important;
+  margin:30px auto 0!important;
+}
+
+@media (max-width:720px){
+  .l-enhanced:not(#top)>.polish-learn{margin-top:26px}
+  .polish-learn summary{min-height:60px;font-size:16px}
+  .polish-learn__body p{font-size:16px;line-height:1.5}
+  .polish-learn__body small{font-size:12px}
+  #top.l-enhanced .hero-photo>.polish-hero-band{margin:-56px auto 0}
+}
+
+@media (max-width:900px){
+  #humancue.l-enhanced.p8>.polish-learn{width:calc(100% - 36px)!important;margin-left:18px!important;margin-right:18px!important}
+}
+
+/* Keep the one live state readable without an endless attention pulse. The
+   page already has one composed Hero entrance; a second infinite animation
+   on the real HumanCue dot makes the whole site feel like a demo template. */
+.l-enhanced.p8 .hc-name::before{animation:none!important}
+
+/* Product metadata is secondary, never microscopic. */
+@media (max-width:720px){
+  #top.l-enhanced .hero-app-signal small,
+  #top.l-enhanced .hero-app-signal article.is-buyer small{font-size:10px!important;letter-spacing:.045em!important}
+  #top.l-enhanced .hero-app-live,
+  #top.l-enhanced .hero-app-footer{font-size:10px!important}
+}
+@media (max-width:360px){
+  #top.l-enhanced .hero-app-signal small,
+  #top.l-enhanced .hero-app-signal article.is-buyer small{font-size:10px!important}
+}
+
+/* Make the Hero proof settle before an automated first-fold capture can read
+   it as a missing panel, while preserving a short, intentional entrance. */
+@media (prefers-reduced-motion:no-preference){
+  #top.l-enhanced .hero-photo>.polish-hero-band,
+  #top.l-enhanced .hero-band-grid{animation-delay:.08s!important;animation-duration:.55s!important}
+}
+
+/* Color and fill should switch immediately when a disclosure opens; only the
+   chevron rotates. This prevents a transient empty circle in fast captures
+   and on keyboard activation. */
+.polish-learn summary span{transition:transform .2s ease!important}
+
+/* The live context line is deliberately a single product-status row. Keep it
+   from pushing the card taller or breaking the sentence into awkward fragments
+   on narrow HumanCue surfaces. */
+.p8 .buyer-state{
+  display:block;
+  min-width:0;
+  max-width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+@media (prefers-reduced-motion:reduce){.polish-learn summary span{transition:none!important}}
