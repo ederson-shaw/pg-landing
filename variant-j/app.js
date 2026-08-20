@@ -11,9 +11,28 @@
         entry.target.classList.add('is-visible');
         obs.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -9% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -4% 0px', threshold: 0.04 });
     revealItems.forEach((el) => observer.observe(el));
   }
+
+  // Keep the fixed header visually tied to the artboard it is crossing.
+  // The reference uses a light header for editorial pages and a navy header
+  // for the three dark moments, so this is derived from the actual section
+  // geometry instead of a brittle scroll threshold.
+  const header = document.querySelector('[data-header]');
+  const darkSections = [...document.querySelectorAll('.page--navy, .page--photo')];
+  const updateHeaderTheme = () => {
+    if (!header || !darkSections.length) return;
+    const probe = window.scrollY + header.offsetHeight + 8;
+    const active = darkSections.some((section) => {
+      const top = section.offsetTop;
+      return probe >= top && probe < top + section.offsetHeight;
+    });
+    header.classList.toggle('is-dark', active);
+  };
+  updateHeaderTheme();
+  window.addEventListener('scroll', updateHeaderTheme, { passive: true });
+  window.addEventListener('resize', updateHeaderTheme, { passive: true });
 
   const menuButton = document.querySelector('[data-menu-toggle]');
   const menu = document.querySelector('[data-menu]');
@@ -61,6 +80,9 @@
       document.removeEventListener('pointerup', end);
     };
     handle.addEventListener('pointerdown', (event) => {
+      // The header is the drag handle, but its live controls must remain real
+      // controls. Pointer capture on a button would swallow its click event.
+      if (event.target.closest('button, a, input, select, textarea')) return;
       dragging = true;
       startX = event.clientX;
       startY = event.clientY;
@@ -81,7 +103,7 @@
   }
 
   const toggles = [...document.querySelectorAll('[data-detail-toggle]')];
-  const detail = document.querySelector('#hc-detail');
+  const detail = document.querySelector('#cue-detail');
   const setDetail = (open) => {
     if (!detail) return;
     detail.hidden = !open;
@@ -90,17 +112,27 @@
   toggles.forEach((toggle) => toggle.addEventListener('click', () => setDetail(detail?.hidden !== false)));
 
   const status = document.querySelector('[data-cue-status]');
-  const cueBody = document.querySelector('.hc-card__body');
+  const cueBody = document.querySelector('.cue-card__body');
   document.querySelector('[data-cue-dismiss]')?.addEventListener('click', () => {
     if (cueBody) cueBody.hidden = true;
     if (status) status.hidden = false;
+    setDetail(false);
   });
   document.querySelector('[data-cue-reset]')?.addEventListener('click', () => {
     if (cueBody) cueBody.hidden = false;
     if (status) status.hidden = true;
   });
+  document.querySelector('[data-cue-end]')?.addEventListener('click', () => {
+    if (cueBody) cueBody.hidden = true;
+    if (status) {
+      status.hidden = false;
+      status.firstChild.textContent = 'Live cue ended for this demo. ';
+    }
+    setDetail(false);
+  });
   document.querySelector('[data-cue-next]')?.addEventListener('click', (event) => {
     event.currentTarget.textContent = 'Noted';
     event.currentTarget.setAttribute('aria-label', 'Cue noted');
+    event.currentTarget.disabled = true;
   });
 })();
