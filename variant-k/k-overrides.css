@@ -1,0 +1,133 @@
+/* K-only final corrections. Kept separate so the inherited J baseline remains
+   easy to compare and the exact HumanCue mockup stays isolated. */
+.p8 .wrap{margin-left:auto;margin-right:auto}
+.p8 .top{grid-template-columns:minmax(0,40%) minmax(0,calc(60% - 60px))}
+.p8 .hc-top{display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"name pill end" "listen timer timer";gap:4px;padding:8px 9px}
+.p8 .hc-name{grid-area:name;min-width:0;margin-right:0}
+.p8 .pill{grid-area:pill}
+.p8 .end{grid-area:end;justify-self:end}
+.p8 .listen{grid-area:listen}
+.p8 .timer{grid-area:timer;justify-self:end}
+
+/* K sharpness pass: preserve J's desktop composition, but stop the artboard
+   calibration from forcing text through a narrower tablet column. */
+section[id]{scroll-margin-top:var(--header)}
+.page:not(.p8) .eyebrow{font-size:12px;line-height:1.25}
+.platform-flow b,.blueprint-table b,.coaching-grid b,.patterns>b{font-size:11px}
+
+@media (min-width:821px) and (max-width:1199px){
+  .hero-layout{grid-template-columns:minmax(0,1fr) minmax(390px,48%);gap:32px}
+  .hero-copy h1{width:auto;max-width:100%;font-size:clamp(42px,4.4vw,54px);line-height:1.06}
+  .hero-copy>p{max-width:470px}
+  .hero-ctas{gap:24px;flex-wrap:wrap}
+  .blueprint-table{grid-template-columns:repeat(3,1fr)}
+  .blueprint-table article{min-height:205px;border-bottom:1px solid var(--line)}
+  .blueprint-table article:nth-child(3n){border-right:0}
+  .blueprint-table article:nth-last-child(-n+3){border-bottom:0}
+  .blueprint-table p{font-size:13px;margin-top:24px}
+  .readiness-top{grid-template-columns:minmax(0,1fr) minmax(380px,48%)}
+  .readiness-top figure{width:100%;height:auto;aspect-ratio:649/345}
+  .readiness-tabs{grid-template-columns:repeat(3,1fr)}
+}
+
+/* Between the tablet and the large artboard, the inherited 750px portrait
+   leaves the calibrated 680px headline with nowhere to live. Let both columns
+   breathe while retaining the same left-copy/right-portrait composition. */
+@media (min-width:1200px) and (max-width:1599px){
+  .hero-layout{grid-template-columns:minmax(0,1fr) minmax(500px,46vw);gap:48px}
+  .hero-copy h1{width:auto;max-width:100%;font-size:clamp(46px,3.55vw,54px);line-height:1.06}
+  .hero-photo{max-width:none}
+}
+
+@media (min-width:1200px) and (max-width:1240px){
+  .site-nav{position:static;left:auto;margin:0;gap:22px}
+}
+
+/* The desktop navigation has five links plus two actions. At tablet widths it
+   was technically inside the document but visibly clipped; collapse it before
+   that happens, while leaving the desktop layout itself unchanged. */
+@media (min-width:821px) and (max-width:1080px){
+  :root{--header:68px}
+  .site-header{height:68px;padding:0 22px;gap:0;justify-content:space-between}
+  .site-header .brand{font-size:21px}
+  .site-header .site-nav{position:absolute;display:none;left:22px;right:22px;top:76px;flex-direction:column;align-items:stretch;gap:0;margin:0;background:#fff;border:1px solid var(--line);box-shadow:0 18px 35px rgba(7,28,49,.14)}
+  .site-header .site-nav.is-open{display:flex}
+  .site-header .site-nav a{padding:15px 17px;border-bottom:1px solid var(--line)}
+  .site-header .site-nav a:last-child{border-bottom:0}
+  .site-header .header-actions{gap:10px}
+  .site-header .header-live{display:none}
+  .site-header .header-actions>.button{padding:0 15px;min-height:36px;font-size:12px}
+  .site-header .menu-toggle{display:block;border:0;background:none;padding:6px}
+  .site-header .menu-toggle span{display:block;width:21px;height:1px;background:currentColor;margin:5px}
+  .site-header.is-dark .site-nav{background:var(--navy);color:#fff}
+  .site-header.is-dark .site-nav a{border-color:rgba(204,226,232,.18)}
+  .site-header.is-dark .menu-toggle span{background:#fff}
+}
+
+/* The compounding-loop caption must sit after the orbit, never across node 04. */
+@media (min-width:1200px){
+  .loop-bottom{top:960px}
+}
+@media (min-width:821px) and (max-width:1199px){
+  .loop-heading{display:block}
+  .loop-heading p{margin-top:24px;max-width:520px}
+  .loop-notes{position:relative;right:auto;top:auto;width:min(100%,620px);margin:30px auto 0;gap:20px}
+  .loop-bottom{position:relative;left:auto;top:auto;transform:none;margin:30px auto 0;text-align:center;white-space:normal}
+}
+
+/* At the narrow desktop artboard the fixed right-hand notes collide with the
+   orbit as the heading wraps. Let the orbit establish its full geometry first,
+   then place the explanatory notes beneath it; the wide desktop keeps the
+   original side-by-side composition. */
+@media (min-width:1200px) and (max-width:1399px){
+  .loop-notes{position:relative;right:auto;top:auto;width:min(100%,620px);margin:30px auto 0;gap:20px}
+  .loop-bottom{position:relative;left:auto;top:auto;transform:none;margin:30px auto 0;text-align:center;white-space:normal}
+}
+
+@media (max-width:600px){
+  /* Readiness evidence is a scan-friendly stack on phones, not a squeezed
+     three-column spreadsheet. */
+  .readiness-evidence header{grid-template-columns:1fr;gap:4px;padding:20px 10px 13px}
+  .readiness-evidence header span+span{margin-top:4px}
+  .readiness-evidence>div{display:grid;grid-template-columns:1fr;gap:8px;padding:17px 10px;min-height:0}
+  .readiness-evidence>div b{justify-self:start;line-height:1;font-size:18px;transform:rotate(90deg);transform-origin:center}
+  .readiness-evidence>div p{font-size:15px;line-height:1.35}
+  .readiness-evidence>div p:first-child{font-weight:650}
+  .p8 .hc-top{display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"name pill end" "listen timer timer";gap:4px;padding:8px 9px}
+  .p8 .hc-name{grid-area:name;min-width:0;margin-right:0}
+  .p8 .pill{grid-area:pill}
+  .p8 .end{grid-area:end;justify-self:end}
+  .p8 .listen{grid-area:listen}
+  .p8 .timer{grid-area:timer;justify-self:end}
+}
+
+@media (max-width:820px){
+  /* Give the evidence photograph enough height to read as a scene, not a
+     decorative 75px strip. The desktop artboard remains unchanged. */
+  .moments-page .wide-photo{aspect-ratio:3 / 1}
+  /* Preserve the cinematic beat on a phone; the next chapter should not
+     intrude before the transition has landed. */
+  .transition-page{min-height:calc(100svh - var(--header))}
+  .belief-page{min-height:calc(100svh - var(--header))}
+}
+
+@media (prefers-reduced-motion:no-preference){
+  .moments-grid article,.platform-flow li,.state-cards article,.blueprint-table article{
+    transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease
+  }
+  .moments-grid article:hover,.platform-flow li:hover,.state-cards article:hover,.blueprint-table article:hover{
+    transform:translateY(-3px)
+  }
+  .moments-grid article:hover,.state-cards article:hover,.blueprint-table article:hover{box-shadow:0 14px 28px rgba(7,28,49,.08)}
+}
+
+/* Keep keyboard users from losing the live-control target against the dark card. */
+.p8 .hc-top:focus-visible{outline:2px solid #06f5fb;outline-offset:-3px}
+.p8 .hc button:focus-visible{outline:2px solid #06f5fb;outline-offset:2px}
+
+@media (max-width:900px){
+  /* Keep the original card scale and composition, but give the compressed
+     mobile screen enough vertical room for the complete HumanCue header and
+     controls instead of clipping them at the top edge. */
+  .p8 .screen{height:485px}
+}
