@@ -1143,3 +1143,23 @@ section[id] {
     height: .48rem;
   }
 }
+
+/* L's transition copy is a complete thought rather than a decorative slogan.
+   Keep C's cinematic two-line composition, but give the explanatory second
+   line a readable measure so it never collapses into a word stack. */
+.s07__line2 {
+  max-width: 36rem;
+  margin-top: clamp(2.5rem, 5vw, 4.4rem);
+  font-size: clamp(1.4rem, 2.45vw, 2.3rem);
+  letter-spacing: -.035em;
+  line-height: 1.18;
+}
+
+@media (max-width: 520px) {
+  .s07__line2 {
+    max-width: 20rem;
+    margin-top: 2.8rem;
+    font-size: clamp(1.25rem, 6.2vw, 1.65rem);
+    line-height: 1.24;
+  }
+}
